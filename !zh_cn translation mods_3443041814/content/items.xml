@@ -1,0 +1,12 @@
+<items gfxroot="gfx/items/" version="1">
+    <!--passive id="1" name="YEAR" gfx="year.png" description="Yearly-destructor, red-phobia" quality="4" hidden="true" tags="offensive summonable" cache="damage" />
+    <active name="Deepweb Camera" gfx="DeepwebCamera.png" description="Content Warning" quality="0" tags="offensive nocantrip" hidden="true" maxcharges="0" />
+    <passive name="Bone-in Meat" gfx="bonein_meat.png" description="Health up" quality="1" tags="nolostbr summonable" hidden="true" />
+    <passive name="Correction Fluid" gfx="CorrectionFluid.png" description="Erasing tears" quality="3" tags="offensive summonable" hidden="true" />
+    <active name="Antimatter" gfx="antimatter.png" description="Overflow" quality="4" tags="nocantrip offensive" maxcharges="12" />
+    <active name="乄" gfx="nill.png" description="Item mimic" quality="4" tags="nocantrip offensive" maxcharges="64" chargetype="special" hidden="true" />
+    <passive name="Eye Detatchment" gfx="eyedetatchment.png" description="Did ya see where's my eyes?" quality="2" hidden="true" tags="offensive summonable"/>
+    <bro why are you looking at these Items-I-made-just-for-fun?>
+    <passive id="54" name="神秘的东方文字" gfx="garlin.png" description="模组EID个人汉化合集!" hidden="true" /-->
+    <passive id="54" name="README" gfx="garlin.png" description="Please enable the EID mod to read this message" hidden="true" />
+</items>

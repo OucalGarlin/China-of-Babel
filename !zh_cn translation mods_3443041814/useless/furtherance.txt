@@ -1,0 +1,61 @@
+以撒的结合-悲恸助长 是一个添加了大量新内容的模组
+
+包含了
+- 42个被动道具
+-26个主动道具
+-20个饰品
+-3个角色及其里角色：利亚，皮特，米里亚姆
+-所有角色的可解锁项
+-模组设置彩蛋支持
+-EID兼容
+-百科全书模组兼容
+-Pog表情兼容
+-未完待续！
+
+强烈建议开启EID
+模组界面有github网页，其中包含一个维基，并且可以加入Discord
+
+EID支持的语言
+-英语
+-西班牙语
+-俄语
+
+建议配置
+安装模组设置菜单mod即刻
+
+模组团队
+- anchikai.
+- BrakeDude
+- oddvio
+- PixelPlz
+- poody_blue
+- Shoop
+- Soaring__Sky
+- thedemisemihemidemisemiquaver
+
+赞助名单
+- AgentDrako
+- Akad
+- Aladar
+- kittenchilly
+- Kotry
+- lambchop_is_ok
+- Rack_Jet
+- RogueWatermelon
+- shrkiツ
+- ThePolarPorfim
+
+社区赞助名单
+- Aeronaut
+- DLNT
+- Freg
+- HoneyVee
+- Joply
+- nightshade
+- retro100
+- SybilScribble
+- Tesseract
+
+免责声明！
+悲恸助长 并不总是包含最新的内容，有可能会有来自我们老模组的内容被加入这个模组中。如果你在其他模组中看到了我们的内容，那不是抄袭（例如安德洛莫达的天文道具和我们的，我们骑士要比安德洛莫达早上一年差不多）
+团队里有不少人其实并不熟悉创意工坊，因此我们不会移除或轻易更改一些恰好重复或相似的内容。尽管我们热爱制作模组并尊重创意工坊，我们也不会刻意迎合任何人

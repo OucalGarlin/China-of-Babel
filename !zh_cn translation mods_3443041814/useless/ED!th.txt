@@ -1,0 +1,42 @@
+该模组需要忏悔龙！也就是说，目前该模组不支持忏悔+
+D！Edith
+同雕塑一般僵硬的D伊迪斯（请不要与抗生的隐藏角色伊迪斯混淆）具有无法在移动的同时攻击的负面特质。（蓄力攻击论外）
+作为补偿，D伊迪斯有能力释放大跳攻击，坠击敌人造成伤害，具有2.5s冷却（受射速影响）
+当大跳正中靶心并击杀是会打出暴击效果，重置技能冷却且能消除敌人的亡语
+D！伊迪斯有100多个自定义兼容，详情可见https://moddingofisaac.wiki.gg/wiki/D!Edith/Salt_Shaker#Stomp Synergies
+可解锁项
+D伊迪斯具有13个可解锁物品，包含4个主动，8个被动和1个跟班
+盐瓶，从抗生中请回来的道具，允许角色释放类似伊迪斯的大跳
+痔疮，一个独特的风险道具，允许角色在静止不动时增加射速，但静止太久会让你受伤！
+额外
+该模组具有IsaacGuru维基介绍和一个专有维基https://moddingofisaac.wiki.gg/wiki/D!Edith
+该模组还与以下模组兼容
+EID
+好道具Pog表情
+更精确的道具描述
+神明诡计（七美德boss）
+邪魔典纸（新的兼容）
+未来（专属对话）
+技能树
+堕化该隐重做
+制作人名单
+DoodleDude - Team lead, spriter, designer
+Split - Lead spriter, feedback
+Kerkel - Lead coder, synergies
+Foks - Coder, synergies
+babybluesheep - Coder, synergies
+blindedcambion - Challenges, feedback
+boyaka - Spriter
+kittenchilly - Coder
+Spoop - Coder, spriter
+Ferpe - Spriter, feedback
+ConBoi - Super Sin Room designer, Melpert
+SinBiscuit - Super Virtue (God's Gambit) Room designer
+Special thanks to
+celeryous - Playtesting
+catinsurance - Playtesting
+oilyspoily - Playtesting
+caligulasAquarium - Playtesting
+Kattack - Playtesting
+theseusthagomizer - #1 D!Edith fan!
+Andre Doruk - Trailer

@@ -1,0 +1,28 @@
+该模组包含Lazy Mattman征集的社区的各种道具奇思妙想！
+许多这些道具被定义为独特的5级道具，它们不会自然出现，除非达成特定条件
+
+如果你有什么小巧思，请发布到Mattman的邮箱中，而不是在这里发评论
+
+本模组目前包含：
+- 14+ 新道具
+- 流连豆重做
+- 大量兼容
+- 一些彩蛋
+
+欢迎来https://isaacguru.com/mod/lazy_mattpack访问更多信息！
+
+该模组需要忏悔龙
+很不幸，这意味着该模组目前与忏悔+不兼容
+
+制作人名单:
+贴图和代码  Mr. Headcrab
+特别感谢 Lazy Mattman 提供的这些意见! 来瞧瞧他的主页：https://www.youtube.com/@lazymattman
+
+特别鸣谢 :)
+- catinsurance for the Quality 5 icon
+- P-Wave for letting me use their music for the trailer (TBOI: Sacrilege - ...Obliterate)
+- JulianDrende, pread1129, and Lynn Sharcys for design ideas
+- My friend's cat Misu
+- My detractors
+
+如果你想找人帮忙做模组，欢迎来我的推特账号联系我https://x.com/_MrHeadcrab

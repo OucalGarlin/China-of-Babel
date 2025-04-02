@@ -1,0 +1,61 @@
+这是一个包含三个角色，2个挑战和一堆可解锁项的小模组！
+
+该模组完全兼容忏悔/忏悔龙
+
+本模组包含……
+
+• 3 角色
+• 3 堕化角色
+• 28 道具
+• 29 饰品
+• 一个NPC
+• 2 自定义挑战
+• 11 副手道具
+• 巫术台，可以通过在5局获取死灵之书解锁
+• 新机器
+• 2 新掉落物
+• An old forgotten transformation, reworked and reintroduced back to Isaac
+
+(* 大多数都需要解锁!)
+
+(本模组添加了死海卷轴设置，用于便携解锁!)
+
+路易斯!
+
+这个小天使在默认情况下会慢慢地射出带电的泪弹，并且可以通过搓方向键获得一个巨大的暂时的攻击提升！如果他的泪弹杀死了一个敌人，并留下了多余的伤害，它将带着剩余的伤害继续前进！
+
+解锁方式：一句内击败5个天使.
+
+云茵!
+
+云茵可以以减速作为代价，对潜伏在地下室的各种妖魔鬼怪一顿毒打和粉碎性碾压！按住攻击键，松手就可以让她展示强而有力，强而有力的抡锤攻击！
+
+解锁方式：一层献祭12次
+
+舒科!
+
+她可以发射冰锥，抑或将自己包裹在冰风暴中，把敌人全部变成冰棍！她也可以使用副手技能把自己包裹在冰块中以保护自己
+
+?????????????????
+
+兼容的模组:
+
+THE FUTURE (特殊对话)
+The Sheriff (专属兼容)
+Fiend Folio: Reheated (专属兼容)
+External Item Descriptions 
+Super Mario World Death Animation
+Red Baby (专属兼容)
+Martha (专属兼容)
+Samael (专属兼容)
+Road to Enlightenment (专属兼容)
+Andromeda (专属兼容)
+Job (专属兼容)
+Arachna (专属兼容)
+Retribution (专属兼容)
+Pudding & Wakaba (专属兼容)
+Reverie (专属兼容)
+
+制作人名单 https://pastebin.com/waqDA5b3
+
+Q&A https://pastebin.com/9rVjvEpU

@@ -1,0 +1,37 @@
+来会会！！！
+!!! 是 ??? 的一个截然相反的存在。他只有红心且有复活能力。!!!初始携带烦事柠檬和被动的瓶塞效果
+
+永恒...但代价是？
+!!! 只要有至少2个心之容器就能复活。这些心之容器会变为骨心而他的移速，射速和伤害都会增加
+
+没有灵魂，只有肉
+游玩 !!! 时，魂心和黑心会变为腐心和骨心。
+
+来会会堕化！！！
+储物间里躲着一个家伙，而那个家伙，就像个尿壶
+
+可解锁想！
+本模组包含30个可解锁想：
+19新道具
+3新饰品
+3新消耗品
+2新的自定义挑战
+2可交互实体
+堕化 !!!
+
+可以在控制台输入"unlockapi unlockall"快捷解锁
+
+Credits
+dsju - Coding
+wons - Sprites, Ideas
+ScooperMan - Idea of Red baby character, Sprites (the good ones)
+MuffinTae - Sprites, Ideas.
+IsaacTheBacon - Sprites
+ShaPatSmith - Voiceover
+Special Thanks:
+BogdanRudyka
+Conman84
+Foks
+RatRatRat
+Spoop
+该模组使用了UnlockAPI[github.com] (made by me, dsju),和 Hidden Item Manager[github.com]和Pause Screen Completion Marks API[github.com] by Ghostbroster

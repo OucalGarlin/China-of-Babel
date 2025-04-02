@@ -1,0 +1,10 @@
+一个崭新的盒子来到了地下室，里面装满了有趣的东西！如果你想过为什么我不能拿一把锯子锯死你的敌人或者为什么没有各种玩具帮我杀穿地下室，现在它来咯！
+
+该模组包含19个道具，13个饰品，1个及其和14个有趣的卡牌！
+
+可以在这个连接查询道具信息https://isaacguru.com/mod/curiosity_crate
+
+或者，你可以使用EID来查看这些东西的效果
+
+Sprites/Animations by Camper [REBORN]
+Coding/Development by NatoPotato and Camper
