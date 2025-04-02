@@ -737,17 +737,20 @@ mod:AddModTranslationLoader("Furtherance","悲恸助长(Furtherance)\n 警告: �
         mod:AddEntityTransl(item[1],item[2],item[3],item[4],item[5])
     end
     EID:addCharacterInfo(Isaac.GetPlayerTypeByName("Leah", false),"{{Heart}} 杀死敌人有概率掉落胆小的红心#{{Range}} 碎心越多, 射程越高","利亚","zh_cn")
-    EID:addBirthright(Isaac.GetPlayerTypeByName("Leah", false), "↑ 红心计数器上限变为999#每杀死20个敌人-1{{BrokenHeart}}#这将获得{{Collectible"..Isaac.GetItemIdByName("Shattered Heart").."}}能提供的一半的属性", "利亚-再爱一次", "zh_cn")
+    EID:addBirthright(Isaac.GetPlayerTypeByName("Leah", false), "↑ 红心计数器上限变为999#每杀死10个敌人-1{{BrokenHeart}}#{{CurseBlind}} 这将获得{{Collectible"..Isaac.GetItemIdByName("Shattered Heart").."}}能提供的一半的属性(实测为100%的属性)", "利亚-再爱一次", "zh_cn")
     EID:addCharacterInfo(Isaac.GetPlayerTypeByName("Leah", true),"{{BlackHeart}} 无法获得心之容器#!!! 靠近敌人时, 大幅度降低{{Tears}}射速, 并迅速清除碎心#{{GarlinIcon}} 请不要混淆, 角色射速与碎心数量无关#{{Speed}} 碎心越多, 移速越少#正常情况下无法永久移除碎心","利亚-缺爱者","zh_cn")
-    EID:addBirthright(Isaac.GetPlayerTypeByName("Leah", true),"远离敌人后不再持续恢复至11{{BrokenHeart}}的状态, 而是恢复6个#{{Speed}} 碎心不再减少移速, 反而使其增加#↑ 魅惑敌人的概率+20%","利亚-再度轻视","zh_cn")
-    --Leah来自犹太教-基督教传统的张耀角色--圣经中雅阁的未被爱慕的妻子. 主赐予利亚六个儿子和一个女儿, 她的六个儿子成为了十二个以色列部落中的六个代表, 代表着利亚开局携带的6美分
+    EID:addBirthright(Isaac.GetPlayerTypeByName("Leah", true),"{{CurseBlind}} 远离敌人后不再持续恢复至11{{BrokenHeart}}的状态, 而是恢复6个(存疑)#{{Speed}} 碎心不再减少移速, 反而使其增加#↑ 魅惑敌人的概率+20%","利亚-再度轻视","zh_cn")
+    --Leah来自犹太教-基督教传统的重要角色--圣经中雅阁的未被爱慕的妻子. 主赐予利亚六个儿子和一个女儿, 她的六个儿子成为了十二个以色列部落中的六个代表, 代表着利亚开局携带的6美分
     --Leah的初始攻击力未 3.14 因为anchikai喜欢圆周率
-    EID:addBirthright(Isaac.GetPlayerTypeByName("Peter",false), "↑ 饶恕所需时间减半#↑ 饶恕头目可以获得3个永久属性提升", "彼得-饶恕上升", "zh_cn")
-    EID:addBirthright(Isaac.GetPlayerTypeByName("Peter",true), "↑ 颠倒状态下生命流失速度减半", "彼得-病理出血", "zh_cn")
+    EID:addBirthright(Isaac.GetPlayerTypeByName("Peter",false), "↑ 饶恕所需时间减半#↑ 饶恕头目可以获得3个永久属性提升", "圣彼得-饶恕上升", "zh_cn")
+    EID:addCharacterInfo(Isaac.GetPlayerTypeByName("Peter",true),"!!! 无法拾取{{SoulHeart}}{{BlackHeart}}#{{Collectible703}} {{ColorRed}}因此, 试图使用小以扫会导致直接死亡!{{CR}}(神必模组伯大尼都知道做小以扫兼容)","圣彼得-殉道者","zh_cn")
+    EID:addBirthright(Isaac.GetPlayerTypeByName("Peter",true), "↑ 颠倒状态下生命流失速度减半", "圣彼得-病理出血", "zh_cn")
+    --堕化圣彼得的称号是我杜撰的, 维基的版本太老以至于没有这个角色的描述, 此处根据下文编造了这一称号
+    --圣伯多禄(拉丁语Petre, 又叫圣彼得),生在 加利利 的 伯赛大, 是耶稣的大弟子, 也是耶稣最喜爱的得意门生, 为基督教早期领袖, 公元65年, 受到罗马皇帝尼禄的迫害, 被倒钉上了十字架而殉道。
     EID:addCharacterInfo(Isaac.GetPlayerTypeByName("Miriam",false),"攻击方式为抛射水球, 水球落地生成伤害液体#有概率产生漩涡","米利暗","zh_cn")
     EID:addBirthright(Isaac.GetPlayerTypeByName("Miriam",false), "↑ 米利暗的泪弹产生的伤害液体范围增大25%#靠近的被命中的敌人会被强力击退", "米利暗-破坏之洋", "zh_cn")
     EID:addCharacterInfo(Isaac.GetPlayerTypeByName("Miriam",true),"攻击方式替换为数个细激光#角色可以控制一个准心, 激光会瞄准准心, 追踪最靠近的敌人直至死亡#准心会自动移向最近的敌人#{{Damage}} 每次判定造成33%的伤害#杀死敌人有概率获得治疗","米利暗-神罚者","zh_cn")
-    --这个称号是我杜撰的, 维基的版本太老以至于没有这个角色的描述, 此处根据下文编造了这一称号
-    --后来，她与亚伦因为不满摩西娶了一个古实女子，就毁谤他，因而被神惩罚她患上麻疯。 亚伦和 摩西为她哀求耶和华"神阿，求你医治她。"(El nah refa nah-la)，于是在7天后得到复原。(民数记 12)。
     EID:addBirthright(Isaac.GetPlayerTypeByName("Miriam",true), "↑ 激光会一次瞄准所有敌人#{{Blank}} 伤害将会均匀分布#{{Blank}} 准心瞄准一个敌人会将大多数伤害集中于此", "米利暗-夺命之域", "en_us")
+    --堕化米利暗的称号是我杜撰的, 维基的版本太老以至于没有这个角色的描述, 此处根据下文编造了这一称号
+    --后来，她与亚伦因为不满摩西娶了一个古实女子，就毁谤他，因而被神惩罚她患上麻疯。 亚伦和 摩西为她哀求耶和华"神阿，求你医治她。"(El nah refa nah-la), 于是在7天后得到复原。(民数记 12)。
 end)
