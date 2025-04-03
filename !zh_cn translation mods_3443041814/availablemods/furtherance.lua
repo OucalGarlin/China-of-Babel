@@ -258,7 +258,7 @@ mod:AddModTranslationLoader("Furtherance","悲恸助长(Furtherance)\n 警告: �
             "Muddled Cross",
             "混乱十字架",
             "倒反天罡",
-            "上下颠倒屏幕并染红#改变楼层样式#↑ 颠倒状态下, 所有道具和掉落物翻倍#所有道具变为{{ItemPoolUltraSecret}}#!!! 颠倒状态下每7s失去{{HalfHeart}}#{{GarlinIcon}} 不会影响魂心, 且无论如何始终会留下半个红心#{{GarlinIcon}} 如果渲染有点问题, 可以尝试在全屏下游玩"
+            "上下颠倒屏幕并染红#改变楼层样式#↑ 颠倒状态下, 所有道具和掉落物翻倍#所有道具变为{{ItemPoolUltraSecret}}红色道具#!!! 颠倒状态下每7s失去{{HalfHeart}}#{{GarlinIcon}} 不会影响魂心, 且无论如何始终会留下半个红心#{{GarlinIcon}} 进入下一层后自动恢复上下颠倒的状态#{{GarlinIcon}} 如果渲染有点问题, 可以尝试在全屏下游玩"
         },{
             "Old Camera",
             "老旧相机",
