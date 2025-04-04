@@ -207,7 +207,7 @@ mod:AddCallback(ModCallbacks.MC_POST_PLAYER_UPDATE, mod.PostPlayerUpdate)
         self.Loaded = true
         self:LoadModData()
         -- 大部分需要在原模组之后加载的模组放在这里
-        self:AddTranslate(100, "README", "必读条目", "模组EID个人汉化合集!", "EID汉化作者: 悟克拉·伽林 #{{GarlinIcon}} 表示翻译经个人补充或调整#{{IGIcon}} 表示翻译依据Isaacguru维基进行了修正或补充#{{CurseBlind}} 表示翻译不确定, 实际效果可能不同# 如有疑问, 欢迎在创意工坊的评论区回复或通过B站联系我")
+        --self:AddTranslate(100, "README", "必读条目", "模组EID个人汉化合集!", "EID汉化作者: 悟克拉·伽林 #{{GarlinIcon}} 表示翻译经个人补充或调整#{{IGIcon}} 表示翻译依据Isaacguru维基进行了修正或补充#{{CurseBlind}} 表示翻译不确定, 实际效果可能不同# 如有疑问, 欢迎在创意工坊的评论区回复或通过B站联系我")
         
         local loadList = {}
         for _, value in ipairs(self.Mods) do
@@ -227,7 +227,7 @@ mod:AddCallback(ModCallbacks.MC_POST_PLAYER_UPDATE, mod.PostPlayerUpdate)
             print("目前未检测到模组, 可以确认是否有报错或因加载顺序的问题而无法正常运行")--增加了未检测到模组的提示--Garlin
         end
         print("This mod contain some Chinese messages that might cannot show without RGON, so you'd better check on the ReadMe in the mod file")--考虑到非忏悔龙的控制台可能不会输出中文, 加了这个提示 —— 我的建议是到时候说这个模组需要忏悔龙前置(什 --Garlin
-        print("请在创意工坊的改动说明处确认最近的更新是否为2025年4月3日")
+        print("请在创意工坊的改动说明处确认最近的更新是否为2025年4月4日")
     end
     
     
