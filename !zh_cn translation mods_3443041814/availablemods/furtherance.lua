@@ -32,7 +32,7 @@ mod:AddModTranslationLoader("Furtherance","悲恸助长(Furtherance)\n 警告: �
         },{
             "Q Key",
             "Q键",
-            "白嫖",
+            "副手剽窃术",--凭什么嫖也字体不兼容啊
             "{{Collectible348}}安慰剂, {{Collectible286}}空白卡片和{{Collectible263}}透明符文的三合一版本, 用于免费触发持有的副手道具",
         },{
             "E Key",
@@ -42,7 +42,7 @@ mod:AddModTranslationLoader("Furtherance","悲恸助长(Furtherance)\n 警告: �
         },{
             "C Key",
             "C键",
-            "支持Encyclopedia!",--双关, 该词意为百科全书, 同时也是一个兼容的图鉴mod
+            "本模组支持Encyclopedia!",--双关, 该词意为百科全书, 同时也是一个兼容的图鉴mod
             "将角色传送至{{Library}}图书馆, 里面包含5本书"
         },{
             "Caps Key",
@@ -78,7 +78,7 @@ mod:AddModTranslationLoader("Furtherance","悲恸助长(Furtherance)\n 警告: �
             "Pallas",
             "智神星",
             "岁月风霜",--机翻
-            "泪弹会在滞空一段事件后在地面上跳动#每次跳动造成溅射伤害#↑ {{Tearsize}} 泪弹体积+20%"
+            "泪弹会在滞空一段时间后在地面上跳动#每次跳动造成溅射伤害#↑ {{Tearsize}} 泪弹体积+20%"
         },{
             "Ceres",
             "谷神星",
@@ -141,7 +141,7 @@ mod:AddModTranslationLoader("Furtherance","悲恸助长(Furtherance)\n 警告: �
             "↑ {{Heart}} 心之容器+1#↑ {{Speed}} 朝左或右移动时获得移速+0.2#治疗1红心"
         },{
             "Owl's Eye",
-            "猫头鹰的眼镜",
+            "猫头鹰的眼睛",
             "大师会指引你",
             "有概率发射2倍伤害的追踪穿透泪弹"
         },{
@@ -152,8 +152,8 @@ mod:AddModTranslationLoader("Furtherance","悲恸助长(Furtherance)\n 警告: �
         },{
             "Pharaoh Cat",
             "法老之猫",
-            "棱锥泪弹",
-            "↓ {{Tears}} 射速-1.76#泪弹呈棱锥形状"
+            "三棱泪弹",
+            "↓ {{Tears}} 射速-1.76#同时发射6发泪弹, 泪弹呈三角形状排布"
         },{
             "F4 Key",
             "F4键",
@@ -183,17 +183,17 @@ mod:AddModTranslationLoader("Furtherance","悲恸助长(Furtherance)\n 警告: �
             "Spiritual Wound",
             "精神攻击",
             "榨干他们的精神力",
-            "攻击方式替换为数个细激光#角色可以控制一个准心, 激光会瞄准准心, 追踪最靠近的敌人直至死亡#准心会自动移向最近的敌人#{{Damage}} 每次判定造成33%的伤害#被杀死的敌人有5%的概率掉落{{HalfHeart}}"
+            "额外获得发射数个细激光的攻击方式#角色可以控制一个准心, 激光会瞄准准心, 追踪最靠近准心的敌人直至死亡#准心会自动移向最近的敌人#{{Damage}} 每次判定造成33%的伤害#被杀死的敌人有5%的概率掉落{{HalfHeart}}"
         },{
             "Caduceus Staff",
             "墨丘利之使",
             "生命上升, 你感觉很棒!",
-            "{{SoulHeart}} 魂心+2#有概率抵消受到的伤害并获得一个护盾#概率初始为1%, 每次受伤后翻倍"
+            "{{SoulHeart}} 魂心+2#{{HolyMantle}} 有概率抵消受到的伤害并获得一个神圣屏障#概率初始为1%, 每次受伤后翻倍"
         },{
             "Polydipsia",
             "烦渴症",
             "眼泪下降?!",
-            "抛物线弹道#泪弹命中地板, 障碍物或敌人会迸裂为一滩水#↓ {{Tears}} 射速下降大约-100%"--这么玩会死的吧
+            "攻击方式改为抛射大泪弹#泪弹命中地板, 障碍物或敌人会迸裂为一滩水#↓ {{Tears}} 射速下降大约-100%"--这么玩会死的吧
         },{
             "Kareth",
             "卡雷斯之匕",--存疑
@@ -293,7 +293,7 @@ mod:AddModTranslationLoader("Furtherance","悲恸助长(Furtherance)\n 警告: �
             "Flux",
             "通量",
             "连贯性",--存疑
-            "↑ {{Range}} 射程+9.75#灵体泪弹#同时朝角色后方发射泪弹#泪弹只有在角色移动时移动#反向发射的泪弹运动方向相反"
+            "↑ {{Range}} 射程+9.75#灵体泪弹#同时朝角色后方发射泪弹#泪弹的移动与角色移动基本同步#反向发射的泪弹运动速度更慢"
         },{
             "Cosmic Omnibus",
             "宇宙精选集",
@@ -415,12 +415,12 @@ mod:AddModTranslationLoader("Furtherance","悲恸助长(Furtherance)\n 警告: �
             "Chi Rho",
             "凯乐符号",
             "科技!",
-            "激光现在会追踪敌人#{{Collectible222}} 它们在发射出去时会固定#!!! 若攻击方式不为激光则无效"
+            "激光现在会追踪敌人#{{CurseBlind}} 它们在发射出去时{{Collectible222}}会固定(存疑)#!!! 若攻击方式不为激光则无效"
         },{
             "Leah's Heart",
             "利亚的心脏",
             "她的心脏在跳动",
-            "↑ {{Damage}} 伤害+120%#使用主动道具后拾取伤害增幅, 并获得1{{SoulHeart}}和屏障#进入下一层恢复伤害增幅"
+            "↑ {{Damage}} 伤害+120%#使用主动道具后失去伤害增幅, 并获得1{{SoulHeart}}和1{{HolyMantle}}#进入下一层恢复伤害增幅"
         },{
             "Pallium",
             "大披肩",
