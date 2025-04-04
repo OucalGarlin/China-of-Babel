@@ -8,17 +8,19 @@ mod:AddModTranslationLoader("Furtherance","悲恸助长(Furtherance)\n 警告: �
             "Esc Key",
             "退出键",
             "我先溜了",
-            "如果角色少于6颗心, 用{{Heart}} {{SoulHeart}}治疗角色#将角色传送至房间外面"
+            "如果角色少于6颗心, 用{{Heart}} {{SoulHeart}}治疗角色#将角色传送至房间外面",
+            {QUA=2}--一次性3级你连再爽都竞争不过
         },{
             "Tilde Key",
             "飘号键",
             "小开不算开",--原文: 你个肮脏的作弊者
-            "在当前房间内获得一个随机的debug效果"
+            "在当前房间内获得一个随机的debug效果",
+            {QUA=3}--撒旦头大蘑菇12充那是可以带出房间的效果你呢
         },{
             "Alt Key",
             "Alt键",
             "真实",
-            "正常楼层会变为变种楼层#变种楼层会变回普通楼层"
+            "{{GarlinIcon}} 通过进入下一层恢复充能#正常楼层会变为变种楼层#变种楼层会变回普通楼层"--卡好楼层可以无限再爽我认可你这个四级
         },{
             "Spacebar Key",
             "空格键",
@@ -34,6 +36,7 @@ mod:AddModTranslationLoader("Furtherance","悲恸助长(Furtherance)\n 警告: �
             "Q键",
             "副手剽窃术",--凭什么嫖也字体不兼容啊
             "{{Collectible348}}安慰剂, {{Collectible286}}空白卡片和{{Collectible263}}透明符文的三合一版本, 用于免费触发持有的副手道具",
+            {QUA=3}--强度想够到4级还是差了点
         },{
             "E Key",
             "E键",
@@ -53,7 +56,7 @@ mod:AddModTranslationLoader("Furtherance","悲恸助长(Furtherance)\n 警告: �
             "Enter Key",
             "回车键",
             "相遇再无界限",
-            "尝试打开头目车轮战的门#{{Timer}} 无视游戏时间"
+            "尝试打开头目车轮战的门#{{Timer}} 无视游戏时间",--感觉泛用性太低了, 待测定
         },{
             "Shift Key",
             "Shift键",
@@ -73,17 +76,19 @@ mod:AddModTranslationLoader("Furtherance","悲恸助长(Furtherance)\n 警告: �
             "Juno",
             "婚神星",
             "万物法则",
-            "↑ {{SoulHeart}} 魂心+2#{{Collectible722}} 泪弹命中敌人有概率锁住最近的敌人5s"
+            "↑ {{SoulHeart}} 魂心+2#{{Collectible722}} 泪弹命中敌人有概率锁住最近的敌人5s",
+            {QUA=3}--这点β概率给4级搞笑来的
         },{
             "Pallas",
             "智神星",
             "岁月风霜",--机翻
-            "泪弹会在滞空一段时间后在地面上跳动#每次跳动造成溅射伤害#↑ {{Tearsize}} 泪弹体积+20%"
+            "泪弹会在滞空一段时间后在地面上跳动#每次跳动造成溅射伤害#↑ {{Tearsize}} 泪弹体积+20%",
+            {QUA=2}--这不就眼球泪弹加跳弹吗
         },{
             "Ceres",
             "谷神星",
             "随生命闪动",
-            "↑ {{Damage}} 伤害+0.5#泪弹命中敌人有概率让角色产生绿色液迹#走上绿色液体的敌人会被减速并出现触手攻击#触手也会减速敌人"
+            "↑ {{Damage}} 伤害+0.5#泪弹命中敌人有概率让角色产生绿色液迹#走上绿色液体的敌人会被减速并出现触手攻击#触手也会减速敌人"--未测出来,存疑
         },{
             "Vesta",
             "灶神星",
@@ -93,7 +98,7 @@ mod:AddModTranslationLoader("Furtherance","悲恸助长(Furtherance)\n 警告: �
             "Tech IX",
             "科技9",--如果照这么翻译的话科技X其实该叫做科技10
             "蓄力激光环测试版",
-            "泪弹改为发射小型激光环#不同于{{Collectible395}}, 该攻击无需蓄力#↓ {{Tears}} 射速-0.85"
+            "泪弹改为发射小型激光环#不同于{{Collectible395}}, 该攻击无需蓄力#↓ {{Tears}} 射速-0.85"--没兼容彻底烂掉
         },{
             "Leaking Tank",
             "漏罐",
@@ -103,7 +108,7 @@ mod:AddModTranslationLoader("Furtherance","悲恸助长(Furtherance)\n 警告: �
             "Unstable Core",
             "不稳定核心",
             "霹雳主动",
-            "每次使用主动道具, 朝周围释放电击#{{Burning}} 电击会灼烧敌人3s"
+            "每次使用主动道具, 朝周围释放电击#{{Burning}} 电击会灼烧敌人3s"--疑似有bug
         },{
             "Technology -1",
             "科技-1",
@@ -138,12 +143,13 @@ mod:AddModTranslationLoader("Furtherance","悲恸助长(Furtherance)\n 警告: �
             "Crab Legs",
             "螃蟹腿",
             "\"横\"行霸道",--原文: 你没法让螃蟹直着走路   感觉像个外国俚语, 但是没想到怎么翻译好(
-            "↑ {{Heart}} 心之容器+1#↑ {{Speed}} 朝左或右移动时获得移速+0.2#治疗1红心"
+            "↑ {{Heart}} 心之容器+1#↑ {{Speed}} 朝左或右移动时获得移速+0.2#治疗1红心",
+            {QUA=1}--就这点属性我觉得你还是跟干细胞坐一桌
         },{
             "Owl's Eye",
             "猫头鹰的眼睛",
             "大师会指引你",
-            "有概率发射2倍伤害的追踪穿透泪弹"
+            "有概率发射2倍伤害的追踪穿透泪弹"--直接报错牛逼
         },{
             "Shattered Heart",
             "破裂之心",
@@ -178,22 +184,26 @@ mod:AddModTranslationLoader("Furtherance","悲恸助长(Furtherance)\n 警告: �
             "Butterfly",
             "蝴蝶",
             "失去所爱之人",--怎么办我想翻译成原来我是一只酒醉的蝴蝶
-            "受到伤害会使角色朝随机方向发射泪弹2s#这些泪弹造成角色一半的伤害"
+            "受到伤害会使角色朝随机方向发射泪弹2s#这些泪弹造成角色一半的伤害",
+            {QUA=2}--受伤触发你怎么敢4级的
         },{
             "Spiritual Wound",
             "精神攻击",
             "榨干他们的精神力",
-            "额外获得发射数个细激光的攻击方式#角色可以控制一个准心, 激光会瞄准准心, 追踪最靠近准心的敌人直至死亡#准心会自动移向最近的敌人#{{Damage}} 每次判定造成33%的伤害#被杀死的敌人有5%的概率掉落{{HalfHeart}}"
+            "额外获得发射数个细激光的攻击方式#角色可以控制一个准心, 激光会瞄准准心, 追踪最靠近准心的敌人直至死亡#准心会自动移向最近的敌人#{{Damage}} 每次判定造成33%的伤害#被杀死的敌人有5%的概率掉落{{HalfHeart}}",
+            {QUA=3}--操作方式我不喜欢, 但不替换攻击方式那强度还算认可
         },{
             "Caduceus Staff",
             "墨丘利之使",
             "生命上升, 你感觉很棒!",
-            "{{SoulHeart}} 魂心+2#{{HolyMantle}} 有概率抵消受到的伤害并获得一个神圣屏障#概率初始为1%, 每次受伤后翻倍"
+            "{{SoulHeart}} 魂心+2#{{HolyMantle}} 有概率抵消受到的伤害并获得一个神圣屏障#概率初始为1%, 每次受伤后翻倍",
+            {QUA=2}--总感觉连凯尔特都不如
         },{
             "Polydipsia",
             "烦渴症",
             "眼泪下降?!",
-            "攻击方式改为抛射大泪弹#泪弹命中地板, 障碍物或敌人会迸裂为一滩水#↓ {{Tears}} 射速下降大约-100%"--这么玩会死的吧
+            "攻击方式改为抛射大泪弹#泪弹命中地板, 障碍物或敌人会迸裂为一滩水#↓ {{Tears}} 射速下降",
+            {QUA=2}--对地特攻对空疲弱这种东西三级怎么想出来的二级顶天了
         },{
             "Kareth",
             "卡雷斯之匕",--存疑
@@ -203,12 +213,14 @@ mod:AddModTranslationLoader("Furtherance","悲恸助长(Furtherance)\n 警告: �
             "Pillar of Fire",
             "圣火之柱",
             "前途一片光明",
-            "受伤后有概率迸射5个火焰, 对敌人造成伤害#火焰持续朝敌人发射血泪"
+            "受伤后有概率迸射5个火焰, 对敌人造成伤害#火焰持续朝敌人发射血泪",
+            {QUA=2}--受伤触发+概率触发,buff叠满了
         },{
             "Pillar of Clouds",
             "浓云之柱",
             "前途乌云密布",
-            "穿过一扇通往未清理的房间的门将有概率跳过它并来到下一个房间"
+            "穿过一扇通往未清理的房间的门将有概率跳过它并来到下一个房间",
+            {QUA=2}--泛用性不高
         },{
             "Firstborn Son",
             "长子",
@@ -223,7 +235,8 @@ mod:AddModTranslationLoader("Furtherance","悲恸助长(Furtherance)\n 警告: �
             "Quarantine",
             "隔离",
             "保持距离",
-            "{{Fear}} 进入新房间后对所有敌人施加恐惧6s#{{Poison}} 期间靠近角色的敌人会中毒"
+            "{{Fear}} 进入新房间后对所有敌人施加恐惧6s#{{Poison}} 期间靠近角色的敌人会中毒",
+            {QUA=1}--虽然确实菜但总感觉0级有点屈才了
         },{
             "Book of Guidance",
             "引导之书",
@@ -282,7 +295,7 @@ mod:AddModTranslationLoader("Furtherance","悲恸助长(Furtherance)\n 警告: �
         },{
             "Mandrake",
             "曼德拉草",
-            "莨菪烷生物碱",--我赌这东西绝对字体不兼容
+            "莨菪烷生物碱",--哈哈我就知道字体不兼容
             "{{TreasureRoom}} 所有宝箱房包含2个道具#只能选择其中一个#第二个道具必定为跟班"
         },--[[{
             "Little Sister",
@@ -293,7 +306,8 @@ mod:AddModTranslationLoader("Furtherance","悲恸助长(Furtherance)\n 警告: �
             "Flux",
             "通量",
             "连贯性",--存疑
-            "↑ {{Range}} 射程+9.75#灵体泪弹#同时朝角色后方发射泪弹#泪弹的移动与角色移动基本同步#反向发射的泪弹运动速度更慢"
+            "↑ {{Range}} 射程+9.75#灵体泪弹#同时朝角色后方发射泪弹#泪弹的移动与角色移动基本同步#反向发射的泪弹运动速度更慢",
+            {QUA=2}--你跟反重力坐一桌去
         },{
             "Cosmic Omnibus",
             "宇宙精选集",
@@ -303,7 +317,9 @@ mod:AddModTranslationLoader("Furtherance","悲恸助长(Furtherance)\n 警告: �
             "Little Raincoat",
             "小小雨衣",
             "化身噩梦",--反之梦魇又是字体不兼容
-            "每受到6次攻击获得类似{{Pill}}大力丸的效果#6%的概率重随食物道具#体型下降"
+            "每受到6次攻击获得类似{{Pill}}大力丸的效果#6%的概率重随食物道具#体型下降",
+            --{QUA=6}  没有开玩笑的
+            {QUA=1}
         },{
             "Blood Cyst",
             "血囊肿",
@@ -359,7 +375,8 @@ mod:AddModTranslationLoader("Furtherance","悲恸助长(Furtherance)\n 警告: �
             "Keratoconus",
             "锥形眼角膜",
             "温柔凝视之眼",--机翻
-            "↑ {{Range}} 射程+0.2#↓ {{Shotspeed}} 弹速-0.5#有概率发射一束圣光泪弹, 伴随一个光环缩水或助长敌人"
+            "↑ {{Range}} 射程+0.2#↓ {{Shotspeed}} 弹速-0.5#有概率发射一个伴随光环的泪弹, 光环会将敌人变为大体型或小体型变种",--这是真神经
+            {QUA=0}--除非你给我一个更好的让我拿你的理由
         },{
             "Servitude",
             "奴役",
@@ -369,7 +386,8 @@ mod:AddModTranslationLoader("Furtherance","悲恸助长(Furtherance)\n 警告: �
             "Cardiomyopathy",
             "心肌症",
             "胸部剧痛",
-            "↑ 填满一个心之容器会获得暂时的无敌#拾取{{Heart}}红心有概率获得空的心之容器, 概率取决于幸运#{{BoneHeart}} 所有骨心被替换为空的心之容器"
+            "{{CurseBlind}} 填满一个心之容器会获得暂时的无敌(存疑)#拾取{{Heart}}红心有概率获得空的心之容器, 概率取决于幸运#{{BoneHeart}} 所有骨心被替换为空的心之容器",
+            {QUA=1}--你猜猜空洞之心几级?
         },{
             "Sunscreen",
             "防晒霜",
@@ -405,7 +423,8 @@ mod:AddModTranslationLoader("Furtherance","悲恸助长(Furtherance)\n 警告: �
             "Beginner's Luck",
             "新人好运礼包",
             "衰减的幸运",
-            "↑ {{Luck}} 每层获得幸运+10#↓ 每个房间-1{{Luck}}, 直至回到基础值"
+            "↑ {{Luck}} 每层获得幸运+10#↓ 每个房间-1{{Luck}}, 直至回到基础值",
+            {QUA=1}--这种东西放邪魔典纸里邪魔典纸都知道要打1级
         },{
             "Dad's Wallet",
             "爸爸的钱包",
@@ -594,6 +613,11 @@ mod:AddModTranslationLoader("Furtherance","悲恸助长(Furtherance)\n 警告: �
             "阳伞",
             "小小保护者",
             "↑ 所有跟班均可抵挡敌弹"
+        },{
+            "Hammerhead Worm",
+            "锤头虫",
+            "噗叽啪",
+            "每发泪弹的{{Damage}} {{Range}} {{Shotspeed}}轻微随机化"
         }
     }
     local cards={
