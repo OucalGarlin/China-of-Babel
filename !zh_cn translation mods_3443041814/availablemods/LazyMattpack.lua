@@ -13,12 +13,14 @@ mod:AddModTranslationLoader("MattPack", "Lazy Mattpack(5级道具mod)\n 警告: 
                 {395,"BaloX"},
                 {579,"noEffect"}
             },
-            CHAR={16,"noEffect",true}}
+            CHAR={16,"noEffect",true},
+            QUA=0}--倒扣DPS, 子弹都秒人了噩兆添头真的有用吗
         },{
             "Benighted Heart",
             "愚昧之心",
             "如上, 如是下",
-            "↓ {{Heart}} 心之容器-1 #↓ {{Damage}} 伤害-0.4 #↑ {{Tears}} 射速倍率x2.3 #↑ {{Tears}} 射速+1 #↑ {{Shotspeed}} 弹速+0.25 #{{EmptyHeart}} 排空所有的心之容器({{GarlinIcon}}并转化为黑心, 不致死)#{{ColorPurple}}角色的泪弹吸引敌人和掉落物{{CR}}"
+            "↓ {{Heart}} 心之容器-1 #↓ {{Damage}} 伤害-0.4 #↑ {{Tears}} 射速倍率x2.3 #↑ {{Tears}} 射速+1 #↑ {{Shotspeed}} 弹速+0.25 #{{EmptyHeart}} 排空所有的心之容器({{GarlinIcon}}并转化为黑心, 不致死)#{{ColorPurple}}角色的泪弹吸引敌人和掉落物{{CR}}",
+            {QUA=2}--参考断头台(非忏悔+),尽管负面明显但属性提升极其显著,2级下应该有(?
         },{
             "Boulder Bottom",
             "谷底巨石",
@@ -29,7 +31,8 @@ mod:AddModTranslationLoader("MattPack", "Lazy Mattpack(5级道具mod)\n 警告: 
                 {"5.300.70","BoulderAble"},
                 {160,"BoulderAble"},
                 {"5.300.63","BoulderLess"},
-            }}
+            },
+            QUA=3}--避雷后还是强的
         },{
             "Comically Large Spoon Bender",
             "大的有点逆天的弯勺魔术",
@@ -40,12 +43,14 @@ mod:AddModTranslationLoader("MattPack", "Lazy Mattpack(5级道具mod)\n 警告: 
                 {53,"DrBender"},
                 {329,"LudoBender"},
                 {395,"Xder"}
-            },CHAR={16,"Spless",true}}
+            },CHAR={16,"Spless",true},
+            QUA=4}--弯勺的牌面还是得有
         },{
             "Kitchen Knife",
             "厨刀",
             "划破黑暗",
-            "只能通过拾取黑心充能##{{IGIcon}} 未完全充能时, {{BlackHeart}}红心有33%的概率被替换为黑心, 魂心有50%的概率被替换, 敌人有20%的概率掉落临时的黑心#{{GarlinIcon}} 未完全充能也可以使用#{{ColorFade}}使用后, 角色将刀插入地表, 生成一片直冲云霄的黑暗喷泉{{CR}}#持续时间内, 喷泉会造成帧伤并排斥敌人, 推开敌弹, 击破岩石, 伤害与楼层有关#消耗6充能后光柱的伤害会翻倍,最多只会消耗12充能"
+            "只能通过拾取黑心充能##{{IGIcon}} 未完全充能时, {{BlackHeart}}红心有33%的概率被替换为黑心, 魂心有50%的概率被替换, 敌人有20%的概率掉落临时的黑心#{{GarlinIcon}} 未完全充能也可以使用#{{ColorFade}}使用后, 角色将刀插入地表, 生成一片直冲云霄的黑暗喷泉{{CR}}#持续时间内, 喷泉会造成帧伤并排斥敌人, 推开敌弹, 击破岩石, 伤害与楼层有关#消耗6充能后光柱的伤害会翻倍,最多只会消耗12充能",
+            {QUA=1}--参考死灵书
         },{
             "Devil's Yo-Yo",
             "恶魔悠悠球",
@@ -54,7 +59,7 @@ mod:AddModTranslationLoader("MattPack", "Lazy Mattpack(5级道具mod)\n 警告: 
             {CONF={
                 {628,"NoMoreDeathYoyoTAT"},
                 {{577,656},"ReDamo"}
-            }}
+            }}--不用改,唯一真神
         },{
             "Knife Bender",
             "弯刀魔术",
@@ -63,17 +68,20 @@ mod:AddModTranslationLoader("MattPack", "Lazy Mattpack(5级道具mod)\n 警告: 
             {CONF={
                 {579,"Swordless"},
                 {168,"Overrides","Overridden"}
-            },CHAR={16,"NotGoodAtBending",true}}
+            },CHAR={16,"NotGoodAtBending",true},
+            QUA=4}--强度是有的唯一的遗憾就是惹上了妈刀
         },{
             "Multi Mush",
             "多重蘑菇",
             "乐趣翻倍",
-            "{{MegaArrowUp}} 全属性倍率x2, 包括恶魔天使房开启率和星象房开启率#{{IGIcon}} 翻倍角色的移速上限和体积倍率#{{Heart}} 翻倍生命上限最大值#{{Warning}} {{ColorYellow}}提高所有敌人的移速和弹速1.5倍{{CR}}"
+            "{{MegaArrowUp}} 全属性倍率x2, 包括恶魔天使房开启率和星象房开启率#{{IGIcon}} 翻倍角色的移速上限和体积倍率#{{Heart}} 翻倍生命上限最大值#{{Warning}} {{ColorYellow}}提高所有敌人的移速和弹速1.5倍{{CR}}",
+            {QUA=2}--同黑暗圣心
         },{
             "Bloated Body",
             "肿胀的尸体",
             "无限迸射",
-            "泪弹碰撞后会分裂为4个#分裂的泪弹获得原泪弹一半的伤害和射程#分裂的泪弹还会进一步分裂, 产生更少伤害和射程的泪弹, 而且会永远继续分裂下去, 直到射程用尽"
+            "泪弹碰撞后会分裂为4个#分裂的泪弹获得原泪弹一半的伤害和射程#分裂的泪弹还会进一步分裂, 产生更少伤害和射程的泪弹, 而且会永远继续分裂下去, 直到射程用尽",
+            {QUA=4}
         },{
             "Mutant Mycelium",
             "变异蜘蛛菌",
@@ -87,7 +95,8 @@ mod:AddModTranslationLoader("MattPack", "Lazy Mattpack(5级道具mod)\n 警告: 
             "Tech 5090",
             "科技5090",
             "坚持不懈为其助力",
-            "移动时, 角色持续朝移动方向发射激光#角色不改变方向越久, 激光的射程, 宽度和伤害越高, 转向会让这些属性快速衰减#伤害变化幅度为0.5-5倍角色伤害#激光会小幅度推开敌弹"
+            "移动时, 角色持续朝移动方向发射激光#角色不改变方向越久, 激光的射程, 宽度和伤害越高, 转向会让这些属性快速衰减#伤害变化幅度为0.5-5倍角色伤害#激光会小幅度推开敌弹",
+            {QUA=2}--不能当主力你还站3级?
         },{
             "Tech Omega",
             "科技Omega",
@@ -96,15 +105,16 @@ mod:AddModTranslationLoader("MattPack", "Lazy Mattpack(5级道具mod)\n 警告: 
             {CONF={
                 {118,"BrimOmega"},
                 {395,"Xmega","Omex"}
-            },CHAR={16,"Overrides",true}}
-        },{--喜报, omega增强了可以用鼠标发射了
+            },CHAR={16,"Overrides",true},
+            QUA=2}--我不喜欢
+        },{
             "Dead Litter",
             "缝补死猫",
             "那么我们去哪儿找第四个呢?","↑ {{Damage}} 伤害倍率x1.66#每发子弹有10%的概率伴随三个猫类效果之一#{{Luck}} 幸运10: 50%#{{Collectible81}} 发射3个临时的, 造成一半伤害的{{Collectible706}}蝗虫#{{Collectible38}} 额外发射9个环绕角色的泪弹#{{Collectible"..Isaac.GetItemIdByName("Bloated Body").."}} 无限分裂的泪弹",
             {CONF={
                 {579,"Littersword"},
                 {{168,329},"GuppyOnly"}
-            }}
+            },QUA=3}--我拿过一局高幸运豆奶, 一大堆蝗虫给我莉莉宝顶掉就算了哥几个左右互搏互相把对方顶掉一点伤害没有
         },{
             "Divine Heart",
             "天赐圣心",
@@ -121,11 +131,15 @@ mod:AddModTranslationLoader("MattPack", "Lazy Mattpack(5级道具mod)\n 警告: 
                 {114,"DivineKnife"},
                 {540,"noEffect"},
                 {397,"DivineBeam"}
-            },CHAR={16,"DivineBone",true}}
+            },CHAR={16,"DivineBone",true},
+            QUA=3}--射程高会负面,其他还能接受
+        },{
+            447,
+            "流连豆",
+            "你放屁跟打雷一样",--文胜质则史,质胜文则力大砖飞(
+            "{{GarlinIcon}} 请留步! 这个模组将流连豆加强了!#双击攻击键朝身后发射屁云#{{Timer}} 冷却10s#{{IGIcon}} 屁云会每7s变强一次#{{1}} 初始: 屁云每秒造成4.29次{{Damage}}角色伤害#{{2}} 开始下雨并留下伤害水迹#{{3}} 水迹有33%的概率复制角色的特效#{{4}} 最终: 100%复制特效, 可以对其下方的敌人打雷造成3倍伤害"
         },
-                    {447,"流连豆","你放屁跟打雷一样",--文胜质则史,质胜文则力大砖飞(
-                        "{{GarlinIcon}} 请留步! 这个模组将流连豆加强了!#双击攻击键朝身后发射屁云#{{Timer}} 冷却10s#{{IGIcon}} 屁云会每7s变强一次#{{1}} 初始: 屁云每秒造成4.29次{{Damage}}角色伤害#{{2}} 开始下雨并留下伤害水迹#{{3}} 水迹有33%的概率复制角色的特效#{{4}} 最终: 100%复制特效, 可以对其下方的敌人打雷造成3倍伤害"},
-        }
+    }
     local conditionalList={
         BrimOmega="敌人迸射2.5倍射程的血激光柱",
         Xmega="覆盖科技Omega, 但是获得伤害减半和弹速减半",
