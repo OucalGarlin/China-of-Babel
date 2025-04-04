@@ -7,6 +7,6 @@
     <active name="乄" gfx="nill.png" description="Item mimic" quality="4" tags="nocantrip offensive" maxcharges="64" chargetype="special" hidden="true" />
     <passive name="Eye Detatchment" gfx="eyedetatchment.png" description="Did ya see where's my eyes?" quality="2" hidden="true" tags="offensive summonable"/>
     <bro why are you looking at these Items-I-made-just-for-fun?>
-    <passive id="54" name="神秘的东方文字" gfx="garlin.png" description="模组EID个人汉化合集!" hidden="true" /-->
-    <passive id="54" name="README" gfx="garlin.png" description="Please enable the EID mod to read this message" hidden="true" />
+    <passive id="54" name="神秘的东方文字" gfx="garlin.png" description="模组EID个人汉化合集!" hidden="true" />
+    <passive id="54" name="README" gfx="garlin.png" description="Please enable the EID mod to read this message" hidden="true" /-->
 </items>
