@@ -17,6 +17,7 @@ mod.Translate = {--容纳翻译的列表
     pill        = {},
     garlin      = {}
 }
+mod.Quality={}--容纳自定义品质
 mod.Mods = {}
 mod.Setting = {
 
@@ -65,6 +66,14 @@ function mod:AddTranslate(variant, id, name, description, eid, compatible)--类�
             for _, suffix in ipairs(suffixs) do
                 if compatible[suffix[1]] then EID.descriptions[lan][suffix[2]][id] = compatible[suffix[1]] end--添加特殊道具兼容
             end
+            local function Condition(descObj)
+                return descObj.ObjType == 5 and descObj.ObjVariant == 100 and descObj.ObjSubType and mod.Quality[descObj.ObjSubType]
+            end
+            local function Callback(descObj)
+                descObj.Quality = mod.Quality[descObj.ObjSubType]
+                return descObj
+            end
+            EID:addDescriptionModifier("YourQualityIsLikePieceOfShitSoImGonnaChangeIt", Condition, Callback)--如果你觉得这个模组自定义的品质太史可以自定义改动一个你认为更合理的品质
             -- 一般兼容
             do
                 local t = compatible.CONF
@@ -78,6 +87,16 @@ function mod:AddTranslate(variant, id, name, description, eid, compatible)--类�
                 if c and type(c)=="table" then--{角色ID,文字,nil,包括堕化}
                     if not(c[2]) or type(c[2])=="table" then for  _,s in ipairs(c) do if #s>=2 then EID:AddClosestPlayerConditional(id,s[1],s[2],nil,s[3]) end end
                     elseif #c>=2 then EID:AddClosestPlayerConditional(id,c[1],c[2],nil,c[3]) end
+                end
+            end
+            do
+                local q = compatible.QUA
+                if q then
+                    if REPENTOGON then
+                        Isaac.GetItemConfig():GetCollectible(id).Quality = q
+                    else
+                        mod.Quality[id] = q
+                    end
                 end
             end
         end
