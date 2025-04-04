@@ -122,7 +122,7 @@ mod:AddModTranslationLoader("BurdensBushel","枯萎的祝福",function()
             "The Broken's Burden",
             "神伤者的包袱",
             "毁灭自己, 巩固后世",
-            "{{BrokenHeart}} {{ColoeRed}}碎心+5{{CR}}#每层开始时, 移除1碎心并获得{{Damage}} 伤害+0.5#{{ColorYellow}}伤害增幅可以继承到下一局"
+            "{{BrokenHeart}} {{ColorRed}}碎心+5{{CR}}#每层开始时, 移除1碎心并获得{{Damage}} 伤害+0.5#{{ColorYellow}}伤害增幅可以继承到下一局"
         },{
             "The Dauntless's Burden",
             "无畏者的包袱",
@@ -142,7 +142,7 @@ mod:AddModTranslationLoader("BurdensBushel","枯萎的祝福",function()
             "The Soiled's Burden",
             "污秽者的包袱",
             "玷污自己, 糟蹋后世",
-            "{{Collectible}} {{ColorRed}}道具有20%的概率被替换为{{Collectible36}}{{CR}}#每次拾取大便都会将其消耗, 并替换为全属性提升#{{ColorYellow}} 下一局获得其中一个被替换的道具的复制"
+            "{{Collectible}} {{ColorRed}}道具有20%的概率被替换为{{Collectible36}}{{CR}}#每次拾取大便都会将其消耗, 并替换为全属性提升#{{ColorYellow}}下一局获得其中一个被替换的道具的复制"
         },{
             "The Curdled's Burden",
             "血凝者的包袱",
