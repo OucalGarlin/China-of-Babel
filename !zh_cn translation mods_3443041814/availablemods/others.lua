@@ -205,4 +205,7 @@ mod:AddModTranslationLoader("BurdensBushel","枯萎的祝福",function()
             "{{ColorRed}}非头目敌人有50%的概率获得一个影子复制, 杀死影子复制有50%的概率生成掉落物#{{ColorYellow}}下一局的第一个道具生成一个影子复制"
         }
     }
+    for _, item in ipairs(item) do
+        mod:AddTranslate(100, item[1], item[2], item[3], item[4], item[5])
+    end
 end)
