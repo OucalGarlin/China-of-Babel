@@ -439,6 +439,17 @@ mod:AddModTranslationLoader("Diepio", "踢脚与讥笑(Kicks and Giggles)\n 警�
                 "拾取后:#{{ColorLime}}+5 美分#{{ColorLime}}{{ColorFade}}获得随机属性增益"
             }
         }
+        if Reverie then
+            local ReverieSyn={
+                {{Isaac.GetPlayerTypeByName("Seija",true),Isaac.GetPlayerTypeByName("Seija",false)},"S_Seija",true},
+                {{Isaac.GetPlayerTypeByName("Eika",true),Isaac.GetPlayerTypeByName("Eika",false)},"S_Eika",true},
+                {{Isaac.GetPlayerTypeByName("Satori",true),Isaac.GetPlayerTypeByName("Satori",false)},"S_Satori",true},
+                {{Isaac.GetPlayerTypeByName("Hourai",true),Isaac.GetPlayerTypeByName("Hourai",false)},"S_Hourai",true},
+            }
+            for i=1,#ReverieSyn do
+                table.insert(trinket[1][5].CHAR,ReverieSyn[i])
+            end
+        end
         local conditionalList={
             ReWynne="取消锤子蓄力时的减速效果",
             GlassItems="每个玻璃道具可以增加玻璃手枪的发射次数",
