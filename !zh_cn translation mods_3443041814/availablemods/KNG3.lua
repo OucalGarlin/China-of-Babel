@@ -410,7 +410,7 @@ mod:AddModTranslationLoader("Diepio", "踢脚与讥笑(Kicks and Giggles)\n 警�
             },{
                 6,Diepio.Enums.SlotVariant.HEXEN,0,
                 "巫术台",
-                "接触后消耗角色持有的符文#如果是角色的魂石, 则角色立即获得与之相关的巫术台技能#{{CurseLost}} 不兼容的魂石或非魂石的符文提供随机的属性提升#!!! 不可学习重复的技能#↑ {{ColorYellow}}{{ColorFade}}在多个楼层送走乞丐或者本局内首次拾取圣经可以升级巫术台技能{{CR}}",
+                "接触后消耗角色持有的符文#如果是角色的魂石, 则角色立即获得与之相关的巫术台技能#{{CurseLost}} 不兼容的魂石或非魂石的符文提供随机的属性提升#!!! 不可学习重复的技能#↑ {{ColorYellow}}{{ColorFade}}在多个楼层送走乞丐或者本局内首次拾取圣经可以升级巫术台技能{{CR}}#{{GarlinIcon}} {{ColorFade}}理论上这个也应该要有兼容的描述, 但由于某些原因未能成功加载...未来会修复的...应该?",
                 {CONF={
                     {"5.300.81","S_Isaac"},
                     {"5.300.82","S_Maggy"},
