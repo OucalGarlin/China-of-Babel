@@ -219,7 +219,8 @@ mod:AddCallback(ModCallbacks.MC_POST_PLAYER_UPDATE, mod.PostPlayerUpdate)
     include("availablemods/DamnEdithIsBack")    --待优化
     include("availablemods/RedBaby")            --√
     include("availablemods/furtherance")        --√?
-    include("availablemods/others")
+    include("availablemods/BattleFantasy")	--√
+    include("availablemods/others")		--病毒骑士, 更多的玫瑰
     --include("availablemods/Baphomet")         to be continue
     function mod:LoadedMods()
         if self.Loaded then return end
@@ -246,7 +247,7 @@ mod:AddCallback(ModCallbacks.MC_POST_PLAYER_UPDATE, mod.PostPlayerUpdate)
             print("目前未检测到模组, 可以确认是否有报错或因加载顺序的问题而无法正常运行")--增加了未检测到模组的提示--Garlin
         end
         print("This mod contain some Chinese messages that might cannot show without RGON, so you'd better check on the ReadMe in the mod file")--考虑到非忏悔龙的控制台可能不会输出中文, 加了这个提示 —— 我的建议是到时候说这个模组需要忏悔龙前置(什 --Garlin
-        print("请在创意工坊的改动说明处确认最近的更新是否为2025年4月5日")
+        print("请在创意工坊的改动说明处确认最近的更新是否为2025年4月7日")
     end
     
     
