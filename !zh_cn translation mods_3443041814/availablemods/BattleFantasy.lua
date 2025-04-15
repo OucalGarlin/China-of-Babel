@@ -7,25 +7,29 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n注: 建议安装Ency
                 "天堂仙镜",
                 "暂时性神魂颠倒",
                 "在当前房间内获得{{Collectible533}}三圣颂的效果#{{ArrowUp}} 使用后获得-0.2 {{Shotspeed}}弹速#{{ArrowUp}} 多次触发效果时额外获得+1 {{Damage}}伤害",
-                {VIR="发射穿透泪弹的魂火"}
+                {VIR="发射穿透泪弹的魂火",
+                QUA=2}--三圣颂三级你就只能当二了
             },{
                 battleFantasy.Items.BF_ANGELIC_WING,
                 "天使之翼",
                 "至善之人, 羽化登仙",
                 "{{EternalHeart}} 获得1永恒之心#{{ArrowUp}} +1.5 {{Range}}射程#{{ArrowUp}} +0.3 {{Shotspeed}}弹速#获得飞行, 但是受到3次惩罚伤害会在当前楼层失去该道具提供的飞行#第三次伤害同时会降下数道圣光轰击",
+                {QUA=1}--加弹速导致风评烂了（但再怎么说也是飞其实
             },{
                 battleFantasy.Items.BF_ASTRAEA,
                 "义神星",
                 "五重射击 + 伤害上升",
                 "五重泪弹! 出来!#{{ArrowDown}} 0.42x {{Tears}}射速#{{ArrowUp}} +1 {{Damage}}伤害",
                 {ABY="5只蝗虫",
-                CONF={CollectibleType.COLLECTIBLE_20_20,"Twenty"}}
+                CONF={CollectibleType.COLLECTIBLE_20_20,"Twenty"},
+                QUA=3}--4级有点过了感觉
             },{
                 battleFantasy.Items.BF_BLAZING_IRIS,
                 "燃烧的虹膜",
                 "它看着你的一举一动",
                 "可以抵挡敌弹的燃烧眼球环绕物#每隔几秒, 其视野内的所有敌弹转换为高伤害火焰",
-                {CONF={"5.350.141","SirenIris"}}
+                {CONF={"5.350.141","SirenIris"},
+                QUA=2}--泛用性真不高感觉（我反正不喜欢）
             },{
                 battleFantasy.Items.BF_BLOOD_PACT,
                 "血之契约",
@@ -44,7 +48,8 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n注: 建议安装Ency
                 "我火了...",
                 "{{ArrowUp}} 每个半红心提供+0.15 {{Damage}}伤害#受伤后释放10团火焰#{{Burning}} 火焰的伤害为: {{Damage}} + 20",
                 {ABY="25%的概率施加{{Burning}}灼烧的蝗虫",
-                CONF={{CollectibleType.COLLECTIBLE_GHOST_PEPPER,"5.350."..battleFantasy.Trinkets.BF_ECTOPLASM},"BlueBoil"}}
+                CONF={{CollectibleType.COLLECTIBLE_GHOST_PEPPER,"5.350."..battleFantasy.Trinkets.BF_ECTOPLASM},"BlueBoil"},
+                QUA=2}--数值还是太保守了，也不可能当受伤触发道具用
             },{
                 battleFantasy.Items.BF_BOOK_OF_PHANTOMS,
                 "恶鬼之书",
@@ -53,7 +58,8 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n注: 建议安装Ency
                 {VIR="2个高生命的魂火",
                 ABY="每拥有{{HalfSoulHeart}}半个魂心, 蝗虫额外造成1伤害",
                 CONF={"5.350."..TrinketType.TRINKET_BLACK_FEATHER,"PhanFeather"},
-                CHAR={PlayerType.PLAYER_BETHANY,"BethPhan",false}}
+                CHAR={PlayerType.PLAYER_BETHANY,"BethPhan",false},
+                QUA=2}--那骂声可太大嘞
             },{
                 battleFantasy.Items.BF_BREEZE_FROM_HOME,
                 "家乡的微风",
@@ -76,10 +82,10 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n注: 建议安装Ency
                 battleFantasy.Items.BF_CAVITY,
                 "蛀牙",
                 "一切开始腐烂",
-                "{{Poison}} 25%的概率发射一个黑牙泪弹, 造成1.25x伤害并施加中毒",
+                "{{Poison}} 25%的概率发射一个黑牙泪弹施加中毒#{{Damage}} 大部分特殊泪弹(例如{{Collectible7}}血泪, {{Collectible183}}钻石泪弹等)均造成1.25倍伤害(包括该道具发射的黑牙泪弹)",
                 {ABY="造成1.25x伤害的蝗虫, 有10%的概率施加{{Poison}}中毒",
                 CONF={
-                    {{7,90,34,150,259,237,83,415,443,531,5,374,463,462,503,572,592,"5.350.95"},"CavityDMGEffected"},
+                    {{7,90,34,150,259,237,83,415,443,531,5,374,463,462,503,572,592,183,"5.350.95"},"CavityDMGEffected"},
                     {battleFantasy.Items.BF_WRAPPED_CANDY,"MULT1"},
                     {443,"MULT2"}
                 }}
@@ -89,7 +95,8 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n注: 建议安装Ency
                 "赌一把",
                 "使用后, 复制一张随机卡牌的效果#{{Card}} 85% 为塔罗牌, 10%为逆位塔罗牌, 5%为扑克牌或杂牌({{GarlinIcon}}{{ColorRainbow}}没有自杀之王{{CR}})#对符文或其他副手物品无效, 不兼容其他模组的卡牌=(",--你猜我为什么会在意有没有自杀之王?
                 {VIR="有概率在敌人死亡后触发随机塔罗牌的效果, 概率取决于拥有机遇卡魂火的数量",
-                ABY="20%的概率在杀死敌人后触发弱化的塔罗牌效果"}
+                ABY="20%的概率在杀死敌人后触发弱化的塔罗牌效果",
+                QUA=1}--跟卡牌盒坐一桌去
             },{
                 battleFantasy.Items.BF_CRYSTAL_SHARD,
                 "水晶碎片",
@@ -102,7 +109,7 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n注: 建议安装Ency
                     {{68,118},"BrimShard"},
                     {52,"DrCrystal"},
                     {114,"CrystalKnife"}
-                }}
+                },QUA=3}--对单输出提升并没有特别高其实，但确实有强度，兼容也不错，但是抱歉你跟科技一桌
             },{
                 battleFantasy.Items.BF_CUP_OF_YOGURT,
                 "一杯酸奶",
@@ -118,7 +125,8 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n注: 建议安装Ency
                 "耳朵虫",
                 "余音绕梁",
                 "每隔15 - 60s播放一个音效#该效果触发时, 获得10s内衰减的{{Speed}} +0.6移速",
-                {CONF={battleFantasy.Items.BF_EARWORM,"MultiEar"}}
+                {CONF={battleFantasy.Items.BF_EARWORM,"MultiEar"},
+                QUA=1}--事实证明老外是真捷豹喜欢移速道具
             },{
                 battleFantasy.Items.BF_EDENS_TEARS,
                 "伊甸之泪",
@@ -132,7 +140,7 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n注: 建议安装Ency
             },{
                 battleFantasy.Items.BF_ETERNAL_D1,
                 "永恒一面骰",
-                "重回神坛?",
+                "旧神归来?",
                 "{{Collectible".. CollectibleType.COLLECTIBLE_D1 .."}} 类似削弱前的一面骰, 生成房间内的一个掉落物的完全复制#33%的概率删除房间内的所有相同掉落物#{{IGIcon}} 可以复制饰品",
                 {VIR="若触发了删除掉落物的效果, 失去所有的永恒一面骰魂火",
                 ABY="造成0.666x伤害的蝗虫, 有33%的概率在杀死敌人后顺带杀死附近的敌人"}
@@ -160,7 +168,8 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n注: 建议安装Ency
                 "50美分",
                 "稀有款硬币!",
                 "{{SecretRoom}} 可以通过击败隐藏房的超级贪婪获取#{{Coin}} +50美分#40% 的概率将1美分转换为粘硬币, 否则消失",
-                {ABY="2%的概率在命中时生成粘硬币"}
+                {ABY="2%的概率在命中时生成粘硬币",
+                QUA=1},--你丫什么资格跟纸币平起平坐?
             },{
                 battleFantasy.Items.BF_HALLOWED_CANDLE,
                 "神圣蜡烛",
@@ -190,7 +199,8 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n注: 建议安装Ency
                 "神圣炸弹",
                 "+7炸弹 + 神圣爆破",
                 "{{Bomb}} +7炸弹#炸弹爆炸会生成一个暂时的神圣光环, 角色在其中获得{{Tears}} 1.5x射速, {{Damage}} 1.25x伤害, {{ColorPink}}追踪泪弹{{CR}}和{{ColorRed}}爆炸免疫{{CR}}#炸弹爆炸时若范围内没有敌人, 同时释放X向圣光",
-                {ABY="追踪敌人的蝗虫, 每次攻击有25%的概率爆炸, 造成20伤害"}
+                {ABY="追踪敌人的蝗虫, 每次攻击有25%的概率爆炸, 造成20伤害",
+                CONF={52,"drFetusHolyBomb"}}
             },{
                 battleFantasy.Items.BF_MOMS_SHAMPOO,
                 "妈妈的洗发剂",
@@ -219,10 +229,14 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n注: 建议安装Ency
                 "Phyrnna的竖琴",--存疑
                 "创造之声",--存疑
                 "15%的概率发射一枚造成至少15伤害的泪弹#这枚泪弹同时会造成15溅射伤害并施加{{Confusion}}混乱#{{Luck}} 幸运16: 50%",
+                {CONF={
+                    {{CollectibleType.COLLECTIBLE_SOY_MILK,CollectibleType.COLLECTIBLE_ALMOND_MILK},"MilkyLyre"},
+                    {52,"DrLyre"}
+                }}
             },{
                 battleFantasy.Items.BF_SERPENS,
                 "巨蛇座",
-                "蜿蜒泪弹",
+                "蛇行泪弹",
                 "20%的概率额外发射2束蛇形泪弹#{{Poison}} 蛇头泪弹会施加中毒, 且有5%的概率生成一个快速消失的{{HalfHeart}}#蛇尾泪弹造成40%的伤害#{{Trinket"..TrinketType.TRINKET_WIGGLE_WORM.."}} 所有蛇形泪弹为蛇形弹道(废话)",
                 {ABY="30%的概率施加{{Poison}}中毒的蝗虫"}
             },{
@@ -236,7 +250,8 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n注: 建议安装Ency
                 "融毁灵魂",
                 "敌人有7.5%的概率掉落一个魂石#{{ArrowDown}} 任何魂石不会在离开房间后保留#使用后, 消耗持有的魂石并存储; 存储3个魂石后, 再次使用会根据存储的魂石的品质生成掉落物或道具",
                 {BEL="{{Card84}}犹大的魂石具有更高的品质",--不是你丫?
-                ABY="7.5%的概率在杀死敌人后生成魂石"}
+                ABY="7.5%的概率在杀死敌人后生成魂石",
+                QUA=3}--魂石爆率挺高的, 但魂石不保存全部变成其他掉落物那跟里蓝人没有炸弹有什么区别（难怪给重随的魂石低品质）
             },{
                 battleFantasy.Items.BF_SPORE_SAC,
                 "孢子囊",
@@ -288,6 +303,7 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n注: 建议安装Ency
                 "包装糖果",
                 "伤害上升 + 移速成长",
                 "{{ArrowUp}} +0.7 {{Damage}}伤害#{{ArrowUp}} 每15s获得一次+0.01 {{Speed}}移速",
+                {QUA=2}--谁要你移速啊天秤吗
             }
         }
         local trinkets={
@@ -414,7 +430,10 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n注: 建议安装Ency
             MiserPack="每失去一个硬币心{{EmptyCoinHeart}}获得+3.6 {{Damage}}伤害",
             BonePack="每失去一个骨心{{EmptyBoneHeart}}获得+1.2 {{Damage}}伤害",
             BlueBoil="火焰替换为蓝火焰(仅视觉效果)",
-            BethPhan="保留1个心之容器, 并获得18魂心充能; 该道具变为一次性"
+            BethPhan="保留1个心之容器, 并获得18魂心充能; 该道具变为一次性"，
+            drFetusHolyBomb="有概率投掷神圣炸弹, 幸运为29.67时达到最大100%",
+            MilkyLyre="下调特殊泪弹的伤害下限",
+            DrLyre="特殊泪弹的伤害下限上调至150"
         }
         mod:AddToConditionalList(conditionalList)
         for _, item in ipairs(items) do
