@@ -548,13 +548,13 @@ mod:AddModTranslationLoader("ElitiumMod","Elitium",function()
         EID:addCharacterInfo(ElitiumMod.ElitiumCharacters.Bombaman,"可以无视爆炸伤害, 直到连续5次并红温#每6.67s红温值下降一层#完全红温后会释放一次强力爆炸","Bombaman","zh_cn")
         EID:addCharacterInfo(ElitiumMod.ElitiumCharacters.Stefan,"{{Pill}} 无法获得药丸, 只有卡牌","Stefan","zh_cn")
         for _, item in ipairs(items) do
-            mod:AddTranslate(100, item[1], item[2], item[3], item[4], item[5])
+            mod:AddTranslate(100, item[1], item[2], item[3], item[4].."#{{Collectible"..ElitiumMod.ElitiumItems.BookOfHistory.."}} 所属mod: Elitium", item[5])
         end
         for _, item in ipairs(trinkets) do
-            mod:AddTranslate(350, item[1], item[2], item[3], item[4], item[5])
+            mod:AddTranslate(350, item[1], item[2], item[3], item[4].."#{{Collectible"..ElitiumMod.ElitiumItems.BookOfHistory.."}} 所属mod: Elitium", item[5])
         end
         for _, item in ipairs(cards) do
-            mod:AddTranslate(300, item[1], item[2], item[3], item[4], item[5])
+            mod:AddTranslate(300, item[1], item[2], item[3], item[4].."#{{Collectible"..ElitiumMod.ElitiumItems.BookOfHistory.."}} 所属mod: Elitium", item[5])
         end    
     end
 end)
