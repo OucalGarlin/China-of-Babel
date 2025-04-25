@@ -1,5 +1,5 @@
 local mod=CNEIDBabel
-mod:AddModTranslationLoader("RedBaby","!!!\n 警告: 若有发现汉化与实际效果对不上, 请及时反馈",function()
+mod:AddModTranslationLoader("RedBaby","!!!\n* 警告: 若有发现汉化与实际效果对不上, 请及时反馈",function()
     local items={
         {
             "!!!'s Heart",
@@ -222,12 +222,12 @@ mod:AddModTranslationLoader("RedBaby","!!!\n 警告: 若有发现汉化与实际
     EID:addCharacterInfo(Isaac.GetPlayerTypeByName("...",false),"#{{SoulHeart}} -> {{RottenHeart}}#{{BlackHeart}} -> {{EmptyBoneHeart}}#每次受伤都会拾取3个身体部件并获得各自的特殊负面效果","...-挑战限定角色","zh_cn")
     EID:addBirthright(Isaac.GetPlayerTypeByName("...",false),"受伤时生成4个骨片","...-骸骨保护","zh_cn")
     for _, item in ipairs(items) do
-        mod:AddTranslate(100, item[1], item[2], item[3], item[4], item[5])
+        mod:AddTranslate(100, item[1], item[2], item[3], item[4].."#{{Player"..Isaac.GetPlayerTypeByName("!!!",false).."}} 所属mod: Red Baby", item[5])
     end
     for _, item in ipairs(trinkets) do
-        mod:AddTranslate(350, item[1], item[2], item[3], item[4], item[5])
+        mod:AddTranslate(350, item[1], item[2], item[3], item[4].."#{{Player"..Isaac.GetPlayerTypeByName("!!!",false).."}} 所属mod: Red Baby", item[5])
     end
     for _, item in ipairs(cards) do
-        mod:AddTranslate(300, item[1], item[2], item[3], item[4], item[5])
+        mod:AddTranslate(300, item[1], item[2], item[3], item[4].."#{{Player"..Isaac.GetPlayerTypeByName("!!!",false).."}} 所属mod: Red Baby", item[5])
     end
 end)
