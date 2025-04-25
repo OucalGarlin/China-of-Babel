@@ -1,5 +1,6 @@
 --感谢golden_shit对代码进行的优化
 CNEIDBabel = RegisterMod("ChineseEIDBabel", 1)--注册mod
+print("请在创意工坊的改动说明处确认最近的更新是否为2025年4月17日")--添加了多个提示语, 以确保在报错时也能显示该提示(应该?)
 local mod = CNEIDBabel--缩写
 local game = Game()
 mod.Flag = {
@@ -21,6 +22,13 @@ mod.Quality={}--容纳自定义品质
 mod.Mods = {}
 mod.Setting = {
 
+}
+mod.Suffixs={
+    {"VIR","bookOfVirtuesWisps"},
+    {"BEL","bookOfBelialBuffs"},
+    {"EAT","bingeEaterBuffs"},
+    {"CAR","carBattery"},
+    {"ABY","abyssSynergies"}
 }
 mod.Data = {}
 if EID then
@@ -55,15 +63,7 @@ function mod:AddTranslate(variant, id, name, description, eid, compatible)--类�
                     EID.BFFSNoSynergy[id] = true
                 end
             end
-            -- 美德、比列、大胃王、车电池、无底坑
-            local suffixs = {
-                {"VIR", "bookOfVirtuesWisps"},
-                {"BEL", "bookOfBelialBuffs"},
-                {"EAT", "bingeEaterBuffs"},
-                {"CAR", "carBattery"},
-                {"ABY", "abyssSynergies"}
-            }
-            for _, suffix in ipairs(suffixs) do
+            for _, suffix in ipairs(self.Suffixs) do
                 if compatible[suffix[1]] then EID.descriptions[lan][suffix[2]][id] = compatible[suffix[1]] end--添加特殊道具兼容
             end
             local function Condition(descObj)
@@ -135,6 +135,8 @@ function mod:AddTranslate(variant, id, name, description, eid, compatible)--类�
     if EID and type(id) == "number" and compatible.GARL then
         mod.Translate.garlin["5."..variant.."."..id] = compatible.GARL
     end
+    EID:setModIndicatorName("非官方汉化, 如有错误欢迎指正")
+    EID:setModIndicatorIcon("GarlinIcon")
 end
 function mod:AddEntityTransl(objtype,variant,id,name,eid,compatible)--添加实体
     local lan = self.Flag.Lan
@@ -209,23 +211,29 @@ function mod:PostPlayerUpdate(player)
 end
 
 mod:AddCallback(ModCallbacks.MC_POST_PLAYER_UPDATE, mod.PostPlayerUpdate)
-    include("availablemods/lost&forgottonDemo") --√
-    include("availablemods/LazyMattpack")       --√
-    include("availablemods/CuriosityCrate")     --√
-    include("availablemods/KNG3")               --√, but this can better
-    include("availablemods/Road2Enlightment")   --√, but this can better
-    include("availablemods/Benevolence")        --虽然你的代码很史但我还是给你汉化了, 下次再写这么史我可就要把你踢出汉化列表了, 真的神必模组 --Garlin
-    include("availablemods/Elitium")            --√
-    include("availablemods/DamnEdithIsBack")    --待优化
-    include("availablemods/RedBaby")            --√
-    include("availablemods/furtherance")        --√?
-    include("availablemods/BattleFantasy")	--√
-    include("availablemods/others")		--病毒骑士, 更多的玫瑰
+include("availablemods/lost&forgottonDemo") --√
+include("availablemods/LazyMattpack")       --√
+include("availablemods/CuriosityCrate")     --√
+include("availablemods/KNG3")               --√, but this can better
+include("availablemods/Road2Enlightment")   --√, but this can better
+include("availablemods/Benevolence")        --虽然你的代码很史但我还是给你汉化了, 下次再写这么史我可就要把你踢出汉化列表了, 真的神必模组 --Garlin
+include("availablemods/Elitium")            --√
+include("availablemods/DamnEdithIsBack")    --待优化
+include("availablemods/RedBaby")            --√
+include("availablemods/furtherance")        --√?
+include("availablemods/BattleFantasy")	--√
+include("availablemods/others")		--病毒骑士, 更多的玫瑰
+include("availablemods/eclipsed")
     --include("availablemods/Baphomet")         to be continue
     function mod:LoadedMods()
         if self.Loaded then return end
         self.Loaded = true
         self:LoadModData()
+        if EID then
+            for _,suffix in ipairs(self.Suffixs) do
+                EID.descriptions[self.Flag.Lan][suffix[2]]=EID.descriptions[self.Flag.Lan][suffix[2]] or {}
+            end
+        end
         -- 大部分需要在原模组之后加载的模组放在这里
         --self:AddTranslate(100, "README", "必读条目", "模组EID个人汉化合集!", "EID汉化作者: 悟克拉·伽林 #{{GarlinIcon}} 表示翻译经个人补充或调整#{{IGIcon}} 表示翻译依据Isaacguru维基进行了修正或补充#{{CurseBlind}} 表示翻译不确定, 实际效果可能不同# 如有疑问, 欢迎在创意工坊的评论区回复或通过B站联系我")
         
@@ -241,15 +249,15 @@ mod:AddCallback(ModCallbacks.MC_POST_PLAYER_UPDATE, mod.PostPlayerUpdate)
         if #loadList > 0 then
             print("已加载下列模组的汉化:")
             for _, value in ipairs(loadList) do print("   + " .. value) end
-            print("模组特殊标识含义见道具\"必读条目(README)\"")
+            --print("模组特殊标识含义见道具\"必读条目(README)\"")
             print("---")
         else
             print("目前未检测到模组, 可以确认是否有报错或因加载顺序的问题而无法正常运行")--增加了未检测到模组的提示--Garlin
         end
         print("This mod contain some Chinese messages that might cannot show without RGON, so you'd better check on the ReadMe in the mod file")--考虑到非忏悔龙的控制台可能不会输出中文, 加了这个提示 —— 我的建议是到时候说这个模组需要忏悔龙前置(什 --Garlin
-        print("请在创意工坊的改动说明处确认最近的更新是否为2025年4月7日")
+        print("请在github的改动说明处确认最近的更新是否为2025年4月25日")
     end
-    
+
     
 if REPENTOGON then mod:AddCallback(ModCallbacks.MC_POST_MODS_LOADED, mod.LoadedMods)
 else mod:AddCallback(ModCallbacks.MC_POST_GAME_STARTED, mod.LoadedMods)
