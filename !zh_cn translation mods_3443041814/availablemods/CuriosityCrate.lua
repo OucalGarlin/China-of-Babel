@@ -382,12 +382,12 @@ mod:AddModTranslationLoader("ToyBoxMod", "好奇箱",function()
         mod:AddEntityTransl(item[1],item[2],item[3],item[4],item[5])
     end
     for _, item in ipairs(items) do
-        mod:AddTranslate(100, item[1], item[2], item[3], item[4], item[5])
+        mod:AddTranslate(100, item[1], item[2], item[3], item[4].."#{{Collectible"..Isaac.GetItemIdByName("Army Barrel").."}} 所属mod: Curiosity Crate", item[5])
     end
     for _, item in ipairs(trinkets) do
-        mod:AddTranslate(350, item[1], item[2], item[3], item[4], item[5])
+        mod:AddTranslate(350, item[1], item[2], item[3], item[4].."#{{Collectible"..Isaac.GetItemIdByName("Army Barrel").."}} 所属mod: Curiosity Crate", item[5])
     end
     for _, item in ipairs(cards) do
-        mod:AddTranslate(300, item[1], item[2], item[3], item[4], item[5])
+        mod:AddTranslate(300, item[1], item[2], item[3], item[4].."#{{Collectible"..Isaac.GetItemIdByName("Army Barrel").."}} 所属mod: Curiosity Crate", item[5])
     end    
 end)
