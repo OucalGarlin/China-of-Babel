@@ -367,13 +367,13 @@ mod:AddModTranslationLoader("EnlightenmentMod", "启蒙之路",function()
 	}
 	mod:AddToConditionalList(conditionalList)
 	for _, item in ipairs(items) do
-		mod:AddTranslate(100, item[1], item[2], item[3], item[4], item[5])
+		mod:AddTranslate(100, item[1], item[2], item[3], item[4].."#{{Player"..Isaac.GetPlayerTypeByName("Enlightened Keeper",false).."}} 所属mod: Road to Enlightenment", item[5])
 	end
 	for _, item in ipairs(trinkets) do
-		mod:AddTranslate(350, item[1], item[2], item[3], item[4], item[5])
+		mod:AddTranslate(350, item[1], item[2], item[3], item[4].."#{{Player"..Isaac.GetPlayerTypeByName("Enlightened Keeper",false).."}} 所属mod: Road to Enlightenment", item[5])
 	end
 	for _, item in ipairs(cards) do
-		mod:AddTranslate(300, item[1], item[2], item[3], item[4], item[5])
+		mod:AddTranslate(300, item[1], item[2], item[3], item[4].."#{{Player"..Isaac.GetPlayerTypeByName("Enlightened Keeper",false).."}} 所属mod: Road to Enlightenment", item[5])
 	end
 	if EnlightenmentMod then--加了这个，不然如果没打对应mod会报错加载失败，虽然实际不影响但是控制台看着不舒服
 		EID:addBirthright(
