@@ -1,5 +1,5 @@
 local mod=CNEIDBabel
-mod:AddModTranslationLoader("battleFantasy","战争幻想\n注: 建议安装Encyclopedia以查看该模组的轶事描述 (那个没有翻译哈哈)",function()
+mod:AddModTranslationLoader("battleFantasy","战争幻想\n* 注: 建议安装Encyclopedia以查看该模组的轶事描述 (那个没有翻译哈哈)\n* 更合理的道具品质 已生效!",function()
     if battleFantasy then
         local items={
             {
@@ -21,20 +21,18 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n注: 建议安装Ency
                 "五重射击 + 伤害上升",
                 "五重泪弹! 出来!#{{ArrowDown}} 0.42x {{Tears}}射速#{{ArrowUp}} +1 {{Damage}}伤害",
                 {ABY="5只蝗虫",
-                CONF={CollectibleType.COLLECTIBLE_20_20,"Twenty"},
-                QUA=3}--4级有点过了感觉
+                CONF={CollectibleType.COLLECTIBLE_20_20,"Twenty"}}
             },{
                 battleFantasy.Items.BF_BLAZING_IRIS,
                 "燃烧的虹膜",
                 "它看着你的一举一动",
                 "可以抵挡敌弹的燃烧眼球环绕物#每隔几秒, 其视野内的所有敌弹转换为高伤害火焰",
-                {CONF={"5.350.141","SirenIris"},
-                QUA=2}--泛用性真不高感觉（我反正不喜欢）
+                {CONF={"5.350.141","SirenIris"}}
             },{
                 battleFantasy.Items.BF_BLOOD_PACT,
                 "血之契约",
                 "用血签注",
-                "{{Tears}} 根据角色拥有的红心数{{Heart}}指数提供射速增益#{{ArrowUp}} 每失去一个心之容器{{EmptyHeart}}获得+0.6 {{Damage}}伤害",
+                "{{Tears}} 根据角色拥有的红心数{{Heart}}指数提供射速增益#{{ArrowUp}} 每失去一个心之容器{{EmptyHeart}}获得+0.6 {{Damage}}伤害#",
                 {ABY="造成两倍伤害的蝗虫",
                 CHAR={
                     {PlayerType.PLAYER_THELOST,"LostPack",true},
@@ -46,7 +44,7 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n注: 建议安装Ency
                 battleFantasy.Items.BF_BOILING_BLOOD,
                 "热血沸腾",
                 "我火了...",
-                "{{ArrowUp}} 每个半红心提供+0.15 {{Damage}}伤害#受伤后释放10团火焰#{{Burning}} 火焰的伤害为: {{Damage}} + 20",
+                "{{ArrowUp}} 每个{{HalfHeart}}半红心提供+0.15 {{Damage}}伤害#受伤后释放10团火焰#{{Burning}} 火焰的伤害为: {{Damage}} + 20",
                 {ABY="25%的概率施加{{Burning}}灼烧的蝗虫",
                 CONF={{CollectibleType.COLLECTIBLE_GHOST_PEPPER,"5.350."..battleFantasy.Trinkets.BF_ECTOPLASM},"BlueBoil"},
                 QUA=2}--数值还是太保守了，也不可能当受伤触发道具用
@@ -54,7 +52,7 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n注: 建议安装Ency
                 battleFantasy.Items.BF_BOOK_OF_PHANTOMS,
                 "恶鬼之书",
                 "毁灭肉身",
-                "{{Warning}} 移除所有{{Heart}}心之容器#若此时少于6 {{SoulHeart}}则补充魂心至6个#{{ArrowDown}} 多次使用会导致永久减少攻击倍率, 下限为10%",
+                "{{Warning}} 移除所有{{Heart}}心之容器#若此时少于6{{SoulHeart}}则补充魂心至6个#{{ArrowDown}} 多次使用会导致{{ColorRed}}永久减少攻击倍率, 最少剩余10%{{CR}}",
                 {VIR="2个高生命的魂火",
                 ABY="每拥有{{HalfSoulHeart}}半个魂心, 蝗虫额外造成1伤害",
                 CONF={"5.350."..TrinketType.TRINKET_BLACK_FEATHER,"PhanFeather"},
@@ -64,13 +62,13 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n注: 建议安装Ency
                 battleFantasy.Items.BF_BREEZE_FROM_HOME,
                 "家乡的微风",
                 "怀旧漫步",
-                "{{ArrowUp}} 使用后在当前房间内获得全属性提升#在当前房间内获得一个{{ColorYellow}}可召唤{{CR}}的Flash时期道具的效果({{Collectible1}} -> {{Collectible197}})",
+                "{{ArrowUp}} 使用后在当前房间内获得全属性提升#在当前房间内获得一个{{ColorYellow}}可召唤{{CR}}的Flash版本道具的效果({{Collectible1}} -> {{Collectible197}})",
                 {VIR="较弱的魂火, 必定石化敌人"}
             },{
                 battleFantasy.Items.BF_BROKEN_SNOWGLOBE,
                 "破碎的雪景球",
                 "严寒泪弹",
-                "{{ArrowUp}} +0.61 {{Tears}}射速#{{ArrowDown}} -0.16 {{Shotspeed}}弹速#{{Freezing}} 泪弹有10%的概率冻结敌人, 能造成2倍伤害#{{Luck}} 幸运22: 50",
+                "{{ArrowUp}} +0.61 {{Tears}}射速#{{ArrowDown}} -0.16 {{Shotspeed}}弹速#{{Freezing}} 有10%的概率发射2倍伤害的{{ColorBlue}}冻结泪弹{{CR}}#{{Luck}} 幸运22: 50",
                 {ABY="造成1.25x伤害的蝗虫, 有5%的概率施加{{Freezing}}冰冻",
                 CONF={448,"GlobeShard"}}
             },{
@@ -93,7 +91,7 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n注: 建议安装Ency
                 battleFantasy.Items.BF_CHANCE_CARD,
                 "机遇卡",--捏他: 大富翁   该死我都没玩过我都不知道是不是叫这个
                 "赌一把",
-                "使用后, 复制一张随机卡牌的效果#{{Card}} 85% 为塔罗牌, 10%为逆位塔罗牌, 5%为扑克牌或杂牌({{GarlinIcon}}{{ColorRainbow}}没有自杀之王{{CR}})#对符文或其他副手物品无效, 不兼容其他模组的卡牌=(",--你猜我为什么会在意有没有自杀之王?
+                "使用后, 触发随机卡牌的效果#{{Card}} 85% 为塔罗牌, 10%为逆位塔罗牌, 5%为扑克牌或杂牌( {{GarlinIcon}}{{ColorRainbow}}没有自杀之王{{CR}})#对符文或其他副手物品无效, {{ColorFade}}不兼容其他模组的卡牌=({{CR}}",--你猜我为什么会在意有没有自杀之王?
                 {VIR="有概率在敌人死亡后触发随机塔罗牌的效果, 概率取决于拥有机遇卡魂火的数量",
                 ABY="20%的概率在杀死敌人后触发弱化的塔罗牌效果",
                 QUA=1}--跟卡牌盒坐一桌去
@@ -109,7 +107,7 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n注: 建议安装Ency
                     {{68,118},"BrimShard"},
                     {52,"DrCrystal"},
                     {114,"CrystalKnife"}
-                },QUA=3}--对单输出提升并没有特别高其实，但确实有强度，兼容也不错，但是抱歉你跟科技一桌
+                },QUA=3}--对单输出提升并没有特别高其实，但确实有强度，兼容也不错，跟科技一桌
             },{
                 battleFantasy.Items.BF_CUP_OF_YOGURT,
                 "一杯酸奶",
@@ -119,7 +117,8 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n注: 建议安装Ency
                 battleFantasy.Items.BF_DEMONIC_BRACE,
                 "魔系支柱",
                 "天使中的魔鬼",--存疑
-                "{{ArrowUp}} +1 {{Damage}}伤害#{{HalfBlackHeart}} 获得半黑心#拾取{{EternalHeart}}时, 同时获得一个{{BlackHeart}}#{{GarlinIcon}} 拾取第偶数个永恒之心(使其与原有的永恒之心结合成生命上限)不生效",
+                "{{ArrowUp}} +1 {{Damage}}伤害#{{HalfBlackHeart}} 获得半黑心#拾取{{EternalHeart}}时, 同时获得一个{{BlackHeart}}#{{GarlinIcon}} 不知何种原因, 在开启某些模组后可能导致拾取第偶数个永恒之心(使其与原有的永恒之心结合成生命上限)不生效",
+                --看在你加伤害的份上原谅你了不改你品质，跟五角星坐一桌去
             },{
                 battleFantasy.Items.BF_EARWORM,
                 "耳朵虫",
@@ -140,7 +139,7 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n注: 建议安装Ency
             },{
                 battleFantasy.Items.BF_ETERNAL_D1,
                 "永恒一面骰",
-                "旧神归来?",
+                "旧神回归?",
                 "{{Collectible".. CollectibleType.COLLECTIBLE_D1 .."}} 类似削弱前的一面骰, 生成房间内的一个掉落物的完全复制#33%的概率删除房间内的所有相同掉落物#{{IGIcon}} 可以复制饰品",
                 {VIR="若触发了删除掉落物的效果, 失去所有的永恒一面骰魂火",
                 ABY="造成0.666x伤害的蝗虫, 有33%的概率在杀死敌人后顺带杀死附近的敌人"}
@@ -148,12 +147,12 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n注: 建议安装Ency
                 battleFantasy.HiddenItems.BF_EVES_PRAYER_CARD,
                 "夏娃的祈祷卡",
                 "你丫会不会玩夏娃啊",--存疑
-                "移除1心之容器, 直至角色少于1 {{Heart}}",
+                "移除1心之容器, 直至角色剩余1 {{Heart}}",
             },{
                 battleFantasy.Items.BF_FAST_DIE,
                 "飞骰",
                 "没时间了, 开ROLL!",
-                "{{Collectible105}} 重随房间内的道具#20% 的概率复制房间内的一个道具#{{ArrowDown}} 有概率连续重随5次, 而后失去飞骰#上述效果生效后, 有25%的概率在下一层再次遇到飞骰",
+                "{{Collectible105}} 重随房间内的道具#20% 的概率复制房间内的一个道具#{{ArrowDown}} {{ColorCyan}}有概率连续重随5次, 而后失去飞骰{{CR}}#上述效果生效后, 有25%的概率{{ColorYellow}}在下一层再次遇到飞骰{{CR}}",
                 {CAR="有概率复制2个道具, 概率互相独立#重随效果不会复制",
                 BEL="在{{DevilRoom}}恶魔房使用时, 33%的概率复制道具",
                 ABY="1.25速"}
@@ -198,7 +197,7 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n注: 建议安装Ency
                 battleFantasy.Items.BF_HOLY_BOMBS,
                 "神圣炸弹",
                 "+7炸弹 + 神圣爆破",
-                "{{Bomb}} +7炸弹#炸弹爆炸会生成一个暂时的神圣光环, 角色在其中获得{{Tears}} 1.5x射速, {{Damage}} 1.25x伤害, {{ColorPink}}追踪泪弹{{CR}}和{{ColorRed}}爆炸免疫{{CR}}#炸弹爆炸时若范围内没有敌人, 同时释放X向圣光",
+                "{{Bomb}} +7炸弹#炸弹爆炸会生成一个暂时的神圣光环, 角色在其中获得{{Tears}} 1.5x射速, {{Damage}} 1.25x伤害, {{ColorPink}}追踪泪弹{{CR}}和{{ColorYellow}}爆炸免疫{{CR}}#炸弹爆炸时若范围内没有敌人, 同时释放X向圣光",
                 {ABY="追踪敌人的蝗虫, 每次攻击有25%的概率爆炸, 造成20伤害",
                 CONF={52,"drFetusHolyBomb"}}
             },{
@@ -248,7 +247,7 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n注: 建议安装Ency
                 battleFantasy.Items.BF_SPIRIT_BURNER,
                 "魂油灯",
                 "融毁灵魂",
-                "敌人有7.5%的概率掉落一个魂石#{{ArrowDown}} 任何魂石不会在离开房间后保留#使用后, 消耗持有的魂石并存储; 存储3个魂石后, 再次使用会根据存储的魂石的品质生成掉落物或道具",
+                "持有时, 敌人有7.5%的概率掉落一个魂石#!!! {{ColorRed}}任何魂石不会在离开房间后保留{{CR}}#使用后, 消耗持有的魂石并存储; 存储3个魂石后, 再次使用会根据存储的魂石的品质生成掉落物或道具#{{GarlinIcon}} 可在死海卷轴中设置是否显示魂石品质",
                 {BEL="{{Card84}}犹大的魂石具有更高的品质",--不是你丫?
                 ABY="7.5%的概率在杀死敌人后生成魂石",
                 QUA=3}--魂石爆率挺高的, 但魂石不保存全部变成其他掉落物那跟里蓝人没有炸弹有什么区别（难怪给重随的魂石低品质）
@@ -282,17 +281,18 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n注: 建议安装Ency
                 {VIR="有概率发射毒性泪弹的魂火",
                 BEL="25% 的概率将蓝苍蝇替换为瘟疫蝗虫",
                 ABY="5%的概率施加{{Poison}}中毒的蝗虫"}
+                --QUA=1      想乳一下腐烂心主动但还是算了吧
             },{
                 battleFantasy.Items.BF_WHITE_HABANERO,
-                "白色夏宾奴",
+                "白色哈瓦那",
                 "圣火攻击",
                 "有概率在攻击时额外发射一团圣火#圣火造成3倍伤害, 且能提供一个光环, 光环内的角色获得{{Tears}} 2x射速, {{Damage}} 1.25x伤害和{{ColorPink}}追踪泪弹{{CR}}#{{Luck}} 幸运20: 20%",
             },{
                 battleFantasy.Items.BF_WHITE_KEY,
                 "白钥匙",
                 "永恒回报",
-                "{{HolyChest}} 在一些特定的房间内生成永恒箱子#在永恒箱子伤花费钥匙有50%的概率回本#从永恒箱子中出现的道具将在两种选择中循环, 另外一个道具来自{{AngelRoom}}",
-                {ABY="造成1.75x伤害的追踪蝗虫"}
+                "{{HolyChest}} 在一些特定的房间内生成永恒箱子#在永恒箱子上花费钥匙{{ColorYellow}}有50%的概率回本{{CR}}#从永恒箱子中出现的道具将在两种选择中循环, 另外一个道具来自{{AngelRoom}}",
+                {ABY="造成1.75x伤害的追踪蝗虫"}--跟妈妈的钥匙一桌
             },{
                 battleFantasy.Items.BF_FALLEN_WING,
                 "堕者羽翼",
@@ -347,7 +347,7 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n注: 建议安装Ency
                 battleFantasy.Trinkets.BF_OCD,
                 "强迫症",
                 "皆应完美",
-                "将除{{Speed}}{{Shotspeed}}外的属性四舍五入至最接近的整数#移速和弹速被四舍五入至小数点后一位",
+                "将除{{Speed}}{{Shotspeed}}外的属性向上取整#{{Speed}}{{Shotspeed}}取至小数点后一位",
                 {GOLD={INFO={append=true},TEXT={"调整属性前获得全属性提升","调整属性前获得全属性提升","调整属性前获得全属性提升"}}}
             },{
                 battleFantasy.Trinkets.BF_PLASTIC_KNIFE,
@@ -425,25 +425,25 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n注: 建议安装Ency
             MoreGift="有50%的概率同样触发神秘钥匙与潘多拉的盒子的特殊兼容效果, 并消耗饰品",
             Twenty="取消射速下降",
             SirenIris="更短的生效间隔",
-            LostPack="+0.85 {{Tears}}射速#每进行过一次恶魔交易{{DevilRoom}}获得+0.6 {{Damage}}伤害",
-            KeePack="每失去一个硬币心{{EmptyCoinHeart}}获得+2.4 {{Damage}}伤害",
-            MiserPack="每失去一个硬币心{{EmptyCoinHeart}}获得+3.6 {{Damage}}伤害",
-            BonePack="每失去一个骨心{{EmptyBoneHeart}}获得+1.2 {{Damage}}伤害",
+            LostPack="#+0.85 {{Tears}}射速#每进行过一次恶魔交易{{DevilRoom}}获得+0.6 {{Damage}}伤害",
+            KeePack="#每失去一个硬币心{{EmptyCoinHeart}}获得+2.4 {{Damage}}伤害",
+            MiserPack="#每失去一个硬币心{{EmptyCoinHeart}}获得+3.6 {{Damage}}伤害",
+            BonePack="#每失去一个骨心{{EmptyBoneHeart}}获得+1.2 {{Damage}}伤害",
             BlueBoil="火焰替换为蓝火焰(仅视觉效果)",
-            BethPhan="保留1个心之容器, 并获得18魂心充能; 该道具变为一次性"，
+            BethPhan="保留1个心之容器, 并获得18魂心充能; 该道具变为一次性",
             drFetusHolyBomb="有概率投掷神圣炸弹, 幸运为29.67时达到最大100%",
             MilkyLyre="下调特殊泪弹的伤害下限",
             DrLyre="特殊泪弹的伤害下限上调至150"
         }
         mod:AddToConditionalList(conditionalList)
         for _, item in ipairs(items) do
-            mod:AddTranslate(100, item[1], item[2], item[3], item[4], item[5])
+            mod:AddTranslate(100, item[1], item[2], item[3], item[4].."#{{Collectible"..battleFantasy.Items.BF_CRYSTAL_SHARD.."}} 所属mod: Battle Fantasy", item[5])
         end
         for _, item in ipairs(trinkets) do
-            mod:AddTranslate(350, item[1], item[2], item[3], item[4], item[5])
+            mod:AddTranslate(350, item[1], item[2], item[3], item[4].."#{{Collectible"..battleFantasy.Items.BF_CRYSTAL_SHARD.."}} 所属mod: Battle Fantasy", item[5])
         end
         for _, item in ipairs(card) do
-            mod:AddTranslate(300, item[1], item[2], item[3], item[4], item[5])
+            mod:AddTranslate(300, item[1], item[2], item[3], item[4].."#{{Collectible"..battleFantasy.Items.BF_CRYSTAL_SHARD.."}} 所属mod: Battle Fantasy", item[5])
         end
     end
 end)
