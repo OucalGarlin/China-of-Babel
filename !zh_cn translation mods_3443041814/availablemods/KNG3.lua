@@ -1,5 +1,5 @@
 local mod = CNEIDBabel
-mod:AddModTranslationLoader("Diepio", "踢脚与讥笑(Kicks and Giggles)\n 警告: 本EID汉化完全根据维基译制, 与原版EID可能存在较大差异",function()
+mod:AddModTranslationLoader("Diepio", "踢脚与讥笑(Kicks and Giggles)\n* 警告: 本EID汉化完全根据维基译制, 与原版EID可能存在较大差异",function()
     if Diepio then
         local items={
             {
@@ -517,13 +517,13 @@ mod:AddModTranslationLoader("Diepio", "踢脚与讥笑(Kicks and Giggles)\n 警�
             mod:AddEntityTransl(item[1],item[2],item[3],item[4],item[5])
         end
         for _, item in ipairs(items) do
-            mod:AddTranslate(100, item[1], item[2], item[3], item[4], item[5])
+            mod:AddTranslate(100, item[1], item[2], item[3], item[4].."#{{Player"..Diepio.Enums.PlayerType.LEWIS_B.."}} 所属mod: Kicks and Giggles", item[5])
         end
         for _, item in ipairs(trinket) do
-            mod:AddTranslate(350, item[1], item[2], item[3], item[4], item[5])
+            mod:AddTranslate(350, item[1], item[2], item[3], item[4].."#{{Player"..Diepio.Enums.PlayerType.LEWIS_B.."}} 所属mod: Kicks and Giggles", item[5])
         end
         for _, item in ipairs(cards) do
-            mod:AddTranslate(300, item[1], item[2], item[3], item[4], item[5])
+            mod:AddTranslate(300, item[1], item[2], item[3], item[4].."#{{Player"..Diepio.Enums.PlayerType.LEWIS_B.."}} 所属mod: Kicks and Giggles", item[5])
         end    
     end
 end)
