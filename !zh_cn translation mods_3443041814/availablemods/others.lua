@@ -22,10 +22,10 @@ mod:AddModTranslationLoader("MalwareHorseman","病毒骑士(Malware and Spam)",f
         }
     }
     for _, item in ipairs(item) do
-        mod:AddTranslate(100, item[1], item[2], item[3], item[4], item[5])
+        mod:AddTranslate(100, item[1], item[2], item[3], item[4].."#所属mod: Malware and Spam", item[5])
     end
     for _, item in ipairs(trinket) do
-        mod:AddTranslate(350, item[1], item[2], item[3], item[4], item[5])
+        mod:AddTranslate(350, item[1], item[2], item[3], item[4].."#所属mod: Malware and Spam", item[5])
     end
 end)
 mod:AddModTranslationLoader("BlessingsBushel","一束祝福之瑰",function()
@@ -113,7 +113,7 @@ mod:AddModTranslationLoader("BlessingsBushel","一束祝福之瑰",function()
         }
     }
     for _, item in ipairs(item) do
-        mod:AddTranslate(100, item[1], item[2], item[3], item[4], item[5])
+        mod:AddTranslate(100, item[1], item[2], item[3], item[4].."#所属mod: A Bushel of Blessing", item[5])
     end
 end)
 mod:AddModTranslationLoader("BurdensBushel","枯萎的祝福",function()
@@ -206,6 +206,204 @@ mod:AddModTranslationLoader("BurdensBushel","枯萎的祝福",function()
         }
     }
     for _, item in ipairs(item) do
-        mod:AddTranslate(100, item[1], item[2], item[3], item[4], item[5])
+        mod:AddTranslate(100, item[1], item[2], item[3], item[4].."#所属mod: A Bushel of Burdens", item[5])
+    end
+end)
+mod:AddModTranslationLoader("_FOKS_BOOSTER_PACK_MOD","Foks 补充包",function()
+    if _FOKS_BOOSTER_PACK_MOD then
+        fox=_FOKS_BOOSTER_PACK_MOD
+        local items={
+            {
+                fox.Collectible.TOY_SOLDIER,
+                "玩具士兵",
+                "前线护盾",--直译为“你的前线”
+                "{{Shield}} 获得一个每层抵挡一次伤害的护盾#{{DevilRoom}} 护盾也可以被用于交易#{{Warning}} 同样会影响{{AngelChance}}天使房出现率"
+            },{
+                fox.Collectible.EPHEMERAL_TORCH,
+                "瞬息之炬",
+                "将其点燃",
+                "{{ArrowUp}} {{Luck}} 幸运+10#{{ArrowDown}} {{Luck}} 清理房间后-1幸运, 不会导致亏损#碰撞火堆会重新获得所有幸运#5%的概率将石头替换为火堆",
+                {ABY="火系橙色蝗虫"}
+            },{
+                fox.Collectible.CLAY_JAR,
+                "粘土罐头",
+                "把它砸烂!",
+                "{{Throwable}} 可以被投掷的罐头, 会在敌人和障碍物间弹射#罐头造成18碰撞伤害#{{BleedingOut}} 落地后分解成碎片, 造成每段判定4伤害, 并施加流血",
+                {VIR="静止的橙色魂火#火焰泪弹",
+                CONF={"5.350.166","BetterClay"}}
+            },{
+                fox.Collectible.BAALS_ALTAR,
+                "巴力祭坛",
+                "尚存何物得以供奉?",
+                "使用以储存碰到的道具底座, 或将储存的道具放下#{{Shop}} 可以白嫖商店或恶魔交易#{{Warning}} 储存的主动道具将失去充能",
+                {VIR="没有效果"}
+            },{
+                fox.Collectible.ASHERAH_POLE,
+                "亚舍拉柱",
+                "伪神",
+                "靠近的敌人会被标记#被标记的敌人会持续被3道光柱轰击直至死亡#{{Warning}} 光柱会伤害角色",
+                {BFF="生成更多的光柱",
+                ABY="有概率生成光柱造成三倍伤害的白色微光低速蝗虫"}
+            },{
+                fox.Collectible.COVENANT,
+                "协议",
+                "相信君之所言",
+                "遇到多选一道具底座时会标记其中一个#{{ArrowUp}} {{Damage}} 拾取被标记的道具会获得伤害+1和{{EternalHeart}}1永恒之心#{{AngelDevilChance}} 恶魔房/天使房出现率+35%"
+            },{
+                fox.Collectible.BATTLE_BANNER,
+                "战旗",
+                "继续前进",
+                "{{ArrowUp}} {{Damage}} 伤害倍率x1.8#{{Warning}} 千万不要打\"退\"堂鼓! 连续两次进入已清理的房间将失去伤害增益#进入新楼层后恢复失去的伤害增益"
+            },{
+                fox.Collectible.DEMISE_OF_THE_FAITHFUL,
+                "信仰亡魂",
+                "没有机会可言",
+                "{{EmptyBoneHeart}} 获得1骨心#{{ArrowUp}} {{Damage}} 伤害倍率x1.3#{{BossRoom}} 头目被击败后生成更多战利品",
+            },{
+                fox.Collectible.APPETIZER,
+                "开胃小菜",
+                "生命上升!",
+                "{{ArrowUp}} {{Heart}} 心之容器+1#{{HealingRed}} 治疗1红心#生命上限最大值+1",
+                {CONF={CollectibleType.COLLECTIBLE_BINGE_EATER,"BingeAppetizer"}}
+            },{
+                fox.Collectible.HAPPY_FLY,
+                "快乐的苍蝇",
+                "她很可爱",
+                "在房间内随机移动#碰到它会获得1.2s无敌",
+                {BFF="更长的无敌时间"}
+            },{
+                fox.Collectible.GROCERY_BAG,
+                "杂货袋子",
+                "非常方便",
+                "将{{Coin}}硬币, {{Bomb}}炸弹, {{Key}}钥匙的持有上限增加50#{{Shop}} 可能遇见更好的商店布局和{{ColorYellow}}杂货店道具池{{CR}}道具"
+            },{
+                fox.Collectible.TOY_SHOVEL,
+                "玩具铲子",
+                "宝藏之主",
+                "10%的概率挖出随机掉落物#如果在特殊地板标记上使用则为50%#{{IGIcon}} 如果在墓室或{{Shop}}商店使用则概率+10%, {{TreasureRoom}}宝箱房则+20%",
+                {VIR="有概率获得随机掉落物魂火",
+                CONF={{CollectibleType.COLLECTIBLE_TREASURE_MAP,CollectibleType.COLLECTIBLE_BLUE_MAP},"TreasureFinder"}}
+            },{
+                fox.Collectible.DEL_KEY,
+                "删除键",
+                "移除废物",
+                "所有敌人持续受到伤害{{ColorError}}直至死亡{{CR}}#{{ERROR}} {{ColorError}}污染贴图{{CR}}",
+                {VIR="内环粉色魂火, 不会攻击且仅能承受一次伤害#被敌人熄灭后会使那个敌人持续受到伤害直至死亡"}
+            },{
+                fox.Collectible.CRACKED_MIRROR,
+                "碎镜子",
+                "连年厄运",
+                "{{ArrowDown}} {{Luck}} 幸运-1#{{MirrorShard}} 敌人死亡后有概率掉落存在7s的镜子碎片#{{Luck}} 概率取决于幸运, 幸运-15: 50%#{{Pill}} 药丸池中强制加入幸运下降"
+            },{
+                fox.Collectible.BOX_CUTTER,
+                "开箱小刀",
+                "里面有啥?",--我想写个“把自己开盒了”
+                "{{EmptyHeart}} 消耗1心之容器#生成6个随机掉落物#{{Collectible214}} 在当前房间内获得贫血",
+                {VIR="2个外环魂火",
+                CONF={
+                    {CollectibleType.COLLECTIBLE_BOX,"OpenBox"},
+                    {CollectibleType.COLLECTIBLE_MOVING_BOX,"OpenMoving"},
+                    {CollectibleType.COLLECTIBLE_CRACK_JACKS,"OpenJack"},
+                    {CollectibleType.COLLECTIBLE_BOX_OF_SPIDERS,"OpenSpider"},
+                }}
+            },{
+                fox.Collectible.PLASTIC_BRICK,
+                "塑料积木砖",
+                "反步兵地雷",--原文：看好你的脚下
+                "{{PlasticBrick}} 生成一个塑料积木掉落物#{{PlasticBrick}} 有概率在进入新房间时生成2个塑料积木",
+            },{
+                fox.Collectible.DIRGE_BELL,
+                "哀悼铃",
+                "为汝长鸣",
+                "清理房间会生成一个跟班, 发射5伤害灵体泪弹#至多可拥有10个跟班#{{Warning}} 跟班受伤即死亡",
+                {BFF="伤害翻倍"}
+            },{
+                fox.Collectible.DEAD_ORANGE,
+                "死橘子",
+                "腐烂心情",
+                "{{ArrowUp}} {{Tears}} 射速+0.5#{{ArrowUp}} {{EmptyHeart}} 获得1空心之容器#{{ArrowUp}} {{RottenHeart}} 获得2腐心#{{RottenHeart}} 头目死亡后生成腐心"
+            },{
+                fox.Collectible.SNARED_FOX,
+                "被捕的狐狸",
+                "万物俱腐",
+                "{{RottenHeart}} 生成1腐心#生成3-6蓝苍蝇#每6次攻击发射6个扭动泪弹",
+                {ABY="1.1倍伤害的毒系绿色蝗虫"}
+            }
+        }
+        local trinket={
+            {
+                fox.Trinket.TRUMPET,
+                "小号",
+                "惊弓之鸟",
+                "{{Fear}} 进入房间后, 20%的概率对随机怪物施加恐惧3s#{{Damage}} 恐惧的敌人额外受到50%伤害",
+                {GOLD={INFO={findReplace=true},TEXT={"50","100","150"}}}
+            },{
+                fox.Trinket.WHITE_FLAG,
+                "白旗",
+                "开摆",
+                "每个房间无视第一次受伤#受伤后掉落该饰品并传送至初始房间#{{Warning}} 只有在清理房间后才能重新拾起该饰品",
+                {GOLD={INFO={goldenOnly = true, findReplace = true, mult = 2},TEXT={"初始房间","宝箱房或星象房(类型XVII-星辰)"}}}
+            },{
+                fox.Trinket.THRESHED_WHEAT,
+                "打谷之心",
+                "大丰收",
+                "攻击时每秒释放一次谷粒乱弹",
+                {GOLD={INFO={findReplace = true},TEXT={"一次","两次","三次"}}}
+            },{
+                fox.Trinket.LUCKY_BUG,
+                "幸运瓢虫",
+                "你感到幸运?",
+                "{{ArrowUp}} {{Luck}} 清理房间有15%的概率获得永久幸运提升#{{ArrowDown}} {{Luck}} 有3%的概率失去所有的幸运提升并掉落该饰品#{{Warning}} 小心不要让虫子逃跑了!",
+                {GOLD={INFO={findReplace=true},TEXT={"15","30","45"}}}
+            },{
+                fox.Trinket.MOMS_TELEPHONE,
+                "妈妈的电话",
+                "你知道她的电话的",
+                "进入未清理房间18s后触发{{Card50}}紧急联系电话的效果",
+                {GOLD={INFO={findReplace=true},TEXT={"18","9","6"}}}
+            },{
+                fox.Trinket.CAUTION_SIGN,
+                "警示标",
+                "注意让行",
+                "{{Warning}} 最后一个死亡的敌人自爆",
+                {GOLD={INFO={append=true},TEXT={"释放十字爆炸","释放十字爆炸","释放十字爆炸"}}}
+            },{
+                fox.Trinket.RUNE_STONE,
+                "符石",
+                "窥见真理",
+                "{{Rune}} 标记石头摧毁后额外掉落符文",
+                {GOLD={INFO={append=true},TEXT={"掉落更多符文","掉落更多符文","掉落更多符文"}}}
+            }
+        }
+        local other={
+            {
+                5, fox.Pickup.MIRROR_SHARD, 0,
+                "{{MirrorShard}} 镜子碎片",
+                "{{BleedingOut}} 可以被捡起并投掷的灵体穿透玻璃片, 造成5x角色伤害并施加流血"
+            },{
+                5,fox.Pickup.PLASTIC_BRICK, 0,
+                "{{PlasticBrick}} 塑料积木砖",
+                "在不造成伤害的情况下触发受伤触发道具"
+            }
+        }
+        local conditionalList={
+            BetterClay="罐头造成更高的碰撞伤害",
+            BingeAppetizer="+2.5{{Range}}射程, +1{{Luck}}幸运",
+            TreasureFinder="概率+20%",
+            OpenBox="额外生成2个掉落物",
+            OpenMoving="根据其中物品的数量获得额外的掉落物",
+            OpenJack="额外生成1个随机饰品",
+            OpenSpider="额外生成数个蓝蜘蛛"
+        }
+        mod:AddToConditionalList(conditionalList)
+        for _, item in ipairs(items) do
+            mod:AddTranslate(100, item[1], item[2], item[3], item[4].."#所属mod: Foks Booster Pack", item[5])
+        end
+        for _, item in ipairs(trinket) do
+            mod:AddTranslate(350, item[1], item[2], item[3], item[4].."#所属mod: Foks Booster Pack", item[5])
+        end
+        for _, item in ipairs(other) do
+            mod:AddEntityTransl(item[1],item[2],item[3],item[4],item[5])
+        end
     end
 end)
