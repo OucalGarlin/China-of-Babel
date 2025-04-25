@@ -1,5 +1,5 @@
 local mod = CNEIDBabel
-mod:AddModTranslationLoader("LNF","迷失与遗忘",function()
+mod:AddModTranslationLoader("LNF","迷失与遗忘\n* 本汉化可能跟不上版本了，但好在汉化EID已投稿至官方，各位即使不安装本模组也可体验中文",function()
     if LNF then
         local items={
             {
@@ -1044,16 +1044,16 @@ mod:AddModTranslationLoader("LNF","迷失与遗忘",function()
         }
         mod:AddToConditionalList(conditionalList)
         for _, item in ipairs(items) do
-            mod:AddTranslate(100, item[1], item[2], item[3], item[4], item[5])
+            mod:AddTranslate(100, item[1], item[2], item[3], item[4].."#所属mod: Lost and Forgotton", item[5])
         end
         for _, item in ipairs(trinkets) do
-            mod:AddTranslate(350, item[1], item[2], item[3], item[4], item[5])
+            mod:AddTranslate(350, item[1], item[2], item[3], item[4].."#所属mod: Lost and Forgotton", item[5])
         end
         for _, item in ipairs(cards) do
-            mod:AddTranslate(300, item[1], item[2], item[3], item[4], item[5])
+            mod:AddTranslate(300, item[1], item[2], item[3], item[4].."#所属mod: Lost and Forgotton", item[5])
         end
         for _, item in ipairs(pill) do
-            mod:AddTranslate(70,item[1],item[2],"empty",item[3],item[4])
+            mod:AddTranslate(70,item[1],item[2],"empty",item[3].."#所属mod: Lost and Forgotton",item[4])
         end
         for _, item in ipairs(other) do
             mod:AddEntityTransl(item[1],item[2],item[3],item[4],item[5])
