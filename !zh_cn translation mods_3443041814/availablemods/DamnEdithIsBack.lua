@@ -1,5 +1,5 @@
 local mod = CNEIDBabel
-mod:AddModTranslationLoader("dedith", "D!伊迪斯\n 警告: 目前伊迪斯的角色兼容显示会存在异常, 会在未来修复=(",function()
+mod:AddModTranslationLoader("dedith", "D!伊迪斯\n* 警告: 目前伊迪斯的角色兼容显示会存在异常, 会在未来修复=(",function()
     if dedith then
         local items={
             {
@@ -155,7 +155,7 @@ mod:AddModTranslationLoader("dedith", "D!伊迪斯\n 警告: 目前伊迪斯的�
             CoolEdith="起跳时, "..dedith.Edith.CoolAid.PAWN_AMOUNT.."个慢速盐兵跟随跳跃"
         }
         for _, item in ipairs(items) do
-            mod:AddTranslate(100, item[1], item[2], item[3], item[4], item[5])
+            mod:AddTranslate(100, item[1], item[2], item[3], item[4].."#{{Player"..dedith.Character.EDITH.."}} 所属mod: D!Edith", item[5])
         end
         EID:addCharacterInfo(dedith.Character.EDITH,"无法同时移动和攻击#可以原地大跳(默认键位为{{ButtonRT}}#可以朝指定方向远程大跳(默认键位为攻击键+大跳键)#大跳落地后对周围敌人造成伤害#精准落在敌人的位置并将其击杀视作\"暴击落地\", 重置冷却并触发相关兼容效果","伊迪斯", "zh_cn")
         EID:addBirthright(dedith.Character.EDITH,"大跳滞空时按下攻击键以立即落地并朝指定方向滑铲直至撞墙#滑铲期间无敌并造成碰撞伤害#可以用丢弃键({{ButtonRT}})中断滑铲","伊迪斯-吝啬","zh_cn")--存疑
