@@ -1,5 +1,5 @@
 local mod = CNEIDBabel
-mod:AddModTranslationLoader("Furtherance","悲恸助长(Furtherance)\n 警告: 目前该模组汉化仅完成了基础部分, 若有发现汉化与实际效果对不上, 请及时反馈",function()
+mod:AddModTranslationLoader("Furtherance","悲恸助长(Furtherance)\n* 警告: 目前该模组汉化仅完成了基础部分, 若有发现汉化与实际效果对不上, 请及时反馈",function()
     --24年9月就有人问能不能将这个模组加入IsaacGuru, 至今没有反应, 所以这个EID汉化估计不会特别多的附赠内容
     --有github维基, 但内容没那么多, 关于道具之间的兼容欢迎各位投稿
     --维基甚至只有一个角色
@@ -746,16 +746,16 @@ mod:AddModTranslationLoader("Furtherance","悲恸助长(Furtherance)\n 警告: �
         }
     }
     for _, item in ipairs(items) do
-        mod:AddTranslate(100, item[1], item[2], item[3], item[4], item[5])
+        mod:AddTranslate(100, item[1], item[2], item[3], item[4].."#{{Player"..Isaac.GetPlayerTypeByName("Leah", true).."}} 所属mod: Furtherance", item[5])
     end
     for _, item in ipairs(trinkets) do
-        mod:AddTranslate(350, item[1], item[2], item[3], item[4], item[5])
+        mod:AddTranslate(350, item[1], item[2], item[3], item[4].."#{{Player"..Isaac.GetPlayerTypeByName("Leah", true).."}} 所属mod: Furtherance", item[5])
     end
     for _, item in ipairs(cards) do
-        mod:AddTranslate(300, item[1], item[2], item[3], item[4], item[5])
+        mod:AddTranslate(300, item[1], item[2], item[3], item[4].."#{{Player"..Isaac.GetPlayerTypeByName("Leah", true).."}} 所属mod: Furtherance", item[5])
     end
     for _, item in ipairs(pill) do
-        mod:AddTranslate(70,item[1],item[2],"empty",item[3],item[4])
+        mod:AddTranslate(70,item[1],item[2],"empty",item[3].."#{{Player"..Isaac.GetPlayerTypeByName("Leah", true).."}} 所属mod: Furtherance",item[4])
     end
     for _, item in ipairs(other) do
         mod:AddEntityTransl(item[1],item[2],item[3],item[4],item[5])
