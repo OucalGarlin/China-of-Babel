@@ -1,5 +1,5 @@
 local mod = CNEIDBabel
-mod:AddModTranslationLoader("MattPack", "Lazy Mattpack(5级道具mod)\n 警告: 道具的兼容描述待补充!",function()
+mod:AddModTranslationLoader("MattPack", "Lazy Mattpack(5级道具mod)\n* 警告: 道具的兼容描述待补充!\n* 更合理的道具品质 已生效!",function()
     local items={
         {
             "Balor",
@@ -175,6 +175,6 @@ mod:AddModTranslationLoader("MattPack", "Lazy Mattpack(5级道具mod)\n 警告: 
     }
     mod:AddToConditionalList(conditionalList)
     for _, item in ipairs(items) do
-        mod:AddTranslate(100, item[1], item[2], item[3], item[4], item[5])
+        mod:AddTranslate(100, item[1], item[2], item[3], item[4].."#{{Trinket66}} 所属mod: Lazy MattPack", item[5])
     end
 end)
