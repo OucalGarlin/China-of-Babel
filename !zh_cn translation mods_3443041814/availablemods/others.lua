@@ -241,7 +241,7 @@ mod:AddModTranslationLoader("_FOKS_BOOSTER_PACK_MOD","Foks 补充包",function()
                 fox.Collectible.ASHERAH_POLE,
                 "亚舍拉柱",
                 "伪神",
-                "靠近的敌人会被标记#被标记的敌人会持续被3道光柱轰击直至死亡#{{Warning}} 光柱会伤害角色",
+                "出现在房间内随机位置的跟班, 会标记靠近它的敌人#被标记的敌人会持续被3道光柱轰击直至死亡#{{Warning}} 光柱会伤害角色",
                 {BFF="生成更多的光柱",
                 ABY="有概率生成光柱造成三倍伤害的白色微光低速蝗虫"}
             },{
@@ -253,7 +253,7 @@ mod:AddModTranslationLoader("_FOKS_BOOSTER_PACK_MOD","Foks 补充包",function()
                 fox.Collectible.BATTLE_BANNER,
                 "战旗",
                 "继续前进",
-                "{{ArrowUp}} {{Damage}} 伤害倍率x1.8#{{Warning}} 千万不要打\"退\"堂鼓! 连续两次进入已清理的房间将失去伤害增益#进入新楼层后恢复失去的伤害增益"
+                "{{ArrowUp}} {{Damage}} 伤害倍率x1.8#{{Warning}} 千万不要打退堂鼓! 连续两次进入已清理的房间将失去伤害增益#进入新楼层后恢复失去的伤害增益"
             },{
                 fox.Collectible.DEMISE_OF_THE_FAITHFUL,
                 "信仰亡魂",
@@ -341,13 +341,13 @@ mod:AddModTranslationLoader("_FOKS_BOOSTER_PACK_MOD","Foks 补充包",function()
                 fox.Trinket.WHITE_FLAG,
                 "白旗",
                 "开摆",
-                "每个房间无视第一次受伤#受伤后掉落该饰品并传送至初始房间#{{Warning}} 只有在清理房间后才能重新拾起该饰品",
+                "每个房间抵消第一次受伤#效果触发后丢弃该饰品并传送至初始房间#{{Warning}} 只有在清理房间后才能重新拾起该饰品",
                 {GOLD={INFO={goldenOnly = true, findReplace = true, mult = 2},TEXT={"初始房间","宝箱房或星象房(类型XVII-星辰)"}}}
             },{
                 fox.Trinket.THRESHED_WHEAT,
-                "打谷之心",
+                "脱粒麦",
                 "大丰收",
-                "攻击时每秒释放一次谷粒乱弹",
+                "攻击时每秒释放一次稻谷近战攻击#近战造成{{Damage}}+1.5的伤害, 范围不会变化, 可以抵挡敌弹和拾取掉落物, 也可以与可交互实体交互({{GarlinIcon}}{{ColorRainbow}}且疑似由于某些bug导致你可以不消耗任何物资去与它们交互!{{CR}})",
                 {GOLD={INFO={findReplace = true},TEXT={"一次","两次","三次"}}}
             },{
                 fox.Trinket.LUCKY_BUG,
