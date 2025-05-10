@@ -377,17 +377,17 @@ mod:AddModTranslationLoader("EnlightenmentMod", "启蒙之路",function()
 	end
 	if EnlightenmentMod then--加了这个，不然如果没打对应mod会报错加载失败，虽然实际不影响但是控制台看着不舒服
 		EID:addBirthright(
-			Isaac.GetPlayerTypeByName("Enlightened Keeper",false),
+			Isaac.GetPlayerTypeByName("Enlightened Blue Baby",false),
 			"可以失去更多的肢节"..
 			"#{{Card"..Isaac.GetCardIdByName("Brain").."}} 脑子得到的肢节还会提供随机永久属性提升",
-			"启蒙店长",
+			"启蒙蓝人-还能失去更多",
 			"zh_cn"
 		)
 		EID:addBirthright(
-			Isaac.GetPlayerTypeByName("Enlightened Blue Baby",false),
+			Isaac.GetPlayerTypeByName("Enlightened Keeper",false),
 			"死亡后, 得到葬礼保险"..
 			"#包含永久的四重泪弹, +100幸运和27美分",
-			"启蒙蓝人",
+			"启蒙店长-无限财富",
 			"zh_cn"
 		)
 		EID:addBirthright(
@@ -396,7 +396,7 @@ mod:AddModTranslationLoader("EnlightenmentMod", "启蒙之路",function()
 			"#然后角色将操作大参孙战斗"..
 			"#大参孙可以免费承受5次伤害, 并将其转换为爆炸, 利用丢弃键将炸弹拉/踢向敌人"..
 			"#爆破周期结束后变回启蒙参孙",
-			"启蒙参孙",
+			"启蒙参孙--顺我者生, 逆我者亡",
 			"zh_cn"
 		)
 		EID:addCharacterInfo(
