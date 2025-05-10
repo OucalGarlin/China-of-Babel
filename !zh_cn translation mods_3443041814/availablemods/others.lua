@@ -235,11 +235,11 @@ mod:AddModTranslationLoader("_FOKS_BOOSTER_PACK_MOD","Foks 补充包",function()
                 fox.Collectible.BAALS_ALTAR,
                 "巴力祭坛",
                 "尚存何物得以供奉?",
-                "使用以储存碰到的道具底座, 或将储存的道具放下#{{Shop}} 可以白嫖商店或恶魔交易#{{Warning}} 储存的主动道具将失去充能",
+                "使用以储存碰到的道具底座, 或将储存的道具放下#{{Shop}} 可以白嫖商店或恶魔交易",
                 {VIR="没有效果"}
             },{
                 fox.Collectible.ASHERAH_POLE,
-                "亚舍拉柱",
+                "亚舍拉柱像",
                 "伪神",
                 "出现在房间内随机位置的跟班, 会标记靠近它的敌人#被标记的敌人会持续被3道光柱轰击直至死亡#{{Warning}} 光柱会伤害角色",
                 {BFF="生成更多的光柱",
@@ -253,7 +253,8 @@ mod:AddModTranslationLoader("_FOKS_BOOSTER_PACK_MOD","Foks 补充包",function()
                 fox.Collectible.BATTLE_BANNER,
                 "战旗",
                 "继续前进",
-                "{{ArrowUp}} {{Damage}} 伤害倍率x1.8#{{Warning}} 千万不要打退堂鼓! 连续两次进入已清理的房间将失去伤害增益#进入新楼层后恢复失去的伤害增益"
+                "{{ArrowUp}} {{Damage}} 伤害倍率x1.8#{{Warning}} 千万不要打退堂鼓! 当前楼层内若有3次进入已清理的房间将失去伤害增益#进入新楼层后恢复失去的伤害增益#{{BossRoom}} 揭示头目房的位置",
+                {CONF={fox.Collectible.BATTLE_BANNER,"Banner_Mult"}}
             },{
                 fox.Collectible.DEMISE_OF_THE_FAITHFUL,
                 "信仰亡魂",
@@ -280,7 +281,7 @@ mod:AddModTranslationLoader("_FOKS_BOOSTER_PACK_MOD","Foks 补充包",function()
                 fox.Collectible.TOY_SHOVEL,
                 "玩具铲子",
                 "宝藏之主",
-                "10%的概率挖出随机掉落物#如果在特殊地板标记上使用则为50%#{{IGIcon}} 如果在墓室或{{Shop}}商店使用则概率+10%, {{TreasureRoom}}宝箱房则+20%",
+                "10%的概率挖出随机掉落物#如果在特殊地板标记上使用则为50%#{{IGIcon}} 如果在特殊房间使用则概率+10%",
                 {VIR="有概率获得随机掉落物魂火",
                 CONF={{CollectibleType.COLLECTIBLE_TREASURE_MAP,CollectibleType.COLLECTIBLE_BLUE_MAP},"TreasureFinder"}}
             },{
@@ -316,7 +317,8 @@ mod:AddModTranslationLoader("_FOKS_BOOSTER_PACK_MOD","Foks 补充包",function()
                 "哀悼铃",
                 "为汝长鸣",
                 "清理房间会生成一个跟班, 发射5伤害灵体泪弹#至多可拥有10个跟班#{{Warning}} 跟班受伤即死亡",
-                {BFF="伤害翻倍"}
+                {BFF="伤害翻倍",
+                CONF={fox.Collectible.DIRGE_BELL,"Bell_Mult"}}
             },{
                 fox.Collectible.DEAD_ORANGE,
                 "死橘子",
@@ -392,8 +394,10 @@ mod:AddModTranslationLoader("_FOKS_BOOSTER_PACK_MOD","Foks 补充包",function()
             TreasureFinder="概率+20%",
             OpenBox="额外生成2个掉落物",
             OpenMoving="根据其中物品的数量获得额外的掉落物",
-            OpenJack="额外生成1个随机饰品",
-            OpenSpider="额外生成数个蓝蜘蛛"
+            OpenJack="必定生成1个随机饰品",
+            OpenSpider="额外生成数个蓝蜘蛛",
+            Banner_Mult="多个战旗可以增加失去伤害增益所需的退堂鼓次数",
+            Bell_Mult="清理房间可生成多个跟班, 上限不变"
         }
         mod:AddToConditionalList(conditionalList)
         for _, item in ipairs(items) do
@@ -406,4 +410,506 @@ mod:AddModTranslationLoader("_FOKS_BOOSTER_PACK_MOD","Foks 补充包",function()
             mod:AddEntityTransl(item[1],item[2],item[3],item[4],item[5])
         end
     end
+end)
+mod:AddModTranslationLoader("Chocolate Mod","巧克力",function()
+    if mod then
+        local items={
+            {
+                "Chocolate",
+                "巧克力",
+                "入口即化的快乐, 或者让这次快乐变为分期的",
+                "{{Heart}} 使用后, +1心之容器#!!! 多次使用后, 进入下一层将移除该道具提供的心之容器"
+            },{
+                "White Chocolate",
+                "白巧克力",
+                "入口即化的永恒, 或者让这份永恒变为分期的",
+                "{{EternalHeart}} 使用后, 获得1永恒之心#!!! 在同一层内多次使用会将一个心之容器变为{{BoneHeart}}骨心"
+            },{
+                "Dark Chocolate",
+                "黑巧克力",
+                '入口即化的黑暗, 或者让这份黑暗变为分期的',
+                "↓ 使用后, 移除1心之容器#{{BlackHeart}} 多次使用后, 进入下一层将获得两倍于通过该道具失去的心之容器数量的黑心"
+            },{
+                "Feastables",
+                "名牌巧克力",
+                "入口即化的财富, 或者让这份财富变为分期的",
+                "{{Coin}} 使用后, 获得10美分#!!! 多次使用后, 进入下一层将移除该道具提供的钱"
+            },{
+                "Mint Chocolate",
+                "薄荷巧克力",
+                "入口即化的凉爽, 或者让这份凉爽变为分期的",
+                "发射一圈8枚快速, {{Collectible221}}弹射, 穿透, 高射程冰冻泪弹, 造成2倍伤害#!!! 在同一层内多次使用会将角色冻结3s, 无法做出任何行动, 泪弹将在冻结效果结束后发射"
+            },{
+                "Delirium Chocolate",
+                "精神错乱联名品牌巧克力",
+                "入口即化的混乱, 或者让这份混乱变为分期的",
+                "触发随机巧克力的效果"
+            },{
+                "Golden Chocolate",
+                "金巧克力",
+                "入口即化的奖金, 或者让这份奖金变为分期的",
+                "↓ {{Speed}} 使用后, 在当前楼层获得移速-0.15, 可叠加#使用后, 获得一个随机{{Quality4}}道具#!!! 多次使用后, 进入下一层将移除数个该道具提供的{{Quality4}}道具"
+            }
+        }
+        local trinkets={
+            {
+                "Golden Ticket",
+                "金季票",
+                "见巧克力眼开",
+                "新生成的道具有10%的概率被重随成巧克力道具"
+            }
+        }
+        local conditionalList={}
+        mod:AddToConditionalList(conditionalList)
+        for _, item in ipairs(items) do
+            mod:AddTranslate(100, item[1], item[2], item[3], item[4].."#所属mod: Chocolate Mod", item[5])
+        end
+        for _, item in ipairs(trinkets) do
+            mod:AddTranslate(350, item[1], item[2], item[3], item[4].."#所属mod: Chocolate Mod", item[5])
+        end
+    end
+end)
+function LydiaGems(text,isGem)
+    if isGem then return "{{LydiaGem}} 激活一个对应"..text.."道具池的未配对宝石#{{LydiaSocket}} 若存在未配对的宝石底座, 将其对应的道具池替换为"..text.."的道具池"
+    else return "{{LydiaSocket}} 激活一个对应"..text.."道具池的未配对宝石底座#{{LydiaGem}} 若存在未配对的宝石, 将"..text.."的道具池替换为那个宝石对应的道具池" end
+end
+print()
+mod:AddModTranslationLoader("LydiaMod","莉迪亚",function()
+        local items={
+            {
+                "Jewelry Kit",
+                "珠宝盒",
+                "宝石 + 底座",
+                "{{LydiaGem}} 进入商店, 受到伤害, 杀死敌人和进入新楼层都有可能生成随机的宝石/宝石底座#{{LydiaGem}} 一些特殊的事件可以生成特定的宝石/宝石底座#{{LydiaGem}} 拾取后, 生成2个宝石/宝石底座"
+            },{
+                "Member Hat",
+                "会员帽",
+                "奖励会员!",
+                "{{Collectible602}} 获得会员卡的效果#{{Trinket110}} 永久获得银币的效果#普通商店改为使用{{TreasureRoom}}宝箱房道具池#{{Shop}} 商店必定包含特殊店长"
+            },{
+                "Metal Spoon",
+                "铁勺",
+                "跟踪泪弹...看你太菜了",
+                "{{Collectible3}} 打空200发泪弹会获得弯勺魔术",
+            },{
+                "Claw Baby",
+                "爪钳宝宝",
+                "抓手朋友",
+                "{{Timer}} 每个房间一次:#秒杀最后一个非头目敌人#{{BossRoom}} 攻击小于20%生命的头目"
+            },{
+                "Ferrofluid",
+                "含铁溶液",
+                "磁性妙趣横生",
+                "杀死2个随机敌人并将其复活为绑在一起的友方敌人#靠近角色的那位会决定整体的行动方式",
+                {VIR="中环魂火#7.5%的概率发射减速泪弹",
+                CAR="没有效果"}
+            },{
+                "Wacky Box",
+                "古怪玩具箱",
+                "变得千奇百怪!",
+                "在当前房间内, 角色的所有道具被替换为泪弹特效道具#{{Collectible561}} 20%的概率同时获得杏仁奶的效果#每有4个道具被转换获得{{Tears}}射速+0.3和{{Luck}}幸运+1.5",
+                {VIR="具有粘土饼干效果的中环魂火",
+                CAR="转换道具提供的属性翻倍"}
+            },{
+                "Golden Orb",
+                "黄金宝珠",
+                "该清算清算了!",
+                "{{Coin}} 敌人, 敌弹, 掉落物, 道具, 石头和其他一些物体随机变为硬币",
+            },{
+                "Rapturum",
+                "天赐良机",--存疑
+                "身处他乡",--开摆
+                "移除房间内的所有非头目敌人, 将它们移动至未来的房间",
+                {VIR="中环魂火, 移除碰到的敌人",
+                CAR="没有效果"}
+            },{
+                "Rebirth",
+                "再生亲临",
+                "覆灭新生",
+                "摧毁房间内所有的道具底座, 每有一个道具被摧毁, 获得1-3个随机跟班道具#摧毁跟班道具会同时获得该跟班的复制",
+                {VIR="内环魂火, 发射随机泪弹",
+                CAR="没有效果"}
+            },{
+                "Potato Masher",
+                "捣土豆器",
+                "搅和在一起!",
+                "对一个随机敌人造成22伤害#造成致命伤害时立刻恢复充能#{{Timer}} 单房间内连续使用会增加伤害#{{BossRoom}} 在头目战中自动充能",
+                {CAR="伤害翻倍",
+                VIR="用小捣土豆器攻击附近敌人的中环魂火"}
+            },{
+                "Headless Horsefly",
+                "无头苍蝇骑士",
+                "天启苍蝇",
+                "75%的概率将蓝苍蝇变为随机天启蝗虫#{{Luck}} 幸运5: 100%#50%的概率使蓝蜘蛛变为随机天启蝗虫#{{Luck}} 幸运10: 100%"
+            },{
+                "Wavy Chip",
+                "大波浪薯片",
+                "又咸又酸",
+                "#↑ {{Tears}} 射速+1.4#↑ {{Shotspeed}} 弹速+0.2#获得波浪弹道的灵体泪弹#所有泪弹和敌弹都变成波浪弹道#{{BossRoom}} 不影响陵墓/炼狱或者阴间/教条之后的头目敌弹"
+            }
+        }
+        local trinkets={
+            {
+                "?",
+                "?",
+                "?",
+                "底座道具有5%的概率来自{{SecretRoom}}隐藏房道具池#{{Luck}} 概率与幸运无关"
+            },{
+                "Blue Heart",
+                "蓝心",
+                "灵魂庇护特价活动",
+                "{{SoulHeart}} 商店出售的红心变为魂心"
+            },{
+                "Burnt Face",
+                "烧焦面皮",
+                "有股烟味",
+                "店长会变橙然后自爆, 提供更多的掉落物",
+                {GOLD={INFO={findReplace=true},TEXT={"更多","更多","更多"}}}
+            }
+        }
+        local cards={
+            {
+                "SocketTreasure",
+                "宝石底座-宝藏",
+                "宝藏猎人!",
+                LydiaGems("{{TreasureRoom}}宝箱房",false)
+            },{
+                "SocketShop",
+                "宝石底座-商贸",
+                "来财法宝!",
+                LydiaGems("{{Shop}}商店",false)
+            },{
+                "SocketBoss",
+                "宝石底座-头目",
+                "力大砖飞!",
+                LydiaGems("{{BossRoom}}头目房",false)
+            },{
+                "SocketDevil",
+                "宝石底座-恶魔",
+                "恶贯满盈!",
+                LydiaGems("{{DevilRoom}}恶魔",false).."#!!! 恶魔房的道具池被替换后, 生成{{Collectible215}}山羊头, 并阻止{{AngelRoom}}天使房的出现"
+            },{
+                "SocketAngel",
+                "宝石底座-天使",
+                "返璞归真!",
+                LydiaGems("{{AngelRoom}}天使",false).."#!!! 天使房的道具池被替换后, {{DevilRoom}}必定将恶魔房替换为{{AngelRoom}}天使房"
+            },{
+                "SocketSecret",
+                "宝石底座-隐藏",
+                "神秘莫测!",
+                LydiaGems("{{SecretRoom}}隐藏房",false).."#{{Collectible}} 隐藏房的道具池被替换后, 额外获得20%的概率使隐藏房包含道具底座"
+            },{
+                "SocketLibrary",
+                "宝石底座-书籍",
+                "学识渊博!",
+                LydiaGems("{{Library}}图书馆",false).."#{{Library}} 图书馆的道具池被替换后, 图书馆出现率翻倍"
+            },{
+                "SocketGoldenChest",
+                "宝石底座-金箱",
+                "金光闪闪!",
+                LydiaGems("{{GoldenChest}}金箱子",false).."#{{GoldenChest}} 金箱子的道具池被替换后, 20%的概率将清理房间奖励替换为金箱子#{{GreedMode}} 贪婪出口房有15%的概率额外生成金箱子"
+            },{
+                "SocketRedChest",
+                "宝石底座-血箱",
+                "风险升级!",
+                LydiaGems("{{RedChest}}红箱子",false).."#{{RedChest}} 红箱子的道具池被替换后, 20%的概率将清理房间奖励替换为红箱子#{{GreedMode}} 贪婪出口房有15%的概率额外生成红箱子"
+            },{
+                "SocketBeggar",
+                "宝石底座-乞丐",
+                "饥渴难耐!",
+                LydiaGems("{{Beggar}}乞丐",false).."#{{Beggar}} 乞丐的道具池被替换后, 30%的概率使乞丐额外出现在宝箱房和商店中, 且不会提供食物道具"
+            },{
+                "SocketDemonBeggar",
+                "宝石底座-黑乞丐",
+                "漆黑意志!",
+                LydiaGems("{{DemonBeggar}}黑暗乞丐",false).."#{{DemonBeggar}} 黑暗乞丐的道具池被替换后, 30%的概率使黑暗乞丐额外出现在宝箱房和商店中"
+            },{
+                "SocketCurse",
+                "宝石底座-诅咒",
+                "太痛苦了!",
+                LydiaGems("{{CursedRoom}}诅咒房",false).."#{{Collectible}} 诅咒房的道具池被替换后, 额外获得20%的概率使诅咒房包含道具底座"
+            },{
+                "SocketKeyBeggar",
+                "宝石底座-锁孔",
+                "空洞无比!",
+                LydiaGems("{{KeyBeggar}}钥匙大师",false).."#{{KeyBeggar}} 钥匙大师的道具池被替换后, 30%的概率使钥匙大师额外出现在宝箱房和商店中"
+            },{
+                "SocketBatteryBum",
+                "宝石底座-电能",
+                "活力满满!",
+                LydiaGems("{{BatteryBeggar}}电池乞丐",false).."#{{BatteryBeggar}} 电池乞丐的道具池被替换后, 30%的概率使电池乞丐额外出现在宝箱房和商店中"
+            },{
+                "SocketTreasureGreed",
+                "宝石底座-宝藏",
+                "宝藏猎人!",
+                LydiaGems("{{TreasureRoom}}宝箱房",false)
+            },{
+                "SocketShopGreed",
+                "宝石底座-商贸",
+                "来财法宝!",
+                LydiaGems("{{Shop}}商店",false)
+            },{
+                "SocketBossGreed",
+                "宝石底座-头目",
+                "力大砖飞!",
+                LydiaGems("{{BossRoom}}头目房",false)
+            },{
+                "SocketDevilGreed",
+                "宝石底座-恶魔",
+                "恶贯满盈!",
+                LydiaGems("{{DevilRoom}}恶魔",false).."#!!! 恶魔房的道具池被替换后, 生成{{Collectible215}}山羊头, 并阻止{{AngelRoom}}天使房的出现"
+            },{
+                "SocketAngelGreed",
+                "宝石底座-天使",
+                "返璞归真!",
+                LydiaGems("{{AngelRoom}}天使",false).."#!!! 天使房的道具池被替换后, {{DevilRoom}}必定将恶魔房替换为{{AngelRoom}}天使房"
+            },{
+                "SocketSecretGreed",
+                "宝石底座-隐藏",
+                "神秘莫测!",
+                LydiaGems("{{SecretRoom}}隐藏房",false).."#{{Collectible}} 隐藏房的道具池被替换后, 额外获得20%的概率使隐藏房包含道具底座"
+            },{
+                "SocketCurseGreed",
+                "宝石底座-诅咒",
+                "太痛苦了!",
+                LydiaGems("{{CursedRoom}}诅咒房",false).."#{{Collectible}} 诅咒房的道具池被替换后, 额外获得20%的概率使诅咒房包含道具底座"
+            },{
+                "SocketCraneGame",
+                "宝石底座-抓奖",
+                "好运来!",
+                LydiaGems("{{CraneGame}}抓娃娃机",false).."#{{CraneGame}} 抓娃娃机道具池被替换后, 15%的概率使抓娃娃机出现在宝箱房和商店中"
+            },{
+                "SocketUltraSecret",
+                "宝石底座-猩红",
+                "绯红之王!",
+                LydiaGems("{{UltraSecretRoom}}究极隐藏房",false)
+            },{
+                "SocketBombBum",
+                "宝石底座-火药",
+                "艺术就是!",
+                LydiaGems("{{BombBeggar}}炸弹乞丐",false).."#{{BombBeggar}} 炸弹乞丐的道具池被替换后, 30%的概率使炸弹乞丐额外出现在宝箱房和商店中"
+            },{
+                "SocketPlanetarium",
+                "宝石底座-星辰",
+                "浩瀚宇宙!",
+                LydiaGems("{{Planetarium}}星象房",false)
+            },{
+                "SocketOldChest",
+                "宝石底座-尘封",
+                "往事如烟!",
+                LydiaGems("{{DirtyChest}}旧箱子",false)
+            },{
+                "SocketBabyShop",
+                "宝石底座-领养",
+                "世间萌物!",
+                LydiaGems("{{Collectible67}}宝宝商店",false).."#{{Trinket184}} 宝宝商店的道具池被替换后, 显著提高领养协议书出现的概率"
+            },{
+                "SocketWoodenChest",
+                "宝石底座-木制品",
+                "轻拿轻放!",
+                LydiaGems("{{WoodenChest}}木箱子",false).."#{{RedChest}} 木箱子的道具池被替换后, 20%的概率将清理房间奖励替换为木箱子#{{GreedMode}} 贪婪出口房有15%的概率额外生成木箱子"
+            },{
+                "SocketRottenBeggar",
+                "宝石底座-腐烂",
+                "散发恶臭!",
+                LydiaGems("{{RottenBeggar}}腐烂乞丐",false).."#{{RottenBeggar}} 腐烂乞丐的道具池被替换后, 30%的概率使腐烂乞丐额外出现在宝箱房和商店中"
+            },{
+                "SocketMomsChest",
+                "宝石底座-母爱",
+                "爱如刀割!",
+                LydiaGems("{{MomBoss}}妈妈",false)
+            },{
+                "GemTreasure",
+                "宝石-宝藏",
+                "宝藏猎人!",
+                LydiaGems("{{TreasureRoom}}宝箱房",true)
+            },{
+                "GemShop",
+                "宝石-商贸",
+                "来财法宝!",
+                LydiaGems("{{Shop}}商店",true)
+            },{
+                "GemBoss",
+                "宝石-头目",
+                "力大砖飞!",
+                LydiaGems("{{BossRoom}}头目房",true)
+            },{
+                "GemDevil",
+                "宝石-恶魔",
+                "恶贯满盈!",
+                LydiaGems("{{DevilRoom}}恶魔",true)
+            },{
+                "GemAngel",
+                "宝石-天使",
+                "返璞归真!",
+                LydiaGems("{{AngelRoom}}天使",true)
+            },{
+                "GemSecret",
+                "宝石-隐藏",
+                "神秘莫测!",
+                LydiaGems("{{SecretRoom}}隐藏房",true)
+            },{
+                "GemLibrary",
+                "宝石-书籍",
+                "学识渊博!",
+                LydiaGems("{{Library}}图书馆",true)
+            },{
+                "GemGoldenChest",
+                "宝石-金箱",
+                "金光闪闪!",
+                LydiaGems("{{GoldenChest}}金箱子",true)
+            },{
+                "GemRedChest",
+                "宝石-血箱",
+                "风险升级!",
+                LydiaGems("{{RedChest}}红箱子",true)
+            },{
+                "GemBeggar",
+                "宝石-乞丐",
+                "饥渴难耐!",
+                LydiaGems("{{Beggar}}乞丐",true)
+            },{
+                "GemDemonBeggar",
+                "宝石-黑乞丐",
+                "漆黑意志!",
+                LydiaGems("{{DemonBeggar}}黑暗乞丐",true)
+            },{
+                "GemCurse",
+                "宝石-诅咒",
+                "太痛苦了!",
+                LydiaGems("{{CursedRoom}}诅咒房",true)
+            },{
+                "GemKeyBeggar",
+                "宝石-锁孔",
+                "空洞无比!",
+                LydiaGems("{{KeyBeggar}}钥匙大师",true)
+            },{
+                "GemBatteryBum",
+                "宝石-电能",
+                "活力满满!",
+                LydiaGems("{{BatteryBeggar}}电池乞丐",true)
+            },{
+                "GemTreasureGreed",
+                "宝石-宝藏",
+                "宝藏猎人!",
+                LydiaGems("{{TreasureRoom}}宝箱房",true)
+            },{
+                "GemShopGreed",
+                "宝石-商贸",
+                "来财法宝!",
+                LydiaGems("{{Shop}}商店",true)
+            },{
+                "GemBossGreed",
+                "宝石-头目",
+                "力大砖飞!",
+                LydiaGems("{{BossRoom}}头目房",true)
+            },{
+                "GemDevilGreed",
+                "宝石-恶魔",
+                "恶贯满盈!",
+                LydiaGems("{{DevilRoom}}恶魔",true)
+            },{
+                "GemAngelGreed",
+                "宝石-天使",
+                "返璞归真!",
+                LydiaGems("{{AngelRoom}}天使",true)
+            },{
+                "GemSecretGreed",
+                "宝石-隐藏",
+                "神秘莫测!",
+                LydiaGems("{{SecretRoom}}隐藏房",true)
+            },{
+                "GemCurseGreed",
+                "宝石-诅咒",
+                "太痛苦了!",
+                LydiaGems("{{CursedRoom}}诅咒房",true)
+            },{
+                "GemCraneGame",
+                "宝石-抓奖",
+                "好运来!",
+                LydiaGems("{{CraneGame}}抓娃娃机",true)
+            },{
+                "GemUltraSecret",
+                "宝石-猩红",
+                "绯红之王!",
+                LydiaGems("{{UltraSecretRoom}}究极隐藏房",true)
+            },{
+                "GemBombBum",
+                "宝石-火药",
+                "艺术就是!",
+                LydiaGems("{{BombBeggar}}炸弹乞丐",true)
+            },{
+                "GemPlanetarium",
+                "宝石-星辰",
+                "浩瀚宇宙!",
+                LydiaGems("{{Planetarium}}星象房",true)
+            },{
+                "GemOldChest",
+                "宝石-尘封",
+                "往事如烟!",
+                LydiaGems("{{DirtyChest}}旧箱子",true)
+            },{
+                "GemBabyShop",
+                "宝石-领养",
+                "世间萌物!",
+                LydiaGems("{{Collectible67}}宝宝商店",true)
+            },{
+                "GemWoodenChest",
+                "宝石-木制品",
+                "轻拿轻放!",
+                LydiaGems("{{WoodenChest}}木箱子",true)
+            },{
+                "GemRottenBeggar",
+                "宝石-腐烂",
+                "散发恶臭!",
+                LydiaGems("{{RottenBeggar}}腐烂乞丐",true)
+            },{
+                "GemMomsChest",
+                "宝石-母爱",
+                "爱如刀割!",
+                LydiaGems("{{MomBoss}}妈妈",true)
+            },{
+                "GlobbyGoo",
+                "油迹粘液",
+                "充满磁性!",
+                "杀死2个随机敌人并将其复活为绑在一起的友方敌人#靠近角色的那位会决定整体的行动方式#{{LydiaGlobbyGoo}} 这对敌人死亡后有50%的概率生成油迹粘液#{{Luck}} 概率与幸运无关",
+            },{
+                "SoulofLydia",
+                "莉迪亚的魂石",
+                "覆盖!",
+                "生成3个随机{{LydiaGem}}宝石和3个随机{{LydiaSocket}}宝石底座"
+            },{
+                "NerveBulb",
+                "神茎",
+                "略有震感",
+                "在当前房间内改为发射激光#↑ {{Damage}} 伤害+0.5"
+            },{
+                "GiftingAngel",
+                "馈赠天使",
+                "世间好物",
+                "两个随机道具池将会提供一个{{Quality3}}/{{Quality4}}的{{AngelRoom}}天使道具#该效果生效后, 那个道具池将被恢复"
+            }
+        }
+        local other={
+            {
+                6,259376970,0,
+                "{{LydiaCardRecycler}} 卡牌回收机",
+                "{{Card}} 随机替换角色持有的卡牌#{{Coin}} 耗费3美分"
+            }
+        }
+        local conditionalList={}
+        mod:AddToConditionalList(conditionalList)
+        for _, item in ipairs(items) do
+            mod:AddTranslate(100, item[1], item[2], item[3], item[4].."#所属mod: Lydia", item[5])
+        end
+        for _, item in ipairs(trinkets) do
+            mod:AddTranslate(350, item[1], item[2], item[3], item[4].."#所属mod: Lydia", item[5])
+        end
+        for _, item in ipairs(cards) do
+            mod:AddTranslate(300, item[1], item[2], item[3], item[4].."#所属mod: Lydia", item[5])
+        end
+        for _, item in ipairs(other) do
+            mod:AddEntityTransl(item[1],item[2],item[3],item[4],item[5])
+        end
+        EID:addBirthright(Isaac.GetPlayerTypeByName("Lydia",false),"不再出现宝石底座#宝石现在会将所有道具池替换为指定的道具","莉迪亚-独一无二","zh_cn")
 end)
