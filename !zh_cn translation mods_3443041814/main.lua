@@ -1,6 +1,6 @@
 --感谢golden_shit对代码进行的优化
 CNEIDBabel = RegisterMod("ChineseEIDBabel", 1)--注册mod
-print("请在github的改动说明处确认最近的更新是否为2025年4月26日")--不好我忘了我写了两个这个孩子们我完蛋了
+print("请在github的改动说明处确认最近的更新是否为2025年5月10日")--不好我忘了我写了两个这个孩子们我完蛋了
 local mod = CNEIDBabel--缩写
 local game = Game()
 mod.Flag = {
@@ -211,7 +211,7 @@ function mod:PostPlayerUpdate(player)
 end
 
 mod:AddCallback(ModCallbacks.MC_POST_PLAYER_UPDATE, mod.PostPlayerUpdate)
-include("availablemods/lost&forgottonDemo") --√
+--include("availablemods/lost&forgottonDemo") --√
 include("availablemods/LazyMattpack")       --√
 include("availablemods/CuriosityCrate")     --√
 include("availablemods/KNG3")               --√, but this can better
@@ -221,8 +221,9 @@ include("availablemods/Elitium")            --√
 include("availablemods/DamnEdithIsBack")    --待优化
 include("availablemods/RedBaby")            --√
 include("availablemods/furtherance")        --√?
-include("availablemods/BattleFantasy")	--√
-include("availablemods/others")		--病毒骑士, 更多的玫瑰
+include("availablemods/BattleFantasy")	    --√
+include("availablemods/milkshake")
+include("availablemods/others")	
 include("availablemods/eclipsed")
     --include("availablemods/Baphomet")         to be continue
     function mod:LoadedMods()
@@ -255,7 +256,7 @@ include("availablemods/eclipsed")
             print("目前未检测到模组, 可以确认是否有报错或因加载顺序的问题而无法正常运行")--增加了未检测到模组的提示--Garlin
         end
         print("This mod contain some Chinese messages that might cannot show without RGON, so you'd better check on the ReadMe in the mod file")--考虑到非忏悔龙的控制台可能不会输出中文, 加了这个提示 —— 我的建议是到时候说这个模组需要忏悔龙前置(什 --Garlin
-        print("请在github的改动说明处确认最近的更新是否为2025年4月26日")
+        print("请在github的改动说明处确认最近的更新是否为2025年5月10日")
     end
 
     
