@@ -54,7 +54,8 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "透过镜面",
                 "{{Player10}} 变为游魂形态, 类似白火",--能白嫖恶魔房还是太有用了(
                 {VIR="跟随玩家的魂火#无法攻击#熄灭后释放{{Collectible653}}鬼灵爆破",
-                CONF={"5.350."..EclipsedMod.enums.Trinkets.LostFlower,"ReLost"}}
+                CONF={"5.350."..EclipsedMod.enums.Trinkets.LostFlower,"ReLost"},
+                QUA=1}
             },{
                 EclipsedMod.enums.Items.BleedingGrimoire,--Bleeding Grimoire is a reference to the game They Bleed Pixels, created by indie studio Spooky Squid Games.
                 "流血法术",
@@ -87,7 +88,7 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "Long Elk",--我叼你妈的为什么guru和你EID写的不一样啊
                 "长鹿皮",
                 "自然怪胎",
-                ""
+                "由攻击键控制的跟班, 造成100接触伤害后暂时失效, 需要角色触碰后重新生效#失效期间在房间内斜向运动, 期间生成至多3个跟随的脊椎#脊椎会抵挡敌弹和造成100%面板的接触伤害, 而后破碎"
             },{
                 EclipsedMod.enums.Items.Threshold,
                 "临界点",
@@ -306,7 +307,11 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "异教徒",
                 "{{Throwable}} 可以被捡起并投掷#抵挡敌弹#投掷途中碰到敌人会爆炸, 造成15倍角色伤害#{{Warning}} {{ColorYellow}}爆炸可能会伤害角色!{{CR}}",
                 {ABY="爆炸性黑色蝗虫",
-                CONF={106,"MegaNada"}}
+                CONF={
+                    {106,"MegaNada"},
+                    {125,"NadaBoby"},
+                    {137,"NaDenotate"}
+                }}
             },{
                 EclipsedMod.enums.Items.DMS,
                 "死神镰刀",
@@ -331,8 +336,9 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "Eclipse",
                 "日蚀",
                 "最黑暗的地下室!",
-                "按住攻击键释放脉冲波, 造成范围伤害#{{CurseDarkness}} 黑暗诅咒中角色获得{{Damage}}伤害翻倍",
-                {ABY="携带黑暗光圈的蝗虫, 光圈造成75DPS, 在黑暗诅咒中伤害翻倍"}
+                "按住攻击键释放脉冲波, 造成范围伤害#{{CurseDarkness}} 黑暗诅咒中角色获得{{Damage}}伤害翻倍#!!! 与堕化不速之客不同, 脉冲波不再兼容特殊攻击方式",
+                {ABY="携带黑暗光圈的蝗虫, 光圈造成75DPS, 在黑暗诅咒中伤害翻倍",
+                QUA=3}
             },{
                 EclipsedMod.enums.Items.WitchPot,
                 "女巫的锅",
@@ -364,7 +370,7 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 EclipsedMod.enums.Items.BatteryBombs,
                 "电池炸弹",
                 "充能爆破 + 5个炸弹",
-                "{{Bomb}} +5炸弹#炸弹会朝5个敌人释放电弧#{{Key}} 将钥匙和钥匙串变为充能钥匙#{{Battery}} 角色被爆炸波及时为主动道具充能#{{Battery}} 充能数基于炸弹的伤害",
+                "{{Bomb}} +5炸弹#炸弹会朝5个敌人释放电弧#{{Key}} 爆炸波及的钥匙和钥匙串变为充能钥匙#{{Battery}} 角色被爆炸波及时为主动道具充能#{{Battery}} 充能数基于炸弹的伤害",
                 {ABY="电系黄色蝗虫"}
             },{
                 EclipsedMod.enums.Items.Pyrophilia,
@@ -401,13 +407,13 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 EclipsedMod.enums.Items.SurrogateConception,
                 "代孕受胎",
                 "用血浇灌它们",
-                "清理头目放获得随机{{ColorYellow}}头目相关{{CR}}跟班#{{CurseLabyrinth}} 每层只能触发一次",
+                "清理头目房获得随机{{ColorYellow}}头目相关{{CR}}跟班#{{CurseLabyrinth}} 每层只能触发一次",
                 {ABY="有概率生成蓝苍蝇或蓝蜘蛛的蝗虫"}
             },{
                 EclipsedMod.enums.Items.HeartTransplant,
                 "心脏移植",--Heart Transplant is a reference to the game Crypt of the NecroDancer.
                 "\"跳\"战这个心脏",
-                "{{Chargeable}} 持有时, 在角色头顶展示冷却条#满充能后0.5s未使用则失去充能和{{ColorRed}}心跳等级{{CR}}#若成功使用则积攒心跳等级, 并因此获得{{Speed}}{{Damage}}{{Tears}}增益#心跳等级最大时使用会同时释放一圈10发泪弹",
+                "{{Chargeable}} 持有时, 在角色头顶展示冷却条#满充能后0.5s未使用则失去充能和{{ColorRed}}心跳等级{{CR}}#若成功使用则积攒心跳等级, 并因此获得{{Speed}}{{Damage}}{{Tears}}增益#心跳等级最大时使用会同时释放一圈10发泪弹#{{GarlinIcon}} 不用把它当什么音游, 狂按主动糊过去就完事了",
                 {VIR="无法攻击的固定魂火"}
             },{
                 EclipsedMod.enums.Items.GardenTrowel,
@@ -420,7 +426,7 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 EclipsedMod.enums.Items.ElderMyth,
                 "古老神话",
                 "循环卡抽卡器",--Loop Hero
-                "生成一张循环卡",
+                "生成一张\"循环英雄\"卡#循环英雄卡的效果多为创造特殊类型的红房间",
                 {VIR="卡牌魂火, 熄灭后生成循环卡",
                 ABY="杀死敌人生成循环卡的蓝色蝗虫",
                 CONF={LBAB,"BAB_Elder"}}
@@ -629,7 +635,7 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 EclipsedMod.enums.Items.Aurora,
                 "极光",
                 "愤怒的公主",
-                "↑ {{Heart}} 心之容器+1#连续攻击3s额外发射一个{{ColorPink}}心弹{{CR}}并失去{{HalfHeart}}#{{Charm}} {ColorPink}}心弹{{CR}}命中敌人会魅惑一定范围内的敌人并生成1-3个快速消失的{{HalfHeart}}#命中障碍物则只有一个{{HalfHeart}}#{{Damage}} 魅惑的敌人死亡后在当前房间获得伤害上升, 数值取决于敌人最大生命值, 单个房间最多20点",
+                "↑ {{Heart}} 心之容器+1#连续攻击3s额外发射一个{{ColorPink}}心弹{{CR}}并失去{{HalfHeart}}#{{Charm}} {{ColorPink}}心弹{{CR}}命中敌人会魅惑一定范围内的敌人并生成1-3个快速消失的{{HalfHeart}}#命中障碍物则只有一个{{HalfHeart}}#{{Damage}} 魅惑的敌人死亡后在当前房间获得伤害上升, 数值取决于敌人最大生命值, 单个房间最多20点",
                 {ABY="魅惑敌人的粉色蝗虫"}
             },{
                 EclipsedMod.enums.Items.Sarbokan,
@@ -807,9 +813,9 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 ABY="施加集火标记的蝗虫"}
             },{
                 "Stone Frog",
-                "石头蛙",
+                "祖玛",
                 "炮塔伙伴",
-                "青蛙跟班, 角色攻击时自动朝最近的敌人发射效果各异的弹射泪弹"
+                "祖玛跟班, 角色攻击时自动朝最近的敌人发射效果各异的弹射泪弹"
             },{
                 EclipsedMod.enums.Items.StainedGlass,
                 "教堂染色窗",
@@ -834,13 +840,13 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
             },{
                 EclipsedMod.enums.Items.WitchHat,
                 "巫师尖帽",
-                "Abra Cadabra",--找不到翻译
+                "阿布拉肯大瓜",--找不到翻译
                 "在未清理的房间内, 每20s触发:#{{Pill}} 生成一个药丸, 每个房间一次#!!! 对所有敌人施加随机异常状态",
                 {ABY="有概率施加随机异常状态的黑色蝗虫",
                 BFF="触发效果所需的房间减少至15s"}
             },{
                 EclipsedMod.enums.Items.MysticNovel,
-                "神秘的日记",
+                "神秘小说",
                 "夜之神话",
                 "生成2个{{ColorOrange}}蝙蝠跟班{{CR}}攻击敌人#{{ColorOrange}}蝙蝠跟班{{CR}}可以跨房间存在, 但仅持续15s",
                 {VIR="内环黑色魂火, 熄灭后生成蝙蝠跟班",
@@ -913,7 +919,7 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 EclipsedMod.enums.Items.FalseDeath,
                 "伪造证明",
                 "愿君不得好死",
-                "↑ +1复活次数#每次死亡后触发{{Collectible628}}死亡证明的效果#有概率在生效后失去该道具",
+                "↑ +1复活次数#每次死亡后触发{{Collectible628}}死亡证明的效果#有概率在生效后失去该道具, 每次生效都会使这个概率+10%#↑ 该设定在挑战\"Die Hard 愿君好死\"中不生效",
                 {ABY="施加恐惧的黑色蝗虫"}
             },{
                 EclipsedMod.enums.Items.BatterYum,
@@ -1019,7 +1025,7 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 EclipsedMod.enums.Items.LittleDiablo,
                 "小破坏神椒",
                 "热辣滚烫!",
-                "进入信访件生成6个环绕角色的火焰#火焰造成(10 + 楼层数 x 0.5)的伤害, 且可以抵挡4次伤害",
+                "进入新房间生成6个环绕角色的火焰#火焰造成(10 + 楼层数 x 0.5)的伤害, 且可以抵挡4次伤害",
                 {ABY="6个造成50%伤害的蝗虫"}
             },{
                 EclipsedMod.enums.Items.BlueSoup,
@@ -1075,7 +1081,7 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 {GOLD={INFO={append=true},TEXT={"概率提升","概率提升","概率提升"}}}
             },{
                 EclipsedMod.enums.Trinkets.BobTongue,
-                "鲍勃的蛇头",
+                "鲍勃的舌头",
                 "毒性爆破",
                 "{{Collectible446}} 炸弹环绕毒性气场",
                 {GOLD={INFO={append=true},TEXT={"毒性气场范围提升","毒性气场范围提升","毒性气场范围提升"}}}
@@ -1099,9 +1105,9 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "所有房间淹水, 阻止水流"
             },{
                 "Cartridge?",
-                "墨囊?",
+                "游戏卡带?",
                 "深渊的诅咒",
-                "一些特定的跟班可以被献祭并用于复活死亡的角色#当角色生命值危险时, 将被献祭的跟班也会闪烁#!!! 一次性, 效果触发后生成{{EternalHeart}}",
+                "角色死亡后, 一些特定的跟班可以代替角色死亡并使角色复活#当角色生命值危险时, 即将替死的跟班也会闪烁#!!! 一次性, 消耗后生成{{EternalHeart}}",
                 {GOLD={INFO={findReplace=true},TEXT={"一次性","50%的概率在效果触发后消耗","50%的概率在效果触发后消耗"}}}
             },{
                 EclipsedMod.enums.Trinkets.RubikCubelet,
@@ -1119,7 +1125,7 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 EclipsedMod.enums.Trinkets.Penance,
                 "苦修",
                 "改邪归正",
-                "进入房间后有16%的概率用红十字标记敌人#标记的敌人死亡后发射4向光柱",
+                "进入房间后有16%的概率用红十字标记敌人#标记的敌人死亡后发射4向光柱#{{GarlinIcon}} 神必作者把这个功能注释掉了, 这是个没用的饰品(乐)",
                 {GOLD={INFO={append=true},TEXT={"概率提升","概率提升","概率提升"}}},
             },{
                 EclipsedMod.enums.Trinkets.Pompom,
@@ -1305,7 +1311,7 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                     EclipsedMod.enums.Pickups.OutpostCard,
                     "前哨战卡",
                     "露营",
-                    "{{IsaacRoom}} 在合适的位置创造一个卧室"
+                    "{{IsaacsRoom}} 在合适的位置创造一个卧室"
                 },{
                     EclipsedMod.enums.Pickups.OblivionCard,
                     "遗忘皆空卡",
@@ -1335,12 +1341,12 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                     EclipsedMod.enums.Pickups.ZeroMilestoneCard,
                     "零之界标卡",
                     "目标",
-                    "生成一个在8个道具间轮换的道具底座"
+                    "生成一个在9个道具间轮换的道具底座"
                 },{
                     "X_CryptCard",
                     "祖先墓穴卡",
                     "宿命",
-                    "{{SacrifiseRoom}} 在合适的位置创造一个献祭房"
+                    "{{SacrificeRoom}} 在合适的位置创造一个献祭房"
                 },{
                     EclipsedMod.enums.Pickups.MazeMemoryCard,
                     "追忆迷宫卡",
@@ -1485,7 +1491,7 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                     EclipsedMod.enums.Pickups.RitualDagger,
                     "仪式匕首",
                     "斩杀",
-                    "朝最近的敌人投掷匕首#{{Damage}} 匕首初始造成100%伤害被匕首杀死的敌人会生成这张牌的复制, 并增加50%匕首伤害, 效果持续整局"
+                    "朝最近的敌人投掷匕首#{{Damage}} 匕首初始造成100%伤害#被匕首杀死的敌人会生成这张牌的复制, 并在本局内永久增加50%匕首伤害"
                 },{
                     EclipsedMod.enums.Pickups.Fusion,
                     "聚变",
@@ -1588,12 +1594,12 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "{{Collectible611}} 最大威力的声带"
             },{
                 EclipsedMod.enums.Pickups.KittenBomb,
-                "爆裂幼苗",--存疑
+                "爆炸猫",--存疑
                 "当你看到这行字的时候请立即用掉这张卡",
                 "持有时, 3s后角色自爆#{{Collectible483}} 使用后触发一次强力爆炸"
             },{
                 EclipsedMod.enums.Pickups.KittenBomb2,
-                "爆裂幼苗",
+                "爆炸猫",
                 "当你看到这行字的时候请立即用掉这张卡",
                 "持有时, 3s后角色自爆#{{Burning}} 使用以点燃所有敌人#炸毁房间内的所有老虎机, 乞丐, 敌弹和炸弹#被烧死的敌人会爆炸(不会伤害角色)"
             },{
@@ -1614,7 +1620,7 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
             },{
                 EclipsedMod.enums.Pickups.KittenFavor2,
                 "喜好卡",
-                "好了伙计你现在有5个选择你想成为圣人还是想成为别西卜还是想成为连体婴还是想成为图书管理员还是想成为格林其慎重做出你的选择你想成为哪个呢哈?哈?圣人Sainte还是格林其Glunch还是别西部basskick还是连体婴AmIbecomeAMonster?",--别问
+                "好了伙计你现在有5个选择你想成为圣人还是想成为格林其慎重做出你的选择你想成为哪个呢哈?哈?圣人Sainte还是格林其Glunch?",--别问
                 "{{Collectible689}} 变成冠批"
             },{
                 EclipsedMod.enums.Pickups.KittenFuture,
@@ -1698,6 +1704,13 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "操控房间内的一个随机敌人#魅惑头目10s"
             }
         }
+        local pill={
+            {
+                EclipsedMod.enums.Pickups.RedPill,
+                "多他因胶囊",
+                "↑ {{Damage}} 获得衰减性的+5.4伤害增幅#{{Damage}} 额外使用将重置伤害增幅#{{Collectible582}} 施加2层迷幻效果"
+            }
+        }
         local other={
             {
                 EntityType.ENTITY_SLOT, EclipsedMod.enums.Slots.VoidBeggar, 0,
@@ -1736,6 +1749,9 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
         local conditionalList={
             ReLost="在使用该道具的房间也获得{{HolyMantle}}神圣屏障",
             MegaNada="爆炸造成25倍角色伤害",
+            NadaBoby="拿答的尸体会持续跟踪敌人, !!!但只会引爆一次, 可能导致更难捡回拿答的尸体进行投掷",
+            NaDenotate="可无损引爆拿答的尸体",
+
             MultiDMS="生成恶鬼的概率额外增加25%",
             Pot404="可能吐出角色未持有的饰品",
             MoreNirly="可以储存10张牌",
@@ -1824,8 +1840,7 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
             MongoFrog="获得{{Collectible570}}粘土饼干和{{Collectible221}}橡胶胶水#",
             MongoPlum="进入敌对房间有33%的概率触发{{Collectible650}}甜梅溜溜笛的效果#",
             MongoSpin="进入敌对房间有33%的概率触发{{Collectible77}}彩虹独角兽的效果#",
-
-            MongoWorm="进入敌对房间有33%的概率触发Applied Horticulture的效果#",
+            MongoWorm="进入敌对房间有33%的概率将所有敌人用藤蔓固定, 使其受到双倍伤害并在死亡后有概率生成掉落物#",
 
             BAB_Alchemic="15%的概率将掉落物变为道具魂火; 更多的万书之书会进一步提升概率",
             BAB_Ancient="迷彩内裤的效果可以跨房间存在",
@@ -1864,6 +1879,9 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
         for _, item in ipairs(cards) do
             mod:AddTranslate(300, item[1], item[2], item[3], item[4].."#{{Collectible"..Isaac.GetItemIdByName("Eclipse").."}} 所属mod: Eclipsed", item[5])
         end
+        for _, item in ipairs(pill) do
+            mod:AddTranslate(70,item[1],item[2],"empty",item[3],item[4])
+        end
         for _, item in ipairs(other) do
             mod:AddEntityTransl(item[1],item[2],item[3],item[4],item[5])
         end
@@ -1873,7 +1891,7 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
         EID:addBirthright(EclipsedMod.enums.Characters.UnbiddenB,"拾取后, 恢复{{Collectible"..EclipsedMod.enums.Items.Threshold.."}}临界点的所有充能, 并将容错率变为100%","不速之客-复苏","zh_cn")
         EID:addCharacterInfo(EclipsedMod.enums.Characters.Nadab,"放置炸弹功能替换为消耗1{{Heart}}释放爆炸(注意是先消耗生命而后爆炸, 故爆炸抗性无法阻止该伤害)#{{Bomb}} 拾取炸弹可以用于治疗1红心#!!! 与{{BombBeggar}}炸弹乞丐交易将消耗{{Heart}}","拿答","zh_cn")
         EID:addBirthright(EclipsedMod.enums.Characters.Nadab,"拾取后, 生成3个随机炸弹道具, 只能选择一个#获得爆炸抗性#死亡后释放超级爆炸, 而后失去长子权","拿答-爆破兵","zh_cn")--你他妈什么???
-        EID:addCharacterInfo(EclipsedMod.enums.Characters.Abihu,"放置炸弹功能替换为消耗1{{Heart}}引爆拿答的尸体#{{Bomb}} 拾取炸弹可以用于治疗1红心#捡起炸弹需要立即将其投掷出去#灼烧碰到的敌人#蓄力蓝火攻击, 蓄力满后自动释放#!!! 与{{BombBeggar}}炸弹乞丐交易将消耗{{Heart}}","亚比户-亵渎者","zh_cn")
+        EID:addCharacterInfo(EclipsedMod.enums.Characters.Abihu,"放置炸弹功能替换为消耗1{{Heart}}引爆拿答的尸体#{{Bomb}} 拾取炸弹可以用于治疗1红心#捡起炸弹需要立即将其投掷出去#{{Burning}} 灼烧碰到的敌人#{{Chargeable}} 蓄力蓝火攻击, 蓄力满后自动释放#!!! 与{{BombBeggar}}炸弹乞丐交易将消耗{{Heart}}","亚比户-亵渎者","zh_cn")
         EID:addBirthright(EclipsedMod.enums.Characters.Abihu,"回满生命, 免疫火焰和火堆#投掷拿答的尸体引发的爆炸不会伤害亚比户","亚比户-纵火狂","zh_cn")
         local CharSyn={--{100/350,道具编号,兼容文本,角色}
             {100,668,"回溯路线中不再将道具变为道具魂火",EclipsedMod.enums.Characters.Unbidden},
@@ -1916,7 +1934,40 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
             {100,727,"获得灵体泪弹",EclipsedMod.enums.Characters.Nadab},
             {100,583,"发射导弹的效果替换为释放冲刺, 在碰到敌人和障碍后爆炸; 冲刺免疫惩罚伤害",EclipsedMod.enums.Characters.Nadab},
             {350,164,"连续炸两次, 第二次可以伤害拿答",EclipsedMod.enums.Characters.Nadab},--???
-            {350,71,"留下绿色液体",EclipsedMod.enums.Characters.Nadab}
+            {350,71,"留下绿色液体",EclipsedMod.enums.Characters.Nadab},
+            {100,2,"多发火焰",EclipsedMod.enums.Characters.Abihu},
+            {100,153,"多发火焰",EclipsedMod.enums.Characters.Abihu},
+            {100,245,"多发火焰",EclipsedMod.enums.Characters.Abihu},
+            {100,5,"喷吐的火焰会跟踪角色",EclipsedMod.enums.Characters.Abihu},
+            {100,118,"蓄力{{ColorYellow}}并释放{{CR}}大串火焰",EclipsedMod.enums.Characters.Abihu},
+            {100,229,"蓄力{{ColorYellow}}并释放{{CR}}大片火焰",EclipsedMod.enums.Characters.Abihu},
+            {100,149,"会持续爆炸的火焰(无友伤)",EclipsedMod.enums.Characters.Abihu},
+            {100,257,"有概率爆炸的火焰(无友伤)",EclipsedMod.enums.Characters.Abihu},
+            {100,224,"火焰命中时迸射4向火焰",EclipsedMod.enums.Characters.Abihu},
+            {100,329,"可操作的火焰, 具有高频率碰撞伤害且能抵挡敌弹, 但是较难操作",EclipsedMod.enums.Characters.Abihu},
+            {100,462,"火焰命中敌人后获得跟踪效果, 允许对单个敌人造成多段伤害",EclipsedMod.enums.Characters.Abihu},
+            {100,104,"发射的火焰会分裂",EclipsedMod.enums.Characters.Abihu},
+            {100,52,"仅属性变化!!!",EclipsedMod.enums.Characters.Abihu},
+            {100,531,"仅属性变化!!!",EclipsedMod.enums.Characters.Abihu},
+            {100,261,"仅属性变化",EclipsedMod.enums.Characters.Abihu},
+            {100,68,"被火焰攻击覆盖",EclipsedMod.enums.Characters.Abihu},
+            {100,69,"无特殊兼容",EclipsedMod.enums.Characters.Abihu},
+            {100,114,"被火焰攻击覆盖",EclipsedMod.enums.Characters.Abihu},
+            {100,132,"无特殊兼容",EclipsedMod.enums.Characters.Abihu},
+            {100,168,"被火焰攻击覆盖",EclipsedMod.enums.Characters.Abihu},
+            {100,222,"无特殊兼容",EclipsedMod.enums.Characters.Abihu},
+            {100,316,"无特殊兼容",EclipsedMod.enums.Characters.Abihu},
+            {100,395,"被火焰攻击覆盖",EclipsedMod.enums.Characters.Abihu},
+            {100,397,"无特殊兼容",EclipsedMod.enums.Characters.Abihu},
+            {100,453,"无特殊兼容",EclipsedMod.enums.Characters.Abihu},
+            {100,494,"无特殊兼容",EclipsedMod.enums.Characters.Abihu},
+            {100,529,"无特殊兼容",EclipsedMod.enums.Characters.Abihu},
+            {100,532,"无特殊兼容",EclipsedMod.enums.Characters.Abihu},
+            {100,533,"被火焰攻击覆盖",EclipsedMod.enums.Characters.Abihu},
+            {100,572,"无特殊兼容",EclipsedMod.enums.Characters.Abihu},
+            {100,579,"被火焰攻击覆盖",EclipsedMod.enums.Characters.Abihu},
+            {100,597,"无特殊兼容",EclipsedMod.enums.Characters.Abihu},
+            {100,678,"被火焰攻击覆盖",EclipsedMod.enums.Characters.Abihu},
         }
         for _, syn in ipairs(CharSyn) do
             EID:addDescriptionModifier("EcliSyn"..syn[2],function(descObj)
