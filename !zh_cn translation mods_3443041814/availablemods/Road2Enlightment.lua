@@ -379,7 +379,7 @@ mod:AddModTranslationLoader("EnlightenmentMod", "启蒙之路",function()
 		EID:addBirthright(
 			Isaac.GetPlayerTypeByName("Enlightened Blue Baby",false),
 			"可以失去更多的肢节"..
-			"#{{Card"..Isaac.GetCardIdByName("Brain").."}} 脑子得到的肢节还会提供随机永久属性提升",
+			"#{{Card"..Isaac.GetCardIdByName("Brn").."}} 脑子得到的肢节还会提供随机永久属性提升",
 			"启蒙蓝人-还能失去更多",
 			"zh_cn"
 		)
