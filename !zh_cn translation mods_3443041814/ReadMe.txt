@@ -11,6 +11,8 @@ metadata.xml，记录了模组的名称，创意工坊ID等重要信息，与你
 
 main.lua则是模组运行的核心，通过里面的代码来实现各种特异的功能。你还可以看到一个main_but it's like a piece of shit.lua。这是因为我本人并非专业的程序员，仅靠东拼西凑得到了这个模组的雏形；后来得到了Golden_shit（白日梦mod作者）的帮助，对整个代码的结构进行了重做和优化，而老的代码则完全成了废品……有朝一日会删掉的……嗯对的
 
+config.lua是用于跟模组设置彩蛋兼容的，ACL.lua是用于跟其他模组加花哨兼容的；这两个目前都是挖坑状态（ACL未来可能考虑搬出来作为添加简易兼容用？）
+
 DudeThisIsJustaBullshitPictureWhyWouldYouCareAboutThis.png是模组的封面。自己去翻译什么意思去吧。
 
 resources和content文件夹是模组资源的地址，内涵各种贴图，配乐等；content则包含了各种道具、掉落物、副手和实体的信息——还有很多，就不一一赘述了
