@@ -217,7 +217,7 @@ mod:AddModTranslationLoader("_FOKS_BOOSTER_PACK_MOD","Foks 补充包",function()
                 fox.Collectible.TOY_SOLDIER,
                 "玩具士兵",
                 "前线护盾",--直译为“你的前线”
-                "{{Shield}} 获得一个每层抵挡一次伤害的护盾#{{DevilRoom}} 护盾也可以被用于交易#{{Warning}} 同样会影响{{AngelChance}}天使房出现率"
+                "{{Shield}} 获得一个每层抵挡一次伤害的护盾#{{Bomb}} 护盾存在期间获得防爆#{{DevilRoom}} 护盾也可以被用于交易#{{Warning}} 同样会影响{{AngelChance}}天使房出现率"
             },{
                 fox.Collectible.EPHEMERAL_TORCH,
                 "瞬息之炬",
@@ -248,7 +248,9 @@ mod:AddModTranslationLoader("_FOKS_BOOSTER_PACK_MOD","Foks 补充包",function()
                 fox.Collectible.COVENANT,
                 "协议",
                 "相信君之所言",
-                "遇到多选一道具底座时会标记其中一个#{{ArrowUp}} {{Damage}} 拾取被标记的道具会获得伤害+1和{{EternalHeart}}1永恒之心#{{AngelDevilChance}} 恶魔房/天使房出现率+35%"
+                --"遇到多选一道具底座时会标记其中一个#{{ArrowUp}} {{Damage}} 拾取被标记的道具会获得伤害+1和{{EternalHeart}}1永恒之心#{{AngelDevilChance}} 恶魔房/天使房出现率+35%"
+                --重做
+                "有概率标记遇到的道具底座, 概率取决于道具品质, 品质越低概率越高#{{ArrowUp}} 拾取被标记的道具会获得{{Damage}}+0.5和{{EternalHeart}}1永恒之心#{{AngelDevilChance}} 恶魔房/天使房出现率+35%"
             },{
                 fox.Collectible.BATTLE_BANNER,
                 "战旗",
@@ -330,6 +332,26 @@ mod:AddModTranslationLoader("_FOKS_BOOSTER_PACK_MOD","Foks 补充包",function()
                 "万物俱腐",
                 "{{RottenHeart}} 生成1腐心#生成3-6蓝苍蝇#每6次攻击发射6个扭动泪弹",
                 {ABY="1.1倍伤害的毒系绿色蝗虫"}
+            },{
+                "Spicy Bean",
+                "辣味豆",
+                "呼! 呼! 好辣!",
+                "放屁并击退周边的敌人和敌弹#{{Burning}} 造成8伤害并施加灼烧"
+            },{
+                fox.Collectible.PEBBLE,
+                "鹅卵石",
+                "拿一块",
+                "摧毁标记石头额外生成可以抵挡敌弹的鹅卵石环绕物"
+            },{
+                "Dad's Dumbbell",
+                "爸爸的哑铃",
+                "坚持才有回报",
+                "{{Battery}} 初始无充能#↓ {{Speed}} 持有时, 角色的移速上限下调为0.5#↑ 使用后, 永久获得{{Damage}}伤害+1, 体型+25%"
+            },{
+                "Cometa",
+                "彗星",
+                "向星云诉说你的愿望",
+                "↑ {{Luck}} 幸运+1#在房间内快速运动的跟班, 可以抵挡敌弹并造成3.5碰撞帧伤#↑ 幸运越高, 跟班的碰撞伤害越高"
             }
         }
         local trinket={
@@ -375,6 +397,22 @@ mod:AddModTranslationLoader("_FOKS_BOOSTER_PACK_MOD","Foks 补充包",function()
                 "窥见真理",
                 "{{Rune}} 标记石头摧毁后额外掉落符文",
                 {GOLD={INFO={append=true},TEXT={"掉落更多符文","掉落更多符文","掉落更多符文"}}}
+            },{
+                "Grenade Pin",
+                "手榴弹销轴",
+                "我说停停!",
+                "减缓角色炸弹的爆炸速度#放置炸弹会同步场上已放置的炸弹的爆炸"
+            },{
+                "Moxie's Yarn",
+                "勇气纺线球",
+                "虫群结伴",
+                "部分苍蝇敌人会变为蓝苍蝇"
+            },{
+                "Devil's Tongue",
+                "恶魔的舌头",
+                "目睹它们燃烧",
+                "{{Burning}} 角色灼烧碰到的敌人#无视头目的异常状态免疫效果",
+                {GOLD={INFO={append=true},TEXT={"获得抗火","获得抗火","获得抗火"}}}
             }
         }
         local other={
@@ -473,7 +511,6 @@ function LydiaGems(text,isGem)
     if isGem then return "{{LydiaGem}} 激活一个对应"..text.."道具池的未配对宝石#{{LydiaSocket}} 若存在未配对的宝石底座, 将其对应的道具池替换为"..text.."的道具池"
     else return "{{LydiaSocket}} 激活一个对应"..text.."道具池的未配对宝石底座#{{LydiaGem}} 若存在未配对的宝石, 将"..text.."的道具池替换为那个宝石对应的道具池" end
 end
-print()
 mod:AddModTranslationLoader("LydiaMod","莉迪亚",function()
         local items={
             {
