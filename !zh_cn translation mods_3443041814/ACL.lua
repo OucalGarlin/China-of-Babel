@@ -39,7 +39,7 @@ function ACL:PaperitemAddon(itemid,type)--This item is a paper item? 该道具�
         elseif type=="trinket" then
             THI.Collectibles.PortableCopier:AddPaperTrinket(itemid)
             if printing then print(itemid.." is a paper trinket") end
-        else print("There's something wrong in your paper type?") end
+        else print("[ACL] There's something wrong in your paper type?") end
     end
 end
 
@@ -58,15 +58,34 @@ function ACL:PDDfakeAddon(itemid,fakeitemid)--Do you want to sold this as a disg
         if printing then print(itemid.." can appear in fake member card's shop... wait no it's actually "..fakeitemid) end
     end
 end
+--Fake Member Card offers an additional shop that solds items cheaper, but there will have a high chance for that item to be fake
+--itemid means the item you see, fakeitemid means the probable fake deal that item might be  itemid是你看到的道具, fakeitemid则可能是皮囊下伪装的道具
 
---Balatro 小丑牌
-
-function ACL:GlassAddon(itemid)--If this item is a glass item 是否为玻璃道具
-    if BalatroJokers then
-        table.insert(BalatroJokers.Enums.GlassItems,itemid)
-        if printing then print(itemid.." can buff Glass Joker") end
+function ACL:FestiveAddon(month , day , rule , list , name)--Do you want to add a memorable "festival"? 是否要加入一个特定日期的大日子？
+    if ddad then
+        ddad:AddFestival(month , day , rule , list , name)
+        if printing then print(string.format("The gift will be served at %02d/%02d",list[1],list[2])) end
     end
 end
+--month (int)
+--day (int)
+    --exp: month=5 day=4 -> May 4th 五月四日
+--rule (string) some rule for the day (if no, then this should be nil) 对于日期的规则，如果没有规则请输入nil
+    -- "L" the day is in Lunar Calendar 农历日期
+    -- "Q" solar term 节气，如Q1代表立春
+    -- "R" this is used for Easter 复活节
+    -- "W??" "W20" means the 2nd Sunday in the certain month "W20" 表示某月的第 2 个星期日
+    -- "WF?" "WF3" means the last Saturday in the certain month "WF3" 表示某月的最后一个星期三
+    -- "~E" 1 day ahead 提前一天
+--list (table) what should be offerred during that day 那天会提供什么东西?
+    --exp: {"c628",            "t28",       "p1",           "k89",          "10",               "20,1"}
+    --means Death Certificate, Broken Ankh, Bad Trip pill, Soul of Lazarus, random heart pickup, 1 penny
+--name (table) the name of that day (table is used for localization) 日期的名字(列表的目的是支持多语言)
+    --exp:{ en="birthday, Isaac" , zh="祝以撒生日" }
+    --these text will be shown in EID 这些文本会在EID内展示, 如
+    --Happy birthday, Isaac   祝以撒生日快乐
+
+--Balatro 小丑牌
 
 function ACL:SteelAddon(itemid)--If this item is a steel item 是否为钢铁道具
     if BalatroJokers then
@@ -99,5 +118,16 @@ function ACL:DiseaseAddon(itemid)--This item is related to disease? 该道具是
     if Isaac_BenightedSoul then
         table.insert(Isaac_BenightedSoul.IBS_Lib.Pools.DiseaseItemList,itemid)
         if printing then print(itemid.." can be removed by Panacea") end
+    end
+end
+
+function ACL:GlassAddon(itemid)--If this item is a glass item 是否为玻璃道具
+    if BalatroJokers then
+        table.insert(BalatroJokers.Enums.GlassItems,itemid)
+        if printing then print(itemid.." can buff Glass Joker") end
+    end
+    if MilkshakeVol1 then
+        MilkshakeVol1.API:AddItemsToGlassPool({Collectible = itemid, Weight = 1, DecreaseBy = 1, RemoveOn = 0.1})
+        if printing then print(itemid.." can be spawned by Spirit Kiln Brenda") end
     end
 end
