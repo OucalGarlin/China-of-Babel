@@ -1,5 +1,5 @@
 local mod=CNEIDBabel
-mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
+mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)\n* 新增了与 幻想曲 白日梦 小丑牌 模组的花哨兼容(测试?)",function()
     local LBAB=Isaac.GetItemIdByName("The Book of All The Books")
     if EclipsedMod then
         local items={
@@ -103,7 +103,8 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "↑ +5硬币 #{{Coin}} 消耗1美分生成一个{{Collectible684}}饥渴之魂#{{DeathMark}} 角色死亡后会迅速失去所有硬币, 并生成{{Collectible634}} 大量炼狱恶鬼, 硬币数为0时失去该道具",
                 {VIR="外环硬币魂火",
                 BEL="鬼魂将留下火焰",
-                ABY="杀死敌人生成硬币的黄色蝗虫"}
+                ABY="杀死敌人生成硬币的黄色蝗虫",
+                MOD={GOLD=true}}
             },{
                 EclipsedMod.enums.Items.BookMemory,
                 "记忆之书",
@@ -222,12 +223,14 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "弥达斯诅咒",
                 "金!",
                 "{{GoldenHeart}} 获得3金心#{{CoinHeart}} 失去金心会将整个房间点金, 将饰品镀金#{{Warning}} {{ColorYellow}}那么, 代价是什么?#{{Warning}} {{ColorYellow}}100%得到金掉落物#{{Warning}} {{ColorYellow}}所有食物道具被拆解为硬币{{CR}}#{{Collectible260}} 黑蜡烛可以削弱甚至免疫上述代价",
-                {ABY="造成10%伤害的蝗虫, 必定施加点金效果"}
+                {ABY="造成10%伤害的蝗虫, 必定施加点金效果",
+                MOD={GOLD=true}}
             },{
                 EclipsedMod.enums.Items.RubberDuck,--Ducking is a reference to the game Killing Room.
                 "橡皮鸭",
                 "流行度上升",
-                "{{Luck}} 持有时获得幸运增幅+20#↑ {{Luck}} 进入未进入过的房间获得+1幸运增幅#↓ {{Luck}} 进入已进入过的房间失去-1幸运增幅#幸运增幅不会导致亏损"
+                "{{Luck}} 持有时获得幸运增幅+20#↑ {{Luck}} 进入未进入过的房间获得+1幸运增幅#↓ {{Luck}} 进入已进入过的房间失去-1幸运增幅#幸运增幅不会导致亏损",
+                {QUA=1}
             },{
                 EclipsedMod.enums.Items.RedButton,--Red Button is a reference to the game Please, Don't Touch Anything created by Four Quarters.
                 "红按钮",
@@ -256,14 +259,16 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "玻璃炸弹",
                 "反射爆破 + 5个炸弹",
                 "{{Bomb}} 炸弹+5#炸弹在房间的另一头释放爆炸",
-                {ABY="爆炸性黑色蝗虫"}
+                {ABY="爆炸性黑色蝗虫",
+                MOD={GLASS=true}}
             },{
                 EclipsedMod.enums.Items.FrostyBombs,
                 "冰块炸弹",
                 "寒冰爆破 + 5个炸弹",
                 "{{Bomb}} 炸弹+5#炸弹留下水迹并{{Slow}}减速敌人#{{Freezing}} 冻结被炸死的敌人",
                 {ABY="冰系蓝色蝗虫",
-                CHAR={EclipsedMod.enums.Characters.Nadab,"NadabIce",false}}
+                CHAR={EclipsedMod.enums.Characters.Nadab,"NadabIce",false},
+                MOD={ICE=true}}
             },{
                 EclipsedMod.enums.Items.VoidKarma,--Karma Level is a reference to the game Rain World.
                 "因果值",--存疑
@@ -605,7 +610,8 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 EclipsedMod.enums.Items.BaconPancakes,
                 "培根煎饼",
                 "煎饼里放一点培根",
-                "↑ {{Heart}} 心之容器+1#↑ {{Tears}} 射速+0.5#↑ {{Damage}} 伤害+0.5#↑ {{Speed}} 移速+0.2#↑ {{Range}} 射程+1.5#↑ {{Shotspeed}} 弹速+0.2#↑ 体型上升#生成{{Coin}}{{Heart}}{{Key}}{{Bomb}}{{Battery}}{{Pill}}{{Card}}{{Rune}}{{Trinket}}各一个",
+                "↑ {{Heart}} 心之容器+1#↑ {{Tears}} 射速修正+0.5#↑ {{Damage}} 伤害修正+0.5#↑ {{Speed}} 移速+0.2#↑ {{Range}} 射程+1.5#↑ {{Shotspeed}} 弹速+0.2#↑ 体型上升#生成{{Coin}}{{Heart}}{{Key}}{{Bomb}}{{Battery}}{{Pill}}{{Card}}{{Rune}}{{Trinket}}各一个",
+                {QUA=2}
             },{
                 EclipsedMod.enums.Items.BabylonCandle,
                 "巴比伦之烛",
@@ -618,31 +624,36 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "墨菲斯托的契约",--哎又是墨菲斯托
                 "浮士德式交易",
                 "{{BrokenHeart}} 获得3碎心#{{Trinket173}} 使下一次恶魔交易免费#{{Card31}} 获得鬼牌",
-                {ABY="杀死敌人有概率生成炼狱恶鬼的黑色蝗虫"}
+                {ABY="杀死敌人有概率生成炼狱恶鬼的黑色蝗虫",
+                MOD={PAPER=true}}
             },{
                 EclipsedMod.enums.Items.Khepri,--Khepri is a reference to the 'Worm' web serial by John C. 'Wildbow' McCrae.
                 "凯布利",
                 "统管者",
                 "{{GoldenHeart}} 获得1金心#在有敌人的房间内每10s生成一个{{ColorYellow}}六边形传送门{{CR}}, 生成1-2个蓝苍蝇, 蝗虫或蓝蜘蛛#{{Collectible687}} 25%的概率生成一个模仿玩家行动的友好怪物#至多可以拥有5个可控怪物",
-                {ABY="杀死敌人生成蓝苍蝇, 蝗虫或蓝蜘蛛的金色深渊蝗虫"}
+                {ABY="杀死敌人生成蓝苍蝇, 蝗虫或蓝蜘蛛的金色深渊蝗虫",
+                QUA=3}
             },{
                 EclipsedMod.enums.Items.Varg,
                 "座狼",
                 "狼来了",
                 "{{SoulHeart}} 获得1魂心#{{Collectible548}} 在角色身后生成狼颔骨#{{Chargeable}} 狼颔骨可以在攻击时蓄力{{ColorBlue}}咬合{{CR}}, 获得更高的咬合范围和伤害#{{Slow}} 狼颔骨攻击范围内的敌人被减速#{{Freezing}} 松开攻击键释放{{ColorBlue}}咬合{{CR}}, 对面前的敌人造成冰系伤害",
-                {ABY="冰系蓝色蝗虫"}
+                {ABY="冰系蓝色蝗虫",
+                MOD={ICE=true}}
             },{
                 EclipsedMod.enums.Items.Aurora,
                 "极光",
                 "愤怒的公主",
                 "↑ {{Heart}} 心之容器+1#连续攻击3s额外发射一个{{ColorPink}}心弹{{CR}}并失去{{HalfHeart}}#{{Charm}} {{ColorPink}}心弹{{CR}}命中敌人会魅惑一定范围内的敌人并生成1-3个快速消失的{{HalfHeart}}#命中障碍物则只有一个{{HalfHeart}}#{{Damage}} 魅惑的敌人死亡后在当前房间获得伤害上升, 数值取决于敌人最大生命值, 单个房间最多20点",
-                {ABY="魅惑敌人的粉色蝗虫"}
+                {ABY="魅惑敌人的粉色蝗虫",
+                MOD={FEM=true}}
             },{
                 EclipsedMod.enums.Items.Sarbokan,
                 "三宝柑",--存疑
                 "血之强欲",
                 "↑ {{Speed}} 移速+0.3#{{Collectible118}} 进入房间环绕血激光环, 持续10s#敌人死亡时可以增加血激光环的持续时间和伤害",
-                {ABY="可以施加硫磺诅咒的红色蝗虫"}
+                {ABY="可以施加硫磺诅咒的红色蝗虫",
+                QUA=3}
             },{
                 EclipsedMod.enums.Items.Tindal,
                 "廷德尔",--存疑
@@ -654,7 +665,8 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "Horoles",--众所周知翻译家全都是杂家来的不然碰上这些看都看不懂（悲
                 "优越之空想",
                 "↓ {{Damage}} 伤害-1.0#↑ 每秒获得{{Damage}}+0.04{{ColorOrange}}伤害增益{{CR}}, 最多20#进入新房间后重置{{ColorOrange}}伤害增益{{CR}}",
-                {ABY="在当前房间内持续获得伤害上升的大型橙色蝗虫"}
+                {ABY="在当前房间内持续获得伤害上升的大型橙色蝗虫",
+                QUA=1}
             },{
                 EclipsedMod.enums.Items.SmokeBombs,
                 "暗影炸弹",
@@ -717,7 +729,8 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "Lutos",
                 "漆黑一片",
                 "{{BlackHeart}} 获得1黑心#获得飞行#在角色下方生成一个可以摧毁岩石的{{ColorPurple}}陷阱{{CR}}#靠近角色的敌人会引出陷阱中的{{ColorPurple}}深渊之触{{CR}}攻击#{{ColorPurple}}陷阱{{CR}}在10s后或进入新房间后刷新",
-                {ABY="可以生成深渊之触的蝗虫"}
+                {ABY="可以生成深渊之触的蝗虫",
+                QUA=3}
             },{
                 EclipsedMod.enums.Items.Levitan,
                 "列维坦",
@@ -822,7 +835,8 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "信仰之盾",
                 "{{Battery}} 未满充能也能使用#{{Collectible568}} 释放环绕的神圣护盾#{{IGIcon}} 可以跨房间存在, 持续10s",
                 {VIR="有概率发射泪盾的白色魂火",
-                ABY="可以抵挡敌弹的白色蝗虫"}
+                ABY="可以抵挡敌弹的白色蝗虫",
+                MOD={GLASS=true}}
             },{
                 EclipsedMod.enums.Items.LilCultist,
                 "邪教徒宝宝",
@@ -907,7 +921,8 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "Jaudaz",
                 "噪音传染",
                 "↑ {{Tears}} 射速+0.2#↑ {{Shotspeed}} 弹速+0.3#泪弹有概率使敌人{{ColorCyan}}导体化{{CR}}3s#{{ColorCyan}}导体化{{CR}}的敌人将陷入{{Confusion}}混乱, 每0.53s受到1伤害, 且每0.5s朝周围的敌人发射电弧, 造成50%的角色伤害",
-                {ABY="将敌人导体化的白色电系蝗虫"}
+                {ABY="将敌人导体化的白色电系蝗虫",
+                QUA=3}
             },{
                 EclipsedMod.enums.Items.PotionMotion,
                 "运动药水",
@@ -1006,13 +1021,15 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 EclipsedMod.enums.Items.MushroomSoup,
                 "蘑菇汤",
                 "每时每刻, 味道各异",
-                "↑ 获得一个随机心{{Heart}}{{SoulHeart}}{{RottenHeart}}{{EternalHeart}}#↑ 随机属性上升#{{FunGuy}} 每拾取一个蘑菇道具重复触发该效果"
+                "↑ 获得一个随机心{{Heart}}{{SoulHeart}}{{RottenHeart}}{{EternalHeart}}#↑ 随机属性上升#{{FunGuy}} 每拾取一个蘑菇道具重复触发该效果",
+                {QUA=1}
             },{
                 EclipsedMod.enums.Items.WitchCap,
                 "女巫盖蘑菇",
                 "诅咒?",--我来感觉了（？
                 "10%的概率发射一个{{ColorPurple}}诅咒泪弹{{CR}}#{{ColorPurple}}诅咒泪弹{{CR}}会对命中的敌人施加{{ColorPurple}}诅咒效果{{CR}}#{{ColorPurple}}诅咒效果{{CR}}下的敌人获得减速并受到双倍伤害{{ColorFade}}(这不就原版虚弱效果有的吗还写一个新效果是几个意思){{CR}}#{{Luck}} 幸运13: 75%",
-                {ABY="有概率施加诅咒效果的紫色蝗虫"}
+                {ABY="有概率施加诅咒效果的紫色蝗虫",
+                MOD={FEM=true}}
             },{
                 EclipsedMod.enums.Items.LuxAeterna,
                 "永恒之光",
@@ -1977,5 +1994,57 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 return descObj
             end)
         end
+        if ddad then 
+            local PDDsyn={
+                {5,EclipsedMod.enums.Items.LostMirror},
+                {712,EclipsedMod.enums.Items.CosmicJam},
+                {EclipsedMod.enums.Items.MongoCells,322},
+                {202,EclipsedMod.enums.Items.MidasCurse},
+                {EclipsedMod.enums.Items.Limb,EclipsedMod.enums.Items.LostMirror},
+                {ddad.item.TaPB.id,EclipsedMod.enums.Items.AbihuFam},
+                {EclipsedMod.enums.Items.MewGen,522},
+                {545,EclipsedMod.enums.Items.GardenTrowel},
+                {497,EclipsedMod.enums.Items.AncientVolume},
+                {553,EclipsedMod.enums.Items.Shroomface},
+                {EclipsedMod.enums.Items.Khepri,505},
+                {Isaac.GetItemIdByName("VVV"),222},
+                {ddad.item.NaBo.id,EclipsedMod.enums.Items.Symbiont},
+                {EclipsedMod.enums.Items.Tech800M,125},
+                {728,EclipsedMod.enums.Items.InnerDemons},
+                {EclipsedMod.enums.Items.LittleInferno,EclipsedMod.enums.Items.Ignite},
+                {EclipsedMod.enums.Items.BloodV,EclipsedMod.enums.Items.MysticNovel},
+                {628,EclipsedMod.enums.Items.FalseDeath},
+                {689,Isaac.GetItemIdByName("Everything Bagel")},
+                {EclipsedMod.enums.Items.WitchCap,342}
+            }
+            for _,i in ipairs(PDDsyn) do mod:PDDfakeAddon(i[1],i[2]) end
+        end
+        local Dflipsyn={
+            {5,100,5,5,100,EclipsedMod.enums.Items.LostMirror},
+            {5,100,EclipsedMod.enums.Items.BlackKnight,5,100,EclipsedMod.enums.Items.WhiteKnight},
+            {5,100,EclipsedMod.enums.Items.StrangeBox,5,100,198},
+            {5,100,506,5,100,EclipsedMod.enums.Items.BleedingGrimoire},
+            {5,100,EclipsedMod.enums.Items.TetrisDice_full,5,100,258},
+            {5,100,636,5,100,EclipsedMod.enums.Items.VHSCassette},
+            {5,100,EclipsedMod.enums.Items.MongoCells,5,100,322},
+            {5,100,Isaac.GetItemIdByName("Pure Fury"),5,100,EclipsedMod.enums.Items.RedLotus},
+            {5,100,Isaac.GetItemIdByName("Bishamonten's Pagota"),5,100,EclipsedMod.enums.Items.MidasCurse},
+            {5,100,EclipsedMod.enums.Items.GravityBombs,5,100,512},
+            {5,100,EclipsedMod.enums.Items.FrostyBombs,5,100,256},
+            {5,100,EclipsedMod.enums.Items.NadabBrain,5,100,EclipsedMod.enums.Items.NadabBody},
+            {5,100,Isaac.GetItemIdByName("Eclipse"),5,100,588},
+            {5,100,553,5,100,EclipsedMod.enums.Items.Shroomface},
+            {5,100,EclipsedMod.enums.Items.SmokeBombs,5,100,705},
+            {5,100,728,5,100,EclipsedMod.enums.Items.InnerDemons},
+            {5,100,Isaac.GetItemIdByName("Tooth of the Vampire"),5,100,EclipsedMod.enums.Items.OldToothpaste},
+            {5,100,Isaac.GetItemIdByName("Magician's Top"),5,100,EclipsedMod.enums.Items.WitchHat},
+            {5,100,EclipsedMod.enums.Items.BlueSoup,5,100,621},
+            {5,350,EclipsedMod.enums.Trinkets.RedScissors,5,350,63}
+        }
+        for _,i in ipairs(Dflipsyn) do mod:DFlipPairsAddon(i) end
+        local kind={
+            BLOOD={EclipsedMod.enums.Items.BloodV,EclipsedMod.enums.Items.Sarbokan,EclipsedMod.enums.Items.Symbiont},
+            MUSIC={EclipsedMod.enums.Items.UnholyCollection}
+        }
     end
 end)
