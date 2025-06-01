@@ -7,11 +7,13 @@ mod:AddModTranslationLoader("Diepio", "踢脚与讥笑(Kicks and Giggles)\n* 警
                 "舒科的锯骨刀",
                 "你只能想象它会看到多么残酷的...",--存疑
                 "角色立即斩首最近的非头目敌人, 将其秒杀, 然后掉落{{ColorYellow}}祭品头颅{{CR}}#{{GreedMode}} 贪婪模式改为生成{{Trinket173}}",
+                {MOD={STEEL=true}}
             },{
                 "Lewis & Wynne's Wedding Ring",
                 "路易斯和云茵的结婚戒指",
                 "这不属于你.",
-                "对路易斯和云茵无效#犹大之影,???,游魂或舒科试图持有该道具会将其移除#{{Warning}} 如果让其他角色拿了这个道具我注定让你飞起来! "--由于戒指的存在, 路易斯和云茵无法被污染成蓬莱, 蓬莱人偶会自己炸掉(
+                "对路易斯和云茵无效#犹大之影,???,游魂或舒科试图持有该道具会将其移除#{{Warning}} 如果让其他角色拿了这个道具我注定让你飞起来!",--由于戒指的存在, 路易斯和云茵无法被污染成蓬莱, 蓬莱人偶会自己炸掉(
+                {MOD={FEM=true}}
             },{
                 "Lewis's Broken Headband",
                 "路易斯的破损头套",
@@ -22,6 +24,7 @@ mod:AddModTranslationLoader("Diepio", "踢脚与讥笑(Kicks and Giggles)\n* 警
                 "暴雪屏障",
                 "冻结保护",
                 "舒科可以按住副手键将自己藏在冰块中, 免疫一切伤害, 但是无法移动和攻击",
+                {MOD={ICE=true}}
             },{
                 "Lewis's Replica Headband",
                 "路易斯的头套仿制品",
@@ -37,7 +40,7 @@ mod:AddModTranslationLoader("Diepio", "踢脚与讥笑(Kicks and Giggles)\n* 警
                 "护理人员的医疗包",
                 "可重复加命, 但代价惨重",
                 "+1复活次数#!!! 施加截肢效果, 造成{{Heart}}伤害, +1{{BrokenHeart}}, 且在截肢治愈前获得属性降低#死亡可以治愈截肢#最后一个额外生命被消耗时生成一个{{ColorYellow}}可疑的烧瓶",
-                {CONF={___,"{{Player10}} 不会被截肢和受到伤害"}}
+                {CHAR={10,"不会被截肢和受到伤害",true}}
             },{
                 "Seal of Winifred",
                 "云茵之印",
@@ -49,6 +52,7 @@ mod:AddModTranslationLoader("Diepio", "踢脚与讥笑(Kicks and Giggles)\n* 警
                 "路易斯的最后通牒",
                 "为持有者提供上好的货物, 否则后果自负",
                 "{{Collectible}} 生成一个随机的底座道具#!!! {{ColorFade}}根据所选的角色/本局内送走了多少乞丐等情况, 奖励可能会有所不同{{CR}}",
+                {MOD={PAPER=true}}
             },{
                 "Haumea",
                 "妊神星",
@@ -58,12 +62,14 @@ mod:AddModTranslationLoader("Diepio", "踢脚与讥笑(Kicks and Giggles)\n* 警
                 "Dodging Manual",
                 "闪避教程",
                 "比你想象的更简单易懂",
-                "{{Collectible282}} 角色朝指定方向跳跃#擦弹跳跃可以触发{{Collectible677}}时间减速效果"
+                "{{Collectible282}} 角色朝指定方向跳跃#擦弹跳跃可以触发{{Collectible677}}时间减速效果",
+                {MOD={PAPER=true}}
             },{
                 "Eros",
                 "爱神星",
                 "丘比特泪弹",
-                "每个房间的第一次攻击会额外发射一枚跟踪穿透箭矢, 将命中的敌人变为{{Charming}}友好#!!! 箭矢同时造成25%敌人生命的伤害#友好的怪物每秒治愈10%的生命"
+                "每个房间的第一次攻击会额外发射一枚跟踪穿透箭矢, 将命中的敌人变为{{Charming}}友好#!!! 箭矢同时造成25%敌人生命的伤害#友好的怪物每秒治愈10%的生命",
+                {MOD={FEM=true}}
             },{
                 "YouTuber Luck",
                 "欧洲主播的强运",--存疑
@@ -83,7 +89,8 @@ mod:AddModTranslationLoader("Diepio", "踢脚与讥笑(Kicks and Giggles)\n* 警
                 "Black Orb",
                 "黑暗宝珠",
                 "疫病被化作有形之物",
-                "{{Chargeable}} 蓄力5s后, 朝最近的敌人释放黑暗宝珠造成共计4次伤害#伤害取决于角色的{{Damage}}和{{Tears}}, 不会小于7, 无视护甲"
+                "{{Chargeable}} 蓄力5s后, 朝最近的敌人释放黑暗宝珠造成共计4次伤害#伤害取决于角色的{{Damage}}和{{Tears}}, 不会小于7, 无视护甲",
+                {MOD={ILL=true}}
             },{
                 "Monoball",
                 "莫诺球",
@@ -98,17 +105,20 @@ mod:AddModTranslationLoader("Diepio", "踢脚与讥笑(Kicks and Giggles)\n* 警
                 "Miscarriage",
                 "流产",
                 "生命上升 + 免费祭品",
-                "{{Heart}} +1心之容器#{{Heart}} 治疗1红心#{{Card92}} 生成一个莉莉丝的魂石#!!! 角色使用{{SacrificeRoom}}时会失去该道具, 生成1{{BlackHeart}}并临时增加巫术台生成率"
+                "{{Heart}} +1心之容器#{{Heart}} 治疗1红心#{{Card92}} 生成一个莉莉丝的魂石#!!! 角色使用{{SacrificeRoom}}时会失去该道具, 生成1{{BlackHeart}}并临时增加巫术台生成率",
+                {MOD={FEM=true,BLOOD=true}}
             },{
                 "Eerie Flyer",
                 "诡异的传单",
                 "你是否曾在梦中见过这个男人",
-                "生成一个巫术台和{{Rune}}随机符文"
+                "生成一个巫术台和{{Rune}}随机符文",
+                {MOD={PAPER=true}}
             },{
                 "The Meat Grinder",
                 "绞肉机",
                 "锯!!!!!!#死!!!!!!!#你!!!!!!!!",
-                "使用后, 朝攻击方向使用绞肉机, 对命中的敌人施加{{BleedingOut}}流血#每次造成伤害有30%的概率生成骨片或麻风肉片环绕物#绞肉机的伤害取决于{{Damage}}和{{Tears}}, 每次使用至多4次判定"
+                "使用后, 朝攻击方向使用绞肉机, 对命中的敌人施加{{BleedingOut}}流血#每次造成伤害有30%的概率生成骨片或麻风肉片环绕物#绞肉机的伤害取决于{{Damage}}和{{Tears}}, 每次使用至多4次判定",
+                {MOD={STEEL=true}}
             },{
                 "Winifred's Grimoire",
                 "云茵的魔法书",
@@ -119,7 +129,8 @@ mod:AddModTranslationLoader("Diepio", "踢脚与讥笑(Kicks and Giggles)\n* 警
                 "黄金荆棘戒指",
                 "幸运 + 攻击上升, 更多金钱 + 更可怕的伤害",
                 "↑ {{Damage}} x2伤害倍率#↑ {{Luck}} +1幸运#↓ {{Shotspeed}} x0.7弹速倍率#{{Collectible429}} 泪弹命中后概率产生硬币#!!! 每次受到惩罚伤害额外失去1颗心",
-                {CONF={108,"goldenWafer"}}
+                {CONF={108,"goldenWafer"},
+                MOD={GOLD=true,BLOOD=true}}
             },{
                 "Monstromagnetic Energy Drink",
                 "怪兽磁性能量饮料",
@@ -139,7 +150,8 @@ mod:AddModTranslationLoader("Diepio", "踢脚与讥笑(Kicks and Giggles)\n* 警
                 "Book of Procreation",
                 "繁殖之书",
                 "结婚生子",
-                "生成3~5个迷你以撒#{{Burning}} 这些迷你以撒有概率吐出火焰"
+                "生成3~5个迷你以撒#{{Burning}} 这些迷你以撒有概率吐出火焰",
+                {MOD={FEM=true}}
             },{
                 "Book of The Abyss",
                 "深渊之书",
@@ -524,6 +536,24 @@ mod:AddModTranslationLoader("Diepio", "踢脚与讥笑(Kicks and Giggles)\n* 警
         end
         for _, item in ipairs(cards) do
             mod:AddTranslate(300, item[1], item[2], item[3], item[4].."#{{Player"..Diepio.Enums.PlayerType.LEWIS_B.."}} 所属mod: Kicks and Giggles", item[5])
-        end    
+        end
+        local PDDsyn={
+            {Isaac.GetItemIdByName("Eros"),Isaac.GetItemIdByName("Throat of Siren")},
+            {Isaac.GetItemIdByName("Festive Winds"),Isaac.GetItemIdByName("Haumea")},
+            {Isaac.GetItemIdByName("Eerie Flyer"),Isaac.GetItemIdByName("Work for Nothing")}
+        }
+        for _,i in ipairs(PDDsyn) do mod:PDDfakeAddon(i[1],i[2]) end
+        local Dflipsyn={
+            {5,100,Isaac.GetItemIdByName("Monoball"),5,100,Isaac.GetItemIdByName("Fortunate Fox")},
+            {5,100,Isaac.GetItemIdByName("The Meat Grinder"),5,100,Isaac.GetItemIdByName("Vicious Curse")},
+            {5,100,Isaac.GetItemIdByName("Eerie Flyer"),5,350,Diepio.Enums.Trinkets.NATSUMINECKLACE},
+            {5,100,Isaac.GetItemIdByName("Seal of Winifred"),5,100,Isaac.GetItemIdByName("Winifred's Grimoire")},
+            {5,100,Isaac.GetItemIdByName("Book of Bleakness"),5,100,35},
+            {5,100,Isaac.GetItemIdByName("Book of Filth"),5,100,576},
+            {5,100,Isaac.GetItemIdByName("Shuko's Bonesaw"),5,350,Diepio.Enums.Trinkets.SHUKOHEAD},
+            {5,350,Diepio.Enums.Trinkets.RKEY,5,100,636},
+            {5,350,Diepio.Enums.Trinkets.WING,5,350,80}
+        }
+        for _,i in ipairs(Dflipsyn) do mod:DFlipPairsAddon(i) end
     end
 end)
