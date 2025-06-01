@@ -66,7 +66,8 @@ mod:AddModTranslationLoader("dedith", "D!伊迪斯\n* 警告: 目前伊迪斯的
                 dedith.Item.DANTES_INFERNO,
                 "但丁的地狱",
                 "更强的罪孽",
-                "{{MiniBoss}} 每层生成一个额外的超级七宗罪头目房#超级七宗罪拥有"..dedith.Item.DantesInferno.HEALTH_MULT.."倍的生命值, 死亡后掉落更多战利品"    
+                "{{MiniBoss}} 每层生成一个额外的超级七宗罪头目房#超级七宗罪拥有"..dedith.Item.DantesInferno.HEALTH_MULT.."倍的生命值, 死亡后掉落更多战利品",
+                {MOD={PAPER=true}}
             },{
                 dedith.Item.EPIC_BACON,
                 "史诗培根",
@@ -135,6 +136,7 @@ mod:AddModTranslationLoader("dedith", "D!伊迪斯\n* 警告: 目前伊迪斯的
                 "刺股铭心",--原句:一坐下就痛   本句结合 悬梁刺股 和 刻骨民心 而成(
                 "↑ {{Tears}} 站立不动时积攒至多+"..dedith.Item.Hemorrhoid.TEARS_UP.."射速提升#{{Warning}} 站的太久会伤害角色并留下血迹",
                 {ABY="环绕角色时缓慢积攒至多2倍伤害的蝗虫#伤害会在冲锋时减少",
+                MOD={ILL=true}
                 CONF={dedith.Item.HEMORRHOID,"ReHemorrhoid"}}
             },{
                 dedith.Item.COOLAID,
