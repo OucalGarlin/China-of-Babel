@@ -1,0 +1,70 @@
+Eclipsed ECO update
+
+扮演拿答&亚比户——爆破兄弟，或者不速之客——宇宙之灵展开冒险
+
+内容物：
++4个角色
++100个道具
++30个饰品
++80个副手物品
++9个挑战
++16个诅咒
++6种新的乞丐
++40个可解锁项
+
+角色
+2个具有独特玩法的角色，与此同时还有他们的堕化角色
+
+拿答
+拿答
+好好管理你的红心以获得更多跟对面爆了的机会
+炸弹的独特兼容
+亚比户也会陪着你，帮你拉扯仇恨
+
+亚比户-亵渎者
+游玩亚比户，使用大哥拿答的身体炸烂你的敌人
+没有泪弹，而是使用火焰攻击
+
+不速之客
+收集道具魂火，在下一层将它们变为货真价实的物品
+用魂火收集大量的主动道具，用ctrl在每个主动道具之间切换使用
+
+不速之客 - 无垠者
+逃避死亡的永恒之魂
+收集道具魂火，并将他们化作真实的道具
+用独特的攻击方式同时伤害数名敌人
+提升属性和独特的泪弹特效让它更加强大
+不要让永恒时间之沙追上你，否则一切将归于原点……
+
+可解锁项：
+每个角色的12个通关标记都可以解锁一个新物品
++ 新的挑战，伴随新成就和解锁物品
+
+模组兼容：
+百科全书 Encyclopedia
+外置道具描述 EID
+未来 THE FUTURE
+天界的呼唤 Heaven's Call [Lunar Update]
+Unique MEGAIsaacs
+Detailed Respawn
+MiniMAPI
+BetterCurseApi
+Accursed! (Cursed Trapdoors)
+图书馆拓展 Library Expanded
+模组设置菜单 Mod Config Menu Pure
+
+依赖：
+忏悔龙 REPENTOGON
+
+漏洞报告
+发现任何问题欢迎在讨论区投稿
+
+模组信息
+维基（https://steamcommunity.com/linkfilter/?u=https%3A%2F%2Fisaacguru.com%2Fmod%2Feclipsed）
+Discord（https://steamcommunity.com/linkfilter/?u=https%3A%2F%2Fdiscord.gg%2Fg2GSst7vgJ）
+
+特别鸣谢:
+Kattack - better T.Unbidden, testing
+Skulldier - items and beggars sprites
+Pea_sh0ter - testing and ideas
+Harvester - mod name and delirious pickups
