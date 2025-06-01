@@ -20,7 +20,8 @@ mod:AddModTranslationLoader("EnlightenmentMod", "启蒙之路",function()
 			"花费20美分触发{{Card65}}逆位隐士的效果#↑ 额外获得随机属性提升",
 			{ VIR="效果改为: 转换房间内的道具底座为20美分的{{ItemPoolAngel}}道具, 每转换一个道具消耗5美分",
 			BEL="效果改为: 转换房间内的道具底座为20美分的{{ItemPoolDevil}}道具, 每转换一个道具消耗5美分",
-			ABY="{{ColorLime}}2只概率在碰撞后生成硬币的蝗虫"}
+			ABY="{{ColorLime}}2只概率在碰撞后生成硬币的蝗虫",
+			MOD={GOLD=true}}
 		},{
 			"Inkwell",
 			"墨池",
@@ -108,7 +109,8 @@ mod:AddModTranslationLoader("EnlightenmentMod", "启蒙之路",function()
 			"强而有力的冰霜之拳",
 			"我认真的, 别做坏事了",
 			"有概率肘击靠近角色的怪物, 击退并减速它们, 造成4~30点{{Freezing}}冰属性伤害#{{RangeSmall}} 攻击范围受射程影响",
-			{ABY="{{ColorRed}}2只击退蝗虫"}
+			{ABY="{{ColorRed}}2只击退蝗虫",
+			MOD={ICE=true}}
 		},{
 			"Clock Guy",
 			"钟货",
@@ -148,6 +150,7 @@ mod:AddModTranslationLoader("EnlightenmentMod", "启蒙之路",function()
 			"壮丽炸弹",
 			"挥霍资产",
 			"\1 +5 美分#{{Coin}} 如果角色没有炸弹, 可以自动花费5美分继续放置炸弹#角色的炸弹有概率触发点金效果",
+			{MOD={GOLD=true}}
 		},{
 			"Time is Money",
 			"一寸光阴一寸金",
@@ -160,6 +163,7 @@ mod:AddModTranslationLoader("EnlightenmentMod", "启蒙之路",function()
 			"店长之佑",
 			"{{CoinHeart}} 受到伤害不会扣血, 而是失去3美分#!!! 在子宫层后将失去5美分#{{IGIcon}} 除非拥有{{Collectible108}}圣饼或其他抗性提升效果#{{EmptyHeart}} 未持有钱币则不生效",
 			{ABY="{{ColorYellow}}1.5倍伤害的蝗虫, 命中敌人后有概率生成硬币",
+			MOD={GOLD=true},
 			CONF={64,"HalfPricePerce"}}
 		},{
 			"Dragon Balls",
@@ -180,6 +184,7 @@ mod:AddModTranslationLoader("EnlightenmentMod", "启蒙之路",function()
 			"自私袋",
 			"无底线的贪婪",
 			"吸收距角色最近的掉落物#20% 的概率举起一个和掉落物相关的道具, 指示你下一个需要吸收什么掉落物#{{Coin}} 本层内完成则获得1美分",
+			{MOD={GOLD=true}}
 		},{
 			"Pepper Steak",
 			"胡椒牛排",
@@ -252,7 +257,8 @@ mod:AddModTranslationLoader("EnlightenmentMod", "启蒙之路",function()
 			"当前房间内15s, 有节奏地释放{{Collectible202}} 点金冲击波",
 			{VIR="冲击波命中有4.17%的概率生成{{GolednHeart}}",
 			BEL="同时释放爆炸, 造成1.2倍伤害",
-			ABY="{{ColorGreen}}这只蝗虫可以为你提供金掉落物, 但你用它造成的伤害得等同于澳大利亚每克黄金的价值!#{{CR}}该数值在2024/11/15为127$"}
+			ABY="{{ColorGreen}}这只蝗虫可以为你提供金掉落物, 但你用它造成的伤害得等同于澳大利亚每克黄金的价值!#{{CR}}该数值在2024/11/15为127$",
+			MOD={GOLD=true,MUSIC=true}}
 		},{
 			"Cede",
 			"放松",
@@ -428,5 +434,25 @@ mod:AddModTranslationLoader("EnlightenmentMod", "启蒙之路",function()
 			"启蒙参孙",
 			"zh_cn"
 		)
+        if ddad then 
+            local PDDsyn={
+				{ddad.item.CoSk.id,EnlightenmentMod.ENUMS.ITEMS.MIXER},
+				{ddad.item.GlFg.id,EnlightenmentMod.ENUMS.ITEMS.SPY}
+            }
+            for _,i in ipairs(PDDsyn) do mod:PDDfakeAddon(i[1],i[2]) end
+        end
+		local Dflipsyn={
+			{5,100,Isaac.GetItemIdByName("Money = Power 2.0"),5,100,109},
+			{5,100,Isaac.GetItemIdByName("Inkwell"),5,100,Isaac.GetItemIdByName("Jeweled Branch")},
+			{5,100,Isaac.GetItemIdByName("Sulphur"),5,100,556},
+			{5,100,Isaac.GetItemIdByName("Mercury"),5,100,590},
+			{5,100,Isaac.GetItemIdByName("Magatama"),5,100,Isaac.GetItemIdByName("Soul Magatama")},
+			{5,100,Isaac.GetItemIdByName("Scouter"),5,100,Isaac.GetItemIdByName("Dragon Balls")},
+			{5,100, Isaac.GetItemIdByName("Pepper Steak"),5,100,Isaac.GetItemIdByName("Pepper Steak?")},
+			{5,100,Isaac.GetItemIdByName("Tunnel Vision"),5,100,Isaac.GetItemIdByName("3D Glasses")},
+			{5,100,Isaac.GetItemIdByName("Roswell"),5,100,Isaac.GetItemIdByName("Saucer Remote")}
+		}
+        for _,i in ipairs(Dflipsyn) do mod:DFlipPairsAddon(i) end
+        if ReverieMGO then mod:DFlipPairsAddon({5,100,Isaac.GetItemIdByName("The Face of an Oni"),5,100,ReverieMGO.Collectibles.OniMask.ID}) end
 	end
 end)
