@@ -1,6 +1,6 @@
  --Additional Compatibles Library -- Portable compatible functions? 便携式模组兼容函数库?
 local ACL=CNEIDBabel
-local printing=true --Set this to true so there will have printed information if synergies are successfully added 调试模式：将该项设为true后即刻在控制台看到成功加载的输出
+local printing=false --Set this to true so there will have printed information if synergies are successfully added 调试模式：将该项设为true后即刻在控制台看到成功加载的输出
 --Fiend Folio 邪魔典纸
 
 function ACL:FuzzyPickleAddon(itemid,itemtype,referencename,partial)--This item references something else? 该道具是否为一个捏他道具？
