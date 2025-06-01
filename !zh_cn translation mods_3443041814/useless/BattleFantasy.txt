@@ -1,0 +1,77 @@
+战争幻想(Battle Fantasy)是一个中等体量的内容物模组。经过了两年的开发，目前本模组包含如下内容：
+
+数个捏他经典Flash游戏的道具，如史诗战争幻想(Epic Battle Fantasy)，Bloons，Fancy Pants等！（为什么我一个都没听过）
+同时也包含一些可以融入原版的内容，如“血之契约”，“白色哈瓦那”，“妈妈的花”等！
+
+相当多的新饰品，包含了有趣的效果或花活，例如“强迫症”，“黑票”等！
+
+包含：一种新的塔罗牌类型，有风险也有回报的负片扑克牌，和强大的杂牌，例如“礼物卡”和“吗啡时间！”
+
+包含：
+新掉落物：烟尘箱子
+新的陵墓层敌人——绷带冲刺蝇蛆——和包含它的170+房间布局
+特殊的超级隐藏房布局
+40+星象房布局，来自于Aero's More Planetarium未上架的更新
+1个新的挑战
+成就
+秘密和彩蛋……？
+450+弹窗文本
+以及更多！
+
+Fantasy团队希望您享受战争幻想……而我们也会为您准备更多惊喜
+
+注意：
+本模组依赖忏悔龙。许多道具都采用了其中的函数，以提供一个更流畅的游戏体验，并实现一些原版难以达成的效果
+
+兼容
+本模组的道具可以和原版的部分道具有兼容，如“美德之书”，“犹大”的“长子名分”
+所有内容都支持外置道具描述（EID），和百科全书（Encyclopedia）的更为详细的介绍，也包括一些秩事
+内置死海卷轴设置彩蛋
+兼容邪魔典纸的“捏他泡菜”和“过载骰子”
+大多数模组理论上都不会有兼容问题，但如果真的存在不兼容模组，欢迎在漏洞报告区上报
+
+制作人名单:
+Aeronaut - Director, Lead Designer, Programmer
+Pupzables - Lead Spriter, Designer
+ConBoi - Designer, Spriter, Room Maker, Promotional Images' Drawings
+Sephaan - Spriter
+Shynova - Spriter
+Aleks_bog - Spriter
+Bagman64 - Spriter
+Linchalo - Spriter, Room Maker, Beta tester
+steve2552 - Designer, Room Maker, Recipe Maker
+Monwil - Beta tester
+catinsurance - Beta tester, Additional Feedback
+Reubzz72 - Beta tester
+Spoop - Beta tester
+
+额外贴图:
+ALADAR - Sunflower, Holy Bombs (item sprite)
+Kruntical - Spore Sac (item sprite)
+no name - Music Note familiars (v1)
+TheHGamer - Blazing Iris (item sprite) & familiar sprite (v1)
+Natalia.png - Development server's icon
+
+额外制作:
+BudgetPyx - Owner of the original concepts for Building Block and Negative Suit Cards, and sprite of Building Block; Long live Ascension
+Some code snippets owned/adapted from: catinsurance, Benny, Connor, KingBobson, Hybrid, MrSeemsGood, Xalum, hellfirebeah, RatRatRat, Oatmealine (All specific credits present in the mod's code)
+VioVoid - Suspicious Heart.
+
+特别鸣谢:
+rarunia - This mod would not have started without your support and interest in my ideas, before I even learned how to mod. Thank you.
+gorg server - Gorp forever. Plab never. Stan Crystal Shard, always.
+Foks
+Kattack
+kerkel
+hellfirebeah
+HoneyVee
+skykittenpuppy
+TheTurtleMelon - For downloading/promoting previous mods I have made.
+LazyMattman, RogueWatermelon, RKeyNell, RomeLIVE - For promoting this mod when it was released.
+Matt Kupo, Ronja, & Phyrnna: Creators of Epic Battle Fantasy, the most epic and inspiring Flash game out there. (Seriously though, thanks for making such a great game that was the catalyst that inspired this mod in the first place)
+
+战争幻想网站:
+通过如下途径了解我们的更新进度:
+Our Bluesky: https://bsky.app/profile/battlefantasy.bsky.social
+Our Wiki on IsaacGuru: https://isaacguru.com/mod/battle_fantasy
+(Unmaintained) Our Twitter (definitely not X): https://x.com/BattleFantasy_
