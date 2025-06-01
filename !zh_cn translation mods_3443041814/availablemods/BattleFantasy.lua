@@ -1,5 +1,5 @@
 local mod=CNEIDBabel
-mod:AddModTranslationLoader("battleFantasy","战争幻想\n* 注: 建议安装Encyclopedia以查看该模组的轶事描述 (那个没有翻译哈哈)\n* 更合理的道具品质 已生效!",function()
+mod:AddModTranslationLoader("battleFantasy","战争幻想\n* 注: 建议安装Encyclopedia以查看该模组的轶事描述 (那个没有翻译哈哈)\n* 更合理的道具品质 已生效!\n\n* 新增了与 幻想曲 小丑牌 模组的花哨兼容(测试?)",function()
     if battleFantasy then
         local items={
             {
@@ -39,13 +39,14 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n* 注: 建议安装En
                     {PlayerType.PLAYER_KEEPER,"KeePack",false},
                     {PlayerType.PLAYER_KEEPER_B,"MiserPack",false},
                     {PlayerType.PLAYER_THEFORGOTTEN,"BonePack",false}
-                }}
+                },MOD={PAPER=true,BLOOD=true}}
             },{
                 battleFantasy.Items.BF_BOILING_BLOOD,
                 "热血沸腾",
                 "我火了...",
                 "{{ArrowUp}} 每个{{HalfHeart}}半红心提供+0.15 {{Damage}}伤害#受伤后释放10团火焰#{{Burning}} 火焰的伤害为: {{Damage}} + 20",
                 {ABY="25%的概率施加{{Burning}}灼烧的蝗虫",
+                MOD={BLOOD=true},
                 CONF={{CollectibleType.COLLECTIBLE_GHOST_PEPPER,"5.350."..battleFantasy.Trinkets.BF_ECTOPLASM},"BlueBoil"},
                 QUA=2}--数值还是太保守了，也不可能当受伤触发道具用
             },{
@@ -70,18 +71,21 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n* 注: 建议安装En
                 "严寒泪弹",
                 "{{ArrowUp}} +0.61 {{Tears}}射速#{{ArrowDown}} -0.16 {{Shotspeed}}弹速#{{Freezing}} 有10%的概率发射2倍伤害的{{ColorBlue}}冻结泪弹{{CR}}#{{Luck}} 幸运22: 50",
                 {ABY="造成1.25x伤害的蝗虫, 有5%的概率施加{{Freezing}}冰冻",
-                CONF={448,"GlobeShard"}}
+                CONF={448,"GlobeShard"},
+                MOD={GLASS=true,ICE=true}}
             },{
                 battleFantasy.Items.BF_BUILDING_BLOCK,
                 "积木砖块",
                 "移速上升 + 卧槽!!!",
                 "{{ArrowUp}} +0.3 {{Speed}}移速#{{Collectible".. CollectibleType.COLLECTIBLE_DULL_RAZOR .."}} 拾取后造成一次假伤",
+                {MOD={STONE=true}}
             },{
                 battleFantasy.Items.BF_CAVITY,
                 "蛀牙",
                 "一切开始腐烂",
                 "{{Poison}} 25%的概率发射一个黑牙泪弹施加中毒#{{Damage}} 大部分特殊泪弹(例如{{Collectible7}}血泪, {{Collectible183}}钻石泪弹等)均造成1.25倍伤害(包括该道具发射的黑牙泪弹)",
                 {ABY="造成1.25x伤害的蝗虫, 有10%的概率施加{{Poison}}中毒",
+                MOD={ILL=true},
                 CONF={
                     {{7,90,34,150,259,237,83,415,443,531,5,374,463,462,503,572,592,183,battleFantasy.Items.BF_NOTHING_BURGER,"5.350.95"},"CavityDMGEffected"},
                     {battleFantasy.Items.BF_WRAPPED_CANDY,"MULT1"},
@@ -101,6 +105,7 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n* 注: 建议安装En
                 "异想泪弹",
                 "角色的泪弹替换为{{ColorGray}}穿透{{CR}}的粉水晶#粉水晶首次命中的敌人会分裂出3发高弹速水晶, {{IGIcon}}且分裂出的水晶0.23s后命中敌人可能继续分裂#每个分裂的水晶继承原水晶泪弹的80%伤害",
                 {ABY="造成两倍伤害的蝗虫",
+                MOD={STONE=true},
                 CONF={
                     {battleFantasy.Items.BF_CRYSTAL_SHARD,"CopyCrystal"},
                     {{104,224,453,572},"PCFriendly"},
@@ -181,10 +186,11 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n* 注: 建议安装En
                 battleFantasy.Items.BF_HAND_OF_HEAVEN,
                 "天堂之手",
                 "他在等一份神圣的祭品",
-                "{{Warning}} 一次性! #{{Battery}} 有概率将电池替换为{{EternalHeart}}#{{EternalHeart}} 自动消耗血条内的永恒之心并收集#根据收集的永恒之心, 生成至少一个{{AngelRoom}}天使道具#最好的结果为收集4{{EternalHeart}}的情况, {{IGIcon}}更多的永恒之心会被返还#{{ArrowDown}} 最好别把4个永恒之心的结果拿到{{DevilRoom}}里面用...",
+                "{{Warning}} 一次性! #{{Battery}} 有概率将电池替换为{{EternalHeart}}#{{EternalHeart}} 自动消耗血条内的永恒之心并收集#根据收集的永恒之心, 生成至少一个{{AngelRoom}}天使道具#最好的结果为收集4{{EternalHeart}}的情况, 更多的永恒之心会被返还({{GarlinIcon}}因未知漏洞可能会出现牛奶)#{{ArrowDown}} 最好别把4个永恒之心的结果拿到{{DevilRoom}}里面用...",
                 {VIR="具有更高生命的魂火, 熄灭后生成{{EternalHeart}}",
                 BEL="若消耗了2-3个{{EternalHeart}}, 在道具奖池中加入{{DevilRoom}}道具#取消在恶魔房使用4{{EternalHeart}}时的亏损",
-                ABY="在拥有永恒之心时造成+15伤害的蝗虫"}
+                ABY="在拥有永恒之心时造成+15伤害的蝗虫",
+                QUA=3}
             },{
                 battleFantasy.Items.BF_HEALING_SPELL,
                 "治疗法术",
@@ -217,7 +223,8 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n* 注: 建议安装En
                 "使用后, 朝最近的敌人发射一个指甲泪弹, 造成{{ColorYellow}}3{{Damage}}+10{{CR}}, 并施加{{BleedingOut}}流血效果#{{Warning}} 每层只有10个指甲要剪, 继续剪将会造成伤害, 优先失去红心#自伤时不会发射指甲, 而是1.5倍伤害的血泪",
                 {VIR="生命值更低的魂火, 熄灭后对附近的敌人施加流血",
                 BEL="指甲{{Collectible257}}燃起来了",
-                ABY="2%的概率施加{{BleedingOut}}流血的蝗虫"}
+                ABY="2%的概率施加{{BleedingOut}}流血的蝗虫",
+                MOD={STEEL=true}}
             },{
                 battleFantasy.Items.BF_NATALIES_RIBBON,
                 "娜塔莉的蝴蝶结",--我不会再回去了(跳进染缸)
@@ -231,7 +238,7 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n* 注: 建议安装En
                 {CONF={
                     {{CollectibleType.COLLECTIBLE_SOY_MILK,CollectibleType.COLLECTIBLE_ALMOND_MILK},"MilkyLyre"},
                     {52,"DrLyre"}
-                }}
+                },MOD={MUSIC=true}}
             },{
                 battleFantasy.Items.BF_SERPENS,
                 "巨蛇座",
@@ -243,7 +250,8 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n* 注: 建议安装En
                 "坏掉的耳机",
                 "终于安静了",--存疑
                 "{{ArrowUp}} +0.4 {{Tears}}射速#20% 的概率在杀死敌人时生成一个音符环绕物#音符可以抵挡3次敌弹, 而后伤害附近的敌人并{{Confusion}}施加混乱",
-                {BFF="音符伤害翻倍"}
+                {BFF="音符伤害翻倍",
+                MOD={MUSIC=true}}
             },{
                 battleFantasy.Items.BF_SPIRIT_BURNER,
                 "魂油灯",
@@ -251,6 +259,7 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n* 注: 建议安装En
                 "持有时, 敌人有7.5%的概率掉落一个魂石#!!! {{ColorRed}}任何魂石不会在离开房间后保留{{CR}}#使用后, 消耗持有的魂石并存储; 存储3个魂石后, 再次使用会根据存储的魂石的品质生成掉落物或道具#{{GarlinIcon}} 可在死海卷轴中设置是否显示魂石品质",
                 {BEL="{{Card84}}犹大的魂石具有更高的品质",--不是你丫?
                 ABY="7.5%的概率在杀死敌人后生成魂石",
+                MOD={GLASS=true},
                 QUA=3}--魂石爆率挺高的, 但魂石不保存全部变成其他掉落物那跟里蓝人没有炸弹有什么区别（难怪给重随的魂石低品质）
             },{
                 battleFantasy.Items.BF_SPORE_SAC,
@@ -268,7 +277,8 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n* 注: 建议安装En
                 "魅魔的角",
                 "愿汝敌不堪一击",
                 "{{ArrowUp}} +1 {{Damage}}伤害#{{Charm}} 有概率发射魅惑泪弹#{{Charm}} 魅惑的敌人受到的任何伤害x1.5#{{Luck}} 幸运27: 100%",
-                {ABY="造成1.5x伤害的蝗虫, 有5%的概率施加{{Charm}}魅惑"}
+                {ABY="造成1.5x伤害的蝗虫, 有5%的概率施加{{Charm}}魅惑",
+                MOD={FEM=true}}
             },{
                 battleFantasy.Items.BF_SUNFLOWER,
                 "向日葵",
@@ -328,7 +338,8 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n* 注: 建议安装En
                 "伤害上升, 稳定性下降",
                 "{{Warning}} {{Damage}}获得介于50% - 200%的随机伤害倍率#每次进入房间重随该伤害倍率#{{Collectible201}} 金属道具可以提升10%可获得的伤害倍率上限, 最高可达300%",
                 {QUA=2,
-                ABY="造成50% - 200%随机伤害的紫色蝗虫"}
+                ABY="造成50% - 200%随机伤害的紫色蝗虫",
+                MOD={STEEL=true}}
             },{
                 battleFantasy.Items.BF_MONEY_MAKING_GUIDE,
                 "挣大钱教程",
@@ -390,8 +401,7 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n* 注: 建议安装En
                 "琼脂果冻",
                 "分而治之",--是对某国外多人游戏Agar.io. 的捏他但我不认识（
                 "15%的概率在受到伤害后生成一个随机饰品#当地上有至少2个饰品时, 效果改为将那些饰品吞掉#每吞下一个饰品会治疗半颗心{{HalfHeart}}{{HalfSoulHeart}}",
-                {QUA=1,--超低配弹珠袋
-                ABY="有5%概率{{Collectible631}}切分敌人的天蓝色蝗虫"}
+                {ABY="有5%概率{{Collectible631}}切分敌人的天蓝色蝗虫"}
             },{
                 battleFantasy.Items.BF_NGU,
                 "NGU",
@@ -419,7 +429,8 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n* 注: 建议安装En
                 "冻结吐息",
                 "{{Freezing}} 使用后朝攻击方向发射一串{{ColorCyan}}冰风{{CR}}造成伤害#对靠近的敌人造成更高的伤害",
                 {VIR="发射冰系泪弹的魂火",
-                ABY="有5%的概率{{Freezing}}冻结敌人的天蓝色蝗虫"}
+                ABY="有5%的概率{{Freezing}}冻结敌人的天蓝色蝗虫",
+                MOD={ICE=true}}
             },{
                 battleFantasy.Items.BF_COSMIC_PEARL,
                 "末影珍珠",
@@ -465,6 +476,7 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n* 注: 建议安装En
                 "物归原主",
                 "谢了不用",
                 "受到伤害会释放一个泪弹瞄准伤害源#{{Heart}} 根据角色拥有的最弱的心的类型, 那个泪弹将获得不同的效果和不同的伤害:#{{EmptyBoneHeart}} 弹射骨头泪弹, 4x伤害#{{CoinHeart}} 弹射点金泪弹, 4x伤害#{{Heart}} 留下大片血迹的弹射血泪, 3x伤害#{{SoulHeart}} 命中分裂泪弹, 4.5x伤害#{{BlackHeart}} 恐惧跟踪泪弹, 6x伤害",
+                {MOD={BLOOD=true}}
             },{
                 battleFantasy.Items.BF_THUNDER_FLOWER,
                 "闪电花",
@@ -485,6 +497,7 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n* 注: 建议安装En
                 "黄金曲奇",
                 "生命上升 + 让我们一起摇摆",
                 "{{Heart}} +1心之容器#{{HealingRed}} 治疗1红心#{{GoldenHeart}} 获得1金心#有时候会出现一个{{ColorYellow}}提示{{CR}}, 然后狂搓移动和攻击键以叠加{{ColorYellow}}计数器{{CR}}#{{Damage}} 根据{{ColorYellow}}计数器{{CR}}数值, 在当前楼层获得伤害上升",
+                {MOD={GOLD=true}}
             },{
                 battleFantasy.Items.BF_SCARLET_HEADBAND,
                 "猩红头巾",
@@ -511,7 +524,8 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n* 注: 建议安装En
                 "轻拿轻放",
                 "使用后, 连发3发玻璃弹丸, 造成{{ColorYellow}}{{Damage}} + 4.2 {{CR}}的伤害#{{Warning}} 命中敌人或落地后的玻璃弹丸会变为玻璃碎片, 具有灵体穿透效果, 且能造成3倍伤害,!!!但是具有友伤#{{BleedingOut}} 玻璃弹丸和玻璃碎片均可对敌人施加流血效果",
                 {VIR="发射分裂泪弹的低生命魂火",
-                BEL="受到来自玻璃碎片的伤害时触发彼列之书的效果"}
+                BEL="受到来自玻璃碎片的伤害时触发彼列之书的效果",
+                MOD={GLASS=true}}
             },{
                 battleFantasy.Items.BF_ROLLER_SKATES,
                 "滚轮溜冰鞋",
@@ -723,26 +737,26 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n* 注: 建议安装En
                 battleFantasy.Trinkets.BF_UPGRADED_PENNY,
                 "升级硬币",
                 "耐心即力量",
-                "进入新楼层后, 该饰品永久获得+0.1x {{Tears}} 射速倍率或+0.1x {{Damage}} 伤害倍率, 并获得如下增益之一: #{{ArrowUp}} +0.2 {{Speed}} 移速#{{ArrowUp}} +20%的概率发射穿透泪弹#+15%的概率将一个炸弹变为{{Collectible"..CollectibleType.COLLECTIBLE_HOT_BOMBS.."}} 炽热炸弹#+15%的概率将一个{{Key}}钥匙变为钥匙串",
+                "进入新楼层后, 该饰品永久获得+10%{{Tears}} 射速倍率或+10%{{Damage}} 伤害倍率, 并获得如下增益之一: #{{ArrowUp}} +0.2 {{Speed}} 移速#{{ArrowUp}} +20%的概率发射穿透泪弹#+15%的概率将一个炸弹变为{{Collectible"..CollectibleType.COLLECTIBLE_HOT_BOMBS.."}} 炽热炸弹#+15%的概率将一个{{Key}}钥匙变为钥匙串",
                 {GOLD={INFO={append=true},TEXT={"效果翻倍","效果翻倍","效果翻倍"}}}
             },{
                 battleFantasy.Trinkets.BF_INTERACTIVE_BUDDY_3,
                 "交互式玩偶",
                 "它会承受所有伤痛",
-                "具有3HP#当角色受到伤害时失去1HP, 生成2-3个随机掉落物#失去最后1HP时掉落一个福袋并失去该饰品#角色拾取有治疗效果的道具时也可以治疗该饰品",
-                {GOLD={INFO={findReplace=true},TEXT={"2-3","4-6","6-9"}}}
+                "具有3HP#当角色受到伤害时失去1HP, 生成二到三个随机掉落物#失去最后1HP时掉落一个福袋并失去该饰品#角色拾取有治疗效果的道具时也可以治疗该饰品",
+                {GOLD={INFO={findReplace=true},TEXT={"二到三","四到六","六到九"}}}
             },{
                 battleFantasy.Trinkets.BF_INTERACTIVE_BUDDY_2,
                 "交互式玩偶",
                 "它会承受所有伤痛",
-                "具有3HP#当角色受到伤害时失去1HP, 生成2-3个随机掉落物#失去最后1HP时掉落一个福袋并失去该饰品#角色拾取有治疗效果的道具时也可以治疗该饰品",
-                {GOLD={INFO={findReplace=true},TEXT={"2-3","4-6","6-9"}}}
+                "具有3HP#当角色受到伤害时失去1HP, 生成二到三个随机掉落物#失去最后1HP时掉落一个福袋并失去该饰品#角色拾取有治疗效果的道具时也可以治疗该饰品",
+                {GOLD={INFO={findReplace=true},TEXT={"二到三","四到六","六到九"}}}
             },{
                 battleFantasy.Trinkets.BF_INTERACTIVE_BUDDY_1,
                 "交互式玩偶",
                 "它会承受所有伤痛",
-                "具有3HP#当角色受到伤害时失去1HP, 生成2-3个随机掉落物#失去最后1HP时掉落一个福袋并失去该饰品#角色拾取有治疗效果的道具时也可以治疗该饰品",
-                {GOLD={INFO={findReplace=true},TEXT={"2-3","4-6","6-9"}}}
+                "具有3HP#当角色受到伤害时失去1HP, 生成二到三个随机掉落物#失去最后1HP时掉落一个福袋并失去该饰品#角色拾取有治疗效果的道具时也可以治疗该饰品",
+                {GOLD={INFO={findReplace=true},TEXT={"二到三","四到六","六到九"}}}
             },{
                 battleFantasy.Trinkets.BF_WARPED_PENNY,
                 "异次元硬币",
@@ -804,13 +818,13 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n* 注: 建议安装En
                 }}
             },{
                 battleFantasy.Cards.BF_ONYX_THE_EMPEROR,
-                "IV - 涤罪之皇",
+                "IV - 斥罪之皇",
                 "直面万恶之源",
                 "将角色传送至有2个七宗罪头目的长房间#清理该房间获得道具奖励#{{Collectible668}} 在祸兽竞技场中只会随机传送, 并生成七宗罪魂火#!!! 启用God's Gambit模组时也会传送至有2个七美德头目的房间",
                 {CONF={249,"EmperorChoice"}}
             },{
                 battleFantasy.Cards.BF_ONYX_THE_HIEROPHANT,
-                "V - 纳垢之教",
+                "V - 纳垢主教",
                 "生机者之双祷",
                 "角色获得2个随机心, 必定不会是无用的心",
             },{
@@ -877,7 +891,7 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n* 注: 建议安装En
                 battleFantasy.Cards.BF_ONYX_THE_MOON,
                 "XVIII - 未知妖月",
                 "永远无人问津",
-                "{{ArrowDown}} 失去3 {{SoulHeart}} 魂心#没有魂心则消耗心之容器#!!! {{ColorRed}}致死#生成一个{{QuestionMark}}未知的{{SecretRoom}}隐藏房道具",
+                "{{ArrowDown}} 失去3 {{SoulHeart}} 魂心#没有魂心则消耗心之容器#!!! {{ColorRed}}可能致死#生成一个{{QuestionMark}}未知的{{SecretRoom}}隐藏房道具",
             },{
                 battleFantasy.Cards.BF_ONYX_THE_SUN,
                 "XIX - 傲慢耀阳",
@@ -890,7 +904,7 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n* 注: 建议安装En
                 "{{Collectible691}} 未来3个道具将被重随为高品质道具#{{ArrowDown}} 第四个道具将被移除",
             },{
                 battleFantasy.Cards.BF_ONYX_THE_WORLD,
-                "XXI - 炼金玛瑙",
+                "XXI - 哲人石",
                 "解答世间万物",
                 "{{EternalHeart}} 获得1永恒之心和{{HalfBlackHeart}}1个半黑心#获得{{Coin}} 1硬币, {{Bomb}} 1炸弹, {{Key}} 1钥匙#在当前楼层获得3个随机属性提升#{{Trinket}} 如果角色没有饰品则生成一个随机饰品#{{UltraSecretRoom}} 揭示究极隐藏房#触发一个随机{{Pill}} 药丸, {{Rune}} 符文, {{OnyxCard}} 玛瑙塔罗牌",
             },{
@@ -973,5 +987,34 @@ mod:AddModTranslationLoader("battleFantasy","战争幻想\n* 注: 建议安装En
         for _, item in ipairs(pill) do
             mod:AddTranslate(70,item[1],item[2],"empty",item[3].."#{{Collectible"..battleFantasy.Items.BF_CRYSTAL_SHARD.."}} 所属mod: Battle Fantasy",item[4])
         end
+        local PDDsyn={
+            {battleFantasy.Items.BF_CAVITY,446},
+            {battleFantasy.Items.BF_WHITE_HABANERO,battleFantasy.Items.BF_HALLOWED_CANDLE},
+            {18,battleFantasy.Items.BF_MONEY_MAKING_GUIDE},
+            {battleFantasy.Items.BF_COSMIC_PEARL,Isaac.GetItemIdByName("Trader Llama")},
+            {Isaac.GetItemIdByName("Stale Burger"),battleFantasy.Items.BF_NOTHING_BURGER},
+            {battleFantasy.Items.BF_GLITCHED_FLAME,Isaac.GetItemIdByName("Flint and Steel")}
+        }
+        for _,i in ipairs(PDDsyn) do mod:PDDfakeAddon(i[1],i[2]) end
+        local Dflipsyn={
+            {5,100,battleFantasy.Items.BF_SPIRIT_BURNER,5,100,Isaac.GetItemIdByName("Rune Sword")},
+            {5,100,battleFantasy.Items.BF_ANGELIC_WING,5,100,battleFantasy.Items.BF_FALLEN_WING},
+            {5,100,battleFantasy.Items.BF_BLOOD_PACT,5,100,601},
+            {5,100,battleFantasy.Items.BF_HALF_DOLLAR,5,100,74},
+            {5,100,battleFantasy.Items.BF_CAVITY,5,100,446},
+            {5,100,battleFantasy.Items.BF_BLAZING_IRIS,5,100,509},
+            {5,100,battleFantasy.Items.BF_FUNNEL,5,100,304},
+            {5,100,battleFantasy.Items.BF_NATALIES_RIBBON,5,100,312},
+            {5,100,battleFantasy.Items.BF_NAIL_CLIPPERS,5,350,16},
+            {5,100,battleFantasy.Items.BF_CLUMP_OF_SEEDS,5,100,Isaac.GetItemIdByName("Baby Chicken")},
+            {5,100,battleFantasy.Items.BF_CRYBERRY,5,350,battleFantasy.Trinkets.BF_AWESOME_FACE},
+            {5,100,battleFantasy.Items.BF_100_GRAINS_OF_SUGAR,5,100,battleFantasy.Items.BF_WRAPPED_CANDY},
+            {5,100,battleFantasy.Items.BF_HAZMAT_MASK,5,100,battleFantasy.Items.BF_SPORE_SAC},
+            {5,350,battleFantasy.Trinkets.BF_VAMPIRE_FANG,5,100,Isaac.GetItemIdByName("Tooth of the Vampire")},
+            {5,350,battleFantasy.Trinkets.BF_CRYSTAL_SODA,5,100,battleFantasy.Items.BF_CRYSTAL_SHARD},
+            {5,350,battleFantasy.Trinkets.BF_PRIME_SLIME,5,100,570},
+        }
+        for _,i in ipairs(Dflipsyn) do mod:DFlipPairsAddon(i) end
+        if ReverieMGO then mod:DFlipPairsAddon({5,100,battleFantasy.Items.BF_SHATTERED_HEADPHONES,5,100,ReverieMGO.Collectibles.HeadbandHeadphones.ID}) end
     end
 end)
