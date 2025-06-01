@@ -1,5 +1,6 @@
-local ACL --Additional Compatibles Library -- Portable compatible functions? 便携式模组兼容函数库?
-local printing=false --Set this to true so there will have printed information if synergies are successfully added 调试模式：将该项设为true后即刻在控制台看到成功加载的输出
+ --Additional Compatibles Library -- Portable compatible functions? 便携式模组兼容函数库?
+local ACL=CNEIDBabel
+local printing=true --Set this to true so there will have printed information if synergies are successfully added 调试模式：将该项设为true后即刻在控制台看到成功加载的输出
 --Fiend Folio 邪魔典纸
 
 function ACL:FuzzyPickleAddon(itemid,itemtype,referencename,partial)--This item references something else? 该道具是否为一个捏他道具？
@@ -43,9 +44,43 @@ function ACL:PaperitemAddon(itemid,type)--This item is a paper item? 该道具�
     end
 end
 
+function ACL:ReverieTransAddon(itemid,form)
+    if Reverie and THI then do -- Special thanks to ReverieMGO  代码指导：幻想曲·拾遗
+        local function hasTransformationItem(form, id)
+            for i, item in ipairs(form.Collectibles) do
+                if item == id then
+                    return true
+                end
+            end
+            return false
+        end
+
+        local function addItemToTransformations(form, items)
+            if not form or not form.Collectibles then return end
+            for _, item in pairs(items) do
+                if not hasTransformationItem(form, item) then
+                    table.insert(form.Collectibles, item)
+                    if EID then
+                        EID:assignTransformation("collectible", item, form.Key);
+                    end
+                end
+            end
+        end
+
+        local Musician = THI.Transformations.Musician -- 音乐家套装 About music?
+        local Kindred = THI.Transformations.Kindred -- 血族套装 About blood?
+        local Stoney = THI.Transformations.Stoney -- 石头套装 About stone?
+
+        if form=="Music" then addItemToTransformations(Musician, {itemid})
+        elseif form=="Blood" then addItemToTransformations(Kindred, {itemid})
+        elseif form=="Stone" then addItemToTransformations(Stoney, {itemid})
+        else print("[ACL] There's something wrong in your transformation type?") end
+        if printing then print(itemid.." now belongs to "..form) end
+end end end
+
 function ACL:IceAddon(itemid)--This item is related to ice? 该道具是否为冰属性?
     if ReverieMGO then
-        table.insert(THI.Collectibles.FrostOrb.IceItems,itemid)
+        table.insert(ReverieMGO.Collectibles.FrostOrb.IceItems,itemid)
         if printing then print(itemid.." can buff Frost Orb") end
     end
 end
@@ -112,7 +147,7 @@ end
 
 function ACL:DiseaseAddon(itemid)--This item is related to disease? 该道具是否为疾病类道具？
     if Reverie and THI then
-        THI.Collectible.MedicalRecords.Diseases[itemid]=true
+        THI.Collectibles.MedicalRecords.Diseases[itemid]=true
         if printing then print(itemid.." can be spawned by Medical Records") end
     end
     if Isaac_BenightedSoul then
