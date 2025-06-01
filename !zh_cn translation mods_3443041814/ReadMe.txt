@@ -11,7 +11,9 @@ metadata.xml，记录了模组的名称，创意工坊ID等重要信息，与你
 
 main.lua则是模组运行的核心，通过里面的代码来实现各种特异的功能。你还可以看到一个main_but it's like a piece of shit.lua。这是因为我本人并非专业的程序员，仅靠东拼西凑得到了这个模组的雏形；后来得到了Golden_shit（白日梦mod作者）的帮助，对整个代码的结构进行了重做和优化，而老的代码则完全成了废品……有朝一日会删掉的……嗯对的
 
-config.lua是用于跟模组设置彩蛋兼容的，ACL.lua是用于跟其他模组加花哨兼容的；这两个目前都是挖坑状态（ACL未来可能考虑搬出来作为添加简易兼容用？）
+config.lua是用于跟模组设置彩蛋兼容的，目前是挖坑状态
+
+ACL.lua是用于跟其他模组加花哨兼容的，不要去细究为什么我会闲着没事去搞这玩意就是了（ACL未来可能考虑搬出来作为添加简易兼容用？）
 
 DudeThisIsJustaBullshitPictureWhyWouldYouCareAboutThis.png是模组的封面。自己去翻译什么意思去吧。
 
@@ -29,5 +31,6 @@ availablemods内是汉化文件的主体，通过main.lua调用并激活，而�
 
 与此同时，对于一些有相关设置但是全是英文的模组，我制作了一个思维导图用于便携观看各种东西（沟槽的没有VIP我还用不了了停更md）
 https://kdocs.cn/l/clqZQ33paAux
+现在可以在github的维基处浏览=）
 
 控制台也会告诉你一些东西，记得按飘号键多看看！
