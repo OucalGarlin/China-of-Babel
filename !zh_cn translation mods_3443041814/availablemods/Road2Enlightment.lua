@@ -439,7 +439,7 @@ mod:AddModTranslationLoader("EnlightenmentMod", "启蒙之路",function()
 				{ddad.item.CoSk.id,EnlightenmentMod.ENUMS.ITEMS.MIXER},
 				{ddad.item.GlFg.id,EnlightenmentMod.ENUMS.ITEMS.SPY}
             }
-            for _,i in ipairs(PDDsyn) do mod:PDDfakeAddon(i[1],i[2]) end
+            for _,i in ipairs(PDDsyn) do table.insert(mod.PddSynList,i) end
         end
 		local Dflipsyn={
 			{5,100,Isaac.GetItemIdByName("Money = Power 2.0"),5,100,109},
@@ -452,7 +452,8 @@ mod:AddModTranslationLoader("EnlightenmentMod", "启蒙之路",function()
 			{5,100,Isaac.GetItemIdByName("Tunnel Vision"),5,100,Isaac.GetItemIdByName("3D Glasses")},
 			{5,100,Isaac.GetItemIdByName("Roswell"),5,100,Isaac.GetItemIdByName("Saucer Remote")}
 		}
-        for _,i in ipairs(Dflipsyn) do mod:DFlipPairsAddon(i) end
-        if ReverieMGO then mod:DFlipPairsAddon({5,100,Isaac.GetItemIdByName("The Face of an Oni"),5,100,ReverieMGO.Collectibles.OniMask.ID}) end
+        
+        for _,i in ipairs(Dflipsyn) do table.insert(mod.DflipSynList,i) end
+        if ReverieMGO then table.insert(mod.DflipSynList,{5,100,Isaac.GetItemIdByName("The Face of an Oni"),5,100,ReverieMGO.Collectibles.OniMask.ID}) end
 	end
 end)
