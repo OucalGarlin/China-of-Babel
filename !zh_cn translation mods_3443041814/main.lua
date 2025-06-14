@@ -1,7 +1,6 @@
 --感谢golden_shit对代码进行的优化
 CNEIDBabel = RegisterMod("ChineseEIDBabel", 1)--注册mod
-print("请在github的改动说明处确认最近的更新是否为2025年6月1日")--不好我忘了我写了两个这个孩子们我完蛋了
-local mod = CNEIDBabel--缩写
+print("请在github的改动说明处确认最近的更新是否为2025年6月14日")--不好我忘了我写了两个这个孩子们我完蛋了local mod = CNEIDBabel--缩写
 local game = Game()
 mod.Flag = {
     Loaded = false,
@@ -21,7 +20,7 @@ mod.Translate = {--容纳翻译的列表
 mod.Quality={}--容纳自定义品质
 mod.Mods = {}
 mod.Setting = {
-    ddad_PDD=false,
+    FancySyn=false,
     betterQuality=true,
 }
 mod.Suffixs={
@@ -37,6 +36,10 @@ if EID then
     EID:addIcon("IGIcon", "1", -1, 16, 16, 4, 4, mod.Sprite.Icon)
 end
 mod.WarnList={}
+mod.PddSynList={}
+if mod.Setting.FancySyn then for _,i in ipairs(mod.PddSynList) do mod:PDDfakeAddon(i[1],i[2]) end end
+mod.DflipSynList={}
+if mod.Setting.FancySyn then for _,i in ipairs(Dflipsyn) do mod:DFlipPairsAddon(i) end end
 -- Functions
 
 ---@param variant number|nil
@@ -81,13 +84,13 @@ function mod:AddTranslate(variant, id, name, description, eid, compatible)--类�
                 if q then mod.Quality[id] = q end
             end
             local function Condition(descObj)
-                return descObj.ObjType == 5 and descObj.ObjVariant == 100 and descObj.ObjSubType and mod.Quality[descObj.ObjSubType]
+                return descObj.ObjType == 5 and descObj.ObjVariant == 100 and descObj.ObjSubType and mod.Quality[descObj.ObjSubType] and mod.Setting.betterQuality==true
             end
             local function Callback(descObj)
                 descObj.Quality = mod.Quality[descObj.ObjSubType]
                 return descObj
             end
-            if  mod.Setting.betterQuality==true then EID:addDescriptionModifier("YourQualityIsLikePieceOfShitSoImGonnaChangeIt", Condition, Callback) end
+            EID:addDescriptionModifier("YourQualityIsLikePieceOfShitSoImGonnaChangeIt", Condition, Callback)
             -- 一般兼容
             do
                 local t = compatible.CONF
@@ -104,7 +107,7 @@ function mod:AddTranslate(variant, id, name, description, eid, compatible)--类�
                 end
             end
             --跨模组兼容  MOD={GOLD=true,PAPER=true}
-            do
+            if mod.Setting.FancySyn then do
                 local m=compatible.MOD
                 if m and type(m)=="table" then
                     if m.PAPER then mod:PaperitemAddon(id,"collectible") end
@@ -118,8 +121,8 @@ function mod:AddTranslate(variant, id, name, description, eid, compatible)--类�
                     if m.STONE then mod:ReverieTransAddon(id,"Stone") end
                     if m.MUSIC then mod:ReverieTransAddon(id,"Music") end
                 end
-            end
-            if REPENTOGON and Options.Language=="zh" then --代码指导：福雷纳克博
+            end end
+            if REPENTOGON and Options.Language=="zh" then--代码指导：福雷纳克博
                 local config=Isaac.GetItemConfig()
                 local ItemConfig=config:GetCollectible(id)
                 if ItemConfig then
@@ -148,7 +151,7 @@ function mod:AddTranslate(variant, id, name, description, eid, compatible)--类�
                 end
             end
         end
-        if REPENTOGON and Options.Language=="zh" then --代码指导：福雷纳克博
+        if REPENTOGON and Options.Language=="zh" then--代码指导：福雷纳克博
             local config=Isaac.GetItemConfig()
             local ItemConfig=config:GetTrinket(id)
             if ItemConfig then
@@ -161,7 +164,7 @@ function mod:AddTranslate(variant, id, name, description, eid, compatible)--类�
         --药丸不打算用getpillidbyname了, 看起来差不多能用--Garlin
         mod.Translate.pill[id] = {name, description}
         if EID then EID:addPill(id,eid,name,lan) end
-        if REPENTOGON and Options.Language=="zh" then --代码指导：福雷纳克博
+        if REPENTOGON and Options.Language=="zh" then--代码指导：福雷纳克博
             local config=Isaac.GetItemConfig()
             local ItemConfig=config:GetPillEffect(id)
             if ItemConfig then
@@ -173,7 +176,7 @@ function mod:AddTranslate(variant, id, name, description, eid, compatible)--类�
         if type(id) ~= "number" or id <= 0 then return end
         mod.Translate.card[id] = {name, description}
         if EID then EID:addCard(id, eid, name, lan) end
-        if REPENTOGON and Options.Language=="zh" then --代码指导：福雷纳克博
+        if REPENTOGON and Options.Language=="zh" then--代码指导：福雷纳克博
             local config=Isaac.GetItemConfig()
             local ItemConfig=config:GetCard(id)
             if ItemConfig then
@@ -261,23 +264,26 @@ function mod:PostPlayerUpdate(player)
 end
 
 mod:AddCallback(ModCallbacks.MC_POST_PLAYER_UPDATE, mod.PostPlayerUpdate)
-include("ACL")
---include("availablemods/lost&forgottonDemo") --√
+include("ACL")--Additional mod Compatible Lib 模组兼容便携函数库?
+
+--include("availablemods/lost&forgottonDemo") --毙掉了
 include("availablemods/LazyMattpack")       --√
 include("availablemods/CuriosityCrate")     --√
 include("availablemods/KNG3")               --√, but this can better
 include("availablemods/Road2Enlightment")   --√, but this can better
 include("availablemods/Benevolence")        --虽然你的代码很史但我还是给你汉化了, 下次再写这么史我可就要把你踢出汉化列表了, 真的神必模组 --Garlin
-		--算了已经无所谓了老子不要你了
 include("availablemods/Elitium")            --√
 include("availablemods/DamnEdithIsBack")    --待优化
 include("availablemods/RedBaby")            --√
 include("availablemods/furtherance")        --√?
 include("availablemods/BattleFantasy")	    --√
 include("availablemods/milkshake")          --未测试
-include("availablemods/others")		    --病毒骑士, 更多的玫瑰, 狐狸包，巧克力，莉迪亚
-include("availablemods/eclipsed")	    --待纠错
---include("availablemods/Joseph")
+include("availablemods/others")		        --病毒骑士, 更多的玫瑰, 狐狸包, 莉迪亚
+include("availablemods/eclipsed")           --日蚀
+include("availablemods/LibExpand")          --图书馆拓展
+--include("availablemods/FiendFolio")       --邪魔典纸   施工中，你也可以去掉批注提前品鉴？
+--include("availablemods/balatroEX")        --小丑牌汉化优化版   可以去掉批注开始品鉴？
+--include("availablemods/Joseph")           --毙掉了
     function mod:LoadedMods()
         if self.Loaded then return end
         self.Loaded = true
@@ -308,7 +314,7 @@ include("availablemods/eclipsed")	    --待纠错
             print("目前未检测到模组, 可以确认是否有报错或因加载顺序的问题而无法正常运行")--增加了未检测到模组的提示--Garlin
         end
         print("This mod contain some Chinese messages that might cannot show without RGON, so you'd better check on the ReadMe in the mod file")--考虑到非忏悔龙的控制台可能不会输出中文, 加了这个提示 —— 我的建议是到时候说这个模组需要忏悔龙前置(什 --Garlin
-        print("请在github的改动说明处确认最近的更新是否为2025年6月1日")
+        print("请在github的改动说明处确认最近的更新是否为2025年6月14日")
     end
 include("ACL.lua")
     
