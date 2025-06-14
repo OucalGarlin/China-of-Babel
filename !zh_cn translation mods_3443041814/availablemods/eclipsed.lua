@@ -1,5 +1,5 @@
 local mod=CNEIDBabel
-mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)\n* 新增了与 幻想曲 白日梦 小丑牌 模组的花哨兼容(测试?)",function()
+mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
     local LBAB=Isaac.GetItemIdByName("The Book of All The Books")
     if EclipsedMod then
         local items={
@@ -19,7 +19,7 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)\n* 新增了与 幻�
                 EclipsedMod.enums.Items.BlackKnight,
                 "KNIGHT-黑棋",
                 "将杀!",
-                "{{Warning}} 取消移动能力!#取而代之的是一个可操作的准心#{{ColorYellow}}使用后{{CR}}:朝准心位置大跳#落地时摧毁障碍物并造成伤害",
+                "{{Warning}} 持有时取消移动能力! 取而代之的是一个可操作的准心#{{ColorYellow}}使用后{{CR}}:朝准心位置大跳#落地时摧毁障碍物并造成伤害",
                 {VIR="静止的黑色魂火#仅在当前房间存在#无法攻击的魂火",
                 BEL="在角色位置留下一团火焰"}
             },{
@@ -47,7 +47,8 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)\n* 新增了与 幻�
                 "转移选项",
                 "{{Collectible249}} 为当前房间内的所有道具, 掉落物和商店物品额外提供一个选项",
                 {VIR="2个中环黑色魂火#发射{{Collectible369}}连续统泪弹",
-                ABY="2个穿墙蝗虫"}
+                ABY="2个穿墙蝗虫",
+                QUA=3}--区区高配以撒魂石
             },{
                 EclipsedMod.enums.Items.LostMirror,
                 "迷失之镜",
@@ -235,7 +236,8 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)\n* 新增了与 幻�
                 EclipsedMod.enums.Items.RedButton,--Red Button is a reference to the game Please, Don't Touch Anything created by Four Quarters.
                 "红按钮",
                 "请不要按下这个按钮",
-                "进入新房间生成红色按钮#按下后10%的概率触发随机{{ColorYellow}}奖励按钮{{CR}}的效果#{{Warning}} 按下66次按钮后消失({{IGIcon}}第64和65次会有提示)#1%的概率改为生成{{ColorRed}}击杀按钮{{CR}}"
+                "进入新房间生成红色按钮#按下后10%的概率触发随机{{ColorYellow}}奖励按钮{{CR}}的效果#{{Warning}} 按下66次按钮后消失({{IGIcon}}第64和65次会有提示)#1%的概率改为生成{{ColorRed}}击杀按钮{{CR}}",
+                {QUA=0}--搞得好像真有人想玩这东西似的
             },{
                 "Compo Bombs",
                 "组合弹",
@@ -246,7 +248,7 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)\n* 新增了与 幻�
                 EclipsedMod.enums.Items.Limb,
                 "异色光环",--存疑
                 "弥留于此",
-                "{{Player10}} 死亡后在当前楼层变为游魂形态(其他复活方式优先)",
+                "{{Player10}} 死亡后在当前楼层变为游魂形态(其他复活方式优先), 每层只能触发一次",
                 {ABY="产生鬼灵爆破的紫色蝗虫"}
             },{
                 EclipsedMod.enums.Items.GravityBombs,
@@ -258,7 +260,7 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)\n* 新增了与 幻�
                 EclipsedMod.enums.Items.MirrorBombs,
                 "玻璃炸弹",
                 "反射爆破 + 5个炸弹",
-                "{{Bomb}} 炸弹+5#炸弹在房间的另一头释放爆炸",
+                "{{Bomb}} 炸弹+5#炸弹在房间的中心对称位置同时释放爆炸",
                 {ABY="爆炸性黑色蝗虫",
                 MOD={GLASS=true}}
             },{
@@ -278,7 +280,7 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)\n* 新增了与 幻�
                 "VVV",
                 "VVV",
                 "重力倒转",
-                "获得飞行#受到伤害后停住所有敌弹"
+                "获得飞行#受到伤害后停住所有敌弹",--3级的唯一价值在于永久飞
             },{
                 EclipsedMod.enums.Items.RedBag,
                 "红袋",
@@ -418,7 +420,7 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)\n* 新增了与 幻�
                 EclipsedMod.enums.Items.HeartTransplant,
                 "心脏移植",--Heart Transplant is a reference to the game Crypt of the NecroDancer.
                 "\"跳\"战这个心脏",
-                "{{Chargeable}} 持有时, 在角色头顶展示冷却条#满充能后0.5s未使用则失去充能和{{ColorRed}}心跳等级{{CR}}#若成功使用则积攒心跳等级, 并因此获得{{Speed}}{{Damage}}{{Tears}}增益#心跳等级最大时使用会同时释放一圈10发泪弹#{{GarlinIcon}} 不用把它当什么音游, 狂按主动糊过去就完事了",
+                "{{Chargeable}} 持有时, 在角色头顶展示冷却条#满充能后0.5s未使用则失去充能和{{ColorRed}}心跳等级{{CR}}#若成功使用则积攒心跳等级, 并因此获得{{Speed}}{{Damage}}{{Tears}}增益#心跳等级最大时使用会同时释放一圈10发泪弹#{{ColorYellow}} 挑战-Beatmaker 限定: 任何时候使用都会释放泪弹#{{GarlinIcon}} 不用把它当什么音游, 狂按主动糊过去就完事了",
                 {VIR="无法攻击的固定魂火"}
             },{
                 EclipsedMod.enums.Items.GardenTrowel,
@@ -438,7 +440,7 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)\n* 新增了与 幻�
             },{
                 EclipsedMod.enums.Items.ForgottenGrimoire,
                 "遗忘的魔法书",
-                "充能形骨骼",
+                "充能形骨质",
                 "{{EmptyBoneHeart}} 获得1骨心",
                 {VIR="发射骨头泪弹的魂火",
                 ABY="杀死敌人有概率生成骨片的骷髅蝗虫",
@@ -481,7 +483,8 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)\n* 新增了与 幻�
                 "{{HealingRed}} 回满生命#{{SoulHeart}} 没有心之容器则获得3魂心",
                 {VIR="无法攻击的魂火, 具有20HP",
                 ABY="杀死敌人生成红心的蝗虫",
-                CONF={LBAB,"BAB_HolyHeal"}}
+                CONF={LBAB,"BAB_HolyHeal"},
+                QUA=2}--红心角色最负面的一集
             },{
                 EclipsedMod.enums.Items.WizardBook,
                 "巫师之书",
@@ -494,7 +497,7 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)\n* 新增了与 幻�
                 EclipsedMod.enums.Items.RitualManuscripts,
                 "仪式手稿",
                 "充能形混合生命",
-                "{{BlendedHeart}} 使用后获得融合心#{{Trinket123}} 持有时获得银丝羽毛的效果",
+                "{{BlendedHeart}} 使用后获得半红心和半魂心#{{Trinket123}} 持有时获得银丝羽毛的效果",
                 {VIR="生成一红一蓝两个魂火",
                 ABY="有概率降下圣光的蝗虫",
                 CONF={LBAB,"BAB_Ritual"}}
@@ -538,10 +541,11 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)\n* 新增了与 幻�
             },{
                 EclipsedMod.enums.Items.StoneScripture,
                 "石之圣典",
-                "涤罪",
+                "肃清",
                 "每个房间可用3次#进入下一个房间后恢复充能#{{Collectible653}} 使用后释放鬼灵爆破",
                 {VIR="单房间内环魂火#魂火熄灭后释放{{Collectible653}}鬼灵爆破",
                 ABY="可以触发鬼灵爆破的蝗虫",
+                MOD={STONE=true},
                 CONF={
                     {63,"BatterStone"},
                     {LBAB,"BAB_Stone"},
@@ -653,6 +657,7 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)\n* 新增了与 幻�
                 "血之强欲",
                 "↑ {{Speed}} 移速+0.3#{{Collectible118}} 进入房间环绕血激光环, 持续10s#敌人死亡时可以增加血激光环的持续时间和伤害",
                 {ABY="可以施加硫磺诅咒的红色蝗虫",
+                MOD={BLOOD=true},
                 QUA=3}
             },{
                 EclipsedMod.enums.Items.Tindal,
@@ -704,7 +709,8 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)\n* 新增了与 幻�
                 "暂时性嗜血",
                 "{{Damage}} 对角色造成{{HalfHeart}}伤害并获得伤害+0.5#{{Timer}} 6s后返还失去的半红心并失去伤害增幅",
                 {VIR="存在6s的中环魂火",
-                ABY="施加流血的红色蝗虫"}
+                ABY="施加流血的红色蝗虫",
+                MOD={BLOOD=true}}
             },{
                 EclipsedMod.enums.Items.FriedNails,
                 "油炸钉子",
@@ -798,7 +804,8 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)\n* 新增了与 幻�
                 "V型血",
                 "AUV, 是个吸血鬼",
                 "进入房间会生成{{ColorRed}}蝙蝠跟班{{CR}}, 对敌人施加流血效果#{{ColorRed}}蝙蝠跟班{{CR}}会攻击任何靠近你的敌人#受到伤害生成额外的{{ColorRed}}蝙蝠跟班{{CR}}, 持续8s#流血死亡的敌人额外生成{{ColorRed}}蝙蝠跟班{{CR}}",
-                {ABY="可以施加流血的蝗虫"}
+                {ABY="可以施加流血的蝗虫",
+                MOD={BLOOD=true}}
             },{
                 EclipsedMod.enums.Items.BigBertha,
                 "大贝沙炮",--存疑
@@ -810,7 +817,8 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)\n* 新增了与 幻�
                 EclipsedMod.enums.Items.UnholyCollection,
                 "不洁的藏品",
                 "干死撒旦-特别版",
-                "允许在子宫, 阴间和教堂生成{{TreasureRoom}}{{Shop}}#生成两张塔罗牌"
+                "允许在子宫, 阴间和教堂生成{{TreasureRoom}}{{Shop}}#生成两张塔罗牌",
+                {MOD={MUSIC=true}}
             },{
                 EclipsedMod.enums.Items.Ares,
                 "阿瑞斯",
@@ -828,7 +836,7 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)\n* 新增了与 幻�
                 "Stone Frog",
                 "祖玛",
                 "炮塔伙伴",
-                "祖玛跟班, 角色攻击时自动朝最近的敌人发射效果各异的弹射泪弹"
+                "祖玛跟班, 每次按下攻击键会自动朝最近的敌人发射效果各异的弹射泪弹"
             },{
                 EclipsedMod.enums.Items.StainedGlass,
                 "教堂染色窗",
@@ -903,7 +911,7 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)\n* 新增了与 幻�
                 EclipsedMod.enums.Items.DreamTiger,
                 "梦老虎",--疑似致敬国外meme
                 "我在梦里见过它",
-                "{{BlackHeart}} 获得1黑心#每8s生成一个跟随角色的影子, 最多可拥有4个#角色可以通过攻击键操作影子#影子会抓住敌人并将其固定, 而后施加{{Fear}}5s恐惧效果#{{Damage}} 有敌人被影子固定时获得伤害+0.4",
+                "{{BlackHeart}} 获得1黑心#每8s生成一个跟随角色的影子, 最多可拥有4个#影子会朝攻击方向眼神#影子会抓住敌人并将其固定, 而后施加{{Fear}}5s恐惧效果#{{Damage}} 有敌人被影子固定时获得伤害+0.4",
                 {ABY="4个会生成暗影藤蔓的蝗虫"}
             },{
                 "Loaf of Bread",
@@ -934,7 +942,7 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)\n* 新增了与 幻�
                 EclipsedMod.enums.Items.FalseDeath,
                 "伪造证明",
                 "愿君不得好死",
-                "↑ +1复活次数#每次死亡后触发{{Collectible628}}死亡证明的效果#有概率在生效后失去该道具, 每次生效都会使这个概率+10%#↑ 该设定在挑战\"Die Hard 愿君好死\"中不生效",
+                "↑ +1复活次数#每次死亡后触发{{Collectible628}}死亡证明的效果#有概率在生效后失去该道具, 每次生效都会使这个概率+10%#↑ {{ColorYellow}}挑战-Die Hard 限定 - 必定不会失去该道具",
                 {ABY="施加恐惧的黑色蝗虫"}
             },{
                 EclipsedMod.enums.Items.BatterYum,
@@ -1010,7 +1018,8 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)\n* 新增了与 幻�
                 "复古病毒",--捏他：太空入侵，翻译存疑
                 "病毒入侵 + 移速下降",
                 "↓ {{Speed}} 移速-0.1#{{Poison}} 触碰敌人施加2s中毒#所有死于中毒的敌人会生成感染细胞#感染细胞在房间内随机游荡, 对触碰的敌人施加中毒",
-                {ABY="毒系蝗虫"}
+                {ABY="毒系蝗虫",
+                QUA=1}
             },{
                 EclipsedMod.enums.Items.HolyGuacamole,
                 "神圣鳄梨酱",
@@ -1027,7 +1036,7 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)\n* 新增了与 幻�
                 EclipsedMod.enums.Items.WitchCap,
                 "女巫盖蘑菇",
                 "诅咒?",--我来感觉了（？
-                "10%的概率发射一个{{ColorPurple}}诅咒泪弹{{CR}}#{{ColorPurple}}诅咒泪弹{{CR}}会对命中的敌人施加{{ColorPurple}}诅咒效果{{CR}}#{{ColorPurple}}诅咒效果{{CR}}下的敌人获得减速并受到双倍伤害{{ColorFade}}(这不就原版虚弱效果有的吗还写一个新效果是几个意思){{CR}}#{{Luck}} 幸运13: 75%",
+                "10%的概率发射一个{{ColorPurple}}诅咒泪弹{{CR}}#{{ColorPurple}}诅咒泪弹{{CR}}会对命中的敌人施加{{ColorPurple}}诅咒效果{{CR}}#{{ColorPurple}}诅咒效果{{CR}}下的敌人获得{{ColorPurple}}大幅度{{CR}}减速并受到双倍伤害#{{Luck}} 幸运13: 75%",
                 {ABY="有概率施加诅咒效果的紫色蝗虫",
                 MOD={FEM=true}}
             },{
@@ -2017,7 +2026,7 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)\n* 新增了与 幻�
                 {689,Isaac.GetItemIdByName("Everything Bagel")},
                 {EclipsedMod.enums.Items.WitchCap,342}
             }
-            for _,i in ipairs(PDDsyn) do mod:PDDfakeAddon(i[1],i[2]) end
+            for _,i in ipairs(PDDsyn) do table.insert(mod.PddSynList,i) end
         end
         local Dflipsyn={
             {5,100,5,5,100,EclipsedMod.enums.Items.LostMirror},
@@ -2025,26 +2034,18 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)\n* 新增了与 幻�
             {5,100,EclipsedMod.enums.Items.StrangeBox,5,100,198},
             {5,100,506,5,100,EclipsedMod.enums.Items.BleedingGrimoire},
             {5,100,EclipsedMod.enums.Items.TetrisDice_full,5,100,258},
-            {5,100,636,5,100,EclipsedMod.enums.Items.VHSCassette},
             {5,100,EclipsedMod.enums.Items.MongoCells,5,100,322},
             {5,100,Isaac.GetItemIdByName("Pure Fury"),5,100,EclipsedMod.enums.Items.RedLotus},
             {5,100,Isaac.GetItemIdByName("Bishamonten's Pagota"),5,100,EclipsedMod.enums.Items.MidasCurse},
-            {5,100,EclipsedMod.enums.Items.GravityBombs,5,100,512},
             {5,100,EclipsedMod.enums.Items.FrostyBombs,5,100,256},
             {5,100,EclipsedMod.enums.Items.NadabBrain,5,100,EclipsedMod.enums.Items.NadabBody},
             {5,100,Isaac.GetItemIdByName("Eclipse"),5,100,588},
             {5,100,553,5,100,EclipsedMod.enums.Items.Shroomface},
-            {5,100,EclipsedMod.enums.Items.SmokeBombs,5,100,705},
             {5,100,728,5,100,EclipsedMod.enums.Items.InnerDemons},
-            {5,100,Isaac.GetItemIdByName("Tooth of the Vampire"),5,100,EclipsedMod.enums.Items.OldToothpaste},
             {5,100,Isaac.GetItemIdByName("Magician's Top"),5,100,EclipsedMod.enums.Items.WitchHat},
             {5,100,EclipsedMod.enums.Items.BlueSoup,5,100,621},
             {5,350,EclipsedMod.enums.Trinkets.RedScissors,5,350,63}
         }
-        for _,i in ipairs(Dflipsyn) do mod:DFlipPairsAddon(i) end
-        local kind={
-            BLOOD={EclipsedMod.enums.Items.BloodV,EclipsedMod.enums.Items.Sarbokan,EclipsedMod.enums.Items.Symbiont},
-            MUSIC={EclipsedMod.enums.Items.UnholyCollection}
-        }
+        for _,i in ipairs(Dflipsyn) do table.insert(mod.DflipSynList,i) end
     end
 end)
