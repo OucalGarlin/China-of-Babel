@@ -542,18 +542,16 @@ mod:AddModTranslationLoader("Diepio", "踢脚与讥笑(Kicks and Giggles)\n* 警
             {Isaac.GetItemIdByName("Festive Winds"),Isaac.GetItemIdByName("Haumea")},
             {Isaac.GetItemIdByName("Eerie Flyer"),Isaac.GetItemIdByName("Work for Nothing")}
         }
-        for _,i in ipairs(PDDsyn) do mod:PDDfakeAddon(i[1],i[2]) end
         local Dflipsyn={
             {5,100,Isaac.GetItemIdByName("Monoball"),5,100,Isaac.GetItemIdByName("Fortunate Fox")},
             {5,100,Isaac.GetItemIdByName("The Meat Grinder"),5,100,Isaac.GetItemIdByName("Vicious Curse")},
             {5,100,Isaac.GetItemIdByName("Eerie Flyer"),5,350,Diepio.Enums.Trinkets.NATSUMINECKLACE},
             {5,100,Isaac.GetItemIdByName("Seal of Winifred"),5,100,Isaac.GetItemIdByName("Winifred's Grimoire")},
-            {5,100,Isaac.GetItemIdByName("Book of Bleakness"),5,100,35},
-            {5,100,Isaac.GetItemIdByName("Book of Filth"),5,100,576},
             {5,100,Isaac.GetItemIdByName("Shuko's Bonesaw"),5,350,Diepio.Enums.Trinkets.SHUKOHEAD},
             {5,350,Diepio.Enums.Trinkets.RKEY,5,100,636},
             {5,350,Diepio.Enums.Trinkets.WING,5,350,80}
         }
-        for _,i in ipairs(Dflipsyn) do mod:DFlipPairsAddon(i) end
+        for _,i in ipairs(PDDsyn) do table.insert(mod.PddSynList,i) end
+        for _,i in ipairs(Dflipsyn) do table.insert(mod.DflipSynList,i) end
     end
 end)
