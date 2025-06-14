@@ -265,7 +265,7 @@ end
 
 mod:AddCallback(ModCallbacks.MC_POST_PLAYER_UPDATE, mod.PostPlayerUpdate)
 include("ACL")--Additional mod Compatible Lib 模组兼容便携函数库?
-
+include("config")
 --include("availablemods/lost&forgottonDemo") --毙掉了
 include("availablemods/LazyMattpack")       --√
 include("availablemods/CuriosityCrate")     --√
@@ -316,8 +316,6 @@ include("availablemods/LibExpand")          --图书馆拓展
         print("This mod contain some Chinese messages that might cannot show without RGON, so you'd better check on the ReadMe in the mod file")--考虑到非忏悔龙的控制台可能不会输出中文, 加了这个提示 —— 我的建议是到时候说这个模组需要忏悔龙前置(什 --Garlin
         print("请在github的改动说明处确认最近的更新是否为2025年6月14日")
     end
-include("ACL.lua")
-    
 if REPENTOGON then mod:AddCallback(ModCallbacks.MC_POST_MODS_LOADED, mod.LoadedMods)
 else mod:AddCallback(ModCallbacks.MC_POST_GAME_STARTED, mod.LoadedMods)
 end
