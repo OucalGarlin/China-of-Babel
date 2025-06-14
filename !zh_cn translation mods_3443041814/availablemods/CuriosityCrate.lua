@@ -87,7 +87,7 @@ mod:AddModTranslationLoader("ToyBoxMod", "好奇箱",function()
                 {{257,103,305,231,596,110},"TearSyn"},
                 {{168,52,401},"NineEleven"},--就你小子喜欢玩地狱笑话是吧
                 {149,"Iplain"},
-            }}
+            },MOD={PAPER=true}}
         },{
             "Army Barrel",
             "士兵玩具桶",
@@ -106,22 +106,23 @@ mod:AddModTranslationLoader("ToyBoxMod", "好奇箱",function()
             "Monster Meal",
             "怪兽餐",
             "生命上升, 别把奖品吃了!",
-            "{{ArrowUp}} +1心之容器#{{Heart}} 治疗1红心#受到伤害有20%的概率将一个空的饰品槽/副手槽提供一个随机的饰品/消耗品#!!! 如果槽位不是空的, 则将槽位内的饰品/消耗品重随",
+            "{{ArrowUp}} +1心之容器#{{HealingRed}} 治疗1红心#受到伤害有20%的概率将一个空的饰品槽/副手槽提供一个随机的饰品/消耗品#!!! 如果槽位不是空的, 则将槽位内的饰品/消耗品重随",
         },{
             "Surprise Egg",
             "奇趣蛋",
             "双倍玩具礼包",
-            '{{Heart}} 治疗2红心#{{Trinket}} 生成2个来自"好奇箱"模组的随机饰品'
+            '{{HealingRed}} 治疗2红心#{{Trinket}} 生成2个来自"好奇箱"模组的随机饰品'
         },{
             "Surprisaac",
             '艾"吓"克',
             "双倍玩具礼...不是啥?!",
-            '{{Heart}} 治疗2红心#{{IsaacSmall}} 生成4个迷你以撒#{{Trinket}} 生成2个来自"好奇箱"模组的随机饰品'
+            '{{HealingRed}} 治疗2红心#{{IsaacSmall}} 生成4个迷你以撒#{{Trinket}} 生成2个来自"好奇箱"模组的随机饰品'
         },{
             "Heart of Gold",
             "黄金之心",
             "生命=金钱",
-            "{{Heart}} 治疗所有红心#{{GoldenHeart}} 将角色的所有心变为金心#{{Coin}} 角色的硬币数量翻倍#如果角色没有{{Heart}}心之容器或{{Player22}}没有流失的红心, 所有 {{Heart}} 红心掉落物会变为随机 {{Coin}} 硬币"
+            "{{HealingRed}} 治疗所有红心#{{GoldenHeart}} 将角色的生命值塞满金心#{{Coin}} 角色的硬币数量翻倍#如果角色没有{{EmptyHeart}}空的心之容器, 所有{{Heart}} 红心掉落物会变为随机{{Coin}} 硬币",
+            {MOD={GOLD=true}}
         },{
             "Bound Spirit",
             "受缚之灵",
@@ -141,7 +142,7 @@ mod:AddModTranslationLoader("ToyBoxMod", "好奇箱",function()
             "Chocolate Bar",
             "巧克力棒",
             "最后一餐",
-            "{{ArrowUp}} +2心之容器#{{Heart}} 治疗所有红心#生成{{Trinket25}} 神秘糖果#!!! 剩余的游戏时间内, 所有的基础加血道具(例如{{Collectible25}} {{Collectible346}} 等)被重随为{{ItemPoolBoss}}随机道具"
+            "{{ArrowUp}} +2心之容器#{{HealingRed}} 治疗所有红心#生成{{Trinket25}} 神秘糖果#!!! 剩余的游戏时间内, 所有的基础加血道具(例如{{Collectible25}} {{Collectible346}} 等)被重随为{{ItemPoolBoss}}随机道具"
         },{
             "Shape Box LV3",
             "造型盒",--那么这个三角形的方块可以从哪里放进去呢?
@@ -169,7 +170,10 @@ mod:AddModTranslationLoader("ToyBoxMod", "好奇箱",function()
             "对咯它可以放进方形的洞里",
             "!!! 使用后吞噬最近的一个掉落物, 吞噬3个后根据吞噬的掉落物品质发生如下事件#{{Trinket}} 4~12个蓝苍蝇#{{Trinket}} 2个普通掉落物的复制#{{Trinket}} 一个特殊{{PoopPickup}} 大便#{{Collectible}} 2个稀有掉落物的复制#{{Collectible}} 3个随机的{{Chest}}#{{Collectible}} 2个饰品#{{TreasureRoomChanceSmall}} {{Room}} 当前房间道具池的道具#{{TreasureRoomChanceSmall}} 生成{{Card31}}鬼牌和2个{{BlackHeart}}黑心#{{TreasureRoomChanceSmall}} {{ArrowUp}} 4个随机属性提升",
             {CAR="奖励翻倍",
-            CONF={{73,652},"ThisIsSquare"}}
+            CONF={
+                {{73,652},"ThisIsSquare"},
+                {670,"ShapeOptions"}
+            }}
         },{
             "Soft Dice",
             "软骰子",
@@ -369,6 +373,7 @@ mod:AddModTranslationLoader("ToyBoxMod", "好奇箱",function()
         NOBlind="可以看到完整的道具",
         UltiAngel="堕化天使变为{{ColorCyan}}普通天使{{CR}}, 击败可以获得钥匙碎片",
         ThisIsSquare="对咯它可以放进方形的洞里, 然后你可以少吞噬1个掉落物",
+        ShapeOptions="吞噬多选一掉落物不会使另一个消失",
     }
     mod:AddToConditionalList(conditionalList)
     local other={
@@ -390,4 +395,12 @@ mod:AddModTranslationLoader("ToyBoxMod", "好奇箱",function()
     for _, item in ipairs(cards) do
         mod:AddTranslate(300, item[1], item[2], item[3], item[4].."#{{Collectible"..Isaac.GetItemIdByName("Army Barrel").."}} 所属mod: Curiosity Crate", item[5])
     end    
+    local Dflipsyn={
+        {5,100,Isaac.GetItemIdByName("Blind Faith"),5,100,Isaac.GetItemIdByName("Bound Spirit")},
+        {5,100,Isaac.GetItemIdByName("Snake Oil"),5,350,10},
+        {5,100,Isaac.GetItemIdByName("Rocket Fuel"),5,100,583},
+        {5,100,Isaac.GetItemIdByName("Friendship Pendant"),5,350,148},
+    }
+    table.insert(mod.PddSynList,{132,Isaac.GetItemIdByName("Jar of Coal")})
+    for _,i in ipairs(Dflipsyn) do table.insert(mod.DflipSynList,i) end
 end)
