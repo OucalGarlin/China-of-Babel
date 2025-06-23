@@ -1,6 +1,7 @@
 --感谢golden_shit对代码进行的优化
 CNEIDBabel = RegisterMod("ChineseEIDBabel", 1)--注册mod
-print("请在github的改动说明处确认最近的更新是否为2025年6月14日")--不好我忘了我写了两个这个孩子们我完蛋了local mod = CNEIDBabel--缩写
+print("请在github的改动说明处确认最近的更新是否为2025年6月23日")--不好我忘了我写了两个这个孩子们我完蛋了local mod = CNEIDBabel--缩写
+local mod = CNEIDBabel--缩写
 local game = Game()
 mod.Flag = {
     Loaded = false,
@@ -19,9 +20,12 @@ mod.Translate = {--容纳翻译的列表
 }
 mod.Quality={}--容纳自定义品质
 mod.Mods = {}
-mod.Setting = {
+mod.Setting = {}
+mod.DefaultSetting = {
     FancySyn=false,
     betterQuality=true,
+    AccurateBlurb=false,
+    DescTrans=true,
 }
 mod.Suffixs={
     {"VIR","bookOfVirtuesWisps"},
@@ -36,10 +40,7 @@ if EID then
     EID:addIcon("IGIcon", "1", -1, 16, 16, 4, 4, mod.Sprite.Icon)
 end
 mod.WarnList={}
-mod.PddSynList={}
-if mod.Setting.FancySyn then for _,i in ipairs(mod.PddSynList) do mod:PDDfakeAddon(i[1],i[2]) end end
-mod.DflipSynList={}
-if mod.Setting.FancySyn then for _,i in ipairs(Dflipsyn) do mod:DFlipPairsAddon(i) end end
+mod.json=require("json")
 -- Functions
 
 ---@param variant number|nil
@@ -122,12 +123,14 @@ function mod:AddTranslate(variant, id, name, description, eid, compatible)--类�
                     if m.MUSIC then mod:ReverieTransAddon(id,"Music") end
                 end
             end end
-            if REPENTOGON and Options.Language=="zh" then--代码指导：福雷纳克博
+            local Acc=compatible.ACR
+            if REPENTOGON and Options.Language=="zh" and mod.Setting.DescTrans then--代码指导：福雷纳克博
                 local config=Isaac.GetItemConfig()
                 local ItemConfig=config:GetCollectible(id)
                 if ItemConfig then
                     ItemConfig.Name=name
-                    ItemConfig.Description=description
+                    if mod.Setting.AccurateBlurb and Acc then ItemConfig.Description=Acc
+                    else ItemConfig.Description=description end
                 end
             end
         end
@@ -144,19 +147,28 @@ function mod:AddTranslate(variant, id, name, description, eid, compatible)--类�
                 EID.descriptions[lan].goldenTrinketEffects[id] = t.TEXT
             end
             do
+                local t = compatible.CONF
+                if t and type(t) == "table" then
+                    if not(t[2]) or type(t[2]) == "table" then for _, s in ipairs(t) do if #s >= 2 then EID:AddSynergyConditional("5.350."..id, s[1], s[2], s[3] or s[2]) end end
+                    elseif #t >= 2 then EID:AddSynergyConditional("5.350."..id, t[1], t[2], t[3] or t[2]) end
+                end
+            end
+            do
                 local c=compatible.CHAR
                 if c and type(c)=="table" then--{角色ID,文字,包括堕化}
                     if not(c[2]) or type(c[2])=="table" then for  _,s in ipairs(c) do if #s>=2 then EID:AddClosestPlayerConditional("5.350."..id,s[1],s[2],nil,s[3]) end end
-                    elseif #t>=2 then EID:AddClosestPlayerConditional("5.350."..id,c[1],c[2],c[3]) end
+                    elseif #c>=2 then EID:AddClosestPlayerConditional("5.350."..id,c[1],c[2],nil,c[3]) end
                 end
             end
         end
-        if REPENTOGON and Options.Language=="zh" then--代码指导：福雷纳克博
+        local Acc=compatible.ACR
+        if REPENTOGON and Options.Language=="zh" and mod.Setting.DescTrans then--代码指导：福雷纳克博
             local config=Isaac.GetItemConfig()
             local ItemConfig=config:GetTrinket(id)
             if ItemConfig then
                 ItemConfig.Name=name
-                ItemConfig.Description=description
+                if mod.Setting.AccurateBlurb and Acc then ItemConfig.Description=Acc
+                else ItemConfig.Description=description end
             end
         end
     elseif variant == 70 then--谨以此批注祝贺我通过类比学会了添加药丸EID(目前应该没问题?)
@@ -164,7 +176,7 @@ function mod:AddTranslate(variant, id, name, description, eid, compatible)--类�
         --药丸不打算用getpillidbyname了, 看起来差不多能用--Garlin
         mod.Translate.pill[id] = {name, description}
         if EID then EID:addPill(id,eid,name,lan) end
-        if REPENTOGON and Options.Language=="zh" then--代码指导：福雷纳克博
+        if REPENTOGON and Options.Language=="zh" and mod.Setting.DescTrans then--代码指导：福雷纳克博
             local config=Isaac.GetItemConfig()
             local ItemConfig=config:GetPillEffect(id)
             if ItemConfig then
@@ -176,7 +188,7 @@ function mod:AddTranslate(variant, id, name, description, eid, compatible)--类�
         if type(id) ~= "number" or id <= 0 then return end
         mod.Translate.card[id] = {name, description}
         if EID then EID:addCard(id, eid, name, lan) end
-        if REPENTOGON and Options.Language=="zh" then--代码指导：福雷纳克博
+        if REPENTOGON and Options.Language=="zh" and mod.Setting.DescTrans then--代码指导：福雷纳克博
             local config=Isaac.GetItemConfig()
             local ItemConfig=config:GetCard(id)
             if ItemConfig then
@@ -199,7 +211,7 @@ function mod:AddEntityTransl(objtype,variant,id,name,eid,compatible)--添加实�
     if EID then
         EID:addEntity(objtype,variant,id,name,eid,lan)
         do
-            local t = compatible
+            local t = compatible.CONF
             if t and type(t) == "table" then
                 if not(t[2]) or type(t[2]) == "table" then for _, s in ipairs(t) do if #s >= 2 then EID:AddSynergyConditional(id, s[1], s[2], s[3] or s[2]) end end
                 elseif #t >= 2 then EID:AddSynergyConditional(id, t[1], t[2], t[3] or t[2]) end
@@ -231,11 +243,11 @@ end
 
 function mod:SaveModData()
     local jsonString = self.json.encode(self.Setting)
-    local pickups = Isaac.FindByType(EntityType.ENTITY_PICKUP, PickupVariant.PICKUP_COLLECTIBLE)
-    for _, entity in ipairs(pickups) do
-        local data = entity:GetData()
-        data.MiceDanceCheck = nil
-    end
+	for key, value in pairs(self.DefaultSetting) do
+		if type(self.Setting[key]) == "nil" then
+			self.Setting[key] = value
+		end
+	end
     self:SaveData(jsonString)
 end
 
@@ -265,22 +277,23 @@ end
 
 mod:AddCallback(ModCallbacks.MC_POST_PLAYER_UPDATE, mod.PostPlayerUpdate)
 include("ACL")--Additional mod Compatible Lib 模组兼容便携函数库?
-include("config")
---include("availablemods/lost&forgottonDemo") --毙掉了
+
+--include("availablemods/lost&forgottonDemo") 毙掉了
 include("availablemods/LazyMattpack")       --√
 include("availablemods/CuriosityCrate")     --√
 include("availablemods/KNG3")               --√, but this can better
 include("availablemods/Road2Enlightment")   --√, but this can better
-include("availablemods/Benevolence")        --虽然你的代码很史但我还是给你汉化了, 下次再写这么史我可就要把你踢出汉化列表了, 真的神必模组 --Garlin
+--include("availablemods/Benevolence")        毙掉了
 include("availablemods/Elitium")            --√
 include("availablemods/DamnEdithIsBack")    --待优化
 include("availablemods/RedBaby")            --√
-include("availablemods/furtherance")        --√?
+--include("availablemods/furtherance")        毙掉了
 include("availablemods/BattleFantasy")	    --√
-include("availablemods/milkshake")          --未测试
+include("availablemods/milkshake")          --√
 include("availablemods/others")		        --病毒骑士, 更多的玫瑰, 狐狸包, 莉迪亚
-include("availablemods/eclipsed")           --日蚀
-include("availablemods/LibExpand")          --图书馆拓展
+include("availablemods/eclipsed")           --√, but this can be better
+include("availablemods/LibExpand")          --√
+include("availablemods/furtherance2")       --to be continue
 --include("availablemods/FiendFolio")       --邪魔典纸   施工中，你也可以去掉批注提前品鉴？
 --include("availablemods/balatroEX")        --小丑牌汉化优化版   可以去掉批注开始品鉴？
 --include("availablemods/Joseph")           --毙掉了
@@ -314,7 +327,7 @@ include("availablemods/LibExpand")          --图书馆拓展
             print("目前未检测到模组, 可以确认是否有报错或因加载顺序的问题而无法正常运行")--增加了未检测到模组的提示--Garlin
         end
         print("This mod contain some Chinese messages that might cannot show without RGON, so you'd better check on the ReadMe in the mod file")--考虑到非忏悔龙的控制台可能不会输出中文, 加了这个提示 —— 我的建议是到时候说这个模组需要忏悔龙前置(什 --Garlin
-        print("请在github的改动说明处确认最近的更新是否为2025年6月14日")
+        print("请在github的改动说明处确认最近的更新是否为2025年6月23日")
     end
 if REPENTOGON then mod:AddCallback(ModCallbacks.MC_POST_MODS_LOADED, mod.LoadedMods)
 else mod:AddCallback(ModCallbacks.MC_POST_GAME_STARTED, mod.LoadedMods)
