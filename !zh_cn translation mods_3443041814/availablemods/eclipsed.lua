@@ -14,33 +14,38 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "红镜子",
                 "窥见另一面",
                 "{{Card78}} 将最靠近的{{Trinket}}饰品变为红钥匙碎片",
-                {VIR="外环红钥匙魂火#魂火被熄灭时创造一个红房间"}
+                {VIR="外环红钥匙魂火#魂火被熄灭时创造一个红房间",
+                ACR="将饰品变为红钥匙"}
             },{
                 EclipsedMod.enums.Items.BlackKnight,
                 "KNIGHT-黑棋",
                 "将杀!",
                 "{{Warning}} 持有时取消移动能力! 取而代之的是一个可操作的准心#{{ColorYellow}}使用后{{CR}}:朝准心位置大跳#落地时摧毁障碍物并造成伤害",
                 {VIR="静止的黑色魂火#仅在当前房间存在#无法攻击的魂火",
-                BEL="在角色位置留下一团火焰"}
+                BEL="在角色位置留下一团火焰",
+                ACR="取消移动 + 使用后大跳"}
             },{
                 EclipsedMod.enums.Items.WhiteKnight,
                 "KNIGHT-白棋",
                 "将杀!",
                 "使用后, 朝最近的敌人大跳#未找到敌人则朝移动方向大跳#落地时摧毁障碍物并造成伤害",
                 {VIR="静止的白色魂火#仅在当前房间存在#无法攻击的魂火",
-                BEL="在角色位置留下一团火焰"}
+                BEL="在角色位置留下一团火焰",
+                ACR="使用后自动索敌大跳"}
             },{
                 EclipsedMod.enums.Items.KeeperMirror,
                 "月光之镜",--Moonlighter (The Merchant Mirror) is a reference to the game Moonlighter, created by Digital Sun Games.
                 "物资交易",
-                "生成一团{{ColorLime}}可操作{{CR}}的火焰#{{Card65}} 火焰会烧毁一个道具或掉落物, 并分解为等量的钱币; 没有任何东西被烧毁也会至少生成一美分"
+                "生成一团{{ColorLime}}可操作{{CR}}的火焰#{{Card65}} 火焰会烧毁一个道具或掉落物, 并分解为等量的钱币; 没有任何东西被烧毁也会至少生成一美分",
+                {ACR="将选定的物品拆分为金钱"}
             },{
                 EclipsedMod.enums.Items.MiniPony,
                 "独角兽",
                 "飞行 + 暂时性横冲直撞",
                 "持有时:#{{Speed}} 设置移速至少为1.5#飞行#{{Collectible77}} 使用后, 触发彩虹独角兽的效果",
                 {VIR="阳光彩虹中环魂火#无法攻击#使用主动道具后环绕速度加快",
-                ABY="高移速蝗虫"},
+                ABY="高移速蝗虫",
+                ACR="持有时飞行, 使用后无敌 + 碰撞伤害"},
             },{
                 EclipsedMod.enums.Items.StrangeBox,
                 "奇怪的箱子",
@@ -48,6 +53,7 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "{{Collectible249}} 为当前房间内的所有道具, 掉落物和商店物品额外提供一个选项",
                 {VIR="2个中环黑色魂火#发射{{Collectible369}}连续统泪弹",
                 ABY="2个穿墙蝗虫",
+                ACR="所有物品+1选项",
                 QUA=3}--区区高配以撒魂石
             },{
                 EclipsedMod.enums.Items.LostMirror,
@@ -56,7 +62,8 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "{{Player10}} 变为游魂形态, 类似白火",--能白嫖恶魔房还是太有用了(
                 {VIR="跟随玩家的魂火#无法攻击#熄灭后释放{{Collectible653}}鬼灵爆破",
                 CONF={"5.350."..EclipsedMod.enums.Trinkets.LostFlower,"ReLost"},
-                QUA=1}
+                QUA=1,
+                ACR="暂时性游魂形态"}
             },{
                 EclipsedMod.enums.Items.BleedingGrimoire,--Bleeding Grimoire is a reference to the game They Bleed Pixels, created by indie studio Spooky Squid Games.
                 "流血法术",
@@ -64,7 +71,8 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "{{BleedingOut}} 使用后使角色开始流血, 类似不会生成红心掉落物的{{Collectible448}}#角色的攻击也可以施加流血效果",
                 {VIR="中环紫色魂火#可以施加{{BleedingOut}}流血",
                 ABY="施加流血的红色蝗虫",
-                CONF={LBAB,"BAB_Bleeding"}}
+                CONF={LBAB,"BAB_Bleeding"},
+                ACR="使自己流血 + 流血泪弹"}
             },{
                 EclipsedMod.enums.Items.BlackBook,
                 "黑书",--Black Book is a reference to the game Black Book, created by indie studio Morteshka.
@@ -72,31 +80,36 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "对房间内的敌人施加随机异常状态#包括{{Freezing}}{{Poison}}{{Slow}}{{Charm}}{{Confusion}}{{Collectible202}}{{Fear}}{{Burning}}{{Collectible398}}{{BleedingOut}}{{Collectible110}}{{Magnetize}}{{Bait}}",
                 {VIR="内环黑色魂火#魂火具有随机泪弹特效",
                 ABY="施加随机异常状态的黑色蝗虫",
-                CONF={LBAB,"BAB_Blackbook"}}
+                CONF={LBAB,"BAB_Blackbook"},
+                ACR="释放随机异常状态"}
             },{
                 EclipsedMod.enums.Items.RubikDice,
                 "魔方骰子",--Rubik's Cube 魔方
                 "4.326 x 10的十九次方 面骰",
                 "{{Collectible105}} 重随道具#{{Battery}} 每次使用随机变化充能#{{Collectible721}} 充能未满时也能使用, 但是会重随为错误道具",
                 {VIR="故障彩虹魂火#发射可以重随敌人和石头的彩虹泪弹",
-                ABY="退化蝗虫"}
+                ABY="退化蝗虫",
+                ACR="重随道具, 充能不够也能重随成错误道具"}
             },{
                 EclipsedMod.enums.Items.VHSCassette,
                 "VHS磁带",
                 "卡住的录像带",
-                "!!! 一次性 !!! #将角色送至未来的随机楼层#{{Delirium}} 可能到达虚空#{{ItemPoolMomsChest}} 在回溯中则传送至家中#生成两种类型的掉落物共12个"
+                "!!! 一次性 !!! #将角色送至未来的随机楼层#{{Delirium}} 可能到达虚空#{{ItemPoolMomsChest}} 在回溯中则传送至家中#生成两种类型的掉落物共12个",
+                {ACR="传送至未来楼层 + 随机掉落物"}
             },{
                 "Long Elk",--我叼你妈的为什么guru和你EID写的不一样啊
                 "长鹿皮",
                 "自然怪胎",
-                "由攻击键控制的跟班, 造成100接触伤害后暂时失效, 需要角色触碰后重新生效#失效期间在房间内斜向运动, 期间生成至多3个跟随的脊椎#脊椎会抵挡敌弹和造成100%面板的接触伤害, 而后破碎"
+                "由攻击键控制的跟班, 造成100接触伤害后暂时失效, 需要角色触碰后重新生效#失效期间在房间内斜向运动, 期间生成至多3个跟随的脊椎#脊椎会抵挡敌弹和造成100%面板的接触伤害, 而后破碎",
+                {ACR="可操控高伤害跟班, 需要激活"}
             },{
                 EclipsedMod.enums.Items.Threshold,
                 "临界点",
                 "我将夺回属于我的物品",
                 "{{Collectible712}} 当角色拥有道具魂火时, 将其变为具体的道具#可使用时会展示哪个道具魂火会变为道具#{{Card41}} 触发黑符文的效果",
                 {VIR="道具魂火可以发射跟踪泪弹",
-                CAR="获得两倍的选定道具"}
+                CAR="获得两倍的选定道具",
+                ACR="将道具魂火变为道具 + 吞噬一切获得属性"}
             },{
                 EclipsedMod.enums.Items.CharonObol,
                 "冥河之钱",--AI翻译    Charon's Obol is a reference to the game Hades.
@@ -105,6 +118,7 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 {VIR="外环硬币魂火",
                 BEL="鬼魂将留下火焰",
                 ABY="杀死敌人生成硬币的黄色蝗虫",
+                ACR="花钱召唤鬼魂 + 5硬币",
                 MOD={GOLD=true}}
             },{
                 EclipsedMod.enums.Items.BookMemory,
@@ -112,6 +126,7 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "遗忘",
                 "{{Collectible638}} 擦除房间内的所有敌人#{{BrokenHeart}} 生效时获得1碎心",
                 {VIR="内环蓝色卡牌魂火#熄灭后生成{{Card"..EclipsedMod.enums.Pickups.OblivionCard.."}}遗忘卡",
+                ACR="擦除所有敌人, 但是获得碎心",
                 CONF={LBAB,"BAB_Memory"}}
             },{
                 EclipsedMod.enums.Items.CosmicJam,
@@ -119,7 +134,8 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "飘渺之物",
                 "获得房间内所有道具的对应{{Collectible584}}{{Collectible712}}魂火",
                 {VIR="道具魂火可以发射跟踪泪弹",
-                ABY="杀死敌人后生成魂火的紫色蝗虫"}
+                ABY="杀死敌人后生成魂火的紫色蝗虫",
+                ACR="将道具底座提取为魂火"}
             },{
                 EclipsedMod.enums.Items.MongoCells,
                 "蒙戈细胞",
@@ -201,67 +217,77 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                     {CollectibleType.COLLECTIBLE_FRUITY_PLUM,"MongoPlum"},
                     {CollectibleType.COLLECTIBLE_SPIN_TO_WIN,"MongoSpin"},
                     {CollectibleType.COLLECTIBLE_WORM_FRIEND,"MongoWorm"},
-                }}
+                },ACR="将跟班的力量化为己有"}
             },{
                 EclipsedMod.enums.Items.MeltedCandle,
                 "融蜡烛",
                 "蜡滴泪弹",
                 "泪弹有概率将敌人变为蜡像3s#{{Burning}} 蜡像敌人会被定住并燃烧, 死亡后留下火焰",--我去,蜡像师!
-                {ABY="造成一半伤害的白色蝗虫, 有概率将敌人变为蜡像"}
+                {ABY="造成一半伤害的白色蝗虫, 有概率将敌人变为蜡像",
+                ACR="发射热蜡泪弹, 固定敌人 + 灼烧"}
             },{
                 EclipsedMod.enums.Items.IvoryOil,--Ivory Oil is a reference to the game Iconoclasts.
                 "象牙白油",--存疑
                 "充能上升",
                 "{{Battery}} 首次进入未清理的房间即可获得充能#{{RoomXL}} 大房间同样会获得2点充能",
-                {ABY="白色电系蝗虫"}
+                {ABY="白色电系蝗虫",
+                ACR="进入房间即获得充能"}
             },{
                 EclipsedMod.enums.Items.RedLotus,
                 "红莲",
                 "???",
-                "{{BrokenHeart}} +3碎心#每层开始时: #{{BrokenHeart}} 移除1碎心并获得{{Damage}}伤害+1"
+                "{{BrokenHeart}} +3碎心#每层开始时: #{{BrokenHeart}} 移除1碎心并获得{{Damage}}伤害+1",
+                {ACR="获得碎心, 每层移除碎心 + 伤害上升"}
             },{
                 EclipsedMod.enums.Items.MidasCurse,
                 "弥达斯诅咒",
                 "金!",
                 "{{GoldenHeart}} 获得3金心#{{CoinHeart}} 失去金心会将整个房间点金, 将饰品镀金#{{Warning}} {{ColorYellow}}那么, 代价是什么?#{{Warning}} {{ColorYellow}}100%得到金掉落物#{{Warning}} {{ColorYellow}}所有食物道具被拆解为硬币{{CR}}#{{Collectible260}} 黑蜡烛可以削弱甚至免疫上述代价",
                 {ABY="造成10%伤害的蝗虫, 必定施加点金效果",
-                MOD={GOLD=true}}
+                MOD={GOLD=true},
+                ACR="获得金心 + 所有物品变金 + 所有食物变为金钱"}
             },{
                 EclipsedMod.enums.Items.RubberDuck,--Ducking is a reference to the game Killing Room.
                 "橡皮鸭",
                 "流行度上升",
                 "{{Luck}} 持有时获得幸运增幅+20#↑ {{Luck}} 进入未进入过的房间获得+1幸运增幅#↓ {{Luck}} 进入已进入过的房间失去-1幸运增幅#幸运增幅不会导致亏损",
-                {QUA=1}
+                {QUA=1,
+                ACR="幸运大幅度上升 + 进入新房间获得幸运上升, 否则幸运下降"}
             },{
                 EclipsedMod.enums.Items.RedButton,--Red Button is a reference to the game Please, Don't Touch Anything created by Four Quarters.
                 "红按钮",
                 "请不要按下这个按钮",
                 "进入新房间生成红色按钮#按下后10%的概率触发随机{{ColorYellow}}奖励按钮{{CR}}的效果#{{Warning}} 按下66次按钮后消失({{IGIcon}}第64和65次会有提示)#1%的概率改为生成{{ColorRed}}击杀按钮{{CR}}",
-                {QUA=0}--搞得好像真有人想玩这东西似的
+                {QUA=0,--搞得好像真有人想玩这东西似的
+                ACR="每个房间生成按钮"}
             },{
                 "Compo Bombs",
                 "组合弹",
                 "爆破组合技 + 5个炸弹",
-                "{{Bomb}} 炸弹+5#炸弹爆炸后生成{{ColorRed}}可投掷炸弹{{CR}}",
-                {ABY="有概率生成{{Trinket113}}{{ColorOrange}}战争蝗虫{{CR}}的深渊蝗虫"}
+                "{{Bomb}} 炸弹+5#炸弹爆炸后生成{{ColorRed}}另一个炸弹{{CR}}",
+                {ABY="有概率生成{{Trinket113}}{{ColorOrange}}战争蝗虫{{CR}}的深渊蝗虫",
+                ACR="炸弹爆炸后生成另一个炸弹 + 5个炸弹"}
             },{
                 EclipsedMod.enums.Items.Limb,
                 "异色光环",--存疑
                 "弥留于此",
                 "{{Player10}} 死亡后在当前楼层变为游魂形态(其他复活方式优先), 每层只能触发一次",
-                {ABY="产生鬼灵爆破的紫色蝗虫"}
+                {ABY="产生鬼灵爆破的紫色蝗虫",
+                ACR="死亡后暂时复活为游魂"}
             },{
                 EclipsedMod.enums.Items.GravityBombs,
                 "黑洞炸弹",
                 "引力爆破 + 1个究极炸弹",
-                "{{Bomb}} 获得+1究极炸弹#{{Collectible512}} 炸弹附有黑洞的效果",
-                {ABY="生成{{Collectible606}}裂隙的紫色蝗虫"}
+                "{{Bomb}} 获得+1究极炸弹#{{Collectible512}} 炸弹爆炸前具有强引力",
+                {ABY="生成{{Collectible606}}裂隙的紫色蝗虫",
+                ACR="炸弹附有引力效果 + 1究极炸弹"}
             },{
                 EclipsedMod.enums.Items.MirrorBombs,
                 "玻璃炸弹",
                 "反射爆破 + 5个炸弹",
                 "{{Bomb}} 炸弹+5#炸弹在房间的中心对称位置同时释放爆炸",
                 {ABY="爆炸性黑色蝗虫",
+                ACR="炸弹在对称位置同时爆破 + 5个炸弹",
                 MOD={GLASS=true}}
             },{
                 EclipsedMod.enums.Items.FrostyBombs,
@@ -269,51 +295,59 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "寒冰爆破 + 5个炸弹",
                 "{{Bomb}} 炸弹+5#炸弹留下水迹并{{Slow}}减速敌人#{{Freezing}} 冻结被炸死的敌人",
                 {ABY="冰系蓝色蝗虫",
+                ACR="炸弹冻结杀死的敌人 + 5个炸弹",
                 CHAR={EclipsedMod.enums.Characters.Nadab,"NadabIce",false},
                 MOD={ICE=true}}
             },{
                 EclipsedMod.enums.Items.VoidKarma,--Karma Level is a reference to the game Rain World.
                 "因果值",--存疑
                 "生还者",
-                "↑ 进入下一层后获得全属性提升#{{Damage}} 伤害+0.5#{{Tears}} 射速+0.35#{{Range}} 射程+1.25#{{Shotspeed}} 弹速+0.15#{{Speed}} 移速+0.15#{{Luck}} 幸运+1"
+                "↑ 进入下一层后获得全属性提升#{{Damage}} 伤害+0.5#{{Tears}} 射速+0.35#{{Range}} 射程+1.25#{{Shotspeed}} 弹速+0.15#{{Speed}} 移速+0.15#{{Luck}} 幸运+1",
+                {ACR="每次下层后全属性提升"}
             },{
                 "VVV",
                 "VVV",
                 "重力倒转",
                 "获得飞行#受到伤害后停住所有敌弹",--3级的唯一价值在于永久飞
+                {ACR="飞行 + 受伤后停止敌弹"}
             },{
                 EclipsedMod.enums.Items.RedBag,
                 "红袋",
                 "给予红色",
                 "有概率在清理房间后生成{{ColorRed}}红色掉落物{{CR}}#包括{{Heart}}红心, {{Card49}}骰子碎片, {{Pill"..EclipsedMod.enums.Pickups.RedPillColor.."}}红色药丸, {{Card78}}钥匙碎片, {{Bomb}}可投掷炸弹#{{Warning}} 可能生成{{ColorRed}}红大便{{CR}}",
-                {BFF="不再生成红大便"}
+                {BFF="不再生成红大便",
+                ACR="清理房间后可能生成红色物品"}
             },{
                 EclipsedMod.enums.Items.Lililith,
                 "莉莉小",
                 "地狱召唤师",
                 "每隔7-8个房间生成随机恶魔跟班#这些跟班仅持续一层#可能的情况包括: {{Collectible113}} {{Collectible275}} {{Collectible679}} {{Collectible360}} {{Collectible417}} {{Collectible270}} {{Collectible698}}",
                 {BFF="每隔6个房间生成随机恶魔跟班",
-                ABY="可以生成蓝苍蝇的蝗虫"}
+                ABY="可以生成蓝苍蝇的蝗虫",
+                ACR="清理房间后可能生成暂时性恶魔跟班"}
             },{
                 EclipsedMod.enums.Items.AbihuFam,
                 "亚比户",
                 "异教徒",
                 "{{Collectible281}} 吸引敌人仇恨的跟班#{{Burning}} 灼烧接触的敌人#碰到火堆会将其扑灭, 释放一圈10发火焰弹幕",
                 {BFF="碰到敌人时也会释放火焰弹幕",
-                ABY="火系蝗虫"}
+                ABY="火系蝗虫",
+                ACR="吸引仇恨的跟班, 灼烧碰到的敌人"}
             },{
                 EclipsedMod.enums.Items.NadabBrain,
                 "拿答的脑浆子",
                 "沉重的思维",
                 "朝指定方向发射的跟班#接触敌人后爆炸, 并留下火焰#{{ColorYellow}}特别特别慢{{CR}}",
                 {BFF="爆炸威力提升",
-                ABY="爆炸性黑色蝗虫"}
+                ABY="爆炸性黑色蝗虫",
+                ACR="朝指定方向慢速发射的爆炸脑子"}
             },{
                 EclipsedMod.enums.Items.NadabBody,
                 "拿答的尸体",
                 "异教徒",
                 "{{Throwable}} 可以被捡起并投掷#抵挡敌弹#投掷途中碰到敌人会爆炸, 造成15倍角色伤害#{{Warning}} {{ColorYellow}}爆炸可能会伤害角色!{{CR}}",
                 {ABY="爆炸性黑色蝗虫",
+                ACR="可投掷爆炸尸体",
                 CONF={
                     {106,"MegaNada"},
                     {125,"NadaBoby"},
@@ -325,26 +359,30 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "致离去的灵魂",--存疑
                 "{{Collectible634}} 25%的概率在敌人死亡后生成{{ColorError}}恶鬼{{CR}}#概率与幸运无关",
                 {CONF={EclipsedMod.enums.Items.DMS,"MultiDMS"},
-                ABY="有概率在杀死敌人后生成恶鬼的白色蝗虫"}
+                ABY="有概率在杀死敌人后生成恶鬼的白色蝗虫",
+                ACR="杀死敌人概率释放恶鬼"}
             },{
                 EclipsedMod.enums.Items.MewGen,
                 "猫基因",--捏他什么不用我说了吧
                 "猫代更替",
                 "获得飞行#{{Collectible522}} 角色停止攻击和移动5s触发{{ColorCyan}}念力{{CR}}",
-                {ABY="跟踪性粉色蝗虫"}
+                {ABY="跟踪性粉色蝗虫",
+                ACR="飞行 + 静止一段时间释放念力"}
             },{
                 EclipsedMod.enums.Items.ElderSign,
                 "古老之迹",--Elder Sign is a reference to the H.P. Lovecraft.
                 "封印",
                 "原地生成一个持续3s的{{ColorGreen}}法阵{{CR}}#首个进入{{ColorGreen}}法阵{{CR}}的敌人将{{Collectible503}}被秒杀或重击, 被杀死的敌人生成{{Collectible634}}一个{{ColorGreen}}恶鬼{{CR}}#{{GarlinIcon}} 技巧: 可以通过在多个怪物靠近时使用以使法阵同时秒杀多个敌人",
                 {VIR="持续一个房间的绿色魂火, 可以定住敌人",
-                ABY="可以定住敌人的绿色蝗虫"}
+                ABY="可以定住敌人的绿色蝗虫",
+                ACR="释放秒杀法阵, 杀敌释放恶鬼"}
             },{
                 "Eclipse",
                 "日蚀",
                 "最黑暗的地下室!",
                 "按住攻击键释放脉冲波, 造成范围伤害#{{CurseDarkness}} 黑暗诅咒中角色获得{{Damage}}伤害翻倍#!!! 与堕化不速之客不同, 脉冲波不再兼容特殊攻击方式",
                 {ABY="携带黑暗光圈的蝗虫, 光圈造成75DPS, 在黑暗诅咒中伤害翻倍",
+                ACR="黑暗脉冲波攻击, 在黑暗中更强",
                 QUA=3}
             },{
                 EclipsedMod.enums.Items.WitchPot,
@@ -352,51 +390,59 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "咒语",
                 "{{Collectible439}} {{ColorGreen}}魔咒!{{CR}}-75%的概率生成饰品#{{Collectible479}} {{ColorYellow}}喝下去!{{CR}}-50%的概率将持有的饰品吞下#{{Pill}} {{ColorOrange}}吐出来!{{CR}}-25%的概率吐出一个被吞下的饰品和一个{{Pill}}{{ColorYellow}}咕噜!{{CR}}#{{Warning}} {{ColorRed}}魔咒反噬!{{CR}}-5%的概率摧毁持有的饰品",
                 {VIR="绿色魂火, 每个魂火提供+0.12幸运",
-                {CONF="5.350.75","Pot404"}}
+                {CONF="5.350.75","Pot404"},
+                ACR="吞吐饰品相关的随机魔咒"}
             },{
                 EclipsedMod.enums.Items.PandoraJar,
                 "潘多拉之瓮",
                 "释放",
                 "生成一个持续生成蓝苍蝇和蓝蜘蛛的传送门",
                 {VIR="会生成苍蝇的蓝色魂火",
-                ABY="有概率生成蓝苍蝇的蓝色蝗虫"}
+                ABY="有概率生成蓝苍蝇的蓝色蝗虫",
+                ACR="生成虫群传送门"}
             },{
                 EclipsedMod.enums.Items.SecretLoveLetter,
                 "秘密情书",
                 "隐藏的爱意",
                 "举起情书, 而后朝指定方向发射#{{Charm}} 情书不造成伤害, 而是将触碰的所有同类敌人魅惑, 直到情书魅惑另一种敌人#魅惑的敌人可以跨房间和楼层存在#{{TimerSmall}} 魅惑对头目仅暂时生效#{{IGIcon}} 可以秒杀大基甸",
                 {VIR="紫色魂火, 熄灭后魅惑附近敌人",
-                ABY="魅惑敌人的紫色蝗虫"}
+                ABY="魅惑敌人的紫色蝗虫",
+                ACR="发射情书魅惑所有同类敌人"}
             },{
                 EclipsedMod.enums.Items.DiceBombs,
                 "骰子炸弹?",
                 "重随?爆破 + 5个炸弹",
                 "{{Bomb}} +5炸弹#被爆炸波及的道具底座将额外获得一个可选道具",
-                {ABY="爆炸性黑色蝗虫"}
+                {ABY="爆炸性黑色蝗虫",
+                ACR="炸道具获得额外选择 + 5个炸弹"}
             },{
                 EclipsedMod.enums.Items.BatteryBombs,
                 "电池炸弹",
                 "充能爆破 + 5个炸弹",
                 "{{Bomb}} +5炸弹#炸弹会朝5个敌人释放电弧#{{Key}} 爆炸波及的钥匙和钥匙串变为充能钥匙#{{Battery}} 角色被爆炸波及时为主动道具充能#{{Battery}} 充能数基于炸弹的伤害",
-                {ABY="电系黄色蝗虫"}
+                {ABY="电系黄色蝗虫",
+                ACR="放电炸弹 + 炸钥匙或自己获得充能 + 5个炸弹"}
             },{
                 EclipsedMod.enums.Items.Pyrophilia,
                 "烟火狂人",
                 "爽炸它们",
                 "{{Bomb}} +5炸弹#有敌人被炸弹伤害时治疗{{HalfHeart}}",
-                {VIR="火系橙色蝗虫"}
+                {VIR="火系橙色蝗虫",
+                ACR="炸伤敌人治疗自己 + 5个炸弹"}
             },{
                 EclipsedMod.enums.Items.SpikedCollar,
                 "尖刺项圈",
                 "生气的小家伙",
-                "受到伤害改为触发{{Collectible126}}剃刀片#对尖刺和献祭伤害无效"
+                "受到伤害改为触发{{Collectible126}}剃刀片#对尖刺和献祭伤害无效",
+                {ACR="受伤更痛, 但获得伤害上升"}
             },{
                 EclipsedMod.enums.Items.DeadBombs,
                 "死亡炸弹",
                 "亡灵爆破 + 5个炸弹",
                 "{{Bomb}} +5炸弹#{{Collectible683}} 被爆炸杀死的敌人生成骨片环绕物#25%的概率生成友好骷髅仔, 骷髅苍蝇, 骷髅肥仔, 黑骷髅仔或还魂骷髅",
                 {ABY="杀死敌人有概率生成骨片的骷髅蝗虫",
-                CHAR={EclipsedMod.enums.Characters.Nadab,"NadabBone",false}}
+                CHAR={EclipsedMod.enums.Characters.Nadab,"NadabBone",false},
+                ACR="炸死敌人生成骨头 + 5个炸弹"}
             },{
                 EclipsedMod.enums.Items.AgonyBox,
                 "苦难之盒",
@@ -404,31 +450,37 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "{{ColorCyan}}自动消耗{{CR}}1充能抵挡下一次伤害#进入下一层恢复1充能",
                 {VIR="内环绿色护盾魂火#在自动消耗充能时生成#抵挡下一次伤害",
                 ABY="可以抵挡敌弹的绿色蝗虫",
-                BEL="在自动消耗充能时临时增加伤害"}
+                BEL="在自动消耗充能时临时增加伤害",
+                ACR="充能形自动抵挡伤害",
+                QUA=2}--你他妈什么资格跟斗篷比
             },{
                 EclipsedMod.enums.Items.Potato,
                 "土豆",
                 "生命充能?",
-                "{{EmptyHeart}} 获得1空心之容器#{{Battery}} 为持有的主动道具充能"
+                "{{EmptyHeart}} 获得1空心之容器#{{Battery}} 为持有的主动道具充能",
+                {ACR="获得空心之容器 + 恢复充能"}
             },{
                 EclipsedMod.enums.Items.SurrogateConception,
                 "代孕受胎",
                 "用血浇灌它们",
                 "清理头目房获得随机{{ColorYellow}}头目相关{{CR}}跟班#{{CurseLabyrinth}} 每层只能触发一次",
-                {ABY="有概率生成蓝苍蝇或蓝蜘蛛的蝗虫"}
+                {ABY="有概率生成蓝苍蝇或蓝蜘蛛的蝗虫",
+                ACR="击败头目获得它们的宝宝"}
             },{
                 EclipsedMod.enums.Items.HeartTransplant,
                 "心脏移植",--Heart Transplant is a reference to the game Crypt of the NecroDancer.
                 "\"跳\"战这个心脏",
                 "{{Chargeable}} 持有时, 在角色头顶展示冷却条#满充能后0.5s未使用则失去充能和{{ColorRed}}心跳等级{{CR}}#若成功使用则积攒心跳等级, 并因此获得{{Speed}}{{Damage}}{{Tears}}增益#心跳等级最大时使用会同时释放一圈10发泪弹#{{ColorYellow}} 挑战-Beatmaker 限定: 任何时候使用都会释放泪弹#{{GarlinIcon}} 不用把它当什么音游, 狂按主动糊过去就完事了",
-                {VIR="无法攻击的固定魂火"}
+                {VIR="无法攻击的固定魂火",
+                ACR="有节奏的心跳 = 属性提升"}
             },{
                 EclipsedMod.enums.Items.GardenTrowel,
                 "花园泥铲",
                 "挖骨刀",
                 "{{Collectible683}} 生成骨片#持有时, 在{{SecretRoom}}{{SuperSecretRoom}}隐藏放生成随土块#可以挖开碎土块",
                 {VIR="与骨片数量相同的魂火, 仅持续一个房间",
-                ABY="杀死敌人有概率生成骨片的骷髅蝗虫"}
+                ABY="杀死敌人有概率生成骨片的骷髅蝗虫",
+                ACR="生成骨片 + 挖开随土块"}
             },{
                 EclipsedMod.enums.Items.ElderMyth,
                 "古老神话",
@@ -436,7 +488,8 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "生成一张\"循环英雄\"卡#循环英雄卡的效果多为创造特殊类型的红房间",
                 {VIR="卡牌魂火, 熄灭后生成循环卡",
                 ABY="杀死敌人生成循环卡的蓝色蝗虫",
-                CONF={LBAB,"BAB_Elder"}}
+                CONF={LBAB,"BAB_Elder"},
+                ACR="获得可创造空间的循环英雄卡"}
             },{
                 EclipsedMod.enums.Items.ForgottenGrimoire,
                 "遗忘的魔法书",
@@ -444,7 +497,8 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "{{EmptyBoneHeart}} 获得1骨心",
                 {VIR="发射骨头泪弹的魂火",
                 ABY="杀死敌人有概率生成骨片的骷髅蝗虫",
-                CONF={LBAB,"BAB_Forgotton"}}
+                CONF={LBAB,"BAB_Forgotton"},
+                ACR="充能型获得骨心"}
             },{
                 EclipsedMod.enums.Items.CodexAnimarum,
                 "灵法典",
@@ -452,14 +506,16 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "{{Collectible684}} 释放恶鬼追杀敌人",
                 {VIR="魂火有50%的概率在死亡后释放鬼灵爆破",
                 ABY="杀死敌人生成恶鬼的蝗虫",
-                CONF={LBAB,"BAB_Codex"}}
+                CONF={LBAB,"BAB_Codex"},
+                ACR="召唤鬼灵追击"}
             },{
                 EclipsedMod.enums.Items.RedBook,
                 "红书",
                 "充能形产红",
                 "使用后生成{{ColorRed}}红色掉落物{{CR}}#包括{{Heart}}红心, {{Card49}}骰子碎片, {{Pill"..EclipsedMod.enums.Pickups.RedPillColor.."}}红色药丸, {{Card78}}钥匙碎片, {{Bomb}}可投掷炸弹#{{Warning}} 可能生成{{ColorRed}}红大便{{CR}}",
                 {VIR="生成随机的红色魂火",
-                CONF={LBAB,"BAB_Red"}}
+                CONF={LBAB,"BAB_Red"},
+                ACR="充能型生成红色物品"}
             },{
                 EclipsedMod.enums.Items.CosmicEncyclopedia,
                 "宇宙百科全书",
@@ -467,7 +523,8 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "生成一种掉落物共6个#{{Heart}}{{Coin}}{{Key}}{{Bomb}}{{Chest}}{{GrabBag}}{{Pill}}{{Battery}}{{Collectible}}",
                 {VIR="6个随机泪弹特效的彩虹魂火",
                 ABY="杀死敌人生成随机掉落物的蝗虫",
-                CONF={LBAB,"BAB_Encyclopedia"}}
+                CONF={LBAB,"BAB_Encyclopedia"},
+                ACR="生成随机大量掉落物"}
             },{
                 EclipsedMod.enums.Items.AncientVolume,
                 "远古圣卷",
@@ -475,7 +532,8 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "{{Collectible497}} 在当前房间内获得迷彩内裤的效果",
                 {VIR="固定魂火#进入新房间后魂火环绕角色#魂火熄灭后获得{{Collectible497}}迷彩内裤的效果",
                 ABY="可以施加{{Confusion}}混乱的蝗虫",
-                CONF={LBAB,"BAB_Ancient"}}
+                CONF={LBAB,"BAB_Ancient"},
+                ACR="充能型迷彩内裤"}
             },{
                 EclipsedMod.enums.Items.HolyHealing,
                 "圣疗巨著",
@@ -492,7 +550,8 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "生成2-4个随机天启蝗虫",
                 {VIR="生成随机颜色的魂火, 熄灭后生成对应颜色的天启蝗虫",
                 ABY="有概率生成{{Trinket113}}{{ColorRainbow}}随机蝗虫{{CR}}的深渊蝗虫",
-                CONF={LBAB,"BAB_Wizard"}}
+                CONF={LBAB,"BAB_Wizard"},
+                ACR="充能型召唤天启蝗虫"}
             },{
                 EclipsedMod.enums.Items.RitualManuscripts,
                 "仪式手稿",
@@ -500,7 +559,8 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "{{BlendedHeart}} 使用后获得半红心和半魂心#{{Trinket123}} 持有时获得银丝羽毛的效果",
                 {VIR="生成一红一蓝两个魂火",
                 ABY="有概率降下圣光的蝗虫",
-                CONF={LBAB,"BAB_Ritual"}}
+                CONF={LBAB,"BAB_Ritual"},
+                ACR="获得混合心 + 更好的天使战利品"}
             },{
                 EclipsedMod.enums.Items.StitchedPapers,
                 "装订纸",
@@ -508,7 +568,8 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "当前房间中，获得{{Collectible418}}水果蛋糕的效果",
                 {VIR="随机泪弹效果的故障魂火",
                 ABY="施加随机异常状态的蝗虫",
-                CONF={LBAB,"BAB_Stitch"}}
+                CONF={LBAB,"BAB_Stitch"},
+                ACR="暂时性随机泪弹"}
             },{
                 EclipsedMod.enums.Items.NirlyCodex,
                 "尼利的宝典",
@@ -519,14 +580,15 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 CONF={
                     {63,"MoreNirly"},
                     {LBAB,"BAB_Nirly"}
-                }}
+                },ACR="可储存5张牌, 然后同时释放"}
             },{
                 EclipsedMod.enums.Items.AlchemicNotes,
                 "炼金笔记",
                 "魂火收集者",
                 "将房间内的所有掉落物转化为对应魂火#!!! 角色至多能持有26个魂火",
                 {VIR="在没有掉落物的情况下也获得魂火",
-                CONF={LBAB,"BAB_Alchemic"}}
+                CONF={LBAB,"BAB_Alchemic"},
+                ACR="将掉落物变为魂火"}
             },{
                 EclipsedMod.enums.Items.LockedGrimoire,
                 "锁住的魔法书",
@@ -537,7 +599,7 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 CONF={
                     {{"5.350.76","5.350.159"},"UnlockedGrimoire"},
                     {LBAB,"BAB_Locked"}
-                }}--我也不确定妈妈钥匙能不能维基没提到这个
+                },ACR="消耗钥匙免费开箱 + 5把钥匙"}--我也不确定妈妈钥匙能不能维基没提到这个
             },{
                 EclipsedMod.enums.Items.StoneScripture,
                 "石之圣典",
@@ -546,6 +608,7 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 {VIR="单房间内环魂火#魂火熄灭后释放{{Collectible653}}鬼灵爆破",
                 ABY="可以触发鬼灵爆破的蝗虫",
                 MOD={STONE=true},
+                ACR="可重复原地鬼灵爆破",
                 CONF={
                     {63,"BatterStone"},
                     {LBAB,"BAB_Stone"},
@@ -565,14 +628,16 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "{{Collectible634}} 释放炼狱恶鬼#未满充能也能使用#杀死敌人后, 拾取它们的灵魂以获得充能",
                 {VIR="外环魂火#无法攻击#熄灭后释放{{Collectible653}}鬼灵爆破",
                 ABY="可以触发鬼灵爆破的蝗虫",
-                CONF={LBAB,"BAB_Dead"}}
+                CONF={LBAB,"BAB_Dead"},
+                ACR="杀死敌人获得灵魂, 释放恶鬼"}
             },{
                 EclipsedMod.enums.Items.TetrisDice_full,
                 "四维立方体",--存疑
                 "??????面骰",
                 "满充能后, 在底座道具上轮流展示当前房间道具池的4个道具#使用以重随成你想要的道具",
                 {VIR="中环魂火#根据魂火颜色施加随机异常状态效果",
-                ABY="退化蝗虫"}
+                ABY="退化蝗虫",
+                ACR="4选1重随"}
             },{
                 EclipsedMod.enums.Items.Ignite,
                 "点上花火",
@@ -580,62 +645,72 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "发射一环蓝火",
                 {VIR="单房间固定魂火#发射蓝火",
                 ABY="火系蓝色蝗虫",
-                CHAR={EclipsedMod.enums.Characters.Abihu,"AbihuSkill"}}
+                CHAR={EclipsedMod.enums.Characters.Abihu,"AbihuSkill"},
+                ACR="释放一圈蓝火 + 拉回拿答的尸体"}
             },{
                 "Muscle Meat",
                 "\"肌\"肉",
                 "体积上升 + 生命上升 + 鸡肉发达",
-                "↑ {{Heart}} 心之容器+1#{{HealingRed}} 回满生命#{{BoneHeart}} 将骨心转化为心之容器#↑ 角色体积+25%#{{Damage}} 拾取该道具时, 每有一个{{Heart}}心之容器或{{BoneHeart}}骨心获得0.33伤害修正({{IGIcon}}该属性不会随后续生命值的变动而变动)"
+                "↑ {{Heart}} 心之容器+1#{{HealingRed}} 回满生命#{{BoneHeart}} 将骨心转化为心之容器#↑ 角色体积+25%#{{Damage}} 拾取该道具时, 每有一个{{Heart}}心之容器或{{BoneHeart}}骨心获得0.33伤害修正({{IGIcon}}该属性不会随后续生命值的变动而变动)",
+                {ACR="体积上升 + 生命上升 + 拾取时根据生命获得伤害"}
             },{
                 EclipsedMod.enums.Items.HolyRavioli,
                 "圣意大利饺",
                 "甜蜜的肉体",
                 "↑ {{Heart}} 心之容器+1#{{HealingRed}} 回满生命#受到伤害时留下粉色液体#{{Charm}} 碰到粉色液体的敌人会被魅惑5s#魅惑敌人死亡后会同样魅惑附近的其他敌人",
-                {ABY="留下魅惑粉色液体的粉色蝗虫"}
+                {ABY="留下魅惑粉色液体的粉色蝗虫",
+                ACR="生命上升 + 受伤后留下传染性魅惑液体"}
             },{
                 EclipsedMod.enums.Items.Shroomface,
                 "蘑菇脸",
                 "全都是孢子",
                 "{{Collectible553}} 攻击时每3s放屁, 释放5个{{ColorYellow}}孢子{{CR}}#{{Confusion}} {{ColorYellow}}孢子{{CR}}爆裂会震飞附近的敌人并使其混乱5s#附着在敌人身上的{{ColorYellow}}孢子{{CR}}爆裂后会混乱10s",
-                {ABY="会放屁和施加混乱的黄色蝗虫"}
+                {ABY="会放屁和施加混乱的黄色蝗虫",
+                ACR="蓄力释放击退孢子"}
             },{
                 EclipsedMod.enums.Items.GlitterInjection,
                 "闪光的注射剂",
                 "充满惊喜",--想必能给我们带来不少惊喜罢
                 "{{Luck}} 3.33%的概率发射一个{{ColorPink}}粉色泪弹{{CR}}#{{ColorPink}}粉色泪弹{{CR}}杀死敌人后将其变为{{ColorRainbow}}彩虹变种{{CR}}, 使其获得{{ColorRainbow}}彩虹变种{{CR}}的亡语和掉落奖励#!!! 死亡后生成的怪物也有可能因此变为{{ColorRainbow}}彩虹变种{{CR}}#{{IGIcon}} 幸运15: 25%",
-                {ABY="将杀死的敌人变为彩虹变种的粉色蝗虫"}
+                {ABY="将杀死的敌人变为彩虹变种的粉色蝗虫",
+                ACR="杀敌概率获得更多奖励"}
             },{
                 EclipsedMod.enums.Items.AngryMeal,
                 "愤怒的肉块",
                 "生命上升 + 怒中反击",
                 "↑ {{Heart}} 心之容器+1#{{Collectible704}} 受到致命伤害后进入狂战状态10s, 而后失去该道具",
-                {ABY="每有一个敌人靠近获得伤害增幅的蝗虫"}
+                {ABY="每有一个敌人靠近获得伤害增幅的蝗虫",
+                ACR="生命上升 + 死亡后触发狂战"}
             },{
                 EclipsedMod.enums.Items.BaconPancakes,
                 "培根煎饼",
                 "煎饼里放一点培根",
                 "↑ {{Heart}} 心之容器+1#↑ {{Tears}} 射速修正+0.5#↑ {{Damage}} 伤害修正+0.5#↑ {{Speed}} 移速+0.2#↑ {{Range}} 射程+1.5#↑ {{Shotspeed}} 弹速+0.2#↑ 体型上升#生成{{Coin}}{{Heart}}{{Key}}{{Bomb}}{{Battery}}{{Pill}}{{Card}}{{Rune}}{{Trinket}}各一个",
-                {QUA=2}
+                {QUA=2,
+                ACR="全属性上升 + 生成各种掉落物"}
             },{
                 EclipsedMod.enums.Items.BabylonCandle,
                 "巴比伦之烛",
                 "归于星辰?",
                 "!!! 一次性 !!! #生成一个通往本层的{{TreasureRoom}}或{{Planetarium}}的传送门#如果该房间未被探索过, 将房间内的道具重随为{{ItemPoolPlanetarium}}的道具",
                 {VIR="极高生命的内环魂火, 不会发射泪弹",
-                ABY="可以灼烧敌人的黑色蝗虫"}
+                ABY="可以灼烧敌人的黑色蝗虫",
+                ACR="传送至宝箱房, 若未探索过则奖励星辰"}
             },{
                 EclipsedMod.enums.Items.MephistoPact,
                 "墨菲斯托的契约",--哎又是墨菲斯托
                 "浮士德式交易",
                 "{{BrokenHeart}} 获得3碎心#{{Trinket173}} 使下一次恶魔交易免费#{{Card31}} 获得鬼牌",
                 {ABY="杀死敌人有概率生成炼狱恶鬼的黑色蝗虫",
-                MOD={PAPER=true}}
+                MOD={PAPER=true},
+                ACR="获得碎心 + 获得鬼牌 + 你的灵魂"}
             },{
                 EclipsedMod.enums.Items.Khepri,--Khepri is a reference to the 'Worm' web serial by John C. 'Wildbow' McCrae.
                 "凯布利",
                 "统管者",
                 "{{GoldenHeart}} 获得1金心#在有敌人的房间内每10s生成一个{{ColorYellow}}六边形传送门{{CR}}, 生成1-2个蓝苍蝇, 蝗虫或蓝蜘蛛#{{Collectible687}} 25%的概率生成一个模仿玩家行动的友好怪物#至多可以拥有5个可控怪物",
                 {ABY="杀死敌人生成蓝苍蝇, 蝗虫或蓝蜘蛛的金色深渊蝗虫",
+                ACR="战斗中生成虫群传送门, 或召唤可控友好怪物",
                 QUA=3}
             },{
                 EclipsedMod.enums.Items.Varg,
@@ -643,14 +718,16 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "狼来了",
                 "{{SoulHeart}} 获得1魂心#{{Collectible548}} 在角色身后生成狼颔骨#{{Chargeable}} 狼颔骨可以在攻击时蓄力{{ColorBlue}}咬合{{CR}}, 获得更高的咬合范围和伤害#{{Slow}} 狼颔骨攻击范围内的敌人被减速#{{Freezing}} 松开攻击键释放{{ColorBlue}}咬合{{CR}}, 对面前的敌人造成冰系伤害",
                 {ABY="冰系蓝色蝗虫",
-                MOD={ICE=true}}
+                MOD={ICE=true},
+                ACR="蓄力冰系大范围咬合"}
             },{
                 EclipsedMod.enums.Items.Aurora,
                 "极光",
                 "愤怒的公主",
                 "↑ {{Heart}} 心之容器+1#连续攻击3s额外发射一个{{ColorPink}}心弹{{CR}}并失去{{HalfHeart}}#{{Charm}} {{ColorPink}}心弹{{CR}}命中敌人会魅惑一定范围内的敌人并生成1-3个快速消失的{{HalfHeart}}#命中障碍物则只有一个{{HalfHeart}}#{{Damage}} 魅惑的敌人死亡后在当前房间获得伤害上升, 数值取决于敌人最大生命值, 单个房间最多20点",
                 {ABY="魅惑敌人的粉色蝗虫",
-                MOD={FEM=true}}
+                MOD={FEM=true},
+                ACR="生命上升 + 消耗红心蓄力发射范围魅惑弹"}
             },{
                 EclipsedMod.enums.Items.Sarbokan,
                 "三宝柑",--存疑
@@ -658,51 +735,60 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "↑ {{Speed}} 移速+0.3#{{Collectible118}} 进入房间环绕血激光环, 持续10s#敌人死亡时可以增加血激光环的持续时间和伤害",
                 {ABY="可以施加硫磺诅咒的红色蝗虫",
                 MOD={BLOOD=true},
+                ACR="持续血激光环, 杀敌使其更持久",
                 QUA=3}
             },{
                 EclipsedMod.enums.Items.Tindal,
                 "廷德尔",--存疑
                 "角与线",
                 "{{Trinket144}} 靠近墙体的泪弹获得直角锁头效果#↑ {{ColorOlive}}靠近墙体{{CR}}时获得{{Range}}射程+0.75和{{Damage}}伤害+2#↑ {{ColorOlive}}靠近房间角落{{CR}}时获得{{Range}}射程+1.5和{{Damage}}伤害+4",
-                {ABY="蝗虫在角色靠近墙体或墙角时获得伤害提升"}
+                {ABY="蝗虫在角色靠近墙体或墙角时获得伤害提升",
+                ACR="靠近墙体获得射程 + 伤害上升 + 直角拐弯弹道"}
             },{
                 EclipsedMod.enums.Items.Horoles,
                 "Horoles",--众所周知翻译家全都是杂家来的不然碰上这些看都看不懂（悲
                 "优越之空想",
                 "↓ {{Damage}} 伤害-1.0#↑ 每秒获得{{Damage}}+0.04{{ColorOrange}}伤害增益{{CR}}, 最多20#进入新房间后重置{{ColorOrange}}伤害增益{{CR}}",
                 {ABY="在当前房间内持续获得伤害上升的大型橙色蝗虫",
-                QUA=1}
+                QUA=1,
+                ACR="伤害下降, 每个房间持续积攒伤害"}
             },{
                 EclipsedMod.enums.Items.SmokeBombs,
                 "暗影炸弹",
                 "影域爆破 + 5个炸弹",
                 "{{Bomb}} +5炸弹#{{Collectible705}} 放置的炸弹{{ColorRed}}瞬爆{{CR}}, 同时角色瞬间触发暗仪刺刀",
+                {ACR="瞬爆炸弹 + 爆炸后暗隐刺刀 + 5个炸弹",
+                QUA=3}
             },{
                 EclipsedMod.enums.Items.Bufo,
                 "蟾蜍",--字体包不兼容的
                 "苍蝇之友",
                 "{{RottenHeart}} 获得3个填满腐心的心之容器#{{Collectible706}} 拾取后, 立即生成6个{{ColorGreen}}毒系深渊蝗虫{{CR}}",
-                {ABY="唯一的区别就是吸了没有心之容器"}
+                {ABY="唯一的区别就是吸了没有心之容器",
+                ACR="获得腐心之容器 + 6个毒系蝗虫"}
             },{
                 EclipsedMod.enums.Items.BlackPlague,
                 "黑死病",
                 "你个瘟神",
                 "{{RottenHeart}} 所有的心被替换为腐心#{{Collectible706}} 获得一个概率在命中敌人后生成死亡蝗虫的{{ColorPurple}}黑色深渊蝗虫{{CR}}#{{Trinket116}} 所有蓝苍蝇被替换为死亡蝗虫",
-                {ABY="概率在命中敌人后生成死亡蝗虫的黑色深渊蝗虫"}
+                {ABY="概率在命中敌人后生成死亡蝗虫的黑色深渊蝗虫",
+                ACR="所有心变为腐心 + 杀敌带来死亡的蝗虫 + 更多死亡蝗虫"}
             },{
                 EclipsedMod.enums.Items.LoadedDice,
                 "科技六面骰",--哈哈肯定是想取名过载骰子结果邪魔典纸抢了
                 "开挂般的命运",
                 "{{Collectible105}} 在空的道具底座上补充道具投影#道具投影离开房间后消失",
-                {VIR="发射激光的骰子魂火"},
-                {ABY="环绕激光环的蝗虫"},
+                {VIR="发射激光的骰子魂火",
+                ABY="环绕激光环的蝗虫",
+                ACR="在空道具底座上创造暂时道具"},
             },{
                 EclipsedMod.enums.Items.AstralDice,
                 "星际骰子",
                 "飘渺的宿命",--包不兼容的
                 "在一个道具底座上展示一个道具魂火#{{Collectible712}} 使用后{{ColorPink}}移除底座道具{{CR}}并获得展示的道具魂火",
                 {VIR="道具魂火可以发射追踪泪弹",
-                ABY="杀死敌人后生成魂火的紫色蝗虫"}
+                ABY="杀死敌人后生成魂火的紫色蝗虫",
+                ACR="道具底座展示另一个道具, 使用后将其销毁并获得对应魂火"}
             },{
                 EclipsedMod.enums.Items.Symbiont,
                 "共生体",--?
@@ -710,12 +796,14 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "{{Damage}} 对角色造成{{HalfHeart}}伤害并获得伤害+0.5#{{Timer}} 6s后返还失去的半红心并失去伤害增幅",
                 {VIR="存在6s的中环魂火",
                 ABY="施加流血的红色蝗虫",
-                MOD={BLOOD=true}}
+                MOD={BLOOD=true},
+                ACR="消耗红心获得暂时性伤害上升, 红心可返还"}
             },{
                 EclipsedMod.enums.Items.FriedNails,
                 "油炸钉子",
                 "你不想来点吗? 真不要吗??",
-                "{{BlackHeart}} 获得1黑心#获得3个随机属性提升和3个随机属性下降(不包括生命值)",--黄针都能凑针套你几把是个啥
+                "{{BlackHeart}} 获得1黑心#获得3个随机属性提升和3个随机属性下降(不包括生命值)",--黄针都能凑针套你几把是个啥,
+                {ACR="获得黑心 + 3个属性上升, 3个属性下降"}
             },{
                 EclipsedMod.enums.Items.Commandos,
                 "突鸡队",
@@ -729,114 +817,133 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "科技84O弹",
                 "空间扭曲爆破 + 5个炸弹",
                 "{{Bomb}} 获得5炸弹#炸弹爆炸前会瞬移至最近的敌人",
-                {ABY="高速爆炸性白色蝗虫"}
+                {ABY="高速爆炸性白色蝗虫",
+                ACR="炸弹会瞬移贴脸 + 5个炸弹",
+                QUA=2}
             },{
                 EclipsedMod.enums.Items.Lutos,
                 "Lutos",
                 "漆黑一片",
                 "{{BlackHeart}} 获得1黑心#获得飞行#在角色下方生成一个可以摧毁岩石的{{ColorPurple}}陷阱{{CR}}#靠近角色的敌人会引出陷阱中的{{ColorPurple}}深渊之触{{CR}}攻击#{{ColorPurple}}陷阱{{CR}}在10s后或进入新房间后刷新",
                 {ABY="可以生成深渊之触的蝗虫",
-                QUA=3}
+                ACR="跟随角色的深渊, 摧毁障碍物并秒杀敌人",
+                QUA=2}--一局打完查无此人
             },{
                 EclipsedMod.enums.Items.Levitan,
                 "列维坦",
                 "地底破坏者",
                 "↑ {{Speed}} 移速+0.2#角色的移动不再受到沟壑的限制#每10s会有{{ColorOlive}}菌陈{{CR}}朝敌人或特殊障碍物发动攻击, 造成40伤害并留下沟壑",
-                {ABY="可以填平沟壑的蝗虫"}
+                {ABY="可以填平沟壑的蝗虫",
+                ACR="菌陈刺击 + 无视沟壑"}
             },{
                 EclipsedMod.enums.Items.SoulJar,
                 "罐装之魂",
                 "魂灵泪弹",
                 "↑ {{Tears}} 射速+0.4#↓ {{Range}} 射程-1.0#↓ {{Damage}} 伤害-1.0#{{Collectible653}} 泪弹有概率释放鬼灵爆破, 造成{{IGIcon}} {{ColorYellow}}7 + 0.5 x (楼层数-1){{CR}} 伤害",
-                {ABY="可以释放鬼灵爆破的蝗虫"}
+                {ABY="可以释放鬼灵爆破的蝗虫",
+                ACR="泪弹概率释放鬼灵爆破"}
             },{
                 EclipsedMod.enums.Items.InnerDemons,
                 "内在魔童",
                 "不要喂养它",
                 "{{Timer}} 首次使用该道具6分钟内, 角色必须清理24个房间以生成2个{{ItemPoolDevil}}恶魔道具和2{{BlackHeart}}#{{EmptyHeart}} 多次使用将造成一颗心的伤害, 触发{{Collectible611}}声带, 增加需要清理的房间的数量#{{CurseLostSmall}} 没能清理要求的房间将获得3{{BrokenHeart}}",
-                {VIR="造成2倍伤害的红色魂火, 这个魂火可以使{{DevilChance}}+6%"}
+                {VIR="造成2倍伤害的红色魂火, 这个魂火可以使{{DevilChance}}+6%",
+                ACR="在6分钟内重新积攒充能以获得奖励, 否则获得碎心"}
             },{
                 EclipsedMod.enums.Items.Gospel,
                 "福音书",
                 "神圣传教",
-                "用白十字标记所有敌人#{{Collectible374}} 已被标记的敌人会被天降光束轰击#标记的敌人死亡后发射4向红光柱",
+                "用十字标记所有敌人#{{Collectible374}} 已被标记的敌人会被天降光束轰击#标记的敌人死亡后发射4向红光柱",
                 {VIR="熄灭后释放4向光柱的魂火",
                 ABY="可以降下圣光的蝗虫, 杀死敌人后发射4向光柱",
-                CONF={LBAB,"BAB_Gopsel"}}
+                CONF={LBAB,"BAB_Gopsel"},
+                ACR="十字标记, 圣光轰击标记的敌人, 标记敌人死亡后释放圣光"}
             },{
                 EclipsedMod.enums.Items.FoolMoon,
                 "昧月",
                 "狼人杀",
                 "{{Timer}} 每30s, 触发{{ColorTransform}}夜幕降临{{CR}}效果5s, 使所有敌人入睡#{{Damage}} 每次{{ColorTransform}}夜幕降临{{CR}}在当前房间获得伤害+1, 上限为+10#{{Bait}} {{ColorTransform}}夜幕降临{{CR}}期间有敌人死亡, 附近的其他敌人会被泼黑水并被集火",
-                {ABY="可以使敌人入睡的蝗虫"}
+                {ABY="可以使敌人入睡的蝗虫",
+                ACR="间歇性夜幕降临, 期间杀敌以挑拨离间"}
             },{
                 EclipsedMod.enums.Items.EchoRoom,
                 "回声室",--太棒了是一词多义我们没救了
                 "扭曲交界",
                 "生成前往3个特殊房间的传送门#{{ColorYellow}}挑战-Eco Portals额外特质{{CR}}: 记录使用时的房间, 在初始房间生成一个通往该房间的传送门",
-                {VIR="中环魂火#不同颜色的魂火会施加各异的异常状态"}
+                {VIR="中环魂火#不同颜色的魂火会施加各异的异常状态",
+                ACR="前往特殊房间的传送门"}
             },{
                 EclipsedMod.enums.Items.WonderWaffle,
                 "超大杯华夫饼",
                 "精英的早餐",
                 "↑ {{Heart}} 心之容器+1#{{Heart}} 治疗2红心#↑ 杀死变种敌人获得随机属性提升",
-                {ABY="对变种敌人造成额外伤害的紫色蝗虫"}
+                {ABY="对变种敌人造成额外伤害的紫色蝗虫",
+                ACR="生命上升 + 杀死变种敌人获得属性增益"}
             },{
                 EclipsedMod.enums.Items.LittleInferno,
                 "火柴棍大小的地狱",
                 "保持温度",
                 "{{Burning}} 点燃所有敌人#炸毁房间内的所有老虎机, 乞丐, 敌弹和炸弹#持有时, 被烧死的敌人会爆炸(不会伤害角色)",
                 {VIR="发射小团火焰的橙色魂火",
-                ABY="火系蝗虫"}
+                ABY="火系蝗虫",
+                ACR="点燃并炸毁一切"}
             },{
                 EclipsedMod.enums.Items.OldToothpaste,
                 "旧牙膏",
                 "还能挤出最后一点",
-                "生成4-6个随机心掉落物{{HalfHeart}}{{HalfSoulHeart}}{{EternalHeart}}"
+                "生成4-6个随机心掉落物{{HalfHeart}}{{HalfSoulHeart}}{{EternalHeart}}",
+                {ACR="随机心掉落物"}
             },{
                 EclipsedMod.enums.Items.Expurgation,
                 "廓清",
                 "从罪孽中解脱",
                 "对角色造成伤害的敌人会被白十字标记#{{Collectible374}} 若该敌人已被标记, 则其会被天降光束轰击#标记的敌人死亡后发射4向光柱",
-                {ABY="可以降下圣光的蝗虫, 杀死敌人后发射4向光柱"}
+                {ABY="可以降下圣光的蝗虫, 杀死敌人后发射4向光柱",
+                ACR="十字标记伤害自己的敌人, 标记敌人死亡后释放圣光"}
             },{
                 EclipsedMod.enums.Items.BloodV,
                 "V型血",
                 "AUV, 是个吸血鬼",
                 "进入房间会生成{{ColorRed}}蝙蝠跟班{{CR}}, 对敌人施加流血效果#{{ColorRed}}蝙蝠跟班{{CR}}会攻击任何靠近你的敌人#受到伤害生成额外的{{ColorRed}}蝙蝠跟班{{CR}}, 持续8s#流血死亡的敌人额外生成{{ColorRed}}蝙蝠跟班{{CR}}",
                 {ABY="可以施加流血的蝗虫",
-                MOD={BLOOD=true}}
+                MOD={BLOOD=true},
+                ACR="进入房间召唤蝙蝠, 流血杀敌或受伤召唤更多蝙蝠"}
             },{
                 EclipsedMod.enums.Items.BigBertha,
                 "大贝沙炮",--存疑
                 "攻城炮",
                 "{{Collectible583}} 发射威力{{ColorRed}}巨大{{CR}}的炮弹",
                 {VIR="中环黑色魂火#造成高额伤害",
-                ABY="会爆炸的黑色蝗虫"}
+                ABY="会爆炸的黑色蝗虫",
+                ACR="发射究极导弹"}
             },{
                 EclipsedMod.enums.Items.UnholyCollection,
                 "不洁的藏品",
                 "干死撒旦-特别版",
                 "允许在子宫, 阴间和教堂生成{{TreasureRoom}}{{Shop}}#生成两张塔罗牌",
-                {MOD={MUSIC=true}}
+                {MOD={MUSIC=true},
+                ACR="第四章后生成宝箱房和商店 + 2张塔罗牌"}
             },{
                 EclipsedMod.enums.Items.Ares,
                 "阿瑞斯",
                 "你感到盛气凌人",
                 "↑ 每有一个敌人靠近角色, 获得{{Damage}}伤害+0.2#{{Bait}} 大多数敌人会无视其他吸引仇恨的效果#{{Damage}} 受到伤害会将临时获得的攻击力变为持续一整层",
-                {ABY="每有一个敌人靠近获得伤害增幅的蝗虫"}
+                {ABY="每有一个敌人靠近获得伤害增幅的蝗虫",
+                ACR="靠近角色的敌人提供伤害上升"}
             },{
                 EclipsedMod.enums.Items.Pizzarang,
                 "意式辣味披萨香肠",
                 "披萨!",--摆烂
                 "举起并朝指定方向投掷回旋弹道的披萨#角色接到披萨将恢复充能#8s后爆裂为8个披萨片, 对命中的敌人施加{{Bait}}集火标记",
                 {VIR="具有烂番茄效果的单房间外环魂火",
-                ABY="施加集火标记的蝗虫"}
+                ABY="施加集火标记的蝗虫",
+                ACR="可投掷回旋披萨, 标记命中的敌人"}
             },{
                 "Stone Frog",
                 "祖玛",
                 "炮塔伙伴",
-                "祖玛跟班, 每次按下攻击键会自动朝最近的敌人发射效果各异的弹射泪弹"
+                "祖玛跟班, 每次按下攻击键会自动朝最近的敌人发射效果各异的弹射泪弹",
+                {ACR="按下攻击键发射弹射石头"}
             },{
                 EclipsedMod.enums.Items.StainedGlass,
                 "教堂染色窗",
@@ -844,6 +951,7 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "{{Battery}} 未满充能也能使用#{{Collectible568}} 释放环绕的神圣护盾#{{IGIcon}} 可以跨房间存在, 持续10s",
                 {VIR="有概率发射泪盾的白色魂火",
                 ABY="可以抵挡敌弹的白色蝗虫",
+                ACR="充能型环绕神圣屏障",
                 MOD={GLASS=true}}
             },{
                 EclipsedMod.enums.Items.LilCultist,
@@ -851,21 +959,24 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "小死灵术士",
                 "{{Collectible545}} 每7-8个房间, 根据当前房间杀死的敌人生成骨片环绕物和友好的骷髅仔",
                 {ABY="杀死敌人后有概率生成骨片的蝗虫",
-                BFF="触发效果所需的房间减少至6"}
+                BFF="触发效果所需的房间减少至6",
+                ACR="清理房间后可能生成骨头"}
             },{
                 "Magician's Top",
                 "魔术礼帽",
                 "都看好了!",
                 "在未清理的房间, 每30s触发:#{{Card}} 生成一张扑克牌, 每个房间一次#!!! 根据塔罗牌元素触发不同的效果",
                 {ABY="杀死敌人后生成卡牌的蝗虫",
-                BFF="触发效果所需的时间减少至20s"}
+                BFF="触发效果所需的时间减少至20s",
+                ACR="战斗中偶尔生成扑克牌或激活塔罗效果"}
             },{
                 EclipsedMod.enums.Items.WitchHat,
                 "巫师尖帽",
                 "阿布拉肯大瓜",--找不到翻译
                 "在未清理的房间内, 每20s触发:#{{Pill}} 生成一个药丸, 每个房间一次#!!! 对所有敌人施加随机异常状态",
                 {ABY="有概率施加随机异常状态的黑色蝗虫",
-                BFF="触发效果所需的房间减少至15s"}
+                BFF="触发效果所需的房间减少至15s",
+                ACR="战斗中偶尔生成药丸或施加异常状态"}
             },{
                 EclipsedMod.enums.Items.MysticNovel,
                 "神秘小说",
@@ -873,107 +984,121 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "生成2个{{ColorOrange}}蝙蝠跟班{{CR}}攻击敌人#{{ColorOrange}}蝙蝠跟班{{CR}}可以跨房间存在, 但仅持续15s",
                 {VIR="内环黑色魂火, 熄灭后生成蝙蝠跟班",
                 ABY="施加流血的黑色蝗虫",
-                CONF={LBAB,"BAB_Mystic"}}
+                CONF={LBAB,"BAB_Mystic"},
+                ACR="充能型召唤蝙蝠"}
             },{
                 EclipsedMod.enums.Items.Influenza,
                 "流行性感冒",--怎么又来重名
                 "鼻涕飞溅",
                 "松开攻击键释放6-18个{{ColorLime}}鼻涕泪弹{{CR}}#{{Timer}} 冷却时间10s#冷却完毕时角色会留下{{ColorLime}}绿色液体{{CR}}",
-                {
-                    ABY="留下毒性液体的绿色蝗虫",
-                    CONF={
-                        {CollectibleType.COLLECTIBLE_SINUS_INFECTION,"SinusInfluenza"},
-                        {CollectibleType.COLLECTIBLE_COMMON_COLD,"CommonInfluenza"},
-                        {"5.350."..TrinketType.TRINKET_NOSE_GOBLIN,"InfluenzaGoblin"},
-                    }
-                }
+                {ABY="留下毒性液体的绿色蝗虫",
+                CONF={
+                    {CollectibleType.COLLECTIBLE_SINUS_INFECTION,"SinusInfluenza"},
+                    {CollectibleType.COLLECTIBLE_COMMON_COLD,"CommonInfluenza"},
+                    {"5.350."..TrinketType.TRINKET_NOSE_GOBLIN,"InfluenzaGoblin"},
+                },ACR="停止攻击时溅射鼻涕"}
             },{
                 EclipsedMod.enums.Items.FooCharm,
                 "符箓",--存疑
                 "护身符",
                 "使用以进行一个小段冲刺, 对靠近的敌人{{ColorLime}}贴符{{CR}}#长按主动键以引爆所有的{{ColorLime}}符咒{{CR}}",
                 {VIR="静止的单房间绿色魂火, 熄灭后释放鬼灵爆破",
-                ABY="可以触发鬼灵爆破的绿色蝗虫"}
+                ABY="可以触发鬼灵爆破的绿色蝗虫",
+                ACR="冲刺并贴符, 长按引爆符咒"}
             },{
                 EclipsedMod.enums.Items.RulesBook,
                 "挑衅之书",
                 "定新规",
                 "{{Collectible60}} 在当前房间内获得梯子的效果#{{Card44}} 在当前楼层/房间内施加随机的彩蛋种子效果",
                 {VIR="白色魂火, 随机改变环绕半径",
-                ABY="可以在沟壑间搭桥的蝗虫"}
+                ABY="可以在沟壑间搭桥的蝗虫",
+                ACR="可重复施加彩蛋种子效果"}
             },{
                 EclipsedMod.enums.Items.ShockTherapy,
                 "电休克疗法",
                 "专业震慑",
                 "↑ {{Speed}} 移速+0.3#角色身后留下电流, 将接触的敌人{{ColorCyan}}导体化{{CR}}2s#{{ColorCyan}}导体化{{CR}}的敌人将陷入{{Confusion}}混乱, 每0.53s受到1伤害, 且每0.5s朝周围的敌人发射电弧, 造成50%的角色伤害",
-                {ABY="在身后留下电流的电系蝗虫"}
+                {ABY="在身后留下电流的电系蝗虫",
+                ACR="在身后留下电流, 使敌人变为电导体"}
             },{
                 EclipsedMod.enums.Items.DreamTiger,
                 "梦老虎",--疑似致敬国外meme
                 "我在梦里见过它",
                 "{{BlackHeart}} 获得1黑心#每8s生成一个跟随角色的影子, 最多可拥有4个#影子会朝攻击方向眼神#影子会抓住敌人并将其固定, 而后施加{{Fear}}5s恐惧效果#{{Damage}} 有敌人被影子固定时获得伤害+0.4",
-                {ABY="4个会生成暗影藤蔓的蝗虫"}
+                {ABY="4个会生成暗影藤蔓的蝗虫",
+                ACR="控制影子抓住敌人, 获得伤害上升"}
             },{
                 "Loaf of Bread",
                 "大块面包",
                 "近亲交配的劣质面包!",--(Inbreading 谐音 Inbreeding近亲交配)
                 "↑ {{Heart}} 心之容器+1#{{Collectible658}} 生成7个小以撒",
-                {ABY="7只造成25%伤害的高移速蝗虫"}
+                {ABY="7只造成25%伤害的高移速蝗虫",
+                ACR="生命上升 + 7个小以撒"}
             },{
                 EclipsedMod.enums.Items.SuperUnderwear,
                 "超级内裤",
                 "超级力量!",
                 "{{Damage}} 伤害+0.3#{{Damage}} 伤害倍率x1.5#{{Range}} 射程+2.5#{{Speed}} 移速+0.3#↓ 受伤后移除属性增益#进入新楼层后重新获得属性增益",
+                {ACR="伤害 + 射程上升, 受伤后本层失效"}
             },{
                 EclipsedMod.enums.Items.Jaudaz,
                 "Jaudaz",
                 "噪音传染",
                 "↑ {{Tears}} 射速+0.2#↑ {{Shotspeed}} 弹速+0.3#泪弹有概率使敌人{{ColorCyan}}导体化{{CR}}3s#{{ColorCyan}}导体化{{CR}}的敌人将陷入{{Confusion}}混乱, 每0.53s受到1伤害, 且每0.5s朝周围的敌人发射电弧, 造成50%的角色伤害",
                 {ABY="将敌人导体化的白色电系蝗虫",
-                QUA=3}
+                QUA=3,
+                ACR="泪弹概率使敌人变为电导体"}
             },{
                 EclipsedMod.enums.Items.PotionMotion,
                 "运动药水",
                 "玩弄时间",
                 "激活后获得{{SpeedSmall}}移速+2.0, 免疫敌弹, 红大便, 伤害液体, 尖刺, 爆炸和火焰; 获得{{Collectible300}}高速免疫碰撞伤害和时间减速效果#{{Battery}} 每层可以持续64s, 无法使用电池充能#取消激活会使时间加速3s",
                 {VIR="无法攻击的中环紫色魂火",
-                ABY="高移速紫色蝗虫"}
+                ABY="高移速紫色蝗虫",
+                ACR="一切开始变慢 + 免疫碰撞伤害, 停止用药后一切会开始变快"}
             },{
                 EclipsedMod.enums.Items.FalseDeath,
                 "伪造证明",
                 "愿君不得好死",
                 "↑ +1复活次数#每次死亡后触发{{Collectible628}}死亡证明的效果#有概率在生效后失去该道具, 每次生效都会使这个概率+10%#↑ {{ColorYellow}}挑战-Die Hard 限定 - 必定不会失去该道具",
-                {ABY="施加恐惧的黑色蝗虫"}
+                {ABY="施加恐惧的黑色蝗虫",
+                ACR="复活后全道具自选 + 1条命"}
             },{
                 EclipsedMod.enums.Items.BatterYum,
                 "电吃",
                 "烤面包味!",
                 "{{EmptyHeart}} 获得1空心之容器#{{Heart}} 生成3红心#{{Battery}} 每治疗{{HalfHeart}}获得1充能",
-                {ABY="电系红色蝗虫"}
+                {ABY="电系红色蝗虫",
+                ACR="获得空心之容器 + 治疗可恢复充能"}
             },{
                 EclipsedMod.enums.Items.OnigiriDonut,
                 "果酱甜甜圈",--啥？
                 "完美的甜甜圈! 我最喜欢果酱馅的了!",
-                "↑ {{Heart}} 心之容器+1#{{HealingRed}} 治疗1红心#生成7个{{ColorGreen}}饭滴跟班{{CR}}, 有概率在死亡后掉落随机的半颗心"
+                "↑ {{Heart}} 心之容器+1#{{HealingRed}} 治疗1红心#生成7个{{ColorGreen}}饭滴跟班{{CR}}, 有概率在死亡后掉落随机的半颗心",
+                {ACR="生命上升 + 7个饭滴"}
             },{
                 EclipsedMod.enums.Items.OnigiriGirya,
                 "饭团壶铃",
                 "335千克饭团(不是千卡.txt)",
-                "↑ {{Heart}} 心之容器+1#{{HealingRed}} 治疗1红心#↑ {{Damage}} 伤害修正+1#生成7个{{ColorGreen}}饭团跟班{{CR}}, 有概率在死亡后掉落随机心#{{ColorGreen}}饭团跟班{{CR}}死亡后有75%的概率复活"
+                "↑ {{Heart}} 心之容器+1#{{HealingRed}} 治疗1红心#↑ {{Damage}} 伤害修正+1#生成7个{{ColorGreen}}饭团跟班{{CR}}, 有概率在死亡后掉落随机心#{{ColorGreen}}饭团跟班{{CR}}死亡后有75%的概率复活",
+                {ACR="生命上升 + 7个概率复活的饭团"}
             },{
                 "Everything Bagel",
                 "万物百吉饼",
                 "万事万物, 世间各处",
                 "使用后, 本局游戏内所有道具将在随机道具间轮换({{IGIcon}} 同时禁用其他轮换效果, 如{{Collectible689}}{{Card81}})#{{GarlinIcon}} !!! 不同于上述提到的其他轮换效果, 这个道具提供的轮换效果为-{{ColorRed}}手 慢 无{{CR}}!#{{QuestionMark}} {{Quality0}}{{Quality4}}道具不可视!",
                 {VIR="无法攻击的无敌魂火",
-                ABY="可以飞过房间墙壁并从另一侧回来的黑白蝗虫"}
+                ABY="可以飞过房间墙壁并从另一侧回来的黑白蝗虫",
+                ACR="所有道具开始无节制轮换!"}
             },{
                 EclipsedMod.enums.Items.LDR,
                 "L.D.R",
                 "来等死",--R押不上（（
                 "使用后, 杀死随机敌人或角色, 并恢复1充能#每用24次(充能满)后立即杀死房间内的所有敌人",
                 {VIR="持续一个房间的内环绿色骰子魂火",
-                ABY="生成触手的绿色蝗虫"}
+                ABY="生成触手的绿色蝗虫",
+                ACR="随机杀死目标",
+                QUA=0}--你他妈来搞笑的吧
             },{
                 EclipsedMod.enums.Items.BirdsWorld,
                 "世界鸟类",--存疑
@@ -981,7 +1106,8 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "{{Collectible117}} 在当前房间召唤7个死鸟跟班",
                 {VIR="中环魂火#熄灭时召唤{{Collectible117}}死鸟",
                 ABY="跟踪性黑色蝗虫",
-                CONF={LBAB,"BAB_BirdWorld"}}
+                CONF={LBAB,"BAB_BirdWorld"},
+                ACR="充能型召唤死鸟"}
             },{
                 "Applied Horticulture",
                 "应用园艺学",
@@ -989,7 +1115,8 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "将所有敌人用{{ColorGreen}}藤蔓{{CR}}固定5s#被{{ColorGreen}}藤蔓{{CR}}固定的敌人受到双倍伤害, 死亡后有15%的概率生成随机掉落物",
                 {VIR="熄灭后将最近的敌人用藤蔓固定的绿色魂火",
                 ABY="可以召唤藤蔓的蝗虫",
-                CONF={LBAB,'BAB_Horticulture'}}
+                CONF={LBAB,'BAB_Horticulture'},
+                ACR="充能型藤蔓捆绑, 捆绑的敌人易伤 + 死亡后概率生成物品"}
             },{
                 EclipsedMod.enums.Items.OnTentacles,
                 "触手的召唤",
@@ -997,14 +1124,16 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "对所有敌人释放触手攻击, 秒杀所有非头目敌人",
                 {VIR="熄灭后用触手攻击最近敌人的紫色魂火",
                 ABY="可以召唤触手的蝗虫",
-                CONF={LBAB,"BAB_Tentacle"}}
+                CONF={LBAB,"BAB_Tentacle"},
+                ACR="充能型触手秒杀"}
             },{
                 EclipsedMod.enums.Items.BettySweetooth,
                 "甜牙蝙蝠",
                 "她爱你",
                 "尝试靠近角色的跟班, 可以抵挡敌弹#每个房间有概率召唤2-3个蝙蝠跟班攻击敌人",
                 {BFF="召唤更多的蝙蝠",
-                ABY="可以魅惑敌人的蝗虫"}
+                ABY="可以魅惑敌人的蝗虫",
+                ACR="可抵挡敌弹的蝙蝠跟班, 受伤后召唤更多蝙蝠"}
             },{
                 EclipsedMod.enums.Items.OvercomingArachnophobia,
                 "克服蛛形纲恐惧症",--捏他：饥荒
@@ -1012,33 +1141,38 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "{{Collectible377}} 持有时使蜘蛛不再敌对#使用后触发随机的蜘蛛主动道具, 在当前楼层内获得随机的蜘蛛被动道具效果",
                 {VIR="中环魂火#减速敌人",
                 ABY="减速敌人的白色蝗虫",
-                CONF={LBAB,"BAB_Spider"}}
+                CONF={LBAB,"BAB_Spider"},
+                ACR="蜘蛛不再敌对 + 随机蜘蛛道具效果"}
             },{
                 EclipsedMod.enums.Items.RetroVirus,
                 "复古病毒",--捏他：太空入侵，翻译存疑
                 "病毒入侵 + 移速下降",
                 "↓ {{Speed}} 移速-0.1#{{Poison}} 触碰敌人施加2s中毒#所有死于中毒的敌人会生成感染细胞#感染细胞在房间内随机游荡, 对触碰的敌人施加中毒",
                 {ABY="毒系蝗虫",
-                QUA=1}
+                QUA=1,
+                ACR="触碰敌人中等 + 毒死的敌人释放病毒"}
             },{
                 EclipsedMod.enums.Items.HolyGuacamole,
                 "神圣鳄梨酱",
                 "属性翻倍",
                 "将下面每行中的其中一个随机值翻倍#{{Blank}} {{Damage}}, {{Speed}}, {{Tears}}, {{Range}}, {{Luck}}; #{{Blank}} {{Heart}}, {{Coin}}, {{Key}}, {{Bomb}}.",
-                {ABY="2个绿色蝗虫"}
+                {ABY="2个绿色蝗虫",
+                ACR="随机属性翻倍"}
             },{
                 EclipsedMod.enums.Items.MushroomSoup,
                 "蘑菇汤",
                 "每时每刻, 味道各异",
                 "↑ 获得一个随机心{{Heart}}{{SoulHeart}}{{RottenHeart}}{{EternalHeart}}#↑ 随机属性上升#{{FunGuy}} 每拾取一个蘑菇道具重复触发该效果",
-                {QUA=1}
+                {QUA=1,
+                ACR="获得随机心, 获得蘑菇可以重复生效"}
             },{
                 EclipsedMod.enums.Items.WitchCap,
                 "女巫盖蘑菇",
                 "诅咒?",--我来感觉了（？
                 "10%的概率发射一个{{ColorPurple}}诅咒泪弹{{CR}}#{{ColorPurple}}诅咒泪弹{{CR}}会对命中的敌人施加{{ColorPurple}}诅咒效果{{CR}}#{{ColorPurple}}诅咒效果{{CR}}下的敌人获得{{ColorPurple}}大幅度{{CR}}减速并受到双倍伤害#{{Luck}} 幸运13: 75%",
                 {ABY="有概率施加诅咒效果的紫色蝗虫",
-                MOD={FEM=true}}
+                MOD={FEM=true},
+                ACR="概率诅咒敌人, 大幅度减速 + 易伤"}
             },{
                 EclipsedMod.enums.Items.LuxAeterna,
                 "永恒之光",
@@ -1046,19 +1180,22 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 "{{Collectible543}} 生成一个持续30s的神圣光环#↑ {{Tears}} 射速+2.5#↑ {{Damage}} 伤害倍率x1.2#追踪泪弹#概率免疫伤害",
                 {VIR="中环魂火#发射圣光泪弹",
                 ABY="附有神性光环的蝗虫",
-                CONF={LBAB,"BAB_Lux"}}
+                CONF={LBAB,"BAB_Lux"},
+                ACR="充能型召唤神圣光环"}
             },{
                 EclipsedMod.enums.Items.LittleDiablo,
                 "小破坏神椒",
                 "热辣滚烫!",
                 "进入新房间生成6个环绕角色的火焰#火焰造成(10 + 楼层数 x 0.5)的伤害, 且可以抵挡4次伤害",
-                {ABY="6个造成50%伤害的蝗虫"}
+                {ABY="6个造成50%伤害的蝗虫",
+                ACR="使自己环绕火焰"}
             },{
                 EclipsedMod.enums.Items.BlueSoup,
                 "蓝豆汤",
                 "生命上升 + 暂时性射速上升",
                 "↑ {{SoulHeart}} 获得3魂心#↑ {{Tears}} 获得3分钟内持续衰减的射速+15.3#杀死敌人以延长射速增益",
-                {ABY="移动时留下水迹的蝗虫"}
+                {ABY="移动时留下水迹的蝗虫",
+                ACR="获得魂心 + 暂时射速大幅度上升, 杀敌以持续"}
             }
         }
         local trinkets={
@@ -2003,49 +2140,52 @@ mod:AddModTranslationLoader("EclipsedMod","日蚀(Eclipsed)",function()
                 return descObj
             end)
         end
-        if ddad then 
-            local PDDsyn={
-                {5,EclipsedMod.enums.Items.LostMirror},
-                {712,EclipsedMod.enums.Items.CosmicJam},
-                {EclipsedMod.enums.Items.MongoCells,322},
-                {202,EclipsedMod.enums.Items.MidasCurse},
-                {EclipsedMod.enums.Items.Limb,EclipsedMod.enums.Items.LostMirror},
-                {ddad.item.TaPB.id,EclipsedMod.enums.Items.AbihuFam},
-                {EclipsedMod.enums.Items.MewGen,522},
-                {545,EclipsedMod.enums.Items.GardenTrowel},
-                {497,EclipsedMod.enums.Items.AncientVolume},
-                {553,EclipsedMod.enums.Items.Shroomface},
-                {EclipsedMod.enums.Items.Khepri,505},
-                {Isaac.GetItemIdByName("VVV"),222},
-                {ddad.item.NaBo.id,EclipsedMod.enums.Items.Symbiont},
-                {EclipsedMod.enums.Items.Tech800M,125},
-                {728,EclipsedMod.enums.Items.InnerDemons},
-                {EclipsedMod.enums.Items.LittleInferno,EclipsedMod.enums.Items.Ignite},
-                {EclipsedMod.enums.Items.BloodV,EclipsedMod.enums.Items.MysticNovel},
-                {628,EclipsedMod.enums.Items.FalseDeath},
-                {689,Isaac.GetItemIdByName("Everything Bagel")},
-                {EclipsedMod.enums.Items.WitchCap,342}
+        if mod.Setting.FancySyn then
+            if ddad then 
+                local PDDsyn={
+                    {5,EclipsedMod.enums.Items.LostMirror},
+                    {712,EclipsedMod.enums.Items.CosmicJam},
+                    {EclipsedMod.enums.Items.MongoCells,322},
+                    {202,EclipsedMod.enums.Items.MidasCurse},
+                    {EclipsedMod.enums.Items.Limb,EclipsedMod.enums.Items.LostMirror},
+                    {ddad.item.TaPB.id,EclipsedMod.enums.Items.AbihuFam},
+                    {EclipsedMod.enums.Items.MewGen,522},
+                    {545,EclipsedMod.enums.Items.GardenTrowel},
+                    {497,EclipsedMod.enums.Items.AncientVolume},
+                    {553,EclipsedMod.enums.Items.Shroomface},
+                    {EclipsedMod.enums.Items.Khepri,505},
+                    {Isaac.GetItemIdByName("VVV"),222},
+                    {ddad.item.NaBo.id,EclipsedMod.enums.Items.Symbiont},
+                    {EclipsedMod.enums.Items.Tech800M,125},
+                    {728,EclipsedMod.enums.Items.InnerDemons},
+                    {EclipsedMod.enums.Items.LittleInferno,EclipsedMod.enums.Items.Ignite},
+                    {EclipsedMod.enums.Items.BloodV,EclipsedMod.enums.Items.MysticNovel},
+                    {628,EclipsedMod.enums.Items.FalseDeath},
+                    {689,Isaac.GetItemIdByName("Everything Bagel")},
+                    {EclipsedMod.enums.Items.WitchCap,342}
+                }
+                for _,i in ipairs(PDDsyn) do mod:PDDfakeAddon(i[1],i[2]) end
+            end
+            local Dflipsyn={
+                {5,100,5,5,100,EclipsedMod.enums.Items.LostMirror},
+                {5,100,EclipsedMod.enums.Items.BlackKnight,5,100,EclipsedMod.enums.Items.WhiteKnight},
+                {5,100,EclipsedMod.enums.Items.StrangeBox,5,100,198},
+                {5,100,506,5,100,EclipsedMod.enums.Items.BleedingGrimoire},
+                {5,100,EclipsedMod.enums.Items.TetrisDice_full,5,100,258},
+                {5,100,EclipsedMod.enums.Items.MongoCells,5,100,322},
+                {5,100,Isaac.GetItemIdByName("Pure Fury"),5,100,EclipsedMod.enums.Items.RedLotus},
+                {5,100,Isaac.GetItemIdByName("Bishamonten's Pagota"),5,100,EclipsedMod.enums.Items.MidasCurse},
+                {5,100,EclipsedMod.enums.Items.FrostyBombs,5,100,256},
+                {5,100,EclipsedMod.enums.Items.NadabBrain,5,100,EclipsedMod.enums.Items.NadabBody},
+                {5,100,Isaac.GetItemIdByName("Eclipse"),5,100,588},
+                {5,100,553,5,100,EclipsedMod.enums.Items.Shroomface},
+                {5,100,728,5,100,EclipsedMod.enums.Items.InnerDemons},
+                {5,100,Isaac.GetItemIdByName("Magician's Top"),5,100,EclipsedMod.enums.Items.WitchHat},
+                {5,100,EclipsedMod.enums.Items.BlueSoup,5,100,621},
+                {5,350,EclipsedMod.enums.Trinkets.RedScissors,5,350,63},
+                {5,100,EclipsedMod.enums.Items.Pyrophilia,5,100,223}
             }
-            for _,i in ipairs(PDDsyn) do table.insert(mod.PddSynList,i) end
+            for _,i in ipairs(Dflipsyn) do mod:DFlipPairsAddon(i) end
         end
-        local Dflipsyn={
-            {5,100,5,5,100,EclipsedMod.enums.Items.LostMirror},
-            {5,100,EclipsedMod.enums.Items.BlackKnight,5,100,EclipsedMod.enums.Items.WhiteKnight},
-            {5,100,EclipsedMod.enums.Items.StrangeBox,5,100,198},
-            {5,100,506,5,100,EclipsedMod.enums.Items.BleedingGrimoire},
-            {5,100,EclipsedMod.enums.Items.TetrisDice_full,5,100,258},
-            {5,100,EclipsedMod.enums.Items.MongoCells,5,100,322},
-            {5,100,Isaac.GetItemIdByName("Pure Fury"),5,100,EclipsedMod.enums.Items.RedLotus},
-            {5,100,Isaac.GetItemIdByName("Bishamonten's Pagota"),5,100,EclipsedMod.enums.Items.MidasCurse},
-            {5,100,EclipsedMod.enums.Items.FrostyBombs,5,100,256},
-            {5,100,EclipsedMod.enums.Items.NadabBrain,5,100,EclipsedMod.enums.Items.NadabBody},
-            {5,100,Isaac.GetItemIdByName("Eclipse"),5,100,588},
-            {5,100,553,5,100,EclipsedMod.enums.Items.Shroomface},
-            {5,100,728,5,100,EclipsedMod.enums.Items.InnerDemons},
-            {5,100,Isaac.GetItemIdByName("Magician's Top"),5,100,EclipsedMod.enums.Items.WitchHat},
-            {5,100,EclipsedMod.enums.Items.BlueSoup,5,100,621},
-            {5,350,EclipsedMod.enums.Trinkets.RedScissors,5,350,63}
-        }
-        for _,i in ipairs(Dflipsyn) do table.insert(mod.DflipSynList,i) end
     end
 end)
