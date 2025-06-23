@@ -49,14 +49,35 @@ if ModConfigMenu then
 			en="Wacky Synergies!",
 			zh="一些花哨的模组兼容!"
 		},WackySyn1={
-			en="...well, there's nothing for now =(",
-			zh="...但是目前什么也没有=("
+			en="Some simple synergies like",
+			zh="比较简单的兼容, 例如:"
 		},WackySyn2={
-			en="You can disable synergies \nwith other mods in main.lua",
-			zh="若要关闭这些私货模组兼容, \n请手动在main.lua中关闭"
+			en="D-Flip from Reverie, Fake Member Card from DDAD...",
+			zh="幻想曲的镜像骰子, 白日梦的拼少少等"
 		},WackySyn3={
-			en="Finds mod.Setting and \nchange FancySyn into false",
-			zh="找到 mod.Setting , \n并将下面的 FancySyn 改为 =false"
+			en="Restart the game to accept the change below!",
+			zh="以下设置可能需要重启游戏以生效!"
+		},AcBlur={
+			en="Accurate Blurbs!",
+			zh="更精确的道具描述!"
+		},AcblInfo1={
+			en="pick-up description matches their in-game effects better",
+			zh="道具拾取后的描述更贴近实际效果"
+		},AcblInfo2={
+			en="also requires RGON",
+			zh="同样依赖忏悔龙"
+		},Tips={
+			en="You can help to consummate these tricks(?",
+			zh="欢迎提出宝贵意见优化这些私货(?"
+		},DescTran={
+			en="Translated Item Name and Desc",
+			zh="汉化道具拾取后名称和描述"
+		},DescTranInfo1={
+			en="Translate hud on pick up into Chinese!",
+			zh="将拾取道具显示的文本也翻译"
+		},DescTranInfo2={
+			en="Requires RGON and might have some incompatible?",
+			zh="依赖忏悔龙, 且可能暗藏不兼容?"
 		}
     }
     local function Txt(lan,typ)
@@ -73,6 +94,7 @@ if ModConfigMenu then
     ModConfigMenu.AddText(ModName, "Info",Txt(loadEN,"Info4"))
     ModConfigMenu.AddText(ModName, "Info",Txt(loadEN,"Info5"))
     ModConfigMenu.AddText(ModName, "Settings",Txt(loadEN,"Tricks"))
+	ModConfigMenu.AddSpace(ModName, "Settings")
 	ModConfigMenu.AddSetting(
 		ModName,
 		"Settings",
@@ -86,16 +108,70 @@ if ModConfigMenu then
 			end,
 			OnChange = function(b)
 				Mod.Setting.betterQuality = b
-				--Mod:SaveModData()
+				Mod:SaveModData()
 			end,
 			Info = {Txt(loadEN,"betterQualityInfo1"), Txt(loadEN,"betterQualityInfo2")}
 		}
 	)
 	ModConfigMenu.AddSpace(ModName, "Settings")
-	ModConfigMenu.AddText(ModName, "Settings",Txt(loadEN,"WackySyn"))
-	ModConfigMenu.AddSpace(ModName, "Settings")
-	ModConfigMenu.AddSpace(ModName, "Settings")
-	ModConfigMenu.AddText(ModName,"Settings",Txt(loadEN,"WackySyn1"))
-	ModConfigMenu.AddText(ModName,"Settings",Txt(loadEN,"WackySyn2"))
 	ModConfigMenu.AddText(ModName,"Settings",Txt(loadEN,"WackySyn3"))	
+	ModConfigMenu.AddSetting(
+		ModName,
+		"Settings",
+		{
+			Type = ModConfigMenu.OptionType.BOOLEAN,
+			CurrentSetting = function()
+				return Mod.Setting.DescTrans
+			end,
+			Display = function()
+				return Txt(loadEN,"DescTran") .. Opt(Mod.Setting.DescTrans)
+			end,
+			OnChange = function(b)
+				Mod.Setting.DescTrans = b
+				Mod:SaveModData()
+			end,
+			Info = {Txt(loadEN,"DescTranInfo1"), Txt(loadEN,"DescTranInfo2")}
+		}
+	)
+	ModConfigMenu.AddSpace(ModName, "Settings")
+	ModConfigMenu.AddSetting(
+		ModName,
+		"Settings",
+		{
+			Type = ModConfigMenu.OptionType.BOOLEAN,
+			CurrentSetting = function()
+				return Mod.Setting.AccurateBlurb
+			end,
+			Display = function()
+				return Txt(loadEN,"AcBlur") .. Opt(Mod.Setting.AccurateBlurb)
+			end,
+			OnChange = function(b)
+				Mod.Setting.AccurateBlurb = b
+				Mod:SaveModData()
+			end,
+			Info = {Txt(loadEN,"AcblInfo1"), Txt(loadEN,"AcblInfo2")}
+		}
+	)
+	ModConfigMenu.AddSpace(ModName, "Settings")
+	ModConfigMenu.AddSetting(
+		ModName,
+		"Settings",
+		{
+			Type = ModConfigMenu.OptionType.BOOLEAN,
+			CurrentSetting = function()
+				return Mod.Setting.FancySyn
+			end,
+			Display = function()
+				return Txt(loadEN,"WackySyn") .. Opt(Mod.Setting.FancySyn)
+			end,
+			OnChange = function(b)
+				Mod.Setting.FancySyn = b
+				Mod:SaveModData()
+			end,
+			Info = {Txt(loadEN,"WackySyn1"), Txt(loadEN,"WackySyn2")}
+		}
+	)
+	ModConfigMenu.AddSpace(ModName, "Settings")
+	ModConfigMenu.AddText(ModName,"Settings",Txt(loadEN,"Tips"))	
+else Mod.Setting=Mod.DefaultSetting
 end
