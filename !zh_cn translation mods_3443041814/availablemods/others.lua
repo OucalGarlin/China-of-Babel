@@ -217,86 +217,100 @@ mod:AddModTranslationLoader("_FOKS_BOOSTER_PACK_MOD","Foks 补充包",function()
                 fox.Collectible.TOY_SOLDIER,
                 "玩具士兵",
                 "前线护盾",--直译为“你的前线”
-                "{{Shield}} 获得一个每层抵挡一次伤害的护盾#{{Bomb}} 护盾存在期间获得防爆#{{DevilRoom}} 护盾也可以被用于交易#{{Warning}} 同样会影响{{AngelChance}}天使房出现率"
+                "{{Shield}} 获得一个每层抵挡一次伤害的护盾#{{Bomb}} 护盾存在期间获得防爆#{{DevilRoom}} 护盾也可以被用于交易#{{Warning}} 同样会影响{{AngelChance}}天使房出现率",
+                {ACR="每层抵挡一次伤害"}
             },{
                 fox.Collectible.EPHEMERAL_TORCH,
                 "瞬息之炬",
                 "将其点燃",
                 "{{ArrowUp}} {{Luck}} 幸运+10#{{ArrowDown}} {{Luck}} 清理房间后-1幸运, 不会导致亏损#碰撞火堆会重新获得所有幸运#5%的概率将石头替换为火堆",
-                {ABY="火系橙色蝗虫"}
+                {ABY="火系橙色蝗虫",
+                ACR="暂时性幸运上升 + 触碰火焰恢复幸运"}
             },{
                 fox.Collectible.CLAY_JAR,
                 "粘土罐头",
                 "把它砸烂!",
                 "{{Throwable}} 可以被投掷的罐头, 会在敌人和障碍物间弹射#罐头造成18碰撞伤害#{{BleedingOut}} 落地后分解成碎片, 造成每段判定4伤害, 并施加流血",
                 {VIR="静止的橙色魂火#火焰泪弹",
-                CONF={"5.350.166","BetterClay"}}
+                CONF={"5.350.166","BetterClay"},
+                ACR="投掷碎裂的罐头"}
             },{
                 fox.Collectible.BAALS_ALTAR,
                 "巴力祭坛",
                 "尚存何物得以供奉?",
-                "使用以储存碰到的道具底座, 或将储存的道具放下#{{Shop}} 可以白嫖商店或恶魔交易",
-                {VIR="没有效果"}
+                "使用以储存碰到的道具底座, 或将储存的道具放下",
+                {VIR="没有效果",
+                ACR="储存道具底座"}
             },{
                 fox.Collectible.ASHERAH_POLE,
                 "亚舍拉柱像",
                 "伪神",
                 "出现在房间内随机位置的跟班, 会标记靠近它的敌人#被标记的敌人会持续被3道光柱轰击直至死亡#{{Warning}} 光柱会伤害角色",
                 {BFF="生成更多的光柱",
-                ABY="有概率生成光柱造成三倍伤害的白色微光低速蝗虫"}
+                ABY="有概率生成光柱造成三倍伤害的白色微光低速蝗虫",
+                ACR="固定式标记重击伙伴"}
             },{
                 fox.Collectible.COVENANT,
                 "协议",
                 "相信君之所言",
                 --"遇到多选一道具底座时会标记其中一个#{{ArrowUp}} {{Damage}} 拾取被标记的道具会获得伤害+1和{{EternalHeart}}1永恒之心#{{AngelDevilChance}} 恶魔房/天使房出现率+35%"
                 --重做
-                "有概率标记遇到的道具底座, 概率取决于道具品质, 品质越低概率越高#{{ArrowUp}} 拾取被标记的道具会获得{{Damage}}+0.5和{{EternalHeart}}1永恒之心#{{AngelDevilChance}} 恶魔房/天使房出现率+35%"
+                "有概率标记遇到的道具底座, 概率取决于道具品质, 品质越低概率越高#{{ArrowUp}} 拾取被标记的道具会获得{{Damage}}+0.5和{{EternalHeart}}1永恒之心#{{AngelDevilChance}} 恶魔房/天使房出现率+35%",
+                {ACR="选择被标记品获得(伤害上升 + 永恒之心)"}
             },{
                 fox.Collectible.BATTLE_BANNER,
                 "战旗",
                 "继续前进",
                 "{{ArrowUp}} {{Damage}} 伤害倍率x1.8#{{Warning}} 千万不要打退堂鼓! 当前楼层内若有3次进入已清理的房间将失去伤害增益#进入新楼层后恢复失去的伤害增益#{{BossRoom}} 揭示头目房的位置",
-                {CONF={fox.Collectible.BATTLE_BANNER,"Banner_Mult"}}
+                {CONF={fox.Collectible.BATTLE_BANNER,"Banner_Mult"},
+                ACR="伤害上升, 请勿打退堂鼓"}
             },{
                 fox.Collectible.DEMISE_OF_THE_FAITHFUL,
                 "信仰亡魂",
                 "没有机会可言",
                 "{{EmptyBoneHeart}} 获得1骨心#{{ArrowUp}} {{Damage}} 伤害倍率x1.3#{{BossRoom}} 头目被击败后生成更多战利品",
+                {ACR="伤害上升 + 获得骨心 + 头目战利品"}
             },{
                 fox.Collectible.APPETIZER,
                 "开胃小菜",
                 "生命上升!",
                 "{{ArrowUp}} {{Heart}} 心之容器+1#{{HealingRed}} 治疗1红心#生命上限最大值+1",
-                {CONF={CollectibleType.COLLECTIBLE_BINGE_EATER,"BingeAppetizer"}}
+                {CONF={CollectibleType.COLLECTIBLE_BINGE_EATER,"BingeAppetizer"},
+                ACR="生命上升 + 治疗 + 生命上限最大值上升"}
             },{
                 fox.Collectible.HAPPY_FLY,
                 "快乐的苍蝇",
                 "她很可爱",
                 "在房间内随机移动#碰到它会获得1.2s无敌",
-                {BFF="更长的无敌时间"}
+                {BFF="更长的无敌时间",
+                ACR="苍蝇伙伴, 触碰以获得无敌"}
             },{
                 fox.Collectible.GROCERY_BAG,
                 "杂货袋子",
                 "非常方便",
-                "将{{Coin}}硬币, {{Bomb}}炸弹, {{Key}}钥匙的持有上限增加50#{{Shop}} 可能遇见更好的商店布局和{{ColorYellow}}杂货店道具池{{CR}}道具"
+                "将{{Coin}}硬币, {{Bomb}}炸弹, {{Key}}钥匙的持有上限增加50#{{Shop}} 可能遇见更好的商店布局和{{ColorYellow}}杂货店道具池{{CR}}道具",
+                {ACR="持有更多物资 + 更好的商店"}
             },{
                 fox.Collectible.TOY_SHOVEL,
                 "玩具铲子",
                 "宝藏之主",
                 "10%的概率挖出随机掉落物#如果在特殊地板标记上使用则为50%#{{IGIcon}} 如果在特殊房间使用则概率+10%",
                 {VIR="有概率获得随机掉落物魂火",
-                CONF={{CollectibleType.COLLECTIBLE_TREASURE_MAP,CollectibleType.COLLECTIBLE_BLUE_MAP},"TreasureFinder"}}
+                CONF={{CollectibleType.COLLECTIBLE_TREASURE_MAP,CollectibleType.COLLECTIBLE_BLUE_MAP},"TreasureFinder"},
+                ACR="或许能挖到好东西"}
             },{
                 fox.Collectible.DEL_KEY,
                 "删除键",
                 "移除废物",
                 "所有敌人持续受到伤害{{ColorError}}直至死亡{{CR}}#{{ERROR}} {{ColorError}}污染贴图{{CR}}",
-                {VIR="内环粉色魂火, 不会攻击且仅能承受一次伤害#被敌人熄灭后会使那个敌人持续受到伤害直至死亡"}
+                {VIR="内环粉色魂火, 不会攻击且仅能承受一次伤害#被敌人熄灭后会使那个敌人持续受到伤害直至死亡",
+                ACR="当前房间永久伤害, 至死方休"}
             },{
                 fox.Collectible.CRACKED_MIRROR,
                 "碎镜子",
                 "连年厄运",
-                "{{ArrowDown}} {{Luck}} 幸运-1#{{MirrorShard}} 敌人死亡后有概率掉落存在7s的镜子碎片#{{Luck}} 概率取决于幸运, 幸运-15: 50%#{{Pill}} 药丸池中强制加入幸运下降"
+                "{{ArrowDown}} {{Luck}} 幸运-1#{{MirrorShard}} 敌人死亡后有概率掉落存在7s的镜子碎片#{{Luck}} 概率取决于幸运, 幸运-15: 50%#{{Pill}} 药丸池中强制加入幸运下降",
+                {ACR="杀敌概率掉落镜子碎片"}
             },{
                 fox.Collectible.BOX_CUTTER,
                 "开箱小刀",
@@ -308,50 +322,58 @@ mod:AddModTranslationLoader("_FOKS_BOOSTER_PACK_MOD","Foks 补充包",function()
                     {CollectibleType.COLLECTIBLE_MOVING_BOX,"OpenMoving"},
                     {CollectibleType.COLLECTIBLE_CRACK_JACKS,"OpenJack"},
                     {CollectibleType.COLLECTIBLE_BOX_OF_SPIDERS,"OpenSpider"},
-                }}
+                },ACR="-1生命获得掉落物"}
             },{
                 fox.Collectible.PLASTIC_BRICK,
                 "塑料积木砖",
                 "反步兵地雷",--原文：看好你的脚下
                 "{{PlasticBrick}} 生成一个塑料积木掉落物#{{PlasticBrick}} 有概率在进入新房间时生成2个塑料积木",
+                {ACR="进入房间概率生成塑料积木"}
             },{
                 fox.Collectible.DIRGE_BELL,
                 "哀悼铃",
                 "为汝长鸣",
-                "清理房间会生成一个跟班, 发射5伤害灵体泪弹#至多可拥有10个跟班#{{Warning}} 跟班受伤即死亡",
+                "清理房间会生成一个跟班, 发射5伤害灵体泪弹#至多可拥有10个跟班#{{Warning}} 跟班具有2HP",
                 {BFF="伤害翻倍",
-                CONF={fox.Collectible.DIRGE_BELL,"Bell_Mult"}}
+                CONF={fox.Collectible.DIRGE_BELL,"Bell_Mult"},
+                ACR="清理房间获得脆弱的幽灵跟班"}
             },{
                 fox.Collectible.DEAD_ORANGE,
                 "死橘子",
                 "腐烂心情",
-                "{{ArrowUp}} {{Tears}} 射速+0.5#{{ArrowUp}} {{EmptyHeart}} 获得1空心之容器#{{ArrowUp}} {{RottenHeart}} 获得2腐心#{{RottenHeart}} 头目死亡后生成腐心"
+                "{{ArrowUp}} {{Tears}} 射速+0.5#{{ArrowUp}} {{EmptyHeart}} 获得1空心之容器#{{ArrowUp}} {{RottenHeart}} 获得2腐心#{{RottenHeart}} 头目死亡后生成腐心",
+                {ACR="生命上升 + 射速上升 + 腐心头目战利品"}
             },{
                 fox.Collectible.SNARED_FOX,
                 "被捕的狐狸",
                 "万物俱腐",
                 "{{RottenHeart}} 生成1腐心#生成3-6蓝苍蝇#每6次攻击发射6个扭动泪弹",
-                {ABY="1.1倍伤害的毒系绿色蝗虫"}
+                {ABY="1.1倍伤害的毒系绿色蝗虫",
+                ACR="每数发泪弹发射扭动泪弹 + 获得腐心"}
             },{
                 "Spicy Bean",
                 "辣味豆",
                 "呼! 呼! 好辣!",
-                "放屁并击退周边的敌人和敌弹#{{Burning}} 造成8伤害并施加灼烧"
+                "放屁并击退周边的敌人和敌弹#{{Burning}} 造成8伤害并施加灼烧",
+                {ACR="主动灼烧屁"}
             },{
                 fox.Collectible.PEBBLE,
                 "鹅卵石",
                 "拿一块",
-                "摧毁标记石头额外生成可以抵挡敌弹的鹅卵石环绕物"
+                "摧毁标记石头额外生成可以抵挡敌弹的鹅卵石环绕物",
+                {ACR="标记石头提供鹅卵石环绕物"}
             },{
                 "Dad's Dumbbell",
                 "爸爸的哑铃",
                 "坚持才有回报",
-                "{{Battery}} 初始无充能#↓ {{Speed}} 持有时, 角色的移速上限下调为0.5#↑ 使用后, 永久获得{{Damage}}伤害+1, 体型+25%"
+                "{{Battery}} 初始无充能#↓ {{Speed}} 持有时, 角色的移速上限下调为0.5#↑ 使用后, 永久获得{{Damage}}伤害+1, 体型+25%",
+                {ACR="移速下降 + 使用获得{体积 + 伤害上升}"}
             },{
                 "Cometa",
                 "彗星",
                 "向星云诉说你的愿望",
-                "↑ {{Luck}} 幸运+1#在房间内快速运动的跟班, 可以抵挡敌弹并造成3.5碰撞帧伤#↑ 幸运越高, 跟班的碰撞伤害越高"
+                "↑ {{Luck}} 幸运+1#在房间内快速运动的跟班, 可以抵挡敌弹并造成3.5碰撞帧伤#↑ 幸运越高, 跟班的碰撞伤害越高",
+                {ACR="幸运上升 + 高速抵挡敌弹的彗星"}
             }
         }
         local trinket={
@@ -360,59 +382,76 @@ mod:AddModTranslationLoader("_FOKS_BOOSTER_PACK_MOD","Foks 补充包",function()
                 "小号",
                 "惊弓之鸟",
                 "{{Fear}} 进入房间后, 20%的概率对随机怪物施加恐惧3s#{{Damage}} 恐惧的敌人额外受到50%伤害",
-                {GOLD={INFO={findReplace=true},TEXT={"50","100","150"}}}
+                {GOLD={INFO={findReplace=true},TEXT={"50","100","150"}},
+                ACR="弱化恐惧 + 进房间概率恐惧"}
             },{
                 fox.Trinket.WHITE_FLAG,
                 "白旗",
                 "开摆",
                 "每个房间抵消第一次受伤#效果触发后丢弃该饰品并传送至初始房间#{{Warning}} 只有在清理房间后才能重新拾起该饰品",
-                {GOLD={INFO={goldenOnly = true, findReplace = true, mult = 2},TEXT={"初始房间","宝箱房或星象房(类型XVII-星辰)"}}}
+                {GOLD={INFO={goldenOnly = true, findReplace = true, mult = 2},TEXT={"初始房间","宝箱房或星象房(类型XVII-星辰)"}},
+                ACR="受伤无效化, 而后掉落"}
             },{
                 fox.Trinket.THRESHED_WHEAT,
                 "脱粒麦",
                 "大丰收",
                 "攻击时每秒释放一次稻谷近战攻击#近战造成{{Damage}}+1.5的伤害, 范围不会变化, 可以抵挡敌弹和拾取掉落物, 也可以与可交互实体交互({{GarlinIcon}}{{ColorRainbow}}且疑似由于某些bug导致你可以不消耗任何物资去与它们交互!{{CR}})",
-                {GOLD={INFO={findReplace = true},TEXT={"一次","两次","三次"}}}
+                {GOLD={INFO={findReplace = true},TEXT={"一次","两次","三次"}},
+                ACR="朝前方挥舞稻谷"}
             },{
                 fox.Trinket.LUCKY_BUG,
                 "幸运瓢虫",
                 "你感到幸运?",
                 "{{ArrowUp}} {{Luck}} 清理房间有15%的概率获得永久幸运提升#{{ArrowDown}} {{Luck}} 有3%的概率失去所有的幸运提升并掉落该饰品#{{Warning}} 小心不要让虫子逃跑了!",
-                {GOLD={INFO={findReplace=true},TEXT={"15","30","45"}}}
+                {GOLD={INFO={findReplace=true},TEXT={"15","30","45"}},
+                ACR="清理房间概率获得幸运上升或下降"}
             },{
                 fox.Trinket.MOMS_TELEPHONE,
                 "妈妈的电话",
                 "你知道她的电话的",
                 "进入未清理房间18s后触发{{Card50}}紧急联系电话的效果",
-                {GOLD={INFO={findReplace=true},TEXT={"18","9","6"}}}
+                {GOLD={INFO={findReplace=true},TEXT={"18","9","6"}},
+                ACR="进入房间一段时间后呼叫老妈"}
             },{
                 fox.Trinket.CAUTION_SIGN,
                 "警示标",
                 "注意让行",
                 "{{Warning}} 最后一个死亡的敌人自爆",
-                {GOLD={INFO={append=true},TEXT={"释放十字爆炸","释放十字爆炸","释放十字爆炸"}}}
+                {GOLD={INFO={append=true},TEXT={"释放十字爆炸","释放十字爆炸","释放十字爆炸"}},
+                ACR="最后杀死的敌人爆炸"}
             },{
                 fox.Trinket.RUNE_STONE,
                 "符石",
                 "窥见真理",
                 "{{Rune}} 标记石头摧毁后额外掉落符文",
-                {GOLD={INFO={append=true},TEXT={"掉落更多符文","掉落更多符文","掉落更多符文"}}}
+                {GOLD={INFO={append=true},TEXT={"掉落更多符文","掉落更多符文","掉落更多符文"}},
+                ACR="标记石头提供符文"}
             },{
                 "Grenade Pin",
                 "手榴弹销轴",
                 "我说停停!",
-                "减缓角色炸弹的爆炸速度#放置炸弹会同步场上已放置的炸弹的爆炸"
+                "减缓角色炸弹的爆炸速度#放置炸弹会同步场上已放置的炸弹的爆炸",
+                {ACR="炸弹同步爆炸"}
             },{
                 "Moxie's Yarn",
                 "勇气纺线球",
                 "虫群结伴",
-                "部分苍蝇敌人会变为蓝苍蝇"
+                "部分苍蝇敌人会变为蓝苍蝇",
+                {ACR="基础苍蝇敌人化为蓝苍蝇"}
             },{
                 "Devil's Tongue",
                 "恶魔的舌头",
                 "目睹它们燃烧",
                 "{{Burning}} 角色灼烧碰到的敌人#无视头目的异常状态免疫效果",
-                {GOLD={INFO={append=true},TEXT={"获得抗火","获得抗火","获得抗火"}}}
+                {GOLD={INFO={append=true},TEXT={"获得抗火","获得抗火","获得抗火"}},
+                ACR="接触灼烧"}
+            },{
+                fox.Trinket.SPARE_BATTERY,
+                "备用电池",
+                "以备不时之需",
+                "电池被分解为数个迷你电池#5%的概率在清理房间后生成一个随机电池",
+                {GOLD={INFO={findReplace=true},TEXT={"5","10","15"}},
+                ACR="电池拆分 + 清理房间可能获得电池"}
             }
         }
         local other={
