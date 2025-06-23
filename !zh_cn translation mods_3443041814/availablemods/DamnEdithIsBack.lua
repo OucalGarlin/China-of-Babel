@@ -9,6 +9,7 @@ mod:AddModTranslationLoader("dedith", "D!伊迪斯\n* 警告: 目前伊迪斯的
                 "{{Chargeable}} 蓄力并发射一簇盐弹的跟班#{{Fear}} 盐弹落地后会留下盐粉, 使敌人受到恐惧效果#{{Damage}} 盐弹造成"..dedith.Item.SaltyBaby.TEAR_DAMAGE.."点伤害",
                 {ABY="有75%的概率施加恐惧的蝗虫",
                 BFF="双倍盐弹, 盐粉持续时间翻倍",
+                ACR="蓄力撒盐跟班",
                 CONF={
                     {"5.350.141","LullaSalt"},
                     {"5.350.106","NoEffect"}
@@ -31,7 +32,8 @@ mod:AddModTranslationLoader("dedith", "D!伊迪斯\n* 警告: 目前伊迪斯的
                 "巫毒针",
                 "我的就是你的",
                 "攻击时有概率发射巫毒针, 对房间内的所有敌人造成"..dedith.Item.VoodooPin.DAMAGE_MULT_PERCENTAGE.."%的伤害",
-                {ABY="会触发{{Collectible"..dedith.Item.VOODOO_PIN.."}}巫毒针效果的橙色蝗虫"} 
+                {ABY="会触发{{Collectible"..dedith.Item.VOODOO_PIN.."}}巫毒针效果的橙色蝗虫",
+                ACR="概率发射全屏伤害巫毒针"} 
             },{
                 dedith.Item.BINDLE,
                 "漂流者的包裹",
@@ -40,13 +42,15 @@ mod:AddModTranslationLoader("dedith", "D!伊迪斯\n* 警告: 目前伊迪斯的
                 {VIR="使用道具以消耗饰品, 并生成3个相同的随机魂火",
                 CAR="额外获得2个饰品栏",
                 BEL="消耗饰品并获得↑ {{Damage}}5.2伤害, 效果持续"..dedith.Item.Bindle.BELIAL_DAMAGE_COOLDOWN_SECONDS.."秒",
+                ACR="额外饰品槽位",
                 CONF={{458,139},"Binket"}}
             },{
                 dedith.Item.CHECKED_MATE,
                 "将杀者",--存疑, checkmate=将杀, mate=同伴, 这是目前能想到的最好的双关翻译(?   当然希望有更好的,看看谁能够榜上留名
                 "绝杀! 无解!",--原句为:把我将杀
                 "{{DEdithPawn}} 有概率发射一个盐块, 落地后生成一个下落的盐兵#盐兵落地后对周围敌人造成伤害",
-                {ABY="会触发{{Collectible"..dedith.Item.CHECKED_MATE.."}}将杀者效果的盐制蝗虫"}  
+                {ABY="会触发{{Collectible"..dedith.Item.CHECKED_MATE.."}}将杀者效果的盐制蝗虫",
+                ACR="泪弹概率召唤盐兵"}  
             },{
                 dedith.Item.FAST_FORWARD,
                 "快进",
@@ -55,24 +59,28 @@ mod:AddModTranslationLoader("dedith", "D!伊迪斯\n* 警告: 目前伊迪斯的
                 {VIR="在冲刺路径上生成4个魂火",
                 BEL="{{Damage}} 每撞上一个敌人获得临时的攻击提升",
                 CAR="冲刺更快",
+                ACR="快进冲刺",
                 ABY="快虫"}--速度快到缺字眼.png
             },{
                 dedith.Item.YELLOW_PAINT,
                 "黄色颜料",
                 "宝宝模式",
                 "{{TreasureRoom}} 标记通往宝箱房的路#标记石头会被染黄#{{GreedMode}} 贪婪模式将失去价值",--那你还不加非贪婪
-                {ABY="黄色的普通蝗虫"}
+                {ABY="黄色的普通蝗虫",
+                ACR="标记通往宝箱房的路 + 更显眼的标记石头"}
             },{
                 dedith.Item.DANTES_INFERNO,
                 "但丁的地狱",
                 "更强的罪孽",
                 "{{MiniBoss}} 每层生成一个额外的超级七宗罪头目房#超级七宗罪拥有"..dedith.Item.DantesInferno.HEALTH_MULT.."倍的生命值, 死亡后掉落更多战利品",
-                {MOD={PAPER=true}}
+                {MOD={PAPER=true},
+                ACR="更多更强的超级七宗罪, 更好的战利品"}
             },{
                 dedith.Item.EPIC_BACON,
                 "史诗培根",
                 "神秘的肉",
-                "↑ {{UnknownHeart}} +"..dedith.Item.EpicBacon.HEALTH_AMOUNT.."随机心#{{UnknownHeart}} 所有心的生成率相等"    
+                "↑ {{UnknownHeart}} +"..dedith.Item.EpicBacon.HEALTH_AMOUNT.."随机心#{{UnknownHeart}} 所有心的生成率相等",
+                {ACR="获得随机心"}  
             },{
                 dedith.Item.PUTTY,
                 "油灰",
@@ -80,6 +88,7 @@ mod:AddModTranslationLoader("dedith", "D!伊迪斯\n* 警告: 目前伊迪斯的
                 "↑ 提供一个属性提升#可以通过丢弃键({{ButtonRT}})选择增强的属性",
                 {VIR="内环魂火{{InnerWisp}}#生成3个存在时即提供属性提升的高生命值魂火",
                 BEL="↑ {{Damage}} +"..dedith.Item.Putty.BELIAL_DAMAGE.."伤害",
+                ACR="自选属性上升",
                 ABY="苍白的普通蝗虫"}  
             },{
                 dedith.Item.Putty.Items.DAMAGE,
@@ -87,6 +96,7 @@ mod:AddModTranslationLoader("dedith", "D!伊迪斯\n* 警告: 目前伊迪斯的
                 "属性雕刻",
                 "↑ {{Damage}} +"..dedith.Item.Putty.DAMAGE.."伤害",
                 {VIR="内环魂火{{InnerWisp}}#↑ {{Damage}}#生成3个存在时即提供+"..dedith.Item.Putty.WISP_DAMAGE.."伤害的高生命值魂火",
+                ACR="自选属性上升",
                 BEL="↑ {{Damage}} +"..dedith.Item.Putty.BELIAL_DAMAGE.."伤害"}
             },{
                 dedith.Item.Putty.Items.HEALTH,
@@ -94,6 +104,7 @@ mod:AddModTranslationLoader("dedith", "D!伊迪斯\n* 警告: 目前伊迪斯的
                 "属性雕刻",
                 "↑ {{Heart}} +1心之容器#{{HealingRed}} 治疗1红心",
                 {VIR="内环魂火{{InnerWisp}}#生成3个高生命值魂火{{HealingRed}} 摧毁后治疗1红心#{{SoulHeart}} 摧毁后+1魂心",
+                ACR="自选属性上升",
                 BEL="↑ {{Damage}} +"..dedith.Item.Putty.BELIAL_DAMAGE.."伤害"}
             },{
                 dedith.Item.Putty.Items.LUCK,
@@ -101,6 +112,7 @@ mod:AddModTranslationLoader("dedith", "D!伊迪斯\n* 警告: 目前伊迪斯的
                 "属性雕刻",
                 "↑ {{Luck}} +"..dedith.Item.Putty.LUCK.."幸运",
                 {VIR="内环魂火{{InnerWisp}}#↑ {{Luck}}#生成3个存在时即提供+"..dedith.Item.Putty.WISP_LUCK.."幸运的高生命值魂火",
+                ACR="自选属性上升",
                 BEL="↑ {{Damage}} +"..dedith.Item.Putty.BELIAL_DAMAGE.."伤害"}
             },{
                 dedith.Item.Putty.Items.MOVE_SPEED,
@@ -108,6 +120,7 @@ mod:AddModTranslationLoader("dedith", "D!伊迪斯\n* 警告: 目前伊迪斯的
                 "属性雕刻",
                 "↑ {{Speed}} +"..dedith.Item.Putty.SPEED.."移速",
                 {VIR="内环魂火{{InnerWisp}}#↑ {{Speed}}#生成3个存在时即提供+"..dedith.Item.Putty.WISP_SPEED.."移速的高生命值魂火",
+                ACR="自选属性上升",
                 BEL="↑ {{Damage}} +"..dedith.Item.Putty.BELIAL_DAMAGE.."伤害"}
             },{
                 dedith.Item.Putty.Items.RANGE,
@@ -115,6 +128,7 @@ mod:AddModTranslationLoader("dedith", "D!伊迪斯\n* 警告: 目前伊迪斯的
                 "属性雕刻",
                 "↑ {{Range}} +"..dedith.Item.Putty.RANGE_STAT.."射程",
                 {VIR="内环魂火{{InnerWisp}}#↑ {{Range}}#生成3个存在时即提供+"..dedith.Item.Putty.WISP_RANGE.."射程的高生命值魂火",
+                ACR="自选属性上升",
                 BEL="↑ {{Damage}} +"..dedith.Item.Putty.BELIAL_DAMAGE.."伤害"}  
             },{
                 dedith.Item.Putty.Items.SHOT_SPEED,
@@ -122,6 +136,7 @@ mod:AddModTranslationLoader("dedith", "D!伊迪斯\n* 警告: 目前伊迪斯的
                 "属性雕刻",
                 "↑ {{Shotspeed}} +"..dedith.Item.Putty.SHOT_SPEED.."弹速",
                 {VIR="内环魂火{{InnerWisp}}#↑ {{Shotspeed}}#生成3个存在时即提供+"..dedith.Item.Putty.WISP_SHOT_SPEED.."弹速的高生命值魂火",
+                ACR="自选属性上升",
                 BEL="↑ {{Damage}} +"..dedith.Item.Putty.BELIAL_DAMAGE.."伤害"}
             },{
                 dedith.Item.Putty.Items.TEARS,
@@ -129,6 +144,7 @@ mod:AddModTranslationLoader("dedith", "D!伊迪斯\n* 警告: 目前伊迪斯的
                 "属性雕刻",
                 "↑ {{Tears}} +"..dedith.Item.Putty.TEARS.."射速",
                 {VIR="内环魂火{{InnerWisp}}#↑ {{Tears}}#生成3个存在时即提供+"..dedith.Item.Putty.WISP_TEARS.."射速的高生命值魂火",
+                ACR="自选属性上升",
                 BEL="↑ {{Damage}} +"..dedith.Item.Putty.BELIAL_DAMAGE.."伤害"}
             },{
                 dedith.Item.HEMORRHOID,
@@ -136,7 +152,8 @@ mod:AddModTranslationLoader("dedith", "D!伊迪斯\n* 警告: 目前伊迪斯的
                 "刺股铭心",--原句:一坐下就痛   本句结合 悬梁刺股 和 刻骨民心 而成(
                 "↑ {{Tears}} 站立不动时积攒至多+"..dedith.Item.Hemorrhoid.TEARS_UP.."射速提升#{{Warning}} 站的太久会伤害角色并留下血迹",
                 {ABY="环绕角色时缓慢积攒至多2倍伤害的蝗虫#伤害会在冲锋时减少",
-                MOD={ILL=true}
+                MOD={ILL=true},
+                ACR="静止时射速上升, 但是久立伤身",
                 CONF={dedith.Item.HEMORRHOID,"ReHemorrhoid"}}
             },{
                 dedith.Item.COOLAID,
