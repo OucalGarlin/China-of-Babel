@@ -1,6 +1,11 @@
 local mod = CNEIDBabel
 local sameDesc="打开它!"
-mod:AddModTranslationLoader("ToyBoxMod", "好奇箱",function()
+function modname()
+    local text="好奇箱 (Curiosity Crate)"
+    if  mod.Setting.FancySyn then text=text.."\n     * 自定义道具兼容 已生效" end
+    return text
+end
+mod:AddModTranslationLoader("ToyBoxMod",modname(),function()
     local items = {
         {
             "Action Box",
@@ -395,12 +400,14 @@ mod:AddModTranslationLoader("ToyBoxMod", "好奇箱",function()
     for _, item in ipairs(cards) do
         mod:AddTranslate(300, item[1], item[2], item[3], item[4].."#{{Collectible"..Isaac.GetItemIdByName("Army Barrel").."}} 所属mod: Curiosity Crate", item[5])
     end    
-    local Dflipsyn={
-        {5,100,Isaac.GetItemIdByName("Blind Faith"),5,100,Isaac.GetItemIdByName("Bound Spirit")},
-        {5,100,Isaac.GetItemIdByName("Snake Oil"),5,350,10},
-        {5,100,Isaac.GetItemIdByName("Rocket Fuel"),5,100,583},
-        {5,100,Isaac.GetItemIdByName("Friendship Pendant"),5,350,148},
-    }
-    table.insert(mod.PddSynList,{132,Isaac.GetItemIdByName("Jar of Coal")})
-    for _,i in ipairs(Dflipsyn) do table.insert(mod.DflipSynList,i) end
+    if mod.Setting.FancySyn then
+        local Dflipsyn={
+            {5,100,Isaac.GetItemIdByName("Blind Faith"),5,100,Isaac.GetItemIdByName("Bound Spirit")},
+            {5,100,Isaac.GetItemIdByName("Snake Oil"),5,350,10},
+            {5,100,Isaac.GetItemIdByName("Rocket Fuel"),5,100,583},
+            {5,100,Isaac.GetItemIdByName("Friendship Pendant"),5,350,148},
+        }
+        mod:PDDfakeAddon(132,Isaac.GetItemIdByName("Jar of Coal"))
+        for _,i in ipairs(Dflipsyn) do mod:DFlipPairsAddon(i) end
+    end
 end)
