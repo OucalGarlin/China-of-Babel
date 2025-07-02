@@ -1,413 +1,298 @@
 local mod = CNEIDBabel
-local sameDesc="打开它!"
 function modname()
-    local text="好奇箱 (Curiosity Crate)"
-    if  mod.Setting.FancySyn then text=text.."\n     * 自定义道具兼容 已生效" end
-    return text
+    local text="D! Edith"
+    return text.."\n     * 警告: 目前伊迪斯的角色兼容显示会存在异常, 会在未来修复=("
 end
-mod:AddModTranslationLoader("ToyBoxMod",modname(),function()
-    local items = {
-        {
-            "Action Box",
-            "操作箱",
-            "爆炸奖励包",
-            "房间内的最后一个敌人死亡后生成{{Collectible106}}大爆弹先生的炸弹#{{IGIcon}} 无法推动这个炸弹",
-            {CONF={{140,209,220,256,353,366,367,432,563,614,646,727},"ActionBombs"}}
-        },{
-            "Astral Bean",
-            "星际豆",
-            "延时爆破",
-            "将时间停止4s, 前3s角色会留下易爆气体, 然后拉出一个火大便#时间恢复流动时, 气体会被迅速引爆#!!! 当然, 爆炸可以伤害玩家",
-            {CAR="时停效果和屁的数量翻倍",
-            CONF={"5.350.134","GiGaFartSyn","GiGaFartSyn2"},
+mod:AddModTranslationLoader("dedith", "D!伊迪斯",function()
+    if dedith then
+        local items={
+            {
+                dedith.Item.SALTY_BABY,
+                "盐罐宝宝",
+                "多盐伙伴",
+                "{{Chargeable}} 蓄力并发射一簇盐弹的跟班#{{Fear}} 盐弹落地后会留下盐粉, 使敌人受到恐惧效果#{{Damage}} 盐弹造成"..dedith.Item.SaltyBaby.TEAR_DAMAGE.."点伤害",
+                {ABY="有75%的概率施加恐惧的蝗虫",
+                BFF="双倍盐弹, 盐粉持续时间翻倍",
+                ACR="蓄力撒盐跟班",
+                CONF={
+                    {"5.350.141","LullaSalt"},
+                    {"5.350.106","NoEffect"}
+                }}
+            },{
+                dedith.Item.SALT_SHAKER,
+                "盐瓶",
+                "可重复盐味大跳",
+                "使用道具后, 按下攻击键或丢弃键释放大跳#落地对附近的敌人造成伤害#暴击落地(完全精准地命中并杀死敌人)可以使该道具完全恢复充能",
+                {ABY="冲锋时践踏一次的盐制蝗虫",
+                VIR="在起跳的位置生成固定的魂火",
+                BEL="{{Burning}} 灼烧砸中的敌人"}
+            },{
+                dedith.Item.BLUE_BERRY,
+                "蓝莓",
+                "射速上升",
+                "↑ {{Tears}} +0.7射速"
+            },{
+                dedith.Item.VOODOO_PIN,
+                "巫毒针",
+                "我的就是你的",
+                "攻击时有概率发射巫毒针, 对房间内的所有敌人造成"..dedith.Item.VoodooPin.DAMAGE_MULT_PERCENTAGE.."%的伤害",
+                {ABY="会触发{{Collectible"..dedith.Item.VOODOO_PIN.."}}巫毒针效果的橙色蝗虫",
+                ACR="概率发射全屏伤害巫毒针"} 
+            },{
+                dedith.Item.BINDLE,
+                "漂流者的包裹",
+                "归隐",
+                "{{Trinket}} 角色可以持有"..dedith.Item.Bindle.BASE_SLOTS.."个饰品#丢弃键({{ButtonRT}})可以指定一个饰品, 使用该道具后将指定的饰品丢弃#{{Trinket}} 生成一个随机饰品#{{Trinket}} 饰品生成率增加",
+                {VIR="使用道具以消耗饰品, 并生成3个相同的随机魂火",
+                CAR="额外获得2个饰品栏",
+                BEL="消耗饰品并获得↑ {{Damage}}5.2伤害, 效果持续"..dedith.Item.Bindle.BELIAL_DAMAGE_COOLDOWN_SECONDS.."秒",
+                ACR="额外饰品槽位",
+                CONF={{458,139},"Binket"}}
+            },{
+                dedith.Item.CHECKED_MATE,
+                "将杀者",--存疑, checkmate=将杀, mate=同伴, 这是目前能想到的最好的双关翻译(?   当然希望有更好的,看看谁能够榜上留名
+                "绝杀! 无解!",--原句为:把我将杀
+                "{{DEdithPawn}} 有概率发射一个盐块, 落地后生成一个下落的盐兵#盐兵落地后对周围敌人造成伤害",
+                {ABY="会触发{{Collectible"..dedith.Item.CHECKED_MATE.."}}将杀者效果的盐制蝗虫",
+                ACR="泪弹概率召唤盐兵"}  
+            },{
+                dedith.Item.FAST_FORWARD,
+                "快进",
+                "跳楼20:00有好看的",
+                "使角色朝移动方向快速冲刺#对冲刺碰撞的敌人造成伤害",
+                {VIR="在冲刺路径上生成4个魂火",
+                BEL="{{Damage}} 每撞上一个敌人获得临时的攻击提升",
+                CAR="冲刺更快",
+                ACR="快进冲刺",
+                ABY="快虫"}--速度快到缺字眼.png
+            },{
+                dedith.Item.YELLOW_PAINT,
+                "黄色颜料",
+                "宝宝模式",
+                "{{TreasureRoom}} 标记通往宝箱房的路#标记石头会被染黄#{{GreedMode}} 贪婪模式将失去价值",--那你还不加非贪婪
+                {ABY="黄色的普通蝗虫",
+                ACR="标记通往宝箱房的路 + 更显眼的标记石头"}
+            },{
+                dedith.Item.DANTES_INFERNO,
+                "但丁的地狱",
+                "更强的罪孽",
+                "{{MiniBoss}} 每层生成一个额外的超级七宗罪头目房#超级七宗罪拥有"..dedith.Item.DantesInferno.HEALTH_MULT.."倍的生命值, 死亡后掉落更多战利品",
+                {MOD={PAPER=true},
+                ACR="更多更强的超级七宗罪, 更好的战利品"}
+            },{
+                dedith.Item.EPIC_BACON,
+                "史诗培根",
+                "神秘的肉",
+                "↑ {{UnknownHeart}} +"..dedith.Item.EpicBacon.HEALTH_AMOUNT.."随机心#{{UnknownHeart}} 所有心的生成率相等",
+                {ACR="获得随机心"}  
+            },{
+                dedith.Item.PUTTY,
+                "油灰",
+                "属性雕刻",
+                "↑ 提供一个属性提升#可以通过丢弃键({{ButtonRT}})选择增强的属性",
+                {VIR="内环魂火{{InnerWisp}}#生成3个存在时即提供属性提升的高生命值魂火",
+                BEL="↑ {{Damage}} +"..dedith.Item.Putty.BELIAL_DAMAGE.."伤害",
+                ACR="自选属性上升",
+                ABY="苍白的普通蝗虫"}  
+            },{
+                dedith.Item.Putty.Items.DAMAGE,
+                "油灰",
+                "属性雕刻",
+                "↑ {{Damage}} +"..dedith.Item.Putty.DAMAGE.."伤害",
+                {VIR="内环魂火{{InnerWisp}}#↑ {{Damage}}#生成3个存在时即提供+"..dedith.Item.Putty.WISP_DAMAGE.."伤害的高生命值魂火",
+                ACR="自选属性上升",
+                BEL="↑ {{Damage}} +"..dedith.Item.Putty.BELIAL_DAMAGE.."伤害"}
+            },{
+                dedith.Item.Putty.Items.HEALTH,
+                "油灰",
+                "属性雕刻",
+                "↑ {{Heart}} +1心之容器#{{HealingRed}} 治疗1红心",
+                {VIR="内环魂火{{InnerWisp}}#生成3个高生命值魂火{{HealingRed}} 摧毁后治疗1红心#{{SoulHeart}} 摧毁后+1魂心",
+                ACR="自选属性上升",
+                BEL="↑ {{Damage}} +"..dedith.Item.Putty.BELIAL_DAMAGE.."伤害"}
+            },{
+                dedith.Item.Putty.Items.LUCK,
+                "油灰",
+                "属性雕刻",
+                "↑ {{Luck}} +"..dedith.Item.Putty.LUCK.."幸运",
+                {VIR="内环魂火{{InnerWisp}}#↑ {{Luck}}#生成3个存在时即提供+"..dedith.Item.Putty.WISP_LUCK.."幸运的高生命值魂火",
+                ACR="自选属性上升",
+                BEL="↑ {{Damage}} +"..dedith.Item.Putty.BELIAL_DAMAGE.."伤害"}
+            },{
+                dedith.Item.Putty.Items.MOVE_SPEED,
+                "油灰",
+                "属性雕刻",
+                "↑ {{Speed}} +"..dedith.Item.Putty.SPEED.."移速",
+                {VIR="内环魂火{{InnerWisp}}#↑ {{Speed}}#生成3个存在时即提供+"..dedith.Item.Putty.WISP_SPEED.."移速的高生命值魂火",
+                ACR="自选属性上升",
+                BEL="↑ {{Damage}} +"..dedith.Item.Putty.BELIAL_DAMAGE.."伤害"}
+            },{
+                dedith.Item.Putty.Items.RANGE,
+                "油灰",
+                "属性雕刻",
+                "↑ {{Range}} +"..dedith.Item.Putty.RANGE_STAT.."射程",
+                {VIR="内环魂火{{InnerWisp}}#↑ {{Range}}#生成3个存在时即提供+"..dedith.Item.Putty.WISP_RANGE.."射程的高生命值魂火",
+                ACR="自选属性上升",
+                BEL="↑ {{Damage}} +"..dedith.Item.Putty.BELIAL_DAMAGE.."伤害"}  
+            },{
+                dedith.Item.Putty.Items.SHOT_SPEED,
+                "油灰",
+                "属性雕刻",
+                "↑ {{Shotspeed}} +"..dedith.Item.Putty.SHOT_SPEED.."弹速",
+                {VIR="内环魂火{{InnerWisp}}#↑ {{Shotspeed}}#生成3个存在时即提供+"..dedith.Item.Putty.WISP_SHOT_SPEED.."弹速的高生命值魂火",
+                ACR="自选属性上升",
+                BEL="↑ {{Damage}} +"..dedith.Item.Putty.BELIAL_DAMAGE.."伤害"}
+            },{
+                dedith.Item.Putty.Items.TEARS,
+                "油灰",
+                "属性雕刻",
+                "↑ {{Tears}} +"..dedith.Item.Putty.TEARS.."射速",
+                {VIR="内环魂火{{InnerWisp}}#↑ {{Tears}}#生成3个存在时即提供+"..dedith.Item.Putty.WISP_TEARS.."射速的高生命值魂火",
+                ACR="自选属性上升",
+                BEL="↑ {{Damage}} +"..dedith.Item.Putty.BELIAL_DAMAGE.."伤害"}
+            },{
+                dedith.Item.HEMORRHOID,
+                "痔疮",
+                "刺股铭心",--原句:一坐下就痛   本句结合 悬梁刺股 和 刻骨民心 而成(
+                "↑ {{Tears}} 站立不动时积攒至多+"..dedith.Item.Hemorrhoid.TEARS_UP.."射速提升#{{Warning}} 站的太久会伤害角色并留下血迹",
+                {ABY="环绕角色时缓慢积攒至多2倍伤害的蝗虫#伤害会在冲锋时减少",
+                MOD={ILL=true},
+                ACR="静止时射速上升, 但是久立伤身",
+                CONF={dedith.Item.HEMORRHOID,"ReHemorrhoid"}}
+            },{
+                dedith.Item.COOLAID,
+                "清凉饮品",--存疑
+                "射速下降 + 跟随泪弹",
+                "↓ {{Tears}} "..dedith.Item.CoolAid.TEAR_DELAY_DECREASE_MULT.."x射速倍率#角色一次发射一行3个泪弹",
+                {ABY="3个紫色蝗虫",
+                CONF={dedith.Item.COOLAID,"ReCoolAid"},
+                CHAR={dedith.Character.EDITH,"CoolEdith",false}}
             }
-        },{
-            "CD-RW",
-            "可复写式光盘机",
-            "读写你的敌人",
-            "杀死敌人有20%的概率生成光盘: 它们会斜向移动, 弹开坚硬的物体并造成3倍伤害#!!! 光盘在命中敌人3次后会破碎#{{Luck}} 幸运10: 40%",
-            {BFF="更大的光盘, 伤害翻倍",
-            CONF={
-                {"5.350.109","TapedCD"},
-                {"5.350.141","CDisPlayingSiren"},
-            }}
-        },{
-            "Jar of Coal",
-            "碳罐",
-            "传递温暖",
-            "{{Slow}} 泪弹有15%的概率变为会留下炭灰的{{ColorGray}}减速碳块泪弹{{CR}}#{{Burning}} 碳块泪弹有20%的概率被点燃, 使被命中的敌人被灼烧并点燃经过的炭灰",
-            {CONF={
-                {132,"DoubleCoal"},
-                {531,"LandingCoal"},
-                {168,"EpicCoal"},
-                {257,"LitItGo"},
-                {{495,616},"PepperCoal"},
-                {329,"LidoviCoal"},
-                {{118,68},"LazerCoal"},
-            }}
-        },{
-            "Rocket Fuel",
-            "火箭燃料",
-            "推进式巡航导弹",
-            "12%的概率发射一个巡航火箭, 可以造成4倍伤害并在命中后留下减速液体#!!! 火箭爆炸不会摧毁障碍物和门#{{Luck}} 幸运7: 33%",
-            {CONF={{118,68,395},"LazeRocket"}}--
-        },{
-            "Rotten Doll",
-            "腐烂布偶",
-            "腐爆 + 虫群盟军",
-            "在地面上生成一个布偶, 若有敌人靠近会炸成血雾#爆炸会生成10个友方蝇蛆, 击退敌人并生成一片毒云#!!! 爆炸不会摧毁障碍物和门",
-            {CAR="毒云持续时间, 击退威力和蝇蛆数量翻倍",
-            BFF="毒云的持续时间, 范围和击退威力增强"}
-        },{
-            "Sawblade Hoop",
-            "锯环",
-            "飞旋死神",
-            "敌人靠近时会在角色身边展开锯片#{{BleedingOut}} 锯片会反弹敌弹, 伤害敌人, 施加流血并留下血迹",
-            {CONF={{189,Isaac.GetItemIdByName("Sawblade Hoop")},"ULTIBLADE"}
-            }
-        },{
-            "Snake Oil",
-            "蛇油",
-            "sss蛇形sss撕裂",
-            "{{Chargeable}} 攻击方式改为蓄力发射至多10个同一弹道的穿透灵体{{ColorGreen}}蛇形泪弹{{CR}}, 且泪弹具有{{Trinket10}} 蠕动虫和{{Trinket144}} 脑形虫的效果#蛇形泪弹会减速, 改变方向并继续移动#未蓄满力会发射更少的泪弹",
-            {CONF={
-                {{330,561,6},"SnakeMilk"},
-                {118,"BrimSnake"},
-                {395,"Xnake"},
-                {114,"Snife"},
-                {68,"Technake"},
-                {229,"Slung"},
-                {168,"EpiSnake"},
-                {{52,149},"DrSnake"},
-                {316,"CurSnake"},--IsaacGuru维基也写瓢了,不知道是不是故意的(
-                {678,"SnakeSection"},
-                {533,"TriSnake"},
-            }}
-        },{
-            "Stack of Papers",
-            "纸堆",
-            "收集舰队",
-            "死亡的敌人释放会追击敌人并造成2倍伤害的纸飞机#纸飞机的数量由敌人的最大生命值决定",
-            {CONF={
-                {{257,103,305,231,596,110},"TearSyn"},
-                {{168,52,401},"NineEleven"},--就你小子喜欢玩地狱笑话是吧
-                {149,"Iplain"},
-            },MOD={PAPER=true}}
-        },{
-            "Army Barrel",
-            "士兵玩具桶",
-            "百分百纯塑料制品且已准备好大杀四方",
-            "房间内每有一个敌人, 生成一个玩具士兵或玩具车#玩具士兵会朝敌人开枪, 玩具车会冲锋造成碰撞伤害",
-            {BFF="玩具伤害翻倍",
-            CAR="玩具数量翻倍",
-            CONF={"5.350.141","SirenArmy"}}
-        },{
-            "Friendship Pendant",
-            "友谊吊坠",
-            "友谊中的崇拜",
-            "{{BlackHeart}} +1黑心#{{ArrowUp}} 角色每有一个跟随角色的跟班获得{{Damage}}+0.66伤害#!!! 不包括蓝苍蝇和蓝蜘蛛",
-            {CONF={"5.350.148","DoubleFriend"}}
-        },{
-            "Monster Meal",
-            "怪兽餐",
-            "生命上升, 别把奖品吃了!",
-            "{{ArrowUp}} +1心之容器#{{HealingRed}} 治疗1红心#受到伤害有20%的概率将一个空的饰品槽/副手槽提供一个随机的饰品/消耗品#!!! 如果槽位不是空的, 则将槽位内的饰品/消耗品重随",
-        },{
-            "Surprise Egg",
-            "奇趣蛋",
-            "双倍玩具礼包",
-            '{{HealingRed}} 治疗2红心#{{Trinket}} 生成2个来自"好奇箱"模组的随机饰品'
-        },{
-            "Surprisaac",
-            '艾"吓"克',
-            "双倍玩具礼...不是啥?!",
-            '{{HealingRed}} 治疗2红心#{{IsaacSmall}} 生成4个迷你以撒#{{Trinket}} 生成2个来自"好奇箱"模组的随机饰品'
-        },{
-            "Heart of Gold",
-            "黄金之心",
-            "生命=金钱",
-            "{{HealingRed}} 治疗所有红心#{{GoldenHeart}} 将角色的生命值塞满金心#{{Coin}} 角色的硬币数量翻倍#如果角色没有{{EmptyHeart}}空的心之容器, 所有{{Heart}} 红心掉落物会变为随机{{Coin}} 硬币",
-            {MOD={GOLD=true}}
-        },{
-            "Bound Spirit",
-            "受缚之灵",
-            "鬼影回响",
-            "{{BlackHeart}} +1黑心#{{ArrowUp}} {{Speed}}+0.24移速#杀死敌人有33%的概率在当前房间生成一个{{Collectible584}}随机恶魔道具产生的魂火"
-        },{
-            "Blind Faith",
-            "盲目的信仰",
-            "视恶若无",
-            '{{SoulHeart}} +3魂心#{{TreasureRoom}} 宝箱房额外提供一个血偿交易{{ItemPoolAngel}}道具作为选择, 只有一个道具可以被拾取#{{DevilRoom}} 所有恶魔房只会有一个{{ItemPoolAngel}}道具, 拾取后将需要与一个{{ColorRed}}堕化天使{{CR}}战斗#!!! 该道具生成的天使道具只能看见剪影',
-            {CONF={
-                {{215,292},"UltiDevil"},
-                {260,"NOBlind"},
-                {{33,601},"UltiAngel"},
-            }}
-        },{
-            "Chocolate Bar",
-            "巧克力棒",
-            "最后一餐",
-            "{{ArrowUp}} +2心之容器#{{HealingRed}} 治疗所有红心#生成{{Trinket25}} 神秘糖果#!!! 剩余的游戏时间内, 所有的基础加血道具(例如{{Collectible25}} {{Collectible346}} 等)被重随为{{ItemPoolBoss}}随机道具"
-        },{
-            "Shape Box LV3",
-            "造型盒",--那么这个三角形的方块可以从哪里放进去呢?
-            "对咯它可以放进方形的洞里",
-            "!!! 使用后吞噬最近的一个掉落物, 吞噬3个后根据吞噬的掉落物品质发生如下事件#{{Trinket}} 4~12个蓝苍蝇#{{Trinket}} 2个普通掉落物的复制#{{Trinket}} 一个特殊{{PoopPickup}} 大便#{{Collectible}} 2个稀有掉落物的复制#{{Collectible}} 3个随机的{{Chest}}#{{Collectible}} 2个饰品#{{TreasureRoomChanceSmall}} {{Room}} 当前房间道具池的道具#{{TreasureRoomChanceSmall}} 生成{{Card31}}鬼牌和2个{{BlackHeart}}黑心#{{TreasureRoomChanceSmall}} {{ArrowUp}} 4个随机属性提升",
-            {CAR="奖励翻倍",
-            CONF={{73,652},"ThisIsSquare"}}
-        },{
-            "Shape Box LV2",
-            "造型盒",
-            "对咯它可以放进方形的洞里",
-            "!!! 使用后吞噬最近的一个掉落物, 吞噬3个后根据吞噬的掉落物品质发生如下事件#{{Trinket}} 4~12个蓝苍蝇#{{Trinket}} 2个普通掉落物的复制#{{Trinket}} 一个特殊{{PoopPickup}} 大便#{{Collectible}} 2个稀有掉落物的复制#{{Collectible}} 3个随机的{{Chest}}#{{Collectible}} 2个饰品#{{TreasureRoomChanceSmall}} {{Room}} 当前房间道具池的道具#{{TreasureRoomChanceSmall}} 生成{{Card31}}鬼牌和2个{{BlackHeart}}黑心#{{TreasureRoomChanceSmall}} {{ArrowUp}} 4个随机属性提升",
-            {CAR="奖励翻倍",
-            CONF={{73,652},"ThisIsSquare"}}
-        },{
-            "Shape Box LV1",
-            "造型盒",
-            "对咯它可以放进方形的洞里",
-            "!!! 使用后吞噬最近的一个掉落物, 吞噬3个后根据吞噬的掉落物品质发生如下事件#{{Trinket}} 4~12个蓝苍蝇#{{Trinket}} 2个普通掉落物的复制#{{Trinket}} 一个特殊{{PoopPickup}} 大便#{{Collectible}} 2个稀有掉落物的复制#{{Collectible}} 3个随机的{{Chest}}#{{Collectible}} 2个饰品#{{TreasureRoomChanceSmall}} {{Room}} 当前房间道具池的道具#{{TreasureRoomChanceSmall}} 生成{{Card31}}鬼牌和2个{{BlackHeart}}黑心#{{TreasureRoomChanceSmall}} {{ArrowUp}} 4个随机属性提升",
-            {CAR="奖励翻倍",
-            CONF={{73,652},"ThisIsSquare"}}
-        },{
-            "Shape Box",
-            "造型盒",
-            "对咯它可以放进方形的洞里",
-            "!!! 使用后吞噬最近的一个掉落物, 吞噬3个后根据吞噬的掉落物品质发生如下事件#{{Trinket}} 4~12个蓝苍蝇#{{Trinket}} 2个普通掉落物的复制#{{Trinket}} 一个特殊{{PoopPickup}} 大便#{{Collectible}} 2个稀有掉落物的复制#{{Collectible}} 3个随机的{{Chest}}#{{Collectible}} 2个饰品#{{TreasureRoomChanceSmall}} {{Room}} 当前房间道具池的道具#{{TreasureRoomChanceSmall}} 生成{{Card31}}鬼牌和2个{{BlackHeart}}黑心#{{TreasureRoomChanceSmall}} {{ArrowUp}} 4个随机属性提升",
-            {CAR="奖励翻倍",
-            CONF={
-                {{73,652},"ThisIsSquare"},
-                {670,"ShapeOptions"}
-            }}
-        },{
-            "Soft Dice",
-            "软骰子",
-            "重随你的玩具",
-            "{{Trinket}} 重随房间内的所有饰品, 玩具和玩具包",
-            {CAR="有25%的概率复制被重随的玩具和玩具包/将饰品镀金"}
         }
-    }
-    local trinkets={
-        {
-            "Brain Sapper",
-            "脑控仪",
-            "大脑能量下降",
-            "敌人有15%的概率变得行踪古怪, 攻击会朝反方向#{{Luck}} 每一点幸运使概率+1%",
-            {GOLD={INFO={append=true},TEXT={"概率翻倍","概率翻倍","概率加倍"}}}
-        },{
-            "Fresh Pucks",
-            "新鲜出炉的冰球",
-            "好滑",--存疑
-            "当房间内存在敌人时, 所有的{{Heart}} {{Coin}} {{Bomb}} {{Key}} 变成可以被推动的冰球#移动的掉落物冰球可以对敌人造成基于其移动速度的碰撞伤害#{{IGIcon}} 如果需要治疗, 角色也可以拾起冰球状态的心",
-        },{
-            "Handcuffs",
-            "手铐",
-            "不准动手!",
-            "{{ColorRed}}妈妈的手{{CR}}和{{ColorGray}}妈妈的死手{{CR}}会变成2~4只蓝苍蝇或蓝蜘蛛",
-            {GOLD={INFO={append=true},TEXT={"更多的蓝苍蝇或蓝蜘蛛","更多的蓝苍蝇或蓝蜘蛛","更多的蓝苍蝇或蓝蜘蛛"}}}
-        },{
-            "Mandrake",
-            "曼德拉草",
-            "难搞的伙伴",
-            "{{ArrowUp}} {{Tears}}+1射速#{{Confusion}} 进入未清理的房间会使敌人会被眩晕2s#!!! 受到伤害后, 曼德拉草会试图逃跑, 及时把它打下来!",
-            {GOLD={INFO={append=true},TEXT={"射速上升, 眩晕更久","射速上升, 眩晕更久","射速上升, 眩晕更久"}}}
-        },{
-            "Margarine",
-            "人造黄油",
-            "惊了这东西竟然不是黄油",
-            "受到伤害会让角色丢掉一个道具#!!! 每次掉落道具都有概率摧毁该饰品",
-            {GOLD={INFO={append=true},TEXT={"减少该饰品被摧毁的概率","减少该饰品被摧毁的概率","减少该饰品被摧毁的概率"}}}
-        },{
-            "Mini Scoop",
-            "迷你勺",
-            "挖得一点也不剩",
-            "角色发射的泪弹, 激光和刀子也可以抓取掉落物",
-        },{
-            "Nested Bomb",
-            "筑巢炸弹",
-            "把它们放到正确的位置",
-            "如果角色拥有至少3个{{Bomb}}, 进入一个有标记石头, 暗门石头或通往未探索隐藏房的门的房间时, 自动在那里放一个炸弹#!!! 未持有{{GoldenBomb}}将会消耗角色的炸弹",
-            {GOLD={INFO={append=true},TEXT={"始终不消耗炸弹","始终不消耗炸弹","始终不消耗炸弹"}}}
-        },{
-            "Nested Bomb <3",
-            "筑巢炸弹 <3",
-            "她爱你",
-            "如果角色拥有至少3个{{Bomb}}, 进入一个有标记石头, 暗门石头或通往未探索隐藏房的门的房间时, 自动在那里放一个炸弹#{{Charm}} 爆炸会魅惑敌人4s#!!! 未持有{{GoldenBomb}}将会消耗角色的炸弹",
-            {GOLD={INFO={append=true},TEXT={"始终不消耗炸弹","始终不消耗炸弹","始终不消耗炸弹"}}}
-        },{
-            "Plywood",
-            "夹板",
-            "筑桥?",
-            "首次进入房间后, 坑洞有33%的概率被填平",
-            {GOLD={INFO={append=true},TEXT={"概率翻倍","概率翻倍","概率加倍"}}}
-        },{
-            "Ring of Flies",
-            "苍蝇戒指",
-            "虫群的力量",
-            "{{ArrowUp}} 房间内每有一个苍蝇获得{{Speed}}+0.1移速和{{Tears}}+0.1射速"
-        },{
-            "Seven Shaped Clover",
-            "七叶草",
-            "失败乃成功之母",--存疑
-            "{{ArrowUp}} 如果{{Beggar}} {{ArcadeRoom}} {{Slotmachine}} {{FortuneTeller}} {{CraneGame}}没提供奖励, 每次{{Luck}}+0.25幸运#!!! 在它们提供奖励后重置#{{Luck}} 重置后有概率获得1幸运币(基于被重置的幸运值, 幸运7: 25%)"
-        },{
-            "Silencer",
-            "消音器",
-            "抑制射击",
-            "所有的石像头失效, 且可以被爆炸摧毁#摧毁它们有20%的概率生成标记石头的战利品",
-            {GOLD={INFO={append=true},TEXT={"摧毁后生成奖励的概率翻倍","摧毁后生成奖励的概率翻倍","摧毁后生成奖励的概率翻倍"}}}
-        },{
-            "Sliced Grenade",
-            "切片手雷",
-            "拿去分享",
-            "跟班的泪弹有25%的概率{{ColorGreen}}会爆炸{{CR}}#爆炸对特定距离内的敌人造成1.25倍伤害, 并生成1~4片弹片",
-            {GOLD={INFO={append=true},TEXT={"概率翻倍","概率翻倍","概率加倍"}}}
-        },{
-            "Classic Set",
-            "乐高经典款",
-            "民用反步兵地雷",--300pcs 个人感觉不太适合所以换了(
-            "进入房间后在随机位置生成小积木和{{ColorFade}}积木人{{CR}}, 对踩上去的敌人造成伤害#踩到积木人的敌人可能会被施加随机状态效果",
+        local conditionalList={
+            Binket="额外的饰品槽位",
+            ReCoolAid="角色额外发射2个泪弹#不会进一步减少属性",
+            ReHemorrhoi="可以积攒更多的射速提升",
+            LullaSalt="蓄力更快",
+            NoEffect="没有效果",
+            CoolEdith="起跳时, "..dedith.Edith.CoolAid.PAWN_AMOUNT.."个慢速盐兵跟随跳跃"
         }
-    }
-    local cards={
-        {
-            "CMonster",
-            "方块怪兽",
-            sameDesc,
-            "生成2只爬行者, 它们会追击敌人并自爆#爬行者可以被带出房间",
-            {CONF={___,"ActionBombs"}}
-        },{
-            "CPickaxe",
-            "方块镐子",
-            sameDesc,
-            "暂时获得{{Collectible147}} 残损铁镐的效果",
-        },{
-            "CTNT",
-            "方块炸药",
-            sameDesc,
-            "生成3个可推动迷你炸药块, 其中一个靠近角色, 另外两个靠近角色#炸药可以被带出房间, 但是位置随机",
-        },{
-            "WAlien",
-            "摇摆的外星人",
-            sameDesc,
-            "对房间内的所有敌人使用{{Trinket"..Isaac.GetTrinketIdByName("Brain Sapper").."}}脑控仪, 持续10s",
-        },{
-            "ACraft",
-            "外星飞船",
-            sameDesc,
-            "召唤一个外星飞船绑架至多3个非头目敌人, 每个敌人生成一个掉落物#!!! 无法带走诸如{{ColorFade}}圆头虫{{CR}}这类固定敌人",
-        },{
-            "BHole",
-            "黑洞",
-            sameDesc,
-            "触发{{Collectible512}} 黑洞的效果",
-        },{
-            "JFrisbee",
-            "快乐飞盘",
-            sameDesc,
-            "{{Confusion}} 生成4个可以击晕敌人的小飞盘",
-        },{
-            "DFrisbee",
-            "恶龙飞盘",
-            sameDesc,
-            "{{Bait}} 生成1个可以破坏障碍物并施加{{Collectible618}} 标记效果的大飞盘",
-        },{
-            "MLegoChars",
-            "积木角色包",
-            sameDesc,
-            "在角色身边生成数个随机的积木人, 对踩上去的敌人造成伤害#踩到积木人的敌人可能会被施加随机状态效果"
-        },{
-            "MLego",
-            "积木包",
-            sameDesc,
-            "在角色身边生成数个随机的小积木, 对踩上去的敌人造成伤害"
-        },{
-            "MSoldiers",
-            "玩具士兵包",
-            sameDesc,
-            "生成4个随机的玩具士兵",
-        },{
-            "MVehicles",
-            "玩具载具包",
-            sameDesc,
-            "生成2个随机的玩具载具",
-        },{
-            "HWCar",
-            "炽热战车",
-            sameDesc,
-            "{{Burning}} 生成一个玩具车, 追击敌人并施加燃烧效果"
-        },{
-            "BCar",
-            "可爱战车",
-            sameDesc,
-            "{{Charm}} 生成一个玩具车, 追击敌人并施加魅惑效果",
+        for _, item in ipairs(items) do
+            mod:AddTranslate(100, item[1], item[2], item[3], item[4].."#{{Player"..dedith.Character.EDITH.."}} 所属mod: D!Edith", item[5])
+        end
+        EID:addCharacterInfo(dedith.Character.EDITH,"无法同时移动和攻击#可以原地大跳(默认键位为{{ButtonRT}}#可以朝指定方向远程大跳(默认键位为攻击键+大跳键)#大跳落地后对周围敌人造成伤害#精准落在敌人的位置并将其击杀视作\"暴击落地\", 重置冷却并触发相关兼容效果","伊迪斯", "zh_cn")
+        EID:addBirthright(dedith.Character.EDITH,"大跳滞空时按下攻击键以立即落地并朝指定方向滑铲直至撞墙#滑铲期间无敌并造成碰撞伤害#可以用丢弃键({{ButtonRT}})中断滑铲","伊迪斯-吝啬","zh_cn")--存疑
+        --伊迪斯角色专属兼容够我研究五辈子了(但凡高中报考了物理都不至于大学读英语专业.png
+        --先用笨办法吧, 等GS忙完了有空了再去请教一下...--Garlin
+        local EdithSyn={--{100/350,道具编号,兼容文本}
+            {100,CollectibleType.COLLECTIBLE_20_20,"起跳时, 生成一个盐兵跟随角色跳跃"},
+            {100,CollectibleType.COLLECTIBLE_2SPOOKY,"对附近的敌人施加恐惧并造成+"..dedith.Edith.TwoSpooky.FEAR_DAMAGE.."伤害"},
+            {100,CollectibleType.COLLECTIBLE_3_DOLLAR_BILL,"每隔2-3秒, 大跳获得随机效果"},
+            {100,CollectibleType.COLLECTIBLE_ABADDON,"大跳可以施加恐惧"},
+            {100,CollectibleType.COLLECTIBLE_ANALOG_STICK,"角色可以朝任意方向远程大跳"},
+            {100,CollectibleType.COLLECTIBLE_ANGELIC_PRISM,"大跳穿过棱镜生成2个伴伊迪斯左右一同落地的残影"},
+            {100,CollectibleType.COLLECTIBLE_ANTI_GRAVITY,"滞空时按住丢弃键可以摆脱地心引力停在空中"},
+            {100,CollectibleType.COLLECTIBLE_BACKSTABBER,"大跳可以使敌人流血"},
+            {100,CollectibleType.COLLECTIBLE_BALL_OF_TAR,"大跳可以减速敌人"},
+            {100,CollectibleType.COLLECTIBLE_BBF,"大美蝇可以被压炸"},
+            {100,CollectibleType.COLLECTIBLE_BERSERK,"狂战状态下, 大跳没有冷却, 更短的跳跃距离, 但一次大跳会连跳"..dedith.Edith.FlatStone.BERSERK_JUMP_AMOUNT.."次"},
+            {100,CollectibleType.COLLECTIBLE_BIRDS_EYE,"触发暴击落地时, 朝十字方向释放"..dedith.Edith.BirdsEye.BIRDS_EYE_FLAME_AMOUNT.."条火舌"},
+            {100,CollectibleType.COLLECTIBLE_BLACK_BEAN,"触发暴击落地时, 释放一片毒云"},
+            {100,CollectibleType.COLLECTIBLE_BLOOD_CLOT,"践踏依次造成+"..dedith.Edith.BloodClotStye.BLOOD_CLOT_FLAT_DAMAGE.."额外伤害 和 不造成额外伤害"},
+            {100,CollectibleType.COLLECTIBLE_BRIMSTONE,"触发暴击落地时, 朝十字方向释放"..dedith.Edith.Brimstone.LASER_AMOUNT.."道血激光柱子"},
+            {100,CollectibleType.COLLECTIBLE_SULFUR,"触发暴击落地时, 朝十字方向释放"..dedith.Edith.Brimstone.LASER_AMOUNT.."道血激光柱子"},
+            {100,CollectibleType.COLLECTIBLE_BUCKET_OF_LARD,"跳跃的高度和距离减少--该减肥了"},
+            {100,CollectibleType.COLLECTIBLE_CAINS_OTHER_EYE,"与角色一起跳跃"},
+            {100,CollectibleType.COLLECTIBLE_CHEMICAL_PEEL,"践踏依次造成+"..dedith.Edith.BloodClotStye.CHEMICAL_PEEL_FLAT_DAMAGE.."额外伤害 和 不造成额外伤害"},
+            {100,CollectibleType.COLLECTIBLE_COMMON_COLD,"大跳可以使敌人中毒"},
+            {100,CollectibleType.COLLECTIBLE_CONTINUUM,"大跳可以翻墙, 然后从房间的对侧跳回来"},
+            {100,CollectibleType.COLLECTIBLE_CRICKETS_BODY,"落地时, 生成"..dedith.Edith.CricketsBody.TEAR_AMOUNT.."个盐兵朝多个方向等距释放跳跃#盐兵造成"..dedith.Edith.CricketsBody.DAMAGE_MULTIPLIER_PERCENTAGE.."%的角色伤害"},
+            {100,CollectibleType.COLLECTIBLE_CUBE_BABY,"冰块宝宝可以被大跳推动"},
+            {100,CollectibleType.COLLECTIBLE_CURSED_EYE,"按住大跳键蓄力#释放后, 数个残影跟随角色一同跳跃, 数量受蓄力时间影响"},
+            {100,CollectibleType.COLLECTIBLE_CURSE_OF_THE_TOWER,"不慎掉进沟里也会生成即爆炸弹"},
+            {100,CollectibleType.COLLECTIBLE_DARK_MATTER,"大跳可以施加恐惧"},
+            {100,CollectibleType.COLLECTIBLE_DEAD_EYE,"落地时, 如果正中靶心, 获得100%的死眼伤害增益, 否则失去伤害增益"},
+            {100,CollectibleType.COLLECTIBLE_DR_FETUS,"起跳时, 在起跳的位置生成炸弹"},
+            {100,CollectibleType.COLLECTIBLE_EPIC_FETUS,"落地时, 在附近生成一个可以被拾取并投掷的导弹"},
+            {100,CollectibleType.COLLECTIBLE_EXPLOSIVO,"触发暴击落地时, 释放"..dedith.Edith.StickyTears.TEAR_AMOUNT.."个粘弹泪弹"},
+            {100,CollectibleType.COLLECTIBLE_EYE_OF_BELIAL,"触发暴击落地时, 获得临时的双倍伤害跟踪泪弹"},
+            {100,CollectibleType.COLLECTIBLE_EYE_OF_THE_OCCULT,"滞空时可以自由控制落点"},
+            {100,CollectibleType.COLLECTIBLE_EYE_SORE,"起跳时, 至多3个盐兵朝随机方向跳跃"},
+            {100,CollectibleType.COLLECTIBLE_FIRE_MIND,"触发暴击落地时, 产生爆炸#大跳可以灼烧敌人"},
+            {100,CollectibleType.COLLECTIBLE_FLAT_STONE,"一次大跳改为"..dedith.Edith.FlatStone.FLAT_STONE_JUMP_AMOUNT.."次连跳#{{ArrowDown}} 每次跳跃伤害为正常的"..dedith.Edith.FlatStone.DAMAGE_DECREASE_PERCENTAGE.."%"},
+            {100,CollectibleType.COLLECTIBLE_FRUIT_CAKE,"每次大跳获得不同的效果"},
+            {100,CollectibleType.COLLECTIBLE_GELLO,"与角色一起跳跃"},
+            {100,CollectibleType.COLLECTIBLE_GHOST_PEPPER,"触发暴击落地时, 朝对角线方向释放"..dedith.Edith.BirdsEye.GHOST_PEPPER_FLAME_AMOUNT.."条火舌"},
+            {100,CollectibleType.COLLECTIBLE_GLAUCOMA,"大跳可以使敌人混乱"},
+            {100,CollectibleType.COLLECTIBLE_GODS_FLESH,"大跳可以使敌人缩水"},
+            {100,CollectibleType.COLLECTIBLE_HAEMOLACRIA,"落地后, 释放"..dedith.Edith.Haemolacria.MINIMUM_PAWNS.."至"..dedith.Edith.Haemolacria.MAXIMUM_PAWNS.."个朝随机方向跳跃的盐兵#盐兵造成"..dedith.Edith.Haemolacria.MINIMUM_DAMAGE_PERCENTAGE.."%~"..dedith.Edith.Haemolacria.MAXIMUM_DAMAGE_PERCENTAGE.."%的角色伤害"},
+            {100,CollectibleType.COLLECTIBLE_HOLY_LIGHT,"触发暴击落地时, 原地生成"..dedith.Edith.HolyLight.CIRCLE_AMOUNT.."个圣光环"},
+            {100,CollectibleType.COLLECTIBLE_INCUBUS,"与角色一起跳跃"},
+            {100,CollectibleType.COLLECTIBLE_INNER_EYE,"起跳时, 生成2个盐兵跟随角色跳跃"},
+            {100,CollectibleType.COLLECTIBLE_IRON_BAR,"大跳可以使敌人混乱"},
+            {100,CollectibleType.COLLECTIBLE_IPECAC,"大跳可以使敌人中毒"},
+            {100,CollectibleType.COLLECTIBLE_ISAACS_HEART,"与角色一起跳跃"},
+            {100,CollectibleType.COLLECTIBLE_JACOBS_LADDER,"落地后释放电弧"},
+            {100,CollectibleType.COLLECTIBLE_JELLY_BELLY,"跳跃的高度和距离减少--该减肥了#落地后, 推开敌人和敌弹"},
+            {100,CollectibleType.COLLECTIBLE_JUPITER,"跳跃高度提升#跳跃会留下屁云"},
+            {100,CollectibleType.COLLECTIBLE_LEO,"大跳可以踩碎石头"},
+            {100,CollectibleType.COLLECTIBLE_LODESTONE,"大跳可以磁化敌人"},
+            {100,CollectibleType.COLLECTIBLE_LOKIS_HORNS,"起跳时, "..dedith.Edith.LokisHorns.CHANCE_AT_BASE_LUCK.."%的概率生成3-4个盐兵朝十字方向跳跃#{{Luck}} 幸运"..dedith.Edith.LokisHorns.LUCK_FOR_MAX..": 100%"},
+            {100,CollectibleType.COLLECTIBLE_LOST_CONTACT,"落地时, 摧毁附近的敌弹"},
+            {100,CollectibleType.COLLECTIBLE_MARKED,"朝准心的位置大跳"},
+            {100,CollectibleType.COLLECTIBLE_MAW_OF_THE_VOID,"触发暴击落地时, 生成一个黑圈"},
+            {100,CollectibleType.COLLECTIBLE_ATHAME,"触发暴击落地时, 生成一个黑圈"},
+            {100,CollectibleType.COLLECTIBLE_MEGA_MUSH,"落地引发地震, 并持续天降碎石#大跳可以踩碎石头"},
+            {100,CollectibleType.COLLECTIBLE_MOMS_CONTACTS,"大跳可以石化敌人"},
+            {100,CollectibleType.COLLECTIBLE_MOMS_EYE,"起跳时, 如果不是原地大跳, 有"..dedith.Edith.MomsEye.CHANCE_AT_BASE_LUCK.."%的概率生成一个朝反方向跳跃的盐兵#{{Luck}} 幸运"..dedith.Edith.MomsEye.LUCK_FOR_MAX..": 100%"},
+            {100,CollectibleType.COLLECTIBLE_MOMS_EYESHADOW,"大跳可以魅惑敌人"},
+            {100,CollectibleType.COLLECTIBLE_MOMS_PERFUME,"大跳可以施加恐惧"},
+            {100,CollectibleType.COLLECTIBLE_MUCORMYCOSIS,"触发暴击落地时, 释放"..dedith.Edith.StickyTears.TEAR_AMOUNT.."个孢子泪弹"},
+            {100,CollectibleType.COLLECTIBLE_MUTANT_SPIDER,"起跳时, 生成3个盐兵跟随角色跳跃"},
+            {100,CollectibleType.COLLECTIBLE_MY_REFLECTION,"杀死敌人后, 立即跳回起跳的位置"},
+            {100,CollectibleType.COLLECTIBLE_MYSTERIOUS_LIQUID,"落地时留下伤害液体"},
+            {100,CollectibleType.COLLECTIBLE_NEPTUNUS,"触发暴击落地时, 迸射一簇泪弹"},
+            {100,CollectibleType.COLLECTIBLE_OCULAR_RIFT,"触发暴击落地时, 生成一个裂隙"},
+            {100,CollectibleType.COLLECTIBLE_PARASITE,"碰到敌人或障碍物后, 朝左右释放2个盐兵#盐兵造成"..dedith.Edith.TheParasite.PAWN_DAMAGE_MULT_PERCENT.."%角色伤害"},
+            {100,CollectibleType.COLLECTIBLE_PLAYDOUGH_COOKIE,"大跳施加随机效果"},
+            {100,CollectibleType.COLLECTIBLE_POP,"触发暴击落地时, 释放数个盐弹"},
+            {100,CollectibleType.COLLECTIBLE_PUPULA_DUPLEX,"践踏范围更大"},
+            {100,CollectibleType.COLLECTIBLE_REVELATION,"触发暴击落地时, 朝X字方向释放"..dedith.Edith.Revelation.LASER_AMOUNT.."道圣光"},
+            {100,CollectibleType.COLLECTIBLE_ROCKET_IN_A_JAR,"滞空时发射导弹可以\"御炮飞行\"#导弹碰撞后爆炸"},
+            {100,CollectibleType.COLLECTIBLE_ROTTEN_TOMATO,"大跳可以标记敌人"},
+            {100,CollectibleType.COLLECTIBLE_RUBBER_CEMENT,"触发暴击落地时, 进行二次跳跃#在空中撞墙会反弹"},
+            {100,CollectibleType.COLLECTIBLE_SCORPIO,"大跳可以使敌人中毒"},
+            {100,CollectibleType.COLLECTIBLE_SERPENTS_KISS,"大跳可以使敌人中毒"},
+            {100,CollectibleType.COLLECTIBLE_SINUS_INFECTION,"触发暴击落地时, 释放"..dedith.Edith.StickyTears.TEAR_AMOUNT.."个鼻屎泪弹"},
+            {100,CollectibleType.COLLECTIBLE_SPIDER_BITE,"大跳可以减速敌人"},
+            {100,CollectibleType.COLLECTIBLE_SPIDER_MOD,"生成一个鼠标指示落点(如果启用了辅助瞄准设置则该兼容无效)"},
+            {100,CollectibleType.COLLECTIBLE_STYE,"践踏依次造成0额外伤害 至 +"..dedith.Edith.BloodClotStye.STYE_MULTIPLIER_PERCENTAGE.."%额外伤害"},
+            {100,CollectibleType.COLLECTIBLE_SUMPTORIUM,"与角色一起跳跃"},
+            {100,CollectibleType.COLLECTIBLE_SULFURIC_ACID,"大跳可以摧毁岩石"},
+            {100,CollectibleType.COLLECTIBLE_TECHNOLOGY,"在空中时朝下发射激光#激光每秒造成角色"..dedith.Edith.Technology.DAMAGE_MULT_PER_SECOND.."x伤害"},
+            {100,CollectibleType.COLLECTIBLE_TECH_X,"触发暴击落地时, 生成一个固定的激光环"},
+            {100,CollectibleType.COLLECTIBLE_TERRA,"触发暴击落地时, 释放一道石刃波#大跳可以摧毁岩石"},
+            {100,CollectibleType.COLLECTIBLE_THE_NAIL,"大跳可以摧毁岩石"},
+            {100,CollectibleType.COLLECTIBLE_THE_WIZ,"起跳时, 生成一个盐兵跟随角色跳跃"},
+            {100,CollectibleType.COLLECTIBLE_THUNDER_THIGHS,"跳跃的高度和距离减少--该减肥了#大跳可以摧毁岩石"},
+            {100,CollectibleType.COLLECTIBLE_TWISTED_PAIR,"与角色一起跳跃"},
+            {100,CollectibleType.COLLECTIBLE_URANUS,"大跳可以冻结敌人"},
+            {100,CollectibleType.COLLECTIBLE_VENUS,"落地时若精准命中敌人, 将该敌人魅惑并同样能触发暴击落地的效果"},
+            {350,TrinketType.TRINKET_BLACK_TOOTH,"大跳可以使敌人中毒"},
+            {350,TrinketType.TRINKET_CHEWED_PEN,"大跳可以减速敌人"},
+            {350,TrinketType.TRINKET_LIL_CLOT,"与角色一起跳跃"},
+            {350,TrinketType.TRINKET_NOSE_GOBLIN,"触发暴击落地时, 释放"..dedith.Edith.StickyTears.TEAR_AMOUNT.."个鼻屎泪弹"},
+            {350,TrinketType.TRINKET_PINKY_EYE,"大跳可以使敌人中毒"},
+            {100,CollectibleType.COLLECTIBLE_GIANT_CELL,"迷你以撒和伊迪斯具有相同的被动特质, 且同样可以大跳践踏敌人"},
+            {100,CollectibleType.COLLECTIBLE_KEEPERS_KIN,"落地时, "..dedith.Edith.KeepersKin.CHANCE_AT_BASE_LUCK.."%的概率生成蓝蜘蛛#幸运"..dedith.Edith.KeepersKin.LUCK_FOR_MAX..": "..dedith.Edith.KeepersKin.MAXIMUM_CHANCE.."%"}
         }
-    }
-    local conditionalList={
-        ActionBombs="兼容炸弹特效",
-        GiGaFartSyn="增大气体范围",
-        GiGaFartSyn2="可以增大星际豆的气体范围",
-        TapedCD="光盘会留在原地",
-        CDisPlayingSiren="光盘飞行速度增加",
-        DoubleCoal="碳块泪弹命中后留下大片炭灰",
-        LandingCoal="碳块泪弹落地后留下大片炭灰",
-        EpicCoal="导弹落地后释放X形炭灰, 有概率将炭灰点燃",
-        LitItGo="点燃的概率翻倍",
-        PepperCoal="点燃的炭灰造成更高的伤害",
-        LidoviCoal="泪弹持续留下炭灰, 有概率将其点燃",
-        LazerCoal="激光可以留下碳块或将其点燃",
-        LazeRocket="火箭以激光为后坐力",
-        ULTIBLADE='更多的"锯片"可以增加25%的范围和伤害',
-        SnakeMilk="自动发射蓄力攻击",
-        BrimSnake="由血球组成的蛇, 蛇头命中会发射血激光柱",
-        Xnake="由激光环组成的蛇, 激光环大小受蓄力时间影响",
-        Snife="由刀片组成的蛇, 造成更高的伤害",
-        Technake="由激光球组成的蛇, 蛇头命中会发射激光",
-        Slung="朝数个方向发射蛇形泪弹",
-        EpiSnake="导弹落地后释放4个蛇形泪弹",
-        DrSnake="一触即爆的泪弹",
-        CurSnake="更蛇的长形泪弹",
-        SnakeSection="会追踪敌人的蛇形胎儿",
-        TriSnake="蛇形泪弹具有更高的判定频率",
-        TearSyn="纸飞机兼容泪弹特效",
-        NineEleven="会爆炸的纸飞机",
-        Iplain="仅施加中毒效果的纸飞机, 不会爆炸",
-        SirenArmy="翻倍玩具的攻速或移速",
-        DoubleFriend="每获得一个跟班, 生成1{{BlackHeart}}",
-        UltiDevil="恶魔房中的{{ItemPoolAngel}}道具改为{{ItemPoolDevil}}",
-        NOBlind="可以看到完整的道具",
-        UltiAngel="堕化天使变为{{ColorCyan}}普通天使{{CR}}, 击败可以获得钥匙碎片",
-        ThisIsSquare="对咯它可以放进方形的洞里, 然后你可以少吞噬1个掉落物",
-        ShapeOptions="吞噬多选一掉落物不会使另一个消失",
-    }
-    mod:AddToConditionalList(conditionalList)
-    local other={
-        {
-            6,Isaac.GetEntityVariantByName("Toy Vending Machine"),0,
-            "{{Slotmachine}} 玩具售货机",
-            "{{Coin}} 花费5美分#{{Trinket}} 生成一个随机的玩具包或一个饰品",
-        }
-    }
-    for _, item in ipairs(other) do
-        mod:AddEntityTransl(item[1],item[2],item[3],item[4],item[5])
-    end
-    for _, item in ipairs(items) do
-        mod:AddTranslate(100, item[1], item[2], item[3], item[4].."#{{Collectible"..Isaac.GetItemIdByName("Army Barrel").."}} 所属mod: Curiosity Crate", item[5])
-    end
-    for _, item in ipairs(trinkets) do
-        mod:AddTranslate(350, item[1], item[2], item[3], item[4].."#{{Collectible"..Isaac.GetItemIdByName("Army Barrel").."}} 所属mod: Curiosity Crate", item[5])
-    end
-    for _, item in ipairs(cards) do
-        mod:AddTranslate(300, item[1], item[2], item[3], item[4].."#{{Collectible"..Isaac.GetItemIdByName("Army Barrel").."}} 所属mod: Curiosity Crate", item[5])
-    end    
-    if mod.Setting.FancySyn then
-        local Dflipsyn={
-            {5,100,Isaac.GetItemIdByName("Blind Faith"),5,100,Isaac.GetItemIdByName("Bound Spirit")},
-            {5,100,Isaac.GetItemIdByName("Snake Oil"),5,350,10},
-            {5,100,Isaac.GetItemIdByName("Rocket Fuel"),5,100,583},
-            {5,100,Isaac.GetItemIdByName("Friendship Pendant"),5,350,148},
-        }
-        mod:PDDfakeAddon(132,Isaac.GetItemIdByName("Jar of Coal"))
-        for _,i in ipairs(Dflipsyn) do mod:DFlipPairsAddon(i) end
+        for _, syn in ipairs(EdithSyn) do
+            EID:addDescriptionModifier("EdithSyn"..syn[2],function(descObj)
+                if descObj.ObjType == 5 and descObj.ObjVariant == syn[1] and descObj.ObjSubType == syn[2] and PlayerManager.AnyoneIsPlayerType(dedith.Character.EDITH) then return true end
+            end, function(descObj)
+                EID:appendToDescription(descObj,"#"..syn[3])
+                return descObj
+            end)
+        end
     end
 end)
