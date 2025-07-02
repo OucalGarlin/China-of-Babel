@@ -1,5 +1,11 @@
 local mod=CNEIDBabel
-mod:AddModTranslationLoader("battleFantasy","战争幻想\n* 注: 建议安装Encyclopedia以查看该模组的轶事描述 (那个没有翻译哈哈)",function()
+function modname()
+    local text="战争幻想 (Battle Fantasy)"
+    text=text.."\n     * 更好的道具品质 已生效"
+    if  mod.Setting.FancySyn then text=text.."\n     * 自定义道具兼容 已生效" end
+    return text.."\n     * 注: 建议安装Encyclopedia以查看该模组的轶事描述 (那个没有翻译哈哈)"
+end
+mod:AddModTranslationLoader("battleFantasy",modname(),function()
     if battleFantasy then
         local items={
             {
